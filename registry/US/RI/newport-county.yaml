@@ -20,7 +20,7 @@ place:
     Regional sources are filed here.
 sources:
 - id: us-ri-newport-county-discover-newport
-  name: 'Discover Newport: Little Compton and Tiverton pages'
+  name: 'Discover Newport: Little Compton, Tiverton and Portsmouth pages'
   publisher: Discover Newport (Newport County regional tourism council)
   url: https://www.discovernewport.org/
   type: tourism
@@ -32,6 +32,8 @@ sources:
     level: regular
   - place: US/RI/newport-county
     level: dedicated
+  - place: US/RI/portsmouth
+    level: regular
   languages:
   - en
   topics:
@@ -41,6 +43,8 @@ sources:
     url: https://www.discovernewport.org/about-newport/nine-coastal-communities/little-compton/
   - kind: html
     url: https://www.discovernewport.org/about-newport/nine-coastal-communities/tiverton/
+  - kind: html
+    url: https://www.discovernewport.org/about-newport/nine-coastal-communities/portsmouth/
   - kind: html
     url: https://www.discovernewport.org/events/
   - kind: sitemap

@@ -13,8 +13,8 @@ A direction, not a promise. Open an issue to argue with any of it.
 
 ## Next
 
-- **Work the frontier.** Fall River and Dartmouth, MA and Portsmouth, RI are recorded as
-  the next places out from the first three towns.
+- **Work the frontier.** Fall River and Dartmouth, MA and Bristol and Middletown, RI are
+  recorded as the next places out. Portsmouth, RI was the first town added this way.
 - **Ten communities in five places that are organised differently**, at least three
   outside the US, to test that the place model holds (no counties, parishes, two
   languages, a city neighbourhood).
