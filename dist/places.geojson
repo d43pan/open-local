@@ -621,16 +621,20 @@
    "geometry": {
     "type": "Point",
     "coordinates": [
-     -71.2836,
-     41.5921
+     -71.25,
+     41.6
     ]
    },
    "properties": {
     "id": "US/RI/portsmouth",
     "name": "Portsmouth",
     "kind": "municipality",
-    "sources": 0,
-    "us_census_geoid": "4400557880"
+    "sources": 21,
+    "wikidata": "Q1787188",
+    "ocd_division": "ocd-division/country:us/state:ri/place:portsmouth",
+    "us_census_geoid": "4400557880",
+    "geonames": "5224082",
+    "osm_relation": "6258556"
    }
   },
   {

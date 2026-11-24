@@ -48,10 +48,12 @@ who did it, and agents are told to send readers to them.
 ## Coverage today
 
 The first mapped community is **Little Compton, Rhode Island**, with its neighbours
-Tiverton, RI and Westport, MA and the regional sources around them: 85 sources across
-10 places.
+Tiverton, RI and Westport, MA and the regional sources around them. Portsmouth, RI was
+then added by expanding outward from Tiverton with the skill. In all: 105 sources across
+11 places.
 
-Every address was loaded by this project's tools on 2026-11-24. The entries were found by
+Every address was loaded by this project's tools on 2026-11-24 (eight sites refuse
+automated requests and are marked `unverified`). The entries were found by
 an AI research agent and are marked `checked`, not `verified`: they are waiting for
 review by someone who knows these towns. That is the first job for a community
 maintainer, and the process the project is built around.
@@ -59,8 +61,8 @@ maintainer, and the process the project is built around.
 A real answer produced with the skill, including its coverage report:
 [examples/little-compton-briefing.md](examples/little-compton-briefing.md).
 
-Next towns out, recorded as the frontier: Fall River and Dartmouth, MA and Portsmouth, RI
-(`python3 run.py frontier`).
+Next towns out, recorded as the frontier: Fall River and Dartmouth, MA and Bristol and
+Middletown, RI (`python3 run.py frontier`).
 
 Your town is not here yet. [Add it](#add-your-town).
 
