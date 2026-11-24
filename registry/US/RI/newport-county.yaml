@@ -36,6 +36,8 @@ sources:
     level: regular
   - place: US/RI/bristol
     level: regular
+  - place: US/RI/warren
+    level: regular
   languages:
   - en
   topics:
@@ -49,6 +51,8 @@ sources:
     url: https://www.discovernewport.org/about-newport/nine-coastal-communities/portsmouth/
   - kind: html
     url: https://www.discovernewport.org/about-newport/nine-coastal-communities/bristol/
+  - kind: html
+    url: https://www.discovernewport.org/about-newport/nine-coastal-communities/warren/
   - kind: html
     url: https://www.discovernewport.org/events/
   - kind: sitemap

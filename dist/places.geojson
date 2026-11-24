@@ -781,8 +781,12 @@
     "id": "US/RI/warren",
     "name": "Warren",
     "kind": "municipality",
-    "sources": 2,
-    "us_census_geoid": "4400173760"
+    "sources": 19,
+    "wikidata": "Q1027951",
+    "ocd_division": "ocd-division/country:us/state:ri/place:warren",
+    "us_census_geoid": "4400173760",
+    "geonames": "5225502",
+    "osm_relation": "7751594"
    }
   },
   {
