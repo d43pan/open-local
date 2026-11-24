@@ -103,3 +103,29 @@ def test_check_source_flags_dead_and_quiet_feeds(reg, fake_net):
     fake_net({"https://harbourtimes.example.org/": (200, b"<html></html>"), "https://harbourtimes.example.org/rss.xml": (200, "feed.rss")})
     assert check.check_source(s, TODAY)["problems"] == []
     assert any("published nothing" in p for p in check.check_source(s, dt.date(2027, 6, 1))["problems"])
+
+
+def test_feed_links_are_made_absolute_and_useful(reg, fake_net):
+    # CivicPlus-style calendar: one relative link back to the feed itself, one relative event page, one unsafe link.
+    ics = (FIX / "council.ics").read_text().replace(
+        "URL:https://alder.example.org/council/2026-12-03",
+        "URL:/council.ics")
+    ics = ics.replace("SUMMARY:Far future\nDTSTART;VALUE=DATE:20270601",
+                      "SUMMARY:Harbour walk\nDTSTART;VALUE=DATE:20261205\nURL:events/harbour-walk")
+    ics = ics.replace("SUMMARY:Past meeting\nDTSTART:20261001T190000Z",
+                      "SUMMARY:Odd link\nDTSTART;VALUE=DATE:20261206\nURL:javascript:alert(1)")
+    f = fake_net({**NETWORK, "https://alder.example.org/council.ics": (200, ics.encode())})
+    out = recent.recent(reg, "XX/NO/alder", today=TODAY, fetch=f)
+    links = {i["title"]: i["url"] for i in out["items"] if i["kind"] == "event"}
+    page = next(s["url"] for s in reg.sources if any(e["url"] == "https://alder.example.org/council.ics" for e in s.get("endpoints") or []))
+    assert links["Town Council regular meeting"] == page          # link to the feed itself -> the source's page
+    assert links["Harbour walk"] == "https://alder.example.org/events/harbour-walk"
+    assert links["Odd link"] == page                               # never a non-web link
+
+
+def test_item_link_rules():
+    feed = "https://t.example.gov/common/iCalendar.aspx?feed=calendar&catID=14"
+    assert recent.item_link("/common/iCalendar.aspx?catID=14&feed=calendar", feed, "https://t.example.gov/") == "https://t.example.gov/"
+    assert recent.item_link("/Calendar.aspx?EID=9", feed, "https://t.example.gov/") == "https://t.example.gov/Calendar.aspx?EID=9"
+    assert recent.item_link(None, feed, "https://t.example.gov/") == "https://t.example.gov/"
+    assert recent.item_link("https://news.example.org/a", feed, "x") == "https://news.example.org/a"
