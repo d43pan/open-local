@@ -2483,11 +2483,12 @@
     {
      "kind": "ical",
      "url": "https://calendar.google.com/calendar/ical/littlecompton.cal%40gmail.com/public/basic.ics",
-     "note": "The site's robots.txt disallows automated fetching of this address, so the tools skip it. Open it yourself."
+     "note": "calendar.google.com's robots.txt disallows all paths for all agents, so automated fetching of this address is blocked, and the tools skip it. Open it in a browser yourself."
     }
    ],
    "access": {
-    "paywall": "none"
+    "paywall": "none",
+    "restrictions": "Events live only in the embedded Google Calendar. calendar.google.com robots.txt disallows everything except the home page, which covers both the embed and the public ICS (checked 2026-11-24). The town site's own robots.txt returns 404, but calendar.php has no events in its HTML."
    },
    "platform": "Google Calendar embedded in Revize",
    "discovered": "2026-11-24",
@@ -2496,7 +2497,7 @@
     "method": "agent-proposed",
     "evidence": "Found and loaded by a research agent on 2026-11-24, then re-loaded with this project's own tools."
    },
-   "notes": "Calendar page embeds public Google Calendar (address on the site); the public ICS is the only machine-readable feed the town site offers.",
+   "notes": "Calendar page embeds the town's public Google Calendar; its ICS is the only machine-readable feed the town site offers, and robots.txt blocks it (see access.restrictions), so agents cannot read this calendar. Official meetings are also posted to RI Open Meetings; use us-ri-little-compton-open-meetings-all-bodies for those. Community events that appear only on this calendar need a person to open it.",
    "verified": "2026-11-24",
    "home": "US/RI/little-compton"
   },
