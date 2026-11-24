@@ -40,10 +40,11 @@ def propose(reg: Registry, url: str, place: str, *, name: str | None = None, sou
             lines += [f"    - kind: {f['kind']}", f"      url: {yaml_scalar(f['url'])}"]
             if f.get("title"):
                 lines.append(f"      title: {yaml_scalar(f['title'])}")
-            lines.append(f"      note: {yaml_scalar(f'{f['items']} items, newest {f['newest'] or 'undated'} ({f['how']})')}")
+            note = "{} items, newest {} ({})".format(f["items"], f["newest"] or "undated", f["how"])
+            lines.append(f"      note: {yaml_scalar(note)}")
     else:
         lines += ["  endpoints:", "    - kind: html", f"      url: {yaml_scalar(home)}", '      note: "No feed found; list the page that carries the updates."']
     lines += ["  access:", "    paywall: unknown", f"  discovered: \"{today}\"", "  status: unverified", "  provenance:",
               "    method: agent-proposed", f"    added_by: {yaml_scalar(added_by)}",
-              f"    evidence: {yaml_scalar(f'Home page loaded {today}; {len(found['feeds'])} feed(s) found by discovery.')}"]
+              "    evidence: " + yaml_scalar("Home page loaded {}; {} feed(s) found by discovery.".format(today, len(found["feeds"])))]
     return "\n".join(lines) + "\n"
