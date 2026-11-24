@@ -14,13 +14,11 @@ place:
   - US/RI/newport-county
   neighbors:
   - US/RI/tiverton
+  - US/RI/bristol
   adjacent_unmapped:
   - name: Middletown, Rhode Island
     wikidata: Q1013038
     note: To the south, on the same island.
-  - name: Bristol, Rhode Island
-    wikidata: Q917809
-    note: Across the Mount Hope Bridge. The Prudence Island ferry leaves from Bristol.
   centroid:
     lat: 41.6
     lon: -71.25
@@ -647,6 +645,8 @@ sources:
   coverage:
   - place: US/RI/portsmouth
     level: dedicated
+  - place: US/RI/bristol
+    level: regular
   languages:
   - en
   topics:
@@ -663,5 +663,5 @@ sources:
   provenance:
     method: agent-proposed
     evidence: Loaded with this project's tools on 2026-11-24 while expanding from Tiverton.
-  notes: Prudence Island is part of Portsmouth; the ferry runs from Bristol, which is not in the registry yet. The
-    site's feed did not parse, so it is not listed.
+  notes: Prudence Island is part of Portsmouth; the ferry runs from Bristol. The site's feed did not parse, so it
+    is not listed.

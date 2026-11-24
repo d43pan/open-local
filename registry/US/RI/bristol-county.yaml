@@ -13,7 +13,79 @@ place:
   identifiers:
     us_census_geoid: '44001'
     ocd_division: ocd-division/country:us/state:ri/county:bristol
+    wikidata: Q54262
+    geonames: '5221078'
+    osm_relation: '404984'
   provenance:
     method: import
     dataset: US Census Gazetteer 2024 (county subdivisions)
     imported: '2026-11-24'
+sources:
+- id: us-ri-bristol-county-water-authority
+  name: 'RI Open Meetings: Bristol County Water Authority'
+  publisher: Bristol County Water Authority (via Rhode Island Department of State)
+  url: https://opengov.sos.ri.gov/OpenMeetingsPublic/OpenMeetingDashboard?subtopmenuId=201&EntityID=303
+  type: utility
+  classification: primary
+  coverage:
+  - place: US/RI/bristol-county
+    level: dedicated
+  languages:
+  - en
+  topics:
+  - water
+  - meetings
+  endpoints:
+  - kind: html
+    url: https://opengov.sos.ri.gov/OpenMeetingsPublic/OpenMeetingDashboard?subtopmenuId=201&EntityID=303
+  - kind: rss
+    url: https://opengov.sos.ri.gov/RSSFeed/Rss?feedType=9&entityID=303&filter1=&filter2=&Keywords=&FromDate=&ToDate=&RefineSearch=&PublicBodies=
+    title: Recently filed minutes
+    note: 50 items on 2026-11-24, newest dated 2026-11-13.
+  - kind: rss
+    url: https://opengov.sos.ri.gov/RSSFeed/Rss?feedType=7&entityID=303&filter1=&filter2=&Keywords=&FromDate=&ToDate=&RefineSearch=&PublicBodies=
+    title: Upcoming meetings
+    note: Empty on 2026-11-24. This feed only has items when a meeting is scheduled.
+  access:
+    paywall: none
+  platform: RI SOS Open Meetings
+  discovered: '2026-11-24'
+  verified: '2026-11-24'
+  status: checked
+  provenance:
+    method: agent-proposed
+    evidence: Body found by reading names off the portal's own dashboards on 2026-11-24 (entity 303); feeds loaded
+      the same day.
+  notes: The authority's own site, https://www.bcwari.com/, returned HTTP 403 to this project's tools on 2026-11-24
+    and is not listed as an endpoint; open it by hand for outages and notices. Its service area was not read from
+    that site.
+- id: us-ri-bristol-county-east-bay-chamber
+  name: East Bay Chamber of Commerce
+  publisher: East Bay Chamber of Commerce
+  url: https://www.eastbaychamberri.org/
+  type: chamber-of-commerce
+  classification: secondary
+  coverage:
+  - place: US/RI/bristol-county
+    level: dedicated
+  languages:
+  - en
+  topics:
+  - business
+  - events
+  endpoints:
+  - kind: html
+    url: https://www.eastbaychamberri.org/
+  - kind: html
+    url: https://web.eastbaychamberri.org/events
+    title: Events
+  access:
+    paywall: none
+  discovered: '2026-11-24'
+  verified: '2026-11-24'
+  status: checked
+  provenance:
+    method: agent-proposed
+    evidence: Loaded with this project's tools on 2026-11-24 while expanding from Portsmouth.
+  notes: Which towns the chamber serves was not read from the site; it is filed under the county on the strength
+    of its name. A local should confirm.
