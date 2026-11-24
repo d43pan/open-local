@@ -238,3 +238,24 @@ always cover the whole registry, and a nightly run shows every warning.
 than one job can load in a week while waiting politely between requests to each site.
 `dist/checks/` is kept apart from what `build` writes, so contributors' pull requests
 never conflict with the weekly job.
+
+## 22. No town-specific code: towns are data, platforms are patterns
+
+**Decision.** The tools never branch on a particular place or source (no
+`if place == "US/RI/tiverton"`). What is true of one town or one source goes in its
+registry file, as reviewable data: which endpoints work, robots.txt or terms blocks
+(`agent_readable`, `blocked_by`), paywalls and `access.restrictions`, and short `notes`.
+Code handles patterns that recur across many sites, such as relative feed links or a
+CivicPlus calendar linking every event back to its own feed, and each one is covered by
+a test using a made-up place. If a publishing platform ever needs special handling, it
+goes in one named, tested list keyed by platform, not by town.
+
+`notes` are for facts a person needs ("official meetings are posted on RI Open
+Meetings"), not reasoning or instructions. When the same note appears on several
+sources, it becomes a schema field instead, as `blocked_by` and `access.restrictions` did.
+
+**Why.** A registry of thousands of towns stays maintainable only if adding a town means
+adding data that anyone can review in a pull request, never code. A fix written for one
+town should help every town on the same platform. Free-text notes that pile up reasoning
+drift out of date and get read by agents as if they were instructions; structured
+fields can be validated, and notes stay short and factual.
