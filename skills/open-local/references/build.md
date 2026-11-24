@@ -19,7 +19,9 @@ Commands run from the root of a checkout of the repository:
 2. **Agree the place.** Ask what they call it and what it sits inside. Run
    `run.py where "<name>"`. If it exists, you are adding sources to it. If not, create the
    place file and any missing parents following
-   [references/place-file.md](place-file.md). Identifiers and coordinates come
+   [references/place-file.md](place-file.md). If the place file exists with
+   `provenance.method: import` and no sources, it was seeded from a national dataset: keep
+   its id, coordinates and identifiers, and add sources (and neighbours) to it. Identifiers and coordinates come
    from the authoritative pages listed there; never guess one.
 3. **Ask before you search.** "Where do you look to find out what's going on? Which
    paper, which websites, which boards, where do you eat, what's the gallery

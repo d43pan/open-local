@@ -63,8 +63,9 @@ checked in CI to be up to date.
 
 **Why.** YAML with one file per place is what a non-developer can edit in the GitHub web
 page and what makes pull requests readable and ownership (CODEOWNERS) per place possible.
-Committing `dist/` means consumers and installed skills fetch one static file from a
-stable address with no build step and no server.
+Committing `dist/` means consumers and installed skills fetch static files from a
+stable address with no build step and no server. (Since 0.2 the skill fetches an index
+and one file per place rather than the whole registry; see 16.)
 
 ## 7. Standard library only at run time
 
@@ -80,7 +81,8 @@ impossible. The cost is hand-written feed and iCalendar parsing, kept small and 
 place and routes to two reference files for the other jobs: `references/build.md` (map a
 place and send it back) and `references/expand.md` (grow to the next towns over). The
 tools live in the skill's `scripts/`. A skill
-installed on its own downloads `dist/registry.json` and caches it for a day.
+installed on its own fetches `dist/index.json` and the file for the place asked about,
+cached for a day and revalidated by ETag.
 
 **Why.** The Agent Skills specification requires the skill name to match its folder, the
 Claude apps want a ZIP of one skill folder, and installers such as `npx skills add`
@@ -162,3 +164,77 @@ coordinates, because water and borders make nearby places strangers.
 - **Meeting transcripts and search:** left to existing projects (Council Data Project,
   Documenters, CivicFM and others); the registry points to where records are published.
 - **Skill format and installers:** the Agent Skills specification and the tools around it.
+
+## 16. One file per place, so nobody downloads the country
+
+**Decision.** `build` also writes `dist/index.json` (every place, only what finding it
+needs) and `dist/places/<id>.json` (a place, the areas above it, its neighbours, every
+place within 50 km, and the sources covering any of them). The installed skill fetches
+the index and one place file; `dist/registry.json` stays for bulk users. Still static
+files on GitHub: no server (see "Not planned" in the roadmap).
+
+**Why.** The skill never put other towns into an agent's context, but it did download
+every town daily, and a national registry would pass the 50 MB fetch cap. A place file
+answers exactly as the whole registry would for that place, neighbours and radii up to
+50 km included; a test checks this for every place. Per-place files repeat state and
+national sources; that costs disk, not context. Shard the index by country or state once
+it passes a few megabytes.
+
+## 17. Output is budgeted, and area-wide items must name the place
+
+**Decision.** `recent` lists items from area-wide sources (county, state, region) only if
+they name the place, and says how many it left out; `--all-area` lists everything. It
+caps items per feed (15 by default), and `--brief` drops summaries and per-feed detail.
+The skill starts with `--brief`. Target: a typical brief answer under about 15 KB.
+
+**Why.** Tool output is what fills an agent's context. A week of Little Compton was 101 KB
+and 104 items, about 80 of them statewide stories that never mention the town; every new
+area source made every town noisier. The same week is now 13 KB brief, 35 KB full, with
+the same 20 local items.
+
+## 18. Data and skill are versioned separately
+
+**Decision.** Published data carries `schema` (major version), `skill_version` (the newest
+skill when it was built) and `data_version` (a content fingerprint). The skill refuses a
+newer schema major with an update message, passes on a notice when a newer skill exists,
+and reports the versions it used in every answer's coverage block (`run.py --version`).
+
+**Why.** Registry fixes reach everyone within a day; skill fixes reach only people who
+reinstall. Without this, the first breaking change would be silently misread.
+
+## 19. "A person must open this" is first-class
+
+**Decision.** An endpoint (or a whole source, under `access`) can be marked
+`agent_readable: false` with a `blocked_by` reason. The tools never fetch it; `recent`
+lists it under `coverage.needs_a_person`, and a robots.txt refusal found at run time goes
+there too, not under `failed`. The weekly check skips marked endpoints.
+
+**Why.** The Little Compton town calendar is a Google Calendar whose robots.txt forbids
+tools. Reported as a failure, it looked broken; it is not broken, it needs a person.
+
+## 20. Places are seeded from national gazetteers; sources are added by people
+
+**Decision.** `run.py seed us-census` drafts place files (id, name, county, centre point,
+Census GEOID) from the Census Gazetteer for one state, marked `provenance.method: import`.
+It never changes a place that exists. Seeded places have no sources; `where` says so
+(`sources_of_its_own: 0`) and the skill tells the person only area-wide sources reach it.
+Rhode Island is seeded as the first test.
+
+**Why.** Contributors should add what they know (sources), never hand-type coordinates
+or identifiers. Keeping seeded places in the index lets `where` say "known place, nothing
+mapped yet" instead of "not in the registry". Wikidata and Open Civic Data ids for towns
+are a later join; county OCD ids follow a documented pattern and are filled in now.
+
+## 21. Checks rotate, shard by host, and are recorded
+
+**Decision.** The weekly availability check takes one of four rotation groups (by source
+id), split into parallel shards by host so one site's requests stay in one job. Results
+go to `dist/checks/<home>.json`, committed by the job and read by the skill
+(`last_checked`), and problems go to one issue per area, naming maintainers from
+`.github/CODEOWNERS`. Pull requests show warnings only for the files they change; errors
+always cover the whole registry, and a nightly run shows every warning.
+
+**Why.** At ten sources a town, a national registry is about 300,000 addresses, more
+than one job can load in a week while waiting politely between requests to each site.
+`dist/checks/` is kept apart from what `build` writes, so contributors' pull requests
+never conflict with the weekly job.

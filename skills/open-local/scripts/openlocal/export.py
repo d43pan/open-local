@@ -71,3 +71,22 @@ def to_geojson(reg: Registry) -> str:
                       "properties": {"id": pid, "name": p["name"], "kind": p["kind"], "sources": direct,
                                      **{k: v for k, v in (p.get("identifiers") or {}).items()}}})
     return json.dumps({"type": "FeatureCollection", "features": feats}, indent=1, ensure_ascii=False) + "\n"
+
+
+def compact(obj) -> str:
+    return json.dumps(obj, ensure_ascii=False, separators=(",", ":"), sort_keys=False) + "\n"
+
+
+def published_files(reg: Registry) -> dict[str, str]:
+    """Everything `build` writes under dist/, by path.
+
+    registry.json and the exports hold the whole registry (for bulk users and other
+    tools). index.json and places/<id>.json are what an installed skill fetches: a small
+    index to find a place, then one file per place, so nobody downloads every town.
+    dist/checks/ is not here: the scheduled availability check writes it.
+    """
+    files = {"registry.json": to_json(reg), "feeds.opml": to_opml(reg), "sources.csv": to_csv(reg),
+             "places.geojson": to_geojson(reg), "index.json": compact(reg.index())}
+    for pid in reg.places:
+        files[f"places/{pid}.json"] = compact(reg.place_slice(pid))
+    return files

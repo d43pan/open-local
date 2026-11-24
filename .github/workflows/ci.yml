@@ -1,9 +1,13 @@
 name: checks
 # Deterministic checks for every pull request. No network access to listed sources.
+# On a pull request, warnings are shown only for the registry files it changes (errors
+# always cover the whole registry); the nightly run shows every warning.
 on:
   pull_request:
   push:
     branches: [main]
+  schedule:
+    - cron: "41 4 * * *"   # nightly full validation
 permissions:
   contents: read
 jobs:
@@ -14,12 +18,22 @@ jobs:
         python: ["3.10", "3.13"]
     steps:
       - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
       - uses: actions/setup-python@v5
         with:
           python-version: ${{ matrix.python }}
       - run: pip install pyyaml jsonschema pytest
       - name: Validate the registry (schema, ids, geography, URLs)
-        run: python skills/open-local/scripts/run.py validate
+        env:
+          BASE: ${{ github.base_ref }}
+        run: |
+          if [ "${{ github.event_name }}" = "pull_request" ]; then
+            mapfile -t changed < <(git diff --name-only --diff-filter=d "origin/$BASE...HEAD" -- 'registry/*.yaml')
+            python skills/open-local/scripts/run.py validate --files "${changed[@]}"
+          else
+            python skills/open-local/scripts/run.py validate
+          fi
       - name: Published files match the registry
         run: python skills/open-local/scripts/run.py build --check
       - name: Tests (feeds, discovery, exports, safety, skills, evals)
@@ -40,4 +54,9 @@ jobs:
       - name: The tools run with the standard library alone
         run: |
           python skills/open-local/scripts/run.py where "Little Compton, RI"
+          python skills/open-local/scripts/run.py --version
           OPEN_LOCAL_REGISTRY=dist/registry.json python skills/open-local/scripts/run.py sources US/RI/little-compton --brief
+          # Every per-place file must stand alone and answer like the whole registry
+          for id in US/RI/little-compton US/MA/westport; do
+            OPEN_LOCAL_REGISTRY="dist/places/$id.json" python skills/open-local/scripts/run.py sources "$id" --brief > /dev/null
+          done
