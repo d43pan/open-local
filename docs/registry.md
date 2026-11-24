@@ -13,7 +13,7 @@ files in the public domain (CC0).
 | `dist/checks/<place id>.json` | The latest scheduled check of each source whose home is that place (written by the weekly job, not by `build`) | How fresh an entry is |
 | [`dist/feeds.opml`](../dist/feeds.opml) | Every RSS, Atom and JSON Feed, grouped by place | Feed readers |
 | [`dist/sources.csv`](../dist/sources.csv) | One row per source | Spreadsheets |
-| [`dist/places.geojson`](../dist/places.geojson) | Places as points with source counts | Maps |
+| [`dist/places.geojson`](../dist/places.geojson) | Places as points, each with a title, a one-line description, source counts by kind, neighbours and a link to its file; green where a place has sources, grey where it does not yet | Maps (GitHub draws it) |
 | [`registry/`](../registry) | The YAML the above are built from | Editing |
 | [`schemas/registry-file.schema.json`](../schemas/registry-file.schema.json) | JSON Schema (2020-12) for a registry file | Validation |
 
