@@ -1,0 +1,18 @@
+place:
+  id: US/RI/portsmouth
+  name: Portsmouth
+  kind: municipality
+  local_kind: town
+  country: US
+  subdivision: US-RI
+  parents:
+  - US/RI/newport-county
+  centroid:
+    lat: 41.5921
+    lon: -71.2836
+  identifiers:
+    us_census_geoid: '4400557880'
+  provenance:
+    method: import
+    dataset: US Census Gazetteer 2024 (county subdivisions)
+    imported: '2026-11-24'

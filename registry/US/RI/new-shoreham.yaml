@@ -1,0 +1,18 @@
+place:
+  id: US/RI/new-shoreham
+  name: New Shoreham
+  kind: municipality
+  local_kind: town
+  country: US
+  subdivision: US-RI
+  parents:
+  - US/RI/washington-county
+  centroid:
+    lat: 41.1946
+    lon: -71.5724
+  identifiers:
+    us_census_geoid: '4400950500'
+  provenance:
+    method: import
+    dataset: US Census Gazetteer 2024 (county subdivisions)
+    imported: '2026-11-24'

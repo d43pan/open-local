@@ -1,0 +1,19 @@
+place:
+  id: US/RI/washington-county
+  name: Washington County
+  kind: county
+  local_kind: county
+  country: US
+  subdivision: US-RI
+  parents:
+  - US/RI
+  centroid:
+    lat: 41.3968
+    lon: -71.6203
+  identifiers:
+    us_census_geoid: '44009'
+    ocd_division: ocd-division/country:us/state:ri/county:washington
+  provenance:
+    method: import
+    dataset: US Census Gazetteer 2024 (county subdivisions)
+    imported: '2026-11-24'

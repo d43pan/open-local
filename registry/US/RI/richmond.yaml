@@ -1,0 +1,18 @@
+place:
+  id: US/RI/richmond
+  name: Richmond
+  kind: municipality
+  local_kind: town
+  country: US
+  subdivision: US-RI
+  parents:
+  - US/RI/washington-county
+  centroid:
+    lat: 41.4947
+    lon: -71.6693
+  identifiers:
+    us_census_geoid: '4400961160'
+  provenance:
+    method: import
+    dataset: US Census Gazetteer 2024 (county subdivisions)
+    imported: '2026-11-24'
