@@ -7,12 +7,600 @@ place:
   subdivision: US-RI
   parents:
   - US/RI/bristol-county
+  neighbors:
+  - US/RI/bristol
+  - US/RI/barrington
+  adjacent_unmapped:
+  - name: Swansea, Massachusetts
+    wikidata: Q2302325
+    note: To the east, across the state line.
   centroid:
     lat: 41.7251
     lon: -71.2588
+  postal_codes:
+  - 02885
+  languages:
+  - en
+  timezone: America/New_York
   identifiers:
+    wikidata: Q1027951
+    ocd_division: ocd-division/country:us/state:ri/place:warren
     us_census_geoid: '4400173760'
+    geonames: '5225502'
+    osm_relation: '7751594'
   provenance:
     method: import
     dataset: US Census Gazetteer 2024 (county subdivisions)
     imported: '2026-11-24'
+  notes: Between Bristol and Barrington on the east side of Narragansett Bay. Shares a school district (filed under
+    Bristol) and a water authority (filed under Bristol County) with Bristol.
+sources:
+- id: us-ri-warren-town-website
+  name: Town of Warren official website
+  publisher: Town of Warren
+  url: https://www.townofwarren-ri.gov/
+  type: government
+  classification: primary
+  coverage:
+  - place: US/RI/warren
+    level: dedicated
+  jurisdiction: US/RI/warren
+  languages:
+  - en
+  topics:
+  - government
+  - alerts
+  - public-notices
+  endpoints:
+  - kind: rss
+    url: https://www.townofwarren-ri.gov/rss.xml
+    title: News
+    note: 8 items on 2026-11-24. Items carry no dates and their links are relative to the site.
+  - kind: html
+    url: https://www.townofwarren-ri.gov/newslist.php
+    title: News
+  - kind: html
+    url: https://www.townofwarren-ri.gov/calendar.php
+    title: Calendar
+  - kind: html
+    url: https://www.townofwarren-ri.gov/government/public_notices.php
+    title: Public notices
+  - kind: html
+    url: https://www.townofwarren-ri.gov/government/town_council/index.php
+    title: Town Council
+  - kind: html
+    url: https://www.townofwarren-ri.gov/departments/public_works/construction_updates.php
+    title: Construction updates
+  - kind: html
+    url: https://www.townofwarren-ri.gov/departments/police.php
+    title: Police
+  - kind: html
+    url: https://www.townofwarren-ri.gov/departments/harbormaster.php
+    title: Harbormaster
+  access:
+    paywall: none
+  platform: Revize
+  discovered: '2026-11-24'
+  verified: '2026-11-24'
+  status: checked
+  provenance:
+    method: agent-proposed
+    evidence: Loaded with this project's tools on 2026-11-24 while expanding from Bristol.
+  notes: The town links to ClerksHQ for council agendas and minutes (http://clerkshq.com/default.ashx?clientsite=warren-ri);
+    that address timed out for this project's tools on 2026-11-24 and is not listed. Minutes are also filed on the
+    state Open Meetings portal. The police department also has its own site, http://www.warrenripolice.com/, which
+    loaded but offers no feed.
+- id: us-ri-warren-town-council
+  name: 'RI Open Meetings: Warren Town Council'
+  publisher: Warren Town Council (via Rhode Island Department of State)
+  url: https://opengov.sos.ri.gov/OpenMeetingsPublic/OpenMeetingDashboard?subtopmenuId=201&EntityID=3705
+  type: meetings
+  classification: primary
+  coverage:
+  - place: US/RI/warren
+    level: dedicated
+  jurisdiction: US/RI/warren
+  languages:
+  - en
+  topics:
+  - government
+  - meetings
+  endpoints:
+  - kind: html
+    url: https://opengov.sos.ri.gov/OpenMeetingsPublic/OpenMeetingDashboard?subtopmenuId=201&EntityID=3705
+  - kind: rss
+    url: https://opengov.sos.ri.gov/RSSFeed/Rss?feedType=9&entityID=3705&filter1=&filter2=&Keywords=&FromDate=&ToDate=&RefineSearch=&PublicBodies=
+    title: Recently filed minutes
+    note: 50 items on 2026-11-24, newest dated 2026-11-12.
+  - kind: rss
+    url: https://opengov.sos.ri.gov/RSSFeed/Rss?feedType=7&entityID=3705&filter1=&filter2=&Keywords=&FromDate=&ToDate=&RefineSearch=&PublicBodies=
+    title: Upcoming meetings
+    note: Empty on 2026-11-24. This feed only has items when a meeting is scheduled.
+  access:
+    paywall: none
+  platform: RI SOS Open Meetings
+  discovered: '2026-11-24'
+  verified: '2026-11-24'
+  status: checked
+  provenance:
+    method: agent-proposed
+    evidence: Body found by reading names off the portal's own dashboards on 2026-11-24 (entity 3705); feeds loaded
+      the same day.
+  notes: Agendas and minutes are PDFs linked from each meeting's page.
+- id: us-ri-warren-planning-commission
+  name: 'RI Open Meetings: Warren Planning Commission'
+  publisher: Warren Planning Commission (via Rhode Island Department of State)
+  url: https://opengov.sos.ri.gov/OpenMeetingsPublic/OpenMeetingDashboard?subtopmenuId=201&EntityID=3696
+  type: planning-zoning
+  classification: primary
+  coverage:
+  - place: US/RI/warren
+    level: dedicated
+  jurisdiction: US/RI/warren
+  languages:
+  - en
+  topics:
+  - planning
+  - meetings
+  endpoints:
+  - kind: html
+    url: https://opengov.sos.ri.gov/OpenMeetingsPublic/OpenMeetingDashboard?subtopmenuId=201&EntityID=3696
+  - kind: rss
+    url: https://opengov.sos.ri.gov/RSSFeed/Rss?feedType=9&entityID=3696&filter1=&filter2=&Keywords=&FromDate=&ToDate=&RefineSearch=&PublicBodies=
+    title: Recently filed minutes
+    note: 50 items on 2026-11-24, newest dated 2026-10-27.
+  - kind: rss
+    url: https://opengov.sos.ri.gov/RSSFeed/Rss?feedType=7&entityID=3696&filter1=&filter2=&Keywords=&FromDate=&ToDate=&RefineSearch=&PublicBodies=
+    title: Upcoming meetings
+    note: Empty on 2026-11-24. This feed only has items when a meeting is scheduled.
+  access:
+    paywall: none
+  platform: RI SOS Open Meetings
+  discovered: '2026-11-24'
+  verified: '2026-11-24'
+  status: checked
+  provenance:
+    method: agent-proposed
+    evidence: Body found by reading names off the portal's own dashboards on 2026-11-24 (entity 3696); feeds loaded
+      the same day.
+  notes: The town's own site calls this body the Planning Board. Agendas and minutes are PDFs linked from each meeting's
+    page.
+- id: us-ri-warren-zoning-board
+  name: 'RI Open Meetings: Warren Zoning Board'
+  publisher: Warren Zoning Board (via Rhode Island Department of State)
+  url: https://opengov.sos.ri.gov/OpenMeetingsPublic/OpenMeetingDashboard?subtopmenuId=201&EntityID=3711
+  type: planning-zoning
+  classification: primary
+  coverage:
+  - place: US/RI/warren
+    level: dedicated
+  jurisdiction: US/RI/warren
+  languages:
+  - en
+  topics:
+  - zoning
+  - meetings
+  endpoints:
+  - kind: html
+    url: https://opengov.sos.ri.gov/OpenMeetingsPublic/OpenMeetingDashboard?subtopmenuId=201&EntityID=3711
+  - kind: rss
+    url: https://opengov.sos.ri.gov/RSSFeed/Rss?feedType=9&entityID=3711&filter1=&filter2=&Keywords=&FromDate=&ToDate=&RefineSearch=&PublicBodies=
+    title: Recently filed minutes
+    note: 50 items on 2026-11-24, newest dated 2026-11-19.
+  - kind: rss
+    url: https://opengov.sos.ri.gov/RSSFeed/Rss?feedType=7&entityID=3711&filter1=&filter2=&Keywords=&FromDate=&ToDate=&RefineSearch=&PublicBodies=
+    title: Upcoming meetings
+    note: Empty on 2026-11-24. This feed only has items when a meeting is scheduled.
+  access:
+    paywall: none
+  platform: RI SOS Open Meetings
+  discovered: '2026-11-24'
+  verified: '2026-11-24'
+  status: checked
+  provenance:
+    method: agent-proposed
+    evidence: Body found by reading names off the portal's own dashboards on 2026-11-24 (entity 3711); feeds loaded
+      the same day.
+  notes: Agendas and minutes are PDFs linked from each meeting's page.
+- id: us-ri-warren-harbor-management-commission
+  name: 'RI Open Meetings: Warren Harbor Management Commission'
+  publisher: Warren Harbor Management Commission (via Rhode Island Department of State)
+  url: https://opengov.sos.ri.gov/OpenMeetingsPublic/OpenMeetingDashboard?subtopmenuId=201&EntityID=3687
+  type: meetings
+  classification: primary
+  coverage:
+  - place: US/RI/warren
+    level: dedicated
+  jurisdiction: US/RI/warren
+  languages:
+  - en
+  topics:
+  - harbor
+  - meetings
+  endpoints:
+  - kind: html
+    url: https://opengov.sos.ri.gov/OpenMeetingsPublic/OpenMeetingDashboard?subtopmenuId=201&EntityID=3687
+  - kind: rss
+    url: https://opengov.sos.ri.gov/RSSFeed/Rss?feedType=9&entityID=3687&filter1=&filter2=&Keywords=&FromDate=&ToDate=&RefineSearch=&PublicBodies=
+    title: Recently filed minutes
+    note: 50 items on 2026-11-24, newest dated 2026-02-05.
+  - kind: rss
+    url: https://opengov.sos.ri.gov/RSSFeed/Rss?feedType=7&entityID=3687&filter1=&filter2=&Keywords=&FromDate=&ToDate=&RefineSearch=&PublicBodies=
+    title: Upcoming meetings
+    note: Empty on 2026-11-24. This feed only has items when a meeting is scheduled.
+  access:
+    paywall: none
+  platform: RI SOS Open Meetings
+  discovered: '2026-11-24'
+  verified: '2026-11-24'
+  status: checked
+  provenance:
+    method: agent-proposed
+    evidence: Body found by reading names off the portal's own dashboards on 2026-11-24 (entity 3687); feeds loaded
+      the same day.
+  notes: Agendas and minutes are PDFs linked from each meeting's page.
+- id: us-ri-warren-open-meetings-all-bodies
+  name: 'RI Open Meetings: Warren public bodies'
+  publisher: Rhode Island Department of State
+  url: https://opengov.sos.ri.gov/OpenMeetingsPublic/OpenMeetingDashboard?subtopmenuId=201&EntityID=3712
+  type: meetings
+  classification: primary
+  coverage:
+  - place: US/RI/warren
+    level: dedicated
+  jurisdiction: US/RI/warren
+  languages:
+  - en
+  topics:
+  - government
+  - meetings
+  endpoints:
+  - kind: html
+    url: https://opengov.sos.ri.gov/OpenMeetingsPublic/OpenMeetingDashboard?subtopmenuId=201&EntityID=3712
+    note: '''Warren, Town of'' (entity 3712) had no filings on 2026-11-24; use the per-body entries.'
+  access:
+    paywall: none
+  platform: RI SOS Open Meetings
+  discovered: '2026-11-24'
+  verified: '2026-11-24'
+  status: checked
+  provenance:
+    method: agent-proposed
+    evidence: Body names read off the portal's own dashboards on 2026-11-24 (entities 3676 to 3712).
+  notes: 'The portal has no directory of bodies; ids were read one dashboard at a time. Warren bodies seen: Affordable
+    Housing Trust Fund Board 3677, Board of Canvassers 3680, Board of Fire Engineers 3681, Building Code Board of
+    Appeals 3682, Charter Review Commission 3684, Conservation Commission 3685 (newest filing 2021), Economic Development
+    Board 3686, Harbor Management Commission 3687, Housing Authority 3688, Juvenile Hearing Board 3689, Library
+    Trustees 3690, Open Space Committee 3695, Planning Commission 3696, Recreation Board 3697, Sewer Commission
+    3700 (newest filing 2009), Tax Assessment Review Board 3702, Technical Review Committee 3703, Town Council 3705,
+    Tree Commission 3707, Voluntary Historic Board of Review 3708, Voluntary Historic Commission 3709, Zoning Board
+    3711, and the volunteer fire companies 3683 to 3704. Per-body feeds follow the pattern of the Town Council entry.
+    Do not request feedType=3 (a statewide archive over 100 MB).'
+- id: us-ri-warren-community-development
+  name: Warren Community Development (planning, building, permits)
+  publisher: Town of Warren
+  url: https://www.townofwarren-ri.gov/departments/community_development/index.php
+  type: permits
+  classification: primary
+  coverage:
+  - place: US/RI/warren
+    level: dedicated
+  jurisdiction: US/RI/warren
+  languages:
+  - en
+  topics:
+  - permits
+  - planning
+  - zoning
+  endpoints:
+  - kind: html
+    url: https://www.townofwarren-ri.gov/departments/community_development/index.php
+  - kind: html
+    url: https://www.townofwarren-ri.gov/departments/community_development/planning.php
+    title: Planning
+  - kind: html
+    url: https://warrenri.viewpointcloud.com/
+    title: Online permit portal
+    note: The portal's robots.txt disallows automated fetching, so the tools skip it. Open it yourself.
+  access:
+    paywall: none
+  platform: Revize
+  discovered: '2026-11-24'
+  verified: '2026-11-24'
+  status: checked
+  provenance:
+    method: agent-proposed
+    evidence: Loaded with this project's tools on 2026-11-24 while expanding from Bristol.
+  notes: Department pages only; no list of permits issued was read.
+- id: us-ri-warren-parks-recreation
+  name: Warren Parks & Recreation
+  publisher: Town of Warren
+  url: https://www.townofwarren-ri.gov/departments/parks_recreation/index.php
+  type: parks-recreation
+  classification: primary
+  coverage:
+  - place: US/RI/warren
+    level: dedicated
+  jurisdiction: US/RI/warren
+  languages:
+  - en
+  topics:
+  - recreation
+  - events
+  endpoints:
+  - kind: html
+    url: https://www.townofwarren-ri.gov/departments/parks_recreation/index.php
+  - kind: html
+    url: https://www.townofwarren-ri.gov/departments/parks_recreation/programs.php
+    title: Programs
+  - kind: html
+    url: https://www.townofwarren-ri.gov/departments/parks_recreation/summer_concert_movie_series.php
+    title: Summer concert and movie series
+  access:
+    paywall: none
+  platform: Revize
+  discovered: '2026-11-24'
+  verified: '2026-11-24'
+  status: checked
+  provenance:
+    method: agent-proposed
+    evidence: Loaded with this project's tools on 2026-11-24 while expanding from Bristol.
+- id: us-ri-warren-george-hail-free-library
+  name: George Hail Free Library
+  publisher: George Hail Free Library
+  url: https://www.georgehail.org/
+  type: library
+  classification: primary
+  coverage:
+  - place: US/RI/warren
+    level: dedicated
+  languages:
+  - en
+  topics:
+  - library
+  - events
+  - history
+  endpoints:
+  - kind: html
+    url: https://www.georgehail.org/
+  - kind: html
+    url: https://oslri.libcal.com/calendar/georgehail
+    title: Events calendar (LibCal)
+  - kind: html
+    url: https://www.georgehail.org/adultprograms
+    title: Adult programs
+  - kind: html
+    url: https://www.georgehail.org/hours-and-holidays
+    title: Hours and holidays
+  access:
+    paywall: none
+  discovered: '2026-11-24'
+  verified: '2026-11-24'
+  status: checked
+  provenance:
+    method: agent-proposed
+    evidence: Loaded with this project's tools on 2026-11-24 while expanding from Bristol.
+  notes: No feed was found on the site.
+- id: us-ri-warren-times-gazette
+  name: 'Warren Times-Gazette / EastBayRI.com: Warren'
+  publisher: East Bay Media Group
+  url: https://www.eastbayri.com/warren/
+  type: newspaper
+  classification: primary
+  coverage:
+  - place: US/RI/warren
+    level: dedicated
+  languages:
+  - en
+  endpoints:
+  - kind: rss
+    url: https://www.eastbayri.com/warren/category/news/browse.rss
+    note: 25 items on 2026-11-24, newest dated 2026-11-24.
+  - kind: html
+    url: https://www.eastbayri.com/warren/category/local/browse.html
+  frequency: weekly
+  access:
+    paywall: metered
+  platform: Creative Circle Media Solutions
+  discovered: '2026-11-24'
+  verified: '2026-11-24'
+  status: checked
+  provenance:
+    method: agent-proposed
+    evidence: Loaded with this project's tools on 2026-11-24 while expanding from Bristol.
+  notes: The Warren section of the same weekly group as the Bristol Phoenix. Town sections carry each other's stories,
+    so expect overlap. The paper's name and paywall status are taken from the group, not read from this section;
+    a local should confirm.
+- id: us-ri-warren-hope-and-main
+  name: Hope & Main
+  publisher: Hope & Main
+  url: https://www.makefoodyourbusiness.org/
+  type: food-drink
+  classification: primary
+  coverage:
+  - place: US/RI/warren
+    level: dedicated
+  languages:
+  - en
+  topics:
+  - food
+  - farmers-market
+  - business
+  - events
+  endpoints:
+  - kind: ical
+    url: https://www.makefoodyourbusiness.org/events/?ical=1
+    title: Events
+    note: 8 events on 2026-11-24.
+  - kind: html
+    url: https://www.makefoodyourbusiness.org/events
+    title: Events
+  - kind: html
+    url: https://www.makefoodyourbusiness.org/makers-markets/
+    title: Makers markets
+  access:
+    paywall: none
+  platform: WordPress (The Events Calendar)
+  discovered: '2026-11-24'
+  verified: '2026-11-24'
+  status: checked
+  provenance:
+    method: agent-proposed
+    evidence: Loaded with this project's tools on 2026-11-24 while expanding from Bristol.
+  notes: A food business incubator; hopeandmain.org redirects here. That it is in Warren is from general knowledge,
+    not read from the page; a local should confirm, and say which events are open to the public. The site feed has
+    one item, from 2024, and is not listed.
+- id: us-ri-warren-the-collaborative
+  name: The Collaborative
+  publisher: The Collaborative
+  url: https://www.thecollaborative02885.org/
+  type: arts-culture
+  classification: primary
+  coverage:
+  - place: US/RI/warren
+    level: dedicated
+  languages:
+  - en
+  topics:
+  - arts
+  - events
+  endpoints:
+  - kind: html
+    url: https://www.thecollaborative02885.org/events
+    title: Events
+  - kind: html
+    url: https://www.thecollaborative02885.org/workshops
+    title: Workshops
+  access:
+    paywall: none
+  platform: Squarespace
+  discovered: '2026-11-24'
+  verified: '2026-11-24'
+  status: checked
+  provenance:
+    method: agent-proposed
+    evidence: Loaded with this project's tools on 2026-11-24 while expanding from Bristol.
+- id: us-ri-warren-imago-foundation-for-the-arts
+  name: IMAGO Foundation for the Arts
+  publisher: IMAGO Foundation for the Arts
+  url: https://www.imagofoundation4art.org/
+  type: arts-culture
+  classification: primary
+  coverage:
+  - place: US/RI/warren
+    level: dedicated
+  languages:
+  - en
+  topics:
+  - arts
+  - exhibitions
+  - events
+  endpoints:
+  - kind: html
+    url: https://www.imagofoundation4art.org/ifa-events
+    title: Upcoming events
+  - kind: html
+    url: https://www.imagofoundation4art.org/visit
+    title: Visit
+  access:
+    paywall: none
+  platform: Wix
+  discovered: '2026-11-24'
+  verified: '2026-11-24'
+  status: checked
+  provenance:
+    method: agent-proposed
+    evidence: Loaded with this project's tools on 2026-11-24 while expanding from Bristol.
+  notes: A gallery. That it is in Warren is from general knowledge, not read from the page; a local should confirm.
+- id: us-ri-warren-massasoit-historical-association
+  name: Massasoit Historical Association
+  publisher: Massasoit Historical Association
+  url: https://www.massasoithistorical.org/
+  type: history
+  classification: primary
+  coverage:
+  - place: US/RI/warren
+    level: dedicated
+  languages:
+  - en
+  topics:
+  - history
+  - events
+  endpoints:
+  - kind: html
+    url: https://www.massasoithistorical.org/events-1
+    title: Events
+  - kind: html
+    url: https://www.massasoithistorical.org/calendar
+    title: Calendar
+  access:
+    paywall: none
+  platform: Wix
+  discovered: '2026-11-24'
+  verified: '2026-11-24'
+  status: checked
+  provenance:
+    method: agent-proposed
+    evidence: Loaded with this project's tools on 2026-11-24 while expanding from Bristol.
+  notes: The blog feed was empty on 2026-11-24 and is not listed.
+- id: us-ri-warren-land-trust
+  name: Warren Land Trust
+  publisher: Warren Land Trust
+  url: https://www.warrenlandtrust.org/
+  type: environment
+  classification: primary
+  coverage:
+  - place: US/RI/warren
+    level: dedicated
+  languages:
+  - en
+  topics:
+  - environment
+  - open-space
+  - events
+  endpoints:
+  - kind: rss
+    url: https://www.warrenlandtrust.org/blog-feed.xml
+    title: Blog
+    note: 4 items on 2026-11-24, newest dated 2025-07-24.
+  - kind: html
+    url: https://www.warrenlandtrust.org/eventsnews
+    title: Events and news
+  access:
+    paywall: none
+  platform: Wix
+  discovered: '2026-11-24'
+  verified: '2026-11-24'
+  status: checked
+  provenance:
+    method: agent-proposed
+    evidence: Loaded with this project's tools on 2026-11-24 while expanding from Bristol.
+- id: us-ri-warren-prevention-coalition
+  name: Warren Prevention Coalition
+  publisher: Warren Prevention Coalition
+  url: https://www.warrenprevention.com/
+  type: community-organization
+  classification: primary
+  coverage:
+  - place: US/RI/warren
+    level: dedicated
+  languages:
+  - en
+  topics:
+  - health
+  - youth
+  - events
+  endpoints:
+  - kind: html
+    url: https://www.warrenprevention.com/
+  - kind: html
+    url: https://www.warrenprevention.com/events
+    title: Events
+  access:
+    paywall: none
+  discovered: '2026-11-24'
+  verified: '2026-11-24'
+  status: checked
+  provenance:
+    method: agent-proposed
+    evidence: Linked from the town's community page, loaded on 2026-11-24.

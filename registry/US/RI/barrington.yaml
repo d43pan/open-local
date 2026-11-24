@@ -7,6 +7,8 @@ place:
   subdivision: US-RI
   parents:
   - US/RI/bristol-county
+  neighbors:
+  - US/RI/warren
   centroid:
     lat: 41.733
     lon: -71.3197
