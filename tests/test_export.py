@@ -44,5 +44,16 @@ def test_geojson(reg):
     assert alder["geometry"]["coordinates"] == [-71.17, 41.51] and alder["properties"]["sources"] == 3
 
 
+def test_geojson_describes_each_place_for_a_map(reg):
+    feats = {f["properties"]["id"]: f["properties"] for f in json.loads(export.to_geojson(reg))["features"]}
+    alder = feats["XX/NO/alder"]
+    assert alder["mapped"] is True and alder["title"] == "Alder: 3 sources"
+    assert alder["description"].startswith("3 sources (") and alder["marker-color"] == export.MAPPED
+    assert alder["registry_file"].endswith("/registry/XX/NO/alder.yaml") and alder["source_types"]
+    empty = [p for p in feats.values() if p["sources"] == 0]
+    assert empty and all(p["mapped"] is False and p["marker-color"] == export.UNMAPPED
+                         and p["title"].endswith("not mapped yet") for p in empty)
+
+
 def test_the_published_files_match_the_registry(capsys):
     assert cli.main(["build", "--check"]) == 0, capsys.readouterr().out

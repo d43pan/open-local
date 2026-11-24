@@ -11,12 +11,19 @@
     ]
    },
    "properties": {
+    "title": "United States: not mapped yet",
+    "description": "Not mapped yet: the place is known but no sources are listed. Help add them.",
     "id": "US",
     "name": "United States",
     "kind": "country",
+    "mapped": false,
     "sources": 0,
+    "with_feed_or_calendar": 0,
+    "registry_file": "https://github.com/d43pan/open-local/blob/main/registry/US.yaml",
     "wikidata": "Q30",
-    "ocd_division": "ocd-division/country:us"
+    "ocd_division": "ocd-division/country:us",
+    "marker-color": "#9e9e9e",
+    "marker-size": "small"
    }
   },
   {
@@ -29,13 +36,24 @@
     ]
    },
    "properties": {
+    "title": "Massachusetts: 1 source",
+    "description": "1 source (0 with a feed or calendar): public-notices 1.",
     "id": "US/MA",
     "name": "Massachusetts",
     "kind": "region",
+    "mapped": true,
     "sources": 1,
+    "with_feed_or_calendar": 0,
+    "local_kind": "state",
+    "source_types": "public-notices 1",
+    "sources_checked": 1,
+    "inside": "United States",
+    "registry_file": "https://github.com/d43pan/open-local/blob/main/registry/US/MA.yaml",
     "wikidata": "Q771",
     "ocd_division": "ocd-division/country:us/state:ma",
-    "us_census_geoid": "25"
+    "us_census_geoid": "25",
+    "marker-color": "#2e7d32",
+    "marker-size": "medium"
    }
   },
   {
@@ -48,13 +66,21 @@
     ]
    },
    "properties": {
+    "title": "Bristol County: not mapped yet",
+    "description": "Not mapped yet: the place is known but no sources are listed. Help add them.",
     "id": "US/MA/bristol-county",
     "name": "Bristol County",
     "kind": "county",
+    "mapped": false,
     "sources": 0,
+    "with_feed_or_calendar": 0,
+    "inside": "Massachusetts",
+    "registry_file": "https://github.com/d43pan/open-local/blob/main/registry/US/MA/bristol-county.yaml",
     "wikidata": "Q54082",
     "ocd_division": "ocd-division/country:us/state:ma/county:bristol",
-    "us_census_geoid": "25005"
+    "us_census_geoid": "25005",
+    "marker-color": "#9e9e9e",
+    "marker-size": "small"
    }
   },
   {
@@ -67,10 +93,22 @@
     ]
    },
    "properties": {
+    "title": "South Coast: 8 sources",
+    "description": "8 sources (8 with a feed or calendar): news-site 3, television 2, newspaper 1, radio 1, transportation 1.",
     "id": "US/MA/south-coast",
     "name": "South Coast",
     "kind": "custom",
-    "sources": 8
+    "mapped": true,
+    "sources": 8,
+    "with_feed_or_calendar": 8,
+    "local_kind": "named region",
+    "source_types": "news-site 3, television 2, newspaper 1, radio 1, transportation 1",
+    "sources_checked": 5,
+    "sources_unverified": 3,
+    "inside": "Massachusetts",
+    "registry_file": "https://github.com/d43pan/open-local/blob/main/registry/US/MA/south-coast.yaml",
+    "marker-color": "#2e7d32",
+    "marker-size": "medium"
    }
   },
   {
@@ -83,15 +121,29 @@
     ]
    },
    "properties": {
+    "title": "Westport: 19 sources",
+    "description": "19 sources (9 with a feed or calendar): food-drink 3, environment 2, newspaper 2, arts-culture 1, government 1, library 1, meeting-video 1, meetings 1, museum 1, news-site 1, parks-recreation 1, permits 1, public-access-tv 1, public-safety 1, schools 1. Next to: Little Compton, Tiverton. Not in the registry yet: Dartmouth, Massachusetts, Fall River, Massachusetts.",
     "id": "US/MA/westport",
     "name": "Westport",
     "kind": "municipality",
+    "mapped": true,
     "sources": 19,
+    "with_feed_or_calendar": 9,
+    "local_kind": "town",
+    "source_types": "food-drink 3, environment 2, newspaper 2, arts-culture 1, government 1, library 1, meeting-video 1, meetings 1, museum 1, news-site 1, parks-recreation 1, permits 1, public-access-tv 1, public-safety 1, schools 1",
+    "sources_checked": 19,
+    "inside": "Bristol County",
+    "neighbors": "Little Compton, Tiverton",
+    "neighbors_not_in_registry": "Dartmouth, Massachusetts, Fall River, Massachusetts",
+    "postal_codes": "02790, 02791",
+    "registry_file": "https://github.com/d43pan/open-local/blob/main/registry/US/MA/westport.yaml",
     "wikidata": "Q432359",
     "ocd_division": "ocd-division/country:us/state:ma/place:westport",
     "us_census_geoid": "2500577570",
     "geonames": "4955304",
-    "osm_relation": "2396251"
+    "osm_relation": "2396251",
+    "marker-color": "#2e7d32",
+    "marker-size": "medium"
    }
   },
   {
@@ -104,13 +156,25 @@
     ]
    },
    "properties": {
+    "title": "Rhode Island: 11 sources",
+    "description": "11 sources (8 with a feed or calendar): news-site 3, television 2, environment 1, government 1, newspaper 1, public-notices 1, radio 1, transportation 1.",
     "id": "US/RI",
     "name": "Rhode Island",
     "kind": "region",
+    "mapped": true,
     "sources": 11,
+    "with_feed_or_calendar": 8,
+    "local_kind": "state",
+    "source_types": "news-site 3, television 2, environment 1, government 1, newspaper 1, public-notices 1, radio 1, transportation 1",
+    "sources_checked": 6,
+    "sources_unverified": 5,
+    "inside": "United States",
+    "registry_file": "https://github.com/d43pan/open-local/blob/main/registry/US/RI.yaml",
     "wikidata": "Q1387",
     "ocd_division": "ocd-division/country:us/state:ri",
-    "us_census_geoid": "44"
+    "us_census_geoid": "44",
+    "marker-color": "#2e7d32",
+    "marker-size": "medium"
    }
   },
   {
@@ -123,11 +187,21 @@
     ]
    },
    "properties": {
+    "title": "Barrington: not mapped yet",
+    "description": "Not mapped yet: the place is known but no sources are listed. Help add them. Next to: Warren.",
     "id": "US/RI/barrington",
     "name": "Barrington",
     "kind": "municipality",
+    "mapped": false,
     "sources": 0,
-    "us_census_geoid": "4400105140"
+    "with_feed_or_calendar": 0,
+    "local_kind": "town",
+    "inside": "Bristol County",
+    "neighbors": "Warren",
+    "registry_file": "https://github.com/d43pan/open-local/blob/main/registry/US/RI/barrington.yaml",
+    "us_census_geoid": "4400105140",
+    "marker-color": "#9e9e9e",
+    "marker-size": "small"
    }
   },
   {
@@ -140,15 +214,29 @@
     ]
    },
    "properties": {
+    "title": "Bristol: 27 sources",
+    "description": "27 sources (10 with a feed or calendar): meetings 4, museum 4, planning-zoning 3, tourism 2, arts-culture 1, events 1, farm-market 1, government 1, history 1, library 1, meeting-video 1, news-site 1, newspaper 1, other 1, parks-recreation 1, permits 1, schools 1, transportation 1. Next to: Portsmouth, Warren.",
     "id": "US/RI/bristol",
     "name": "Bristol",
     "kind": "municipality",
+    "mapped": true,
     "sources": 27,
+    "with_feed_or_calendar": 10,
+    "local_kind": "town",
+    "source_types": "meetings 4, museum 4, planning-zoning 3, tourism 2, arts-culture 1, events 1, farm-market 1, government 1, history 1, library 1, meeting-video 1, news-site 1, newspaper 1, other 1, parks-recreation 1, permits 1, schools 1, transportation 1",
+    "sources_checked": 25,
+    "sources_unverified": 2,
+    "inside": "Bristol County",
+    "neighbors": "Portsmouth, Warren",
+    "postal_codes": "02809",
+    "registry_file": "https://github.com/d43pan/open-local/blob/main/registry/US/RI/bristol.yaml",
     "wikidata": "Q917809",
     "ocd_division": "ocd-division/country:us/state:ri/place:bristol",
     "us_census_geoid": "4400109280",
     "geonames": "5221077",
-    "osm_relation": "191223"
+    "osm_relation": "191223",
+    "marker-color": "#2e7d32",
+    "marker-size": "large"
    }
   },
   {
@@ -161,15 +249,26 @@
     ]
    },
    "properties": {
+    "title": "Bristol County: 2 sources",
+    "description": "2 sources (1 with a feed or calendar): chamber-of-commerce 1, utility 1.",
     "id": "US/RI/bristol-county",
     "name": "Bristol County",
     "kind": "county",
+    "mapped": true,
     "sources": 2,
+    "with_feed_or_calendar": 1,
+    "local_kind": "county",
+    "source_types": "chamber-of-commerce 1, utility 1",
+    "sources_checked": 2,
+    "inside": "Rhode Island",
+    "registry_file": "https://github.com/d43pan/open-local/blob/main/registry/US/RI/bristol-county.yaml",
     "us_census_geoid": "44001",
     "ocd_division": "ocd-division/country:us/state:ri/county:bristol",
     "wikidata": "Q54262",
     "geonames": "5221078",
-    "osm_relation": "404984"
+    "osm_relation": "404984",
+    "marker-color": "#2e7d32",
+    "marker-size": "medium"
    }
   },
   {
@@ -182,11 +281,20 @@
     ]
    },
    "properties": {
+    "title": "Burrillville: not mapped yet",
+    "description": "Not mapped yet: the place is known but no sources are listed. Help add them.",
     "id": "US/RI/burrillville",
     "name": "Burrillville",
     "kind": "municipality",
+    "mapped": false,
     "sources": 0,
-    "us_census_geoid": "4400711800"
+    "with_feed_or_calendar": 0,
+    "local_kind": "town",
+    "inside": "Providence County",
+    "registry_file": "https://github.com/d43pan/open-local/blob/main/registry/US/RI/burrillville.yaml",
+    "us_census_geoid": "4400711800",
+    "marker-color": "#9e9e9e",
+    "marker-size": "small"
    }
   },
   {
@@ -199,11 +307,20 @@
     ]
    },
    "properties": {
+    "title": "Central Falls: not mapped yet",
+    "description": "Not mapped yet: the place is known but no sources are listed. Help add them.",
     "id": "US/RI/central-falls",
     "name": "Central Falls",
     "kind": "municipality",
+    "mapped": false,
     "sources": 0,
-    "us_census_geoid": "4400714140"
+    "with_feed_or_calendar": 0,
+    "local_kind": "city",
+    "inside": "Providence County",
+    "registry_file": "https://github.com/d43pan/open-local/blob/main/registry/US/RI/central-falls.yaml",
+    "us_census_geoid": "4400714140",
+    "marker-color": "#9e9e9e",
+    "marker-size": "small"
    }
   },
   {
@@ -216,11 +333,20 @@
     ]
    },
    "properties": {
+    "title": "Charlestown: not mapped yet",
+    "description": "Not mapped yet: the place is known but no sources are listed. Help add them.",
     "id": "US/RI/charlestown",
     "name": "Charlestown",
     "kind": "municipality",
+    "mapped": false,
     "sources": 0,
-    "us_census_geoid": "4400914500"
+    "with_feed_or_calendar": 0,
+    "local_kind": "town",
+    "inside": "Washington County",
+    "registry_file": "https://github.com/d43pan/open-local/blob/main/registry/US/RI/charlestown.yaml",
+    "us_census_geoid": "4400914500",
+    "marker-color": "#9e9e9e",
+    "marker-size": "small"
    }
   },
   {
@@ -233,11 +359,20 @@
     ]
    },
    "properties": {
+    "title": "Coventry: not mapped yet",
+    "description": "Not mapped yet: the place is known but no sources are listed. Help add them.",
     "id": "US/RI/coventry",
     "name": "Coventry",
     "kind": "municipality",
+    "mapped": false,
     "sources": 0,
-    "us_census_geoid": "4400318640"
+    "with_feed_or_calendar": 0,
+    "local_kind": "town",
+    "inside": "Kent County",
+    "registry_file": "https://github.com/d43pan/open-local/blob/main/registry/US/RI/coventry.yaml",
+    "us_census_geoid": "4400318640",
+    "marker-color": "#9e9e9e",
+    "marker-size": "small"
    }
   },
   {
@@ -250,11 +385,20 @@
     ]
    },
    "properties": {
+    "title": "Cranston: not mapped yet",
+    "description": "Not mapped yet: the place is known but no sources are listed. Help add them.",
     "id": "US/RI/cranston",
     "name": "Cranston",
     "kind": "municipality",
+    "mapped": false,
     "sources": 0,
-    "us_census_geoid": "4400719180"
+    "with_feed_or_calendar": 0,
+    "local_kind": "city",
+    "inside": "Providence County",
+    "registry_file": "https://github.com/d43pan/open-local/blob/main/registry/US/RI/cranston.yaml",
+    "us_census_geoid": "4400719180",
+    "marker-color": "#9e9e9e",
+    "marker-size": "small"
    }
   },
   {
@@ -267,11 +411,20 @@
     ]
    },
    "properties": {
+    "title": "Cumberland: not mapped yet",
+    "description": "Not mapped yet: the place is known but no sources are listed. Help add them.",
     "id": "US/RI/cumberland",
     "name": "Cumberland",
     "kind": "municipality",
+    "mapped": false,
     "sources": 0,
-    "us_census_geoid": "4400720080"
+    "with_feed_or_calendar": 0,
+    "local_kind": "town",
+    "inside": "Providence County",
+    "registry_file": "https://github.com/d43pan/open-local/blob/main/registry/US/RI/cumberland.yaml",
+    "us_census_geoid": "4400720080",
+    "marker-color": "#9e9e9e",
+    "marker-size": "small"
    }
   },
   {
@@ -284,11 +437,20 @@
     ]
    },
    "properties": {
+    "title": "East Greenwich: not mapped yet",
+    "description": "Not mapped yet: the place is known but no sources are listed. Help add them.",
     "id": "US/RI/east-greenwich",
     "name": "East Greenwich",
     "kind": "municipality",
+    "mapped": false,
     "sources": 0,
-    "us_census_geoid": "4400322240"
+    "with_feed_or_calendar": 0,
+    "local_kind": "town",
+    "inside": "Kent County",
+    "registry_file": "https://github.com/d43pan/open-local/blob/main/registry/US/RI/east-greenwich.yaml",
+    "us_census_geoid": "4400322240",
+    "marker-color": "#9e9e9e",
+    "marker-size": "small"
    }
   },
   {
@@ -301,11 +463,20 @@
     ]
    },
    "properties": {
+    "title": "East Providence: not mapped yet",
+    "description": "Not mapped yet: the place is known but no sources are listed. Help add them.",
     "id": "US/RI/east-providence",
     "name": "East Providence",
     "kind": "municipality",
+    "mapped": false,
     "sources": 0,
-    "us_census_geoid": "4400722960"
+    "with_feed_or_calendar": 0,
+    "local_kind": "city",
+    "inside": "Providence County",
+    "registry_file": "https://github.com/d43pan/open-local/blob/main/registry/US/RI/east-providence.yaml",
+    "us_census_geoid": "4400722960",
+    "marker-color": "#9e9e9e",
+    "marker-size": "small"
    }
   },
   {
@@ -318,11 +489,20 @@
     ]
    },
    "properties": {
+    "title": "Exeter: not mapped yet",
+    "description": "Not mapped yet: the place is known but no sources are listed. Help add them.",
     "id": "US/RI/exeter",
     "name": "Exeter",
     "kind": "municipality",
+    "mapped": false,
     "sources": 0,
-    "us_census_geoid": "4400925300"
+    "with_feed_or_calendar": 0,
+    "local_kind": "town",
+    "inside": "Washington County",
+    "registry_file": "https://github.com/d43pan/open-local/blob/main/registry/US/RI/exeter.yaml",
+    "us_census_geoid": "4400925300",
+    "marker-color": "#9e9e9e",
+    "marker-size": "small"
    }
   },
   {
@@ -335,11 +515,20 @@
     ]
    },
    "properties": {
+    "title": "Foster: not mapped yet",
+    "description": "Not mapped yet: the place is known but no sources are listed. Help add them.",
     "id": "US/RI/foster",
     "name": "Foster",
     "kind": "municipality",
+    "mapped": false,
     "sources": 0,
-    "us_census_geoid": "4400727460"
+    "with_feed_or_calendar": 0,
+    "local_kind": "town",
+    "inside": "Providence County",
+    "registry_file": "https://github.com/d43pan/open-local/blob/main/registry/US/RI/foster.yaml",
+    "us_census_geoid": "4400727460",
+    "marker-color": "#9e9e9e",
+    "marker-size": "small"
    }
   },
   {
@@ -352,11 +541,20 @@
     ]
    },
    "properties": {
+    "title": "Glocester: not mapped yet",
+    "description": "Not mapped yet: the place is known but no sources are listed. Help add them.",
     "id": "US/RI/glocester",
     "name": "Glocester",
     "kind": "municipality",
+    "mapped": false,
     "sources": 0,
-    "us_census_geoid": "4400730340"
+    "with_feed_or_calendar": 0,
+    "local_kind": "town",
+    "inside": "Providence County",
+    "registry_file": "https://github.com/d43pan/open-local/blob/main/registry/US/RI/glocester.yaml",
+    "us_census_geoid": "4400730340",
+    "marker-color": "#9e9e9e",
+    "marker-size": "small"
    }
   },
   {
@@ -369,11 +567,20 @@
     ]
    },
    "properties": {
+    "title": "Hopkinton: not mapped yet",
+    "description": "Not mapped yet: the place is known but no sources are listed. Help add them.",
     "id": "US/RI/hopkinton",
     "name": "Hopkinton",
     "kind": "municipality",
+    "mapped": false,
     "sources": 0,
-    "us_census_geoid": "4400935380"
+    "with_feed_or_calendar": 0,
+    "local_kind": "town",
+    "inside": "Washington County",
+    "registry_file": "https://github.com/d43pan/open-local/blob/main/registry/US/RI/hopkinton.yaml",
+    "us_census_geoid": "4400935380",
+    "marker-color": "#9e9e9e",
+    "marker-size": "small"
    }
   },
   {
@@ -386,11 +593,20 @@
     ]
    },
    "properties": {
+    "title": "Jamestown: not mapped yet",
+    "description": "Not mapped yet: the place is known but no sources are listed. Help add them.",
     "id": "US/RI/jamestown",
     "name": "Jamestown",
     "kind": "municipality",
+    "mapped": false,
     "sources": 0,
-    "us_census_geoid": "4400536820"
+    "with_feed_or_calendar": 0,
+    "local_kind": "town",
+    "inside": "Newport County",
+    "registry_file": "https://github.com/d43pan/open-local/blob/main/registry/US/RI/jamestown.yaml",
+    "us_census_geoid": "4400536820",
+    "marker-color": "#9e9e9e",
+    "marker-size": "small"
    }
   },
   {
@@ -403,11 +619,20 @@
     ]
    },
    "properties": {
+    "title": "Johnston: not mapped yet",
+    "description": "Not mapped yet: the place is known but no sources are listed. Help add them.",
     "id": "US/RI/johnston",
     "name": "Johnston",
     "kind": "municipality",
+    "mapped": false,
     "sources": 0,
-    "us_census_geoid": "4400737720"
+    "with_feed_or_calendar": 0,
+    "local_kind": "town",
+    "inside": "Providence County",
+    "registry_file": "https://github.com/d43pan/open-local/blob/main/registry/US/RI/johnston.yaml",
+    "us_census_geoid": "4400737720",
+    "marker-color": "#9e9e9e",
+    "marker-size": "small"
    }
   },
   {
@@ -420,12 +645,21 @@
     ]
    },
    "properties": {
+    "title": "Kent County: not mapped yet",
+    "description": "Not mapped yet: the place is known but no sources are listed. Help add them.",
     "id": "US/RI/kent-county",
     "name": "Kent County",
     "kind": "county",
+    "mapped": false,
     "sources": 0,
+    "with_feed_or_calendar": 0,
+    "local_kind": "county",
+    "inside": "Rhode Island",
+    "registry_file": "https://github.com/d43pan/open-local/blob/main/registry/US/RI/kent-county.yaml",
     "us_census_geoid": "44003",
-    "ocd_division": "ocd-division/country:us/state:ri/county:kent"
+    "ocd_division": "ocd-division/country:us/state:ri/county:kent",
+    "marker-color": "#9e9e9e",
+    "marker-size": "small"
    }
   },
   {
@@ -438,11 +672,20 @@
     ]
    },
    "properties": {
+    "title": "Lincoln: not mapped yet",
+    "description": "Not mapped yet: the place is known but no sources are listed. Help add them.",
     "id": "US/RI/lincoln",
     "name": "Lincoln",
     "kind": "municipality",
+    "mapped": false,
     "sources": 0,
-    "us_census_geoid": "4400741500"
+    "with_feed_or_calendar": 0,
+    "local_kind": "town",
+    "inside": "Providence County",
+    "registry_file": "https://github.com/d43pan/open-local/blob/main/registry/US/RI/lincoln.yaml",
+    "us_census_geoid": "4400741500",
+    "marker-color": "#9e9e9e",
+    "marker-size": "small"
    }
   },
   {
@@ -455,15 +698,29 @@
     ]
    },
    "properties": {
+    "title": "Little Compton: 35 sources",
+    "description": "35 sources (17 with a feed or calendar): community-organization 4, farm-market 3, environment 2, food-drink 2, meetings 2, newspaper 2, planning-zoning 2, religious 2, schools 2, tourism 2, budget 1, events 1, government 1, history 1, library 1, meeting-video 1, news-site 1, newsletter 1, parks-recreation 1, permits 1, public-notices 1, public-safety 1. Next to: Tiverton, Westport.",
     "id": "US/RI/little-compton",
     "name": "Little Compton",
     "kind": "municipality",
+    "mapped": true,
     "sources": 35,
+    "with_feed_or_calendar": 17,
+    "local_kind": "town",
+    "source_types": "community-organization 4, farm-market 3, environment 2, food-drink 2, meetings 2, newspaper 2, planning-zoning 2, religious 2, schools 2, tourism 2, budget 1, events 1, government 1, history 1, library 1, meeting-video 1, news-site 1, newsletter 1, parks-recreation 1, permits 1, public-notices 1, public-safety 1",
+    "sources_checked": 34,
+    "sources_unverified": 1,
+    "inside": "Newport County",
+    "neighbors": "Tiverton, Westport",
+    "postal_codes": "02837",
+    "registry_file": "https://github.com/d43pan/open-local/blob/main/registry/US/RI/little-compton.yaml",
     "wikidata": "Q2448539",
     "ocd_division": "ocd-division/country:us/state:ri/place:little_compton",
     "us_census_geoid": "4400542400",
     "geonames": "5223133",
-    "osm_relation": "7815285"
+    "osm_relation": "7815285",
+    "marker-color": "#2e7d32",
+    "marker-size": "large"
    }
   },
   {
@@ -476,11 +733,20 @@
     ]
    },
    "properties": {
+    "title": "Middletown: not mapped yet",
+    "description": "Not mapped yet: the place is known but no sources are listed. Help add them.",
     "id": "US/RI/middletown",
     "name": "Middletown",
     "kind": "municipality",
+    "mapped": false,
     "sources": 0,
-    "us_census_geoid": "4400545460"
+    "with_feed_or_calendar": 0,
+    "local_kind": "town",
+    "inside": "Newport County",
+    "registry_file": "https://github.com/d43pan/open-local/blob/main/registry/US/RI/middletown.yaml",
+    "us_census_geoid": "4400545460",
+    "marker-color": "#9e9e9e",
+    "marker-size": "small"
    }
   },
   {
@@ -493,11 +759,20 @@
     ]
    },
    "properties": {
+    "title": "Narragansett: not mapped yet",
+    "description": "Not mapped yet: the place is known but no sources are listed. Help add them.",
     "id": "US/RI/narragansett",
     "name": "Narragansett",
     "kind": "municipality",
+    "mapped": false,
     "sources": 0,
-    "us_census_geoid": "4400948340"
+    "with_feed_or_calendar": 0,
+    "local_kind": "town",
+    "inside": "Washington County",
+    "registry_file": "https://github.com/d43pan/open-local/blob/main/registry/US/RI/narragansett.yaml",
+    "us_census_geoid": "4400948340",
+    "marker-color": "#9e9e9e",
+    "marker-size": "small"
    }
   },
   {
@@ -510,11 +785,20 @@
     ]
    },
    "properties": {
+    "title": "New Shoreham: not mapped yet",
+    "description": "Not mapped yet: the place is known but no sources are listed. Help add them.",
     "id": "US/RI/new-shoreham",
     "name": "New Shoreham",
     "kind": "municipality",
+    "mapped": false,
     "sources": 0,
-    "us_census_geoid": "4400950500"
+    "with_feed_or_calendar": 0,
+    "local_kind": "town",
+    "inside": "Washington County",
+    "registry_file": "https://github.com/d43pan/open-local/blob/main/registry/US/RI/new-shoreham.yaml",
+    "us_census_geoid": "4400950500",
+    "marker-color": "#9e9e9e",
+    "marker-size": "small"
    }
   },
   {
@@ -527,11 +811,20 @@
     ]
    },
    "properties": {
+    "title": "Newport: not mapped yet",
+    "description": "Not mapped yet: the place is known but no sources are listed. Help add them.",
     "id": "US/RI/newport",
     "name": "Newport",
     "kind": "municipality",
+    "mapped": false,
     "sources": 0,
-    "us_census_geoid": "4400549960"
+    "with_feed_or_calendar": 0,
+    "local_kind": "city",
+    "inside": "Newport County",
+    "registry_file": "https://github.com/d43pan/open-local/blob/main/registry/US/RI/newport.yaml",
+    "us_census_geoid": "4400549960",
+    "marker-color": "#9e9e9e",
+    "marker-size": "small"
    }
   },
   {
@@ -544,15 +837,26 @@
     ]
    },
    "properties": {
+    "title": "Newport County: 5 sources",
+    "description": "5 sources (4 with a feed or calendar): chamber-of-commerce 1, news-site 1, newspaper 1, tourism 1, transportation 1.",
     "id": "US/RI/newport-county",
     "name": "Newport County",
     "kind": "county",
+    "mapped": true,
     "sources": 5,
+    "with_feed_or_calendar": 4,
+    "source_types": "chamber-of-commerce 1, news-site 1, newspaper 1, tourism 1, transportation 1",
+    "sources_checked": 3,
+    "sources_unverified": 2,
+    "inside": "Rhode Island",
+    "registry_file": "https://github.com/d43pan/open-local/blob/main/registry/US/RI/newport-county.yaml",
     "wikidata": "Q54260",
     "ocd_division": "ocd-division/country:us/state:ri/county:newport",
     "us_census_geoid": "44005",
     "geonames": "5223601",
-    "osm_relation": "404983"
+    "osm_relation": "404983",
+    "marker-color": "#2e7d32",
+    "marker-size": "medium"
    }
   },
   {
@@ -565,11 +869,20 @@
     ]
    },
    "properties": {
+    "title": "North Kingstown: not mapped yet",
+    "description": "Not mapped yet: the place is known but no sources are listed. Help add them.",
     "id": "US/RI/north-kingstown",
     "name": "North Kingstown",
     "kind": "municipality",
+    "mapped": false,
     "sources": 0,
-    "us_census_geoid": "4400951580"
+    "with_feed_or_calendar": 0,
+    "local_kind": "town",
+    "inside": "Washington County",
+    "registry_file": "https://github.com/d43pan/open-local/blob/main/registry/US/RI/north-kingstown.yaml",
+    "us_census_geoid": "4400951580",
+    "marker-color": "#9e9e9e",
+    "marker-size": "small"
    }
   },
   {
@@ -582,11 +895,20 @@
     ]
    },
    "properties": {
+    "title": "North Providence: not mapped yet",
+    "description": "Not mapped yet: the place is known but no sources are listed. Help add them.",
     "id": "US/RI/north-providence",
     "name": "North Providence",
     "kind": "municipality",
+    "mapped": false,
     "sources": 0,
-    "us_census_geoid": "4400751760"
+    "with_feed_or_calendar": 0,
+    "local_kind": "town",
+    "inside": "Providence County",
+    "registry_file": "https://github.com/d43pan/open-local/blob/main/registry/US/RI/north-providence.yaml",
+    "us_census_geoid": "4400751760",
+    "marker-color": "#9e9e9e",
+    "marker-size": "small"
    }
   },
   {
@@ -599,11 +921,20 @@
     ]
    },
    "properties": {
+    "title": "North Smithfield: not mapped yet",
+    "description": "Not mapped yet: the place is known but no sources are listed. Help add them.",
     "id": "US/RI/north-smithfield",
     "name": "North Smithfield",
     "kind": "municipality",
+    "mapped": false,
     "sources": 0,
-    "us_census_geoid": "4400752480"
+    "with_feed_or_calendar": 0,
+    "local_kind": "town",
+    "inside": "Providence County",
+    "registry_file": "https://github.com/d43pan/open-local/blob/main/registry/US/RI/north-smithfield.yaml",
+    "us_census_geoid": "4400752480",
+    "marker-color": "#9e9e9e",
+    "marker-size": "small"
    }
   },
   {
@@ -616,11 +947,20 @@
     ]
    },
    "properties": {
+    "title": "Pawtucket: not mapped yet",
+    "description": "Not mapped yet: the place is known but no sources are listed. Help add them.",
     "id": "US/RI/pawtucket",
     "name": "Pawtucket",
     "kind": "municipality",
+    "mapped": false,
     "sources": 0,
-    "us_census_geoid": "4400754640"
+    "with_feed_or_calendar": 0,
+    "local_kind": "city",
+    "inside": "Providence County",
+    "registry_file": "https://github.com/d43pan/open-local/blob/main/registry/US/RI/pawtucket.yaml",
+    "us_census_geoid": "4400754640",
+    "marker-color": "#9e9e9e",
+    "marker-size": "small"
    }
   },
   {
@@ -633,15 +973,30 @@
     ]
    },
    "properties": {
+    "title": "Portsmouth: 21 sources",
+    "description": "21 sources (13 with a feed or calendar): meetings 3, planning-zoning 2, schools 2, arts-culture 1, environment 1, food-drink 1, government 1, history 1, library 1, meeting-video 1, news-site 1, newspaper 1, parks-recreation 1, permits 1, tourism 1, transportation 1, utility 1. Next to: Tiverton, Bristol. Not in the registry yet: Middletown, Rhode Island.",
     "id": "US/RI/portsmouth",
     "name": "Portsmouth",
     "kind": "municipality",
+    "mapped": true,
     "sources": 21,
+    "with_feed_or_calendar": 13,
+    "local_kind": "town",
+    "source_types": "meetings 3, planning-zoning 2, schools 2, arts-culture 1, environment 1, food-drink 1, government 1, history 1, library 1, meeting-video 1, news-site 1, newspaper 1, parks-recreation 1, permits 1, tourism 1, transportation 1, utility 1",
+    "sources_checked": 20,
+    "sources_unverified": 1,
+    "inside": "Newport County",
+    "neighbors": "Tiverton, Bristol",
+    "neighbors_not_in_registry": "Middletown, Rhode Island",
+    "postal_codes": "02871",
+    "registry_file": "https://github.com/d43pan/open-local/blob/main/registry/US/RI/portsmouth.yaml",
     "wikidata": "Q1787188",
     "ocd_division": "ocd-division/country:us/state:ri/place:portsmouth",
     "us_census_geoid": "4400557880",
     "geonames": "5224082",
-    "osm_relation": "6258556"
+    "osm_relation": "6258556",
+    "marker-color": "#2e7d32",
+    "marker-size": "large"
    }
   },
   {
@@ -654,11 +1009,20 @@
     ]
    },
    "properties": {
+    "title": "Providence: not mapped yet",
+    "description": "Not mapped yet: the place is known but no sources are listed. Help add them.",
     "id": "US/RI/providence",
     "name": "Providence",
     "kind": "municipality",
+    "mapped": false,
     "sources": 0,
-    "us_census_geoid": "4400759000"
+    "with_feed_or_calendar": 0,
+    "local_kind": "city",
+    "inside": "Providence County",
+    "registry_file": "https://github.com/d43pan/open-local/blob/main/registry/US/RI/providence.yaml",
+    "us_census_geoid": "4400759000",
+    "marker-color": "#9e9e9e",
+    "marker-size": "small"
    }
   },
   {
@@ -671,12 +1035,21 @@
     ]
    },
    "properties": {
+    "title": "Providence County: not mapped yet",
+    "description": "Not mapped yet: the place is known but no sources are listed. Help add them.",
     "id": "US/RI/providence-county",
     "name": "Providence County",
     "kind": "county",
+    "mapped": false,
     "sources": 0,
+    "with_feed_or_calendar": 0,
+    "local_kind": "county",
+    "inside": "Rhode Island",
+    "registry_file": "https://github.com/d43pan/open-local/blob/main/registry/US/RI/providence-county.yaml",
     "us_census_geoid": "44007",
-    "ocd_division": "ocd-division/country:us/state:ri/county:providence"
+    "ocd_division": "ocd-division/country:us/state:ri/county:providence",
+    "marker-color": "#9e9e9e",
+    "marker-size": "small"
    }
   },
   {
@@ -689,11 +1062,20 @@
     ]
    },
    "properties": {
+    "title": "Richmond: not mapped yet",
+    "description": "Not mapped yet: the place is known but no sources are listed. Help add them.",
     "id": "US/RI/richmond",
     "name": "Richmond",
     "kind": "municipality",
+    "mapped": false,
     "sources": 0,
-    "us_census_geoid": "4400961160"
+    "with_feed_or_calendar": 0,
+    "local_kind": "town",
+    "inside": "Washington County",
+    "registry_file": "https://github.com/d43pan/open-local/blob/main/registry/US/RI/richmond.yaml",
+    "us_census_geoid": "4400961160",
+    "marker-color": "#9e9e9e",
+    "marker-size": "small"
    }
   },
   {
@@ -706,11 +1088,20 @@
     ]
    },
    "properties": {
+    "title": "Scituate: not mapped yet",
+    "description": "Not mapped yet: the place is known but no sources are listed. Help add them.",
     "id": "US/RI/scituate",
     "name": "Scituate",
     "kind": "municipality",
+    "mapped": false,
     "sources": 0,
-    "us_census_geoid": "4400764220"
+    "with_feed_or_calendar": 0,
+    "local_kind": "town",
+    "inside": "Providence County",
+    "registry_file": "https://github.com/d43pan/open-local/blob/main/registry/US/RI/scituate.yaml",
+    "us_census_geoid": "4400764220",
+    "marker-color": "#9e9e9e",
+    "marker-size": "small"
    }
   },
   {
@@ -723,11 +1114,20 @@
     ]
    },
    "properties": {
+    "title": "Smithfield: not mapped yet",
+    "description": "Not mapped yet: the place is known but no sources are listed. Help add them.",
     "id": "US/RI/smithfield",
     "name": "Smithfield",
     "kind": "municipality",
+    "mapped": false,
     "sources": 0,
-    "us_census_geoid": "4400766200"
+    "with_feed_or_calendar": 0,
+    "local_kind": "town",
+    "inside": "Providence County",
+    "registry_file": "https://github.com/d43pan/open-local/blob/main/registry/US/RI/smithfield.yaml",
+    "us_census_geoid": "4400766200",
+    "marker-color": "#9e9e9e",
+    "marker-size": "small"
    }
   },
   {
@@ -740,11 +1140,20 @@
     ]
    },
    "properties": {
+    "title": "South Kingstown: not mapped yet",
+    "description": "Not mapped yet: the place is known but no sources are listed. Help add them.",
     "id": "US/RI/south-kingstown",
     "name": "South Kingstown",
     "kind": "municipality",
+    "mapped": false,
     "sources": 0,
-    "us_census_geoid": "4400967460"
+    "with_feed_or_calendar": 0,
+    "local_kind": "town",
+    "inside": "Washington County",
+    "registry_file": "https://github.com/d43pan/open-local/blob/main/registry/US/RI/south-kingstown.yaml",
+    "us_census_geoid": "4400967460",
+    "marker-color": "#9e9e9e",
+    "marker-size": "small"
    }
   },
   {
@@ -757,15 +1166,29 @@
     ]
    },
    "properties": {
+    "title": "Tiverton: 21 sources",
+    "description": "21 sources (14 with a feed or calendar): meetings 3, news-site 2, newspaper 2, arts-culture 1, business 1, environment 1, farm-market 1, government 1, library 1, meeting-video 1, permits 1, planning-zoning 1, public-notices 1, public-safety 1, schools 1, tourism 1, utility 1. Next to: Little Compton, Westport, Portsmouth. Not in the registry yet: Fall River, Massachusetts.",
     "id": "US/RI/tiverton",
     "name": "Tiverton",
     "kind": "municipality",
+    "mapped": true,
     "sources": 21,
+    "with_feed_or_calendar": 14,
+    "local_kind": "town",
+    "source_types": "meetings 3, news-site 2, newspaper 2, arts-culture 1, business 1, environment 1, farm-market 1, government 1, library 1, meeting-video 1, permits 1, planning-zoning 1, public-notices 1, public-safety 1, schools 1, tourism 1, utility 1",
+    "sources_checked": 21,
+    "inside": "Newport County",
+    "neighbors": "Little Compton, Westport, Portsmouth",
+    "neighbors_not_in_registry": "Fall River, Massachusetts",
+    "postal_codes": "02878",
+    "registry_file": "https://github.com/d43pan/open-local/blob/main/registry/US/RI/tiverton.yaml",
     "wikidata": "Q1027996",
     "ocd_division": "ocd-division/country:us/state:ri/place:tiverton",
     "us_census_geoid": "4400570880",
     "geonames": "5225253",
-    "osm_relation": "7814962"
+    "osm_relation": "7814962",
+    "marker-color": "#2e7d32",
+    "marker-size": "large"
    }
   },
   {
@@ -778,15 +1201,29 @@
     ]
    },
    "properties": {
+    "title": "Warren: 19 sources",
+    "description": "19 sources (9 with a feed or calendar): meetings 3, arts-culture 2, planning-zoning 2, community-organization 1, environment 1, food-drink 1, government 1, history 1, library 1, news-site 1, newspaper 1, parks-recreation 1, permits 1, schools 1, tourism 1. Next to: Bristol, Barrington. Not in the registry yet: Swansea, Massachusetts.",
     "id": "US/RI/warren",
     "name": "Warren",
     "kind": "municipality",
+    "mapped": true,
     "sources": 19,
+    "with_feed_or_calendar": 9,
+    "local_kind": "town",
+    "source_types": "meetings 3, arts-culture 2, planning-zoning 2, community-organization 1, environment 1, food-drink 1, government 1, history 1, library 1, news-site 1, newspaper 1, parks-recreation 1, permits 1, schools 1, tourism 1",
+    "sources_checked": 19,
+    "inside": "Bristol County",
+    "neighbors": "Bristol, Barrington",
+    "neighbors_not_in_registry": "Swansea, Massachusetts",
+    "postal_codes": "02885",
+    "registry_file": "https://github.com/d43pan/open-local/blob/main/registry/US/RI/warren.yaml",
     "wikidata": "Q1027951",
     "ocd_division": "ocd-division/country:us/state:ri/place:warren",
     "us_census_geoid": "4400173760",
     "geonames": "5225502",
-    "osm_relation": "7751594"
+    "osm_relation": "7751594",
+    "marker-color": "#2e7d32",
+    "marker-size": "medium"
    }
   },
   {
@@ -799,11 +1236,20 @@
     ]
    },
    "properties": {
+    "title": "Warwick: not mapped yet",
+    "description": "Not mapped yet: the place is known but no sources are listed. Help add them.",
     "id": "US/RI/warwick",
     "name": "Warwick",
     "kind": "municipality",
+    "mapped": false,
     "sources": 0,
-    "us_census_geoid": "4400374300"
+    "with_feed_or_calendar": 0,
+    "local_kind": "city",
+    "inside": "Kent County",
+    "registry_file": "https://github.com/d43pan/open-local/blob/main/registry/US/RI/warwick.yaml",
+    "us_census_geoid": "4400374300",
+    "marker-color": "#9e9e9e",
+    "marker-size": "small"
    }
   },
   {
@@ -816,12 +1262,21 @@
     ]
    },
    "properties": {
+    "title": "Washington County: not mapped yet",
+    "description": "Not mapped yet: the place is known but no sources are listed. Help add them.",
     "id": "US/RI/washington-county",
     "name": "Washington County",
     "kind": "county",
+    "mapped": false,
     "sources": 0,
+    "with_feed_or_calendar": 0,
+    "local_kind": "county",
+    "inside": "Rhode Island",
+    "registry_file": "https://github.com/d43pan/open-local/blob/main/registry/US/RI/washington-county.yaml",
     "us_census_geoid": "44009",
-    "ocd_division": "ocd-division/country:us/state:ri/county:washington"
+    "ocd_division": "ocd-division/country:us/state:ri/county:washington",
+    "marker-color": "#9e9e9e",
+    "marker-size": "small"
    }
   },
   {
@@ -834,11 +1289,20 @@
     ]
    },
    "properties": {
+    "title": "West Greenwich: not mapped yet",
+    "description": "Not mapped yet: the place is known but no sources are listed. Help add them.",
     "id": "US/RI/west-greenwich",
     "name": "West Greenwich",
     "kind": "municipality",
+    "mapped": false,
     "sources": 0,
-    "us_census_geoid": "4400377720"
+    "with_feed_or_calendar": 0,
+    "local_kind": "town",
+    "inside": "Kent County",
+    "registry_file": "https://github.com/d43pan/open-local/blob/main/registry/US/RI/west-greenwich.yaml",
+    "us_census_geoid": "4400377720",
+    "marker-color": "#9e9e9e",
+    "marker-size": "small"
    }
   },
   {
@@ -851,11 +1315,20 @@
     ]
    },
    "properties": {
+    "title": "West Warwick: not mapped yet",
+    "description": "Not mapped yet: the place is known but no sources are listed. Help add them.",
     "id": "US/RI/west-warwick",
     "name": "West Warwick",
     "kind": "municipality",
+    "mapped": false,
     "sources": 0,
-    "us_census_geoid": "4400378440"
+    "with_feed_or_calendar": 0,
+    "local_kind": "town",
+    "inside": "Kent County",
+    "registry_file": "https://github.com/d43pan/open-local/blob/main/registry/US/RI/west-warwick.yaml",
+    "us_census_geoid": "4400378440",
+    "marker-color": "#9e9e9e",
+    "marker-size": "small"
    }
   },
   {
@@ -868,11 +1341,20 @@
     ]
    },
    "properties": {
+    "title": "Westerly: not mapped yet",
+    "description": "Not mapped yet: the place is known but no sources are listed. Help add them.",
     "id": "US/RI/westerly",
     "name": "Westerly",
     "kind": "municipality",
+    "mapped": false,
     "sources": 0,
-    "us_census_geoid": "4400977000"
+    "with_feed_or_calendar": 0,
+    "local_kind": "town",
+    "inside": "Washington County",
+    "registry_file": "https://github.com/d43pan/open-local/blob/main/registry/US/RI/westerly.yaml",
+    "us_census_geoid": "4400977000",
+    "marker-color": "#9e9e9e",
+    "marker-size": "small"
    }
   },
   {
@@ -885,11 +1367,20 @@
     ]
    },
    "properties": {
+    "title": "Woonsocket: not mapped yet",
+    "description": "Not mapped yet: the place is known but no sources are listed. Help add them.",
     "id": "US/RI/woonsocket",
     "name": "Woonsocket",
     "kind": "municipality",
+    "mapped": false,
     "sources": 0,
-    "us_census_geoid": "4400780780"
+    "with_feed_or_calendar": 0,
+    "local_kind": "city",
+    "inside": "Providence County",
+    "registry_file": "https://github.com/d43pan/open-local/blob/main/registry/US/RI/woonsocket.yaml",
+    "us_census_geoid": "4400780780",
+    "marker-color": "#9e9e9e",
+    "marker-size": "small"
    }
   },
   {
@@ -902,10 +1393,21 @@
     ]
    },
    "properties": {
+    "title": "Farm Coast: 2 sources",
+    "description": "2 sources (0 with a feed or calendar): arts-culture 1, tourism 1.",
     "id": "US/farm-coast",
     "name": "Farm Coast",
     "kind": "custom",
-    "sources": 2
+    "mapped": true,
+    "sources": 2,
+    "with_feed_or_calendar": 0,
+    "local_kind": "named region",
+    "source_types": "arts-culture 1, tourism 1",
+    "sources_checked": 2,
+    "inside": "United States",
+    "registry_file": "https://github.com/d43pan/open-local/blob/main/registry/US/farm-coast.yaml",
+    "marker-color": "#2e7d32",
+    "marker-size": "medium"
    }
   }
  ]

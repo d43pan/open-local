@@ -59,17 +59,76 @@ def to_csv(reg: Registry) -> str:
     return buf.getvalue()
 
 
+FEED_KINDS = {"rss", "atom", "jsonfeed", "ical", "podcast"}
+REPO_URL = "https://github.com/d43pan/open-local"
+# simplestyle-spec markers, which GitHub and geojson.io draw: green for a place with
+# sources of its own, grey for one that is only an outline so far.
+MAPPED, UNMAPPED = "#2e7d32", "#9e9e9e"
+
+
+def _names(reg: Registry, ids) -> str:
+    return ", ".join(reg.places[i]["name"] for i in ids or [] if i in reg.places)
+
+
 def to_geojson(reg: Registry) -> str:
-    """Places as points with the number of sources that cover each directly."""
+    """Places as points, each described well enough to read the map without the registry.
+
+    `title` and `description` are what a map shows first; the rest of the properties say
+    how well the place is mapped, what kinds of source it has, what it sits inside,
+    what is next to it, and where its file is.
+    """
     feats = []
     for pid, p in reg.places.items():
         c = p.get("centroid")
         if not c:
             continue
-        direct = sum(1 for s in reg.sources if any(cv.get("place") == pid for cv in s.get("coverage") or []))
+        own = [s for s in reg.sources if any(cv.get("place") == pid for cv in s.get("coverage") or [])]
+        n = len(own)
+        feeds = sum(1 for s in own if any(e.get("kind") in FEED_KINDS for e in s.get("endpoints") or []))
+        types: dict[str, int] = {}
+        status: dict[str, int] = {}
+        for s in own:
+            types[s["type"]] = types.get(s["type"], 0) + 1
+            status[s.get("status", "unverified")] = status.get(s.get("status", "unverified"), 0) + 1
+        type_text = ", ".join("{} {}".format(k, v) for k, v in sorted(types.items(), key=lambda kv: (-kv[1], kv[0])))
+        inside = _names(reg, p.get("parents"))
+        near = _names(reg, p.get("neighbors"))
+        todo = ", ".join(a["name"] for a in p.get("adjacent_unmapped") or [])
+        if n:
+            desc = "{} source{} ({} with a feed or calendar): {}.".format(n, "" if n == 1 else "s", feeds, type_text)
+        else:
+            desc = "Not mapped yet: the place is known but no sources are listed. Help add them."
+        if near:
+            desc += " Next to: {}.".format(near)
+        if todo:
+            desc += " Not in the registry yet: {}.".format(todo)
+        props = {
+            "title": "{}: {}".format(p["name"], "{} source{}".format(n, "" if n == 1 else "s") if n else "not mapped yet"),
+            "description": desc,
+            "id": pid, "name": p["name"], "kind": p["kind"],
+            "mapped": bool(n), "sources": n, "with_feed_or_calendar": feeds,
+        }
+        if p.get("local_kind"):
+            props["local_kind"] = p["local_kind"]
+        if type_text:
+            props["source_types"] = type_text
+        for k in ("verified", "checked", "unverified", "broken", "stale"):
+            if status.get(k):
+                props["sources_" + k] = status[k]
+        if inside:
+            props["inside"] = inside
+        if near:
+            props["neighbors"] = near
+        if todo:
+            props["neighbors_not_in_registry"] = todo
+        if p.get("postal_codes"):
+            props["postal_codes"] = ", ".join(p["postal_codes"])
+        props["registry_file"] = "{}/blob/main/registry/{}.yaml".format(REPO_URL, pid)
+        props.update(p.get("identifiers") or {})
+        props["marker-color"] = MAPPED if n else UNMAPPED
+        props["marker-size"] = "large" if n >= 20 else "medium" if n else "small"
         feats.append({"type": "Feature", "geometry": {"type": "Point", "coordinates": [c["lon"], c["lat"]]},
-                      "properties": {"id": pid, "name": p["name"], "kind": p["kind"], "sources": direct,
-                                     **{k: v for k, v in (p.get("identifiers") or {}).items()}}})
+                      "properties": props})
     return json.dumps({"type": "FeatureCollection", "features": feats}, indent=1, ensure_ascii=False) + "\n"
 
 
