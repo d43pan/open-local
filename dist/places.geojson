@@ -143,8 +143,12 @@
     "id": "US/RI/bristol",
     "name": "Bristol",
     "kind": "municipality",
-    "sources": 0,
-    "us_census_geoid": "4400109280"
+    "sources": 27,
+    "wikidata": "Q917809",
+    "ocd_division": "ocd-division/country:us/state:ri/place:bristol",
+    "us_census_geoid": "4400109280",
+    "geonames": "5221077",
+    "osm_relation": "191223"
    }
   },
   {
@@ -160,9 +164,12 @@
     "id": "US/RI/bristol-county",
     "name": "Bristol County",
     "kind": "county",
-    "sources": 0,
+    "sources": 2,
     "us_census_geoid": "44001",
-    "ocd_division": "ocd-division/country:us/state:ri/county:bristol"
+    "ocd_division": "ocd-division/country:us/state:ri/county:bristol",
+    "wikidata": "Q54262",
+    "geonames": "5221078",
+    "osm_relation": "404984"
    }
   },
   {
@@ -774,7 +781,7 @@
     "id": "US/RI/warren",
     "name": "Warren",
     "kind": "municipality",
-    "sources": 0,
+    "sources": 2,
     "us_census_geoid": "4400173760"
    }
   },

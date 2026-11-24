@@ -34,6 +34,8 @@ sources:
     level: dedicated
   - place: US/RI/portsmouth
     level: regular
+  - place: US/RI/bristol
+    level: regular
   languages:
   - en
   topics:
@@ -45,6 +47,8 @@ sources:
     url: https://www.discovernewport.org/about-newport/nine-coastal-communities/tiverton/
   - kind: html
     url: https://www.discovernewport.org/about-newport/nine-coastal-communities/portsmouth/
+  - kind: html
+    url: https://www.discovernewport.org/about-newport/nine-coastal-communities/bristol/
   - kind: html
     url: https://www.discovernewport.org/events/
   - kind: sitemap
