@@ -11,7 +11,7 @@ body:
     id: sources
     attributes:
       label: Where do people there find out what is going on?
-      description: "One per line, with web addresses if you have them: the town site, the paper, the library calendar, where meetings are posted, farms, galleries. Or paste YAML produced by the open-local-build skill."
+      description: "One per line, with web addresses if you have them: the town site, the paper, the library calendar, where meetings are posted, farms, galleries. Or paste YAML produced by the Open Local skill."
     validations: {required: true}
   - type: dropdown
     id: role

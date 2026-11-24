@@ -55,7 +55,7 @@ Maintainers who are inactive for a year are moved to emeritus; they can return b
 - Everything needed to run the project is in this repository. Forking is welcome, and the
   data licence (CC0) makes it possible without asking.
 - The data is published as plain files (`dist/`) that anyone can mirror or build on
-  without using the skills.
+  without using the skill.
 - The tools use no proprietary service, model or API.
 - If the project grows, the aim is a small steering group drawn from community
   maintainers, with the repository moved to a neutral organisation. See the roadmap.

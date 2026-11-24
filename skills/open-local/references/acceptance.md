@@ -24,7 +24,7 @@ A source is accepted when all of these hold.
 Listing is not endorsement. The registry does not rank sources by politics or by how much
 anyone likes them. A partisan local blog that is public, identifiable and about the place
 can be listed, typed accurately (`blog`) and classified accurately. Readers and agents
-decide how to weigh it; the rules in the `open-local` skill tell agents to label opinion
+decide how to weigh it; the rules in this skill tell agents to label opinion
 as opinion.
 
 ## Disputes

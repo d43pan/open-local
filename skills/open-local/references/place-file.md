@@ -41,7 +41,7 @@ sources:
 - **Neighbours go both ways.** If A lists B, B should list A.
 - **Record the frontier.** List adjoining places that have no file yet under
   `adjacent_unmapped` (a `name`, and the `wikidata` id if you can copy it). It tells the
-  next contributor where to go, and the `open-local-expand` skill reads it.
+  next contributor where to go, and the expanding workflow reads it.
 - **Centroid:** a point roughly in the middle, to three decimal places. It powers "near me"
   and radius searches. Take it from the place's Wikidata item (coordinate location) or
   the national statistics office.

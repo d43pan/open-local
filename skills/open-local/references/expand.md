@@ -1,16 +1,6 @@
----
-name: open-local-expand
-description: Grow Open Local outward from a mapped place to the next towns over, reusing the regional sources and site patterns already in the registry, and send each new town back as a pull request.
-license: MIT
-compatibility: Needs git, Python 3.10+ and internet access. A GitHub account (and the gh CLI) is needed to open the pull request; without one the result can be filed as an issue.
-metadata:
-  version: "0.1.0"
-  repository: https://github.com/d43pan/open-local
----
+# Expanding to the next towns
 
-# Open Local: expand to the next towns
-
-Use this when a place is already in the registry and someone wants coverage to reach its
+This part of the skill is for when a place is already in the registry and someone wants coverage to reach its
 neighbours: "add the towns around mine", "what should we map next?", "fill in the rest of
 the county".
 
@@ -18,15 +8,14 @@ Mapping the second town is much cheaper than the first. The state portal, the we
 paper's other town sections, the regional newsrooms and the same website platforms are
 usually already in the registry. This skill finds the next places out, reuses what is
 there, and leaves only the truly local sources to hunt for. For the hunting itself it
-uses the same method and rules as the `open-local-build` skill, which should be installed
-alongside this one.
+uses the method and rules in [build.md](build.md).
 
 Commands run from the root of a checkout of the repository:
 `python3 skills/open-local/scripts/run.py <command>`.
 
 ## Steps
 
-1. **Get a working copy** as in `open-local-build` step 1 (fork, clone, branch).
+1. **Get a working copy** as in [build.md](build.md) step 1 (fork, clone, branch).
 2. **See the frontier.** `run.py frontier` lists places that mapped places name as
    adjacent but that have no file yet, ranked by how many mapped places border them.
    `run.py frontier <place>` limits it to one place's neighbours. If the list is empty or
@@ -35,14 +24,14 @@ Commands run from the root of a checkout of the repository:
 3. **Choose one town, with the person.** Prefer a place they know, then the one bordering
    the most mapped places. One town per pull request: small enough for a local reviewer to
    check in one sitting. How to choose, and when not to expand:
-   [references/choosing.md](references/choosing.md).
-4. **Create the place file** (format: `open-local-build/references/place-file.md`). Most
+   [references/choosing.md](choosing.md).
+4. **Create the place file** (format: [place-file.md](place-file.md)). Most
    parents will already exist. Set `neighbors` on the new place and add it to each
    neighbour's `neighbors`. Then run `run.py sources <new place> --brief`: everything
    listed is already reaching the town through its county, state or region, before you
    have added a single source.
 5. **Reuse before you search.** Work through
-   [references/reuse.md](references/reuse.md) using the `neighbour_sources_to_check` list
+   [references/reuse.md](reuse.md) using the `neighbour_sources_to_check` list
    from `frontier`:
    - a source that also covers the new town gets the town **added to its `coverage`**;
      do not create a second entry for the same publisher
@@ -57,7 +46,7 @@ Commands run from the root of a checkout of the repository:
    place is still listed as unmapped.
 7. **Find what is only here.** Run `run.py gaps <new place>` to see which kinds of source
    the town still lacks and what its neighbours have of each kind. Then follow
-   `open-local-build` steps 3 to 6 for the remainder: ask the person, walk the checklist,
+   [build.md](build.md) steps 3 to 6 for the remainder: ask the person, walk the checklist,
    `run.py propose` each real source, check each against the acceptance rules, and have
    the person confirm the list.
 8. **Validate, rebuild, try it:**
@@ -67,7 +56,7 @@ Commands run from the root of a checkout of the repository:
    python3 skills/open-local/scripts/run.py recent <new place> --days 14
    python3 skills/open-local/scripts/run.py gaps <new place>
    ```
-9. **Send it back** as in `open-local-build` step 8: show the diff, ask before pushing,
+9. **Send it back** as in build.md step 8: show the diff, ask before pushing,
    open one pull request for this town, and say in it what was reused, what was newly
    found, and what gaps remain. Then offer the next town on the frontier.
 

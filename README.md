@@ -4,7 +4,7 @@
 
 Open Local is an open, shared map of where local information lives: the town website,
 the page where minutes get posted, the weekly paper, the library calendar, the farm
-stand, the gallery. Plus three skills that let any AI agent use that map to answer questions
+stand, the gallery. Plus one skill that lets any AI agent use that map to answer questions
 about a place with facts and sources, help people add their own town, and grow coverage
 out to the towns next door.
 
@@ -43,7 +43,7 @@ who did it, and agents are told to send readers to them.
 |---|---|---|
 | **The registry** ([`registry/`](registry), [`dist/`](dist)) | Places and the public sources that cover them, as YAML you can edit and JSON, OPML, CSV and GeoJSON you can consume. Public domain (CC0). | Yes: it is plain files |
 | **The tools** ([`skills/open-local/scripts`](skills/open-local/scripts)) | Small Python programs: find sources for a place, read their feeds and calendars, discover feeds, spot page changes, check links, draft new entries. Standard library only, no API keys. | Yes: `python3 run.py --help` |
-| **The skills** ([`skills/`](skills)) | Instructions in the open [Agent Skills](https://agentskills.io) format. `open-local` answers questions about a place. `open-local-build` helps someone map their own community and send it back. `open-local-expand` grows coverage from a mapped place to its neighbours, reusing what the registry already knows. | Works with Claude, Codex, OpenClaw, Hermes and other agents that read skills |
+| **The skill** ([`skills/open-local`](skills/open-local)) | Instructions in the open [Agent Skills](https://agentskills.io) format. One skill, `open-local`, with three jobs: answer questions about a place; help someone map their own community and send it back; grow coverage from a mapped place to its neighbours, reusing what the registry already knows. | Works with Claude, Codex, OpenClaw, Hermes and other agents that read skills |
 
 ## Coverage today
 
@@ -68,9 +68,9 @@ Your town is not here yet. [Add it](#add-your-town).
 
 Paste this to your agent:
 
-> Install the Open Local skills from https://github.com/d43pan/open-local. Clone the
-> repository to a temporary folder, copy the three folders under `skills/` into your
-> skills folder keeping their names, then run
+> Install the Open Local skill from https://github.com/d43pan/open-local. Clone the
+> repository to a temporary folder, copy the folder `skills/open-local` into your skills
+> folder keeping that name, then run
 > `python3 <skills folder>/open-local/scripts/run.py where "Little Compton, RI"` to
 > confirm it works, and tell me what it printed. Do not run anything else from the
 > repository.
@@ -79,8 +79,8 @@ Or by hand:
 
 ```
 git clone https://github.com/d43pan/open-local
-cp -r open-local/skills/* ~/.claude/skills/   # Claude Code
-cp -r open-local/skills/* ~/.agents/skills/   # Codex and others
+cp -r open-local/skills/open-local ~/.claude/skills/   # Claude Code
+cp -r open-local/skills/open-local ~/.agents/skills/   # Codex and others
 ```
 
 Or with the open-source skills installer: `npx skills add d43pan/open-local`
@@ -120,10 +120,10 @@ You know where your town's information lives. That is the contribution.
 
 - **No code, no git:** fill in [a form](https://github.com/d43pan/open-local/issues/new/choose).
   Guide: [docs/for-everyone.md](docs/for-everyone.md).
-- **With your AI agent:** *"Use open-local-build to add my town to Open Local."* It asks
+- **With your AI agent:** *"Use Open Local to add my town."* It asks
   what you know, checks each site, finds the feeds, shows you the list to correct, and
   opens the pull request when you say so.
-- **Already mapped? Push outward:** *"Use open-local-expand to add the next town over."*
+- **Already mapped? Push outward:** *"Use Open Local to add the next town over."*
   It finds the unmapped neighbours, reuses the regional sources and site patterns already
   in the registry, and hunts only for what is truly local.
 - **By hand:** [CONTRIBUTING.md](CONTRIBUTING.md).
@@ -137,7 +137,7 @@ has checked it.
 You are who this is for, and who it needs.
 
 - **Newsrooms:** list your publication and its town-level feeds so agents find your
-  reporting and credit it. The skills tell agents to link the original, name the newsroom,
+  reporting and credit it. The skill tells agents to link the original, name the newsroom,
   keep summaries short and respect paywalls. If you want your entry changed or removed,
   [say so](https://github.com/d43pan/open-local/issues/new/choose) and it will be.
 - **Libraries and civic organisations:** you already know every source in town. Become
@@ -148,7 +148,7 @@ You are who this is for, and who it needs.
 
 ## Developers
 
-The registry is yours to build on, with or without the skills:
+The registry is yours to build on, with or without the skill:
 
 - `https://raw.githubusercontent.com/d43pan/open-local/main/dist/registry.json`
 - OPML for feed readers, CSV for spreadsheets, GeoJSON for maps, in [`dist/`](dist)

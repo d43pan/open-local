@@ -15,4 +15,4 @@ body:
     id: area
     attributes:
       label: Area
-      options: [Asking about a place (open-local skill), Adding a place (open-local-build skill), Registry format, Tools, Documentation, Places outside the US, Governance, Other]
+      options: [Asking about a place, Adding a place, Expanding to nearby places, Registry format, Tools, Documentation, Places outside the US, Governance, Other]

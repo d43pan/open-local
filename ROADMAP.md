@@ -4,8 +4,8 @@ A direction, not a promise. Open an issue to argue with any of it.
 
 ## Now (0.1)
 
-- Three skills: ask about a place (`open-local`), map a place (`open-local-build`), grow
-  to the next towns over (`open-local-expand`).
+- One skill, `open-local`, that does three jobs: answer questions about a place, map a new
+  place, and grow coverage to the next towns over.
 - Registry format, validation, exports (JSON, OPML, CSV, GeoJSON).
 - Tools: feed discovery, recent items, dates, page changes, availability, proposals.
 - First mapped community: Little Compton, Rhode Island, with Tiverton, Westport (MA) and
@@ -32,7 +32,7 @@ A direction, not a promise. Open an issue to argue with any of it.
 - Boundaries for places that publish them under a compatible licence, so "near me" stops
   relying on centre points.
 - Per-source notes on how to read a site that has no feed.
-- Languages other than English for the skills and guides.
+- Languages other than English for the skill and guides.
 - A neutral home: a steering group from community maintainers and the repository under an
   organisation, once there are enough maintainers for that to mean something.
 

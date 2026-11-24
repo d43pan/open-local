@@ -1,8 +1,8 @@
 ---
 name: open-local
-description: Answer what is happening in a town or neighbourhood (decisions, events, food, arts, openings) from a shared registry of local sources, with citations and a coverage report.
+description: Answer what is happening in a town (decisions, events, food, arts) from a shared registry of local sources, with citations; also map a new town or the next towns over and send it back.
 license: MIT
-compatibility: Needs Python 3.10+ and internet access. Works with any agent that can run a shell command and fetch web pages. No API key, no account.
+compatibility: Needs Python 3.10+ and internet access. Works with any agent that can run a shell command and fetch web pages. No API key, no account. Adding a town also needs git, and a GitHub account to open the pull request.
 metadata:
   version: "0.1.0"
   repository: https://github.com/d43pan/open-local
@@ -10,8 +10,13 @@ metadata:
 
 # Open Local
 
-Use this when someone asks about a specific place: what is happening there, what the council
-decided, what is on this weekend, where to eat, what is opening, what to pay attention to.
+One skill, three jobs:
+
+| The person wants | Do |
+|---|---|
+| To know about a place: what is happening, what the council decided, what is on, where to eat | The steps below |
+| To add their town, add sources, or fix entries | [references/build.md](references/build.md) |
+| To grow coverage from a mapped place to the towns next door | [references/expand.md](references/expand.md) |
 
 Open Local is a public registry of where local information lives (town sites, meeting
 records, papers, calendars, farms, galleries, libraries) plus small tools to read it. Your
@@ -45,10 +50,10 @@ JSON and need only the Python standard library. Without a shell, see
    `run.py discover <url>` finds a site's feeds.
 6. **Write the answer** in the shape in [references/briefing.md](references/briefing.md):
    what happened, what is coming, then a coverage report. Follow the rules below.
-7. **Offer to improve the map.** If you found a good source that is missing, or a listed
-   one is broken, say so and offer to draft the fix: `run.py propose <url> --place <id>`
-   prints an entry for a person to review. The `open-local-build` skill covers adding a
-   whole community. Never present a proposal as accepted.
+7. **Offer to improve the map.** If you found a good source that is missing, a listed one
+   is broken, or the place is not in the registry, say so and offer to fix it by following
+   [references/build.md](references/build.md). `run.py propose <url> --place <id>` prints
+   a draft entry for a person to review. Never present a proposal as accepted.
 
 ## Rules
 

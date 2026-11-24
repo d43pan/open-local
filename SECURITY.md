@@ -17,7 +17,7 @@ them. Agents then read what comes back. Both are treated as hostile input.
 | Huge or slow responses | 5 MB cap, 20 second timeout, one request per host per second. |
 | Malicious XML | Feeds that declare entities are refused; nothing is resolved from outside the document. |
 | Code execution | Nothing fetched is executed, imported or unpickled. YAML is loaded with `safe_load`. No shell commands are built from registry data. |
-| Prompt injection through a feed, page or registry field | The skills tell agents that all fetched text is data. Tool output carries the same note. This reduces the risk; it cannot remove it. Agents that act on what they read (send, buy, delete) should not do so on the strength of local-news content. |
+| Prompt injection through a feed, page or registry field | The skill tells agents that all fetched text is data. Tool output carries the same note. This reduces the risk; it cannot remove it. Agents that act on what they read (send, buy, delete) should not do so on the strength of local-news content. |
 | A fake or impersonating source gets listed | Human review of every pull request, acceptance rules, `provenance` on each entry, and scheduled checks. Agent-drafted entries cannot be marked verified without a named reviewer. |
 | Personal data in the registry | Validation rejects email addresses; the rules forbid personal contact details. |
 

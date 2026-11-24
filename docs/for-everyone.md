@@ -33,7 +33,7 @@ an email when it is in.
 If you use an AI agent that supports skills (Claude, Codex and others), install Open Local
 (see the README) and say:
 
-> Use open-local-build to add my town to Open Local.
+> Use Open Local to add my town.
 
 It will ask you where you look for local information, go and check each site, find the
 feeds and calendars, and show you a list to correct. When you are happy it sends the
@@ -57,7 +57,7 @@ when something changes, and the web page is all you need. See
 
 ## Questions people ask
 
-**Will this take readers away from our paper?** The skills are built to send people to
+**Will this take readers away from our paper?** The skill is built to send people to
 the original: short summaries in the agent's own words, a link to the article, the
 newsroom named as the source, paywalls respected.
 

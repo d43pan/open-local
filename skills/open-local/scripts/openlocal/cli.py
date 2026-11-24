@@ -35,7 +35,7 @@ def one_place(reg: Registry, args) -> str:
     found = reg.resolve(args.place, postal=getattr(args, "postal", None), lat=getattr(args, "lat", None), lon=getattr(args, "lon", None))
     if not found:
         out({"error": "place not in the registry", "asked": args.place or getattr(args, "postal", None),
-             "next": "Tell the user this place has no entry yet, answer from a web search with that caveat, and offer to help add it (open-local-build skill)."})
+             "next": "Tell the user this place has no entry yet, answer from a web search with that caveat, and offer to help add it (references/build.md in this skill)."})
         sys.exit(3)
     if len(found) > 1 and found[0]["matched_by"] not in ("exact id", "postal code") and not str(found[0]["matched_by"]).endswith("point"):
         out({"error": "more than one place matches; ask which", "candidates": found})

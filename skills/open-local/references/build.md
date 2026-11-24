@@ -1,16 +1,6 @@
----
-name: open-local-build
-description: Map the local information sources for a community (town site, meetings, papers, calendars, farms, arts) into the Open Local registry and send it back as a pull request.
-license: MIT
-compatibility: Needs git, Python 3.10+ and internet access. A GitHub account (and the gh CLI) is needed to open the pull request; without one the result can be filed as an issue.
-metadata:
-  version: "0.1.0"
-  repository: https://github.com/d43pan/open-local
----
+# Mapping a community
 
-# Open Local: build your own local
-
-Use this when someone wants to add their town, neighbourhood or region to Open Local, add
+This part of the skill is for when someone wants to add their town, neighbourhood or region to Open Local, add
 sources to a place that is thin, or fix entries that are wrong or broken.
 
 You do the legwork; the person you are working with is the local expert and the reviewer.
@@ -29,18 +19,18 @@ Commands run from the root of a checkout of the repository:
 2. **Agree the place.** Ask what they call it and what it sits inside. Run
    `run.py where "<name>"`. If it exists, you are adding sources to it. If not, create the
    place file and any missing parents following
-   [references/place-file.md](references/place-file.md). Identifiers and coordinates come
+   [references/place-file.md](place-file.md). Identifiers and coordinates come
    from the authoritative pages listed there; never guess one.
 3. **Ask before you search.** "Where do you look to find out what's going on? Which
    paper, which websites, which boards, where do you eat, what's the gallery
    or theatre?" Their answers go first.
-4. **Walk the checklist.** Go through [references/checklist.md](references/checklist.md)
+4. **Walk the checklist.** Go through [references/checklist.md](checklist.md)
    one kind at a time. For each real source found, run
    `run.py propose <url> --place <id> --type <type> --added-by <their handle>`, which loads
    the site, finds its feeds and calendars, and prints a draft entry. It is fine for a kind
    to have nothing: note the gap rather than stretching to fill it.
 5. **Check each draft against the rules** in
-   [references/acceptance.md](references/acceptance.md): public, first-hand or clearly
+   [references/acceptance.md](acceptance.md): public, first-hand or clearly
    labelled, actually about this place, no private people. Fix the name, type,
    `classification`, `coverage` (which places, and how much) and `paywall` by reading the
    site, not by assumption.
@@ -62,7 +52,7 @@ Commands run from the root of a checkout of the repository:
    added, how each source was checked, and what gaps remain. Without GitHub: paste the YAML
    into a new "Add a community" issue at
    https://github.com/d43pan/open-local/issues/new/choose. Do not merge anything yourself.
-9. **Try it.** Use the `open-local` skill to produce a short briefing for the new place
+9. **Try it.** Follow the main steps in SKILL.md to produce a short briefing for the new place
    and show it to the person. What it gets wrong is the next round of fixes.
 
 ## Rules

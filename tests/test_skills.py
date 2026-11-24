@@ -19,8 +19,8 @@ def front(skill):
     return yaml.safe_load(fm), body
 
 
-def test_the_skills():
-    assert [s.name for s in SKILLS] == ["open-local", "open-local-build", "open-local-expand"]
+def test_there_is_one_skill():
+    assert [s.name for s in SKILLS] == ["open-local"]
 
 
 @pytest.mark.parametrize("skill", SKILLS, ids=lambda s: s.name)
@@ -79,14 +79,18 @@ def test_the_use_skill_states_the_rules_that_matter():
         assert must.lower() in body.lower(), must
 
 
-def test_the_build_skill_keeps_a_person_in_the_loop():
-    _, body = front(ROOT / "skills/open-local-build")
-    for must in ["agent-proposed", "ask before pushing", "Do not merge", "Never\n  write a URL from memory"]:
-        assert re.sub(r"\s+", " ", must.lower()) in re.sub(r"\s+", " ", body.lower()), must
+def test_mapping_keeps_a_person_in_the_loop():
+    flat = re.sub(r"\s+", " ", (ROOT / "skills/open-local/references/build.md").read_text().lower())
+    for must in ["agent-proposed", "ask before pushing", "do not merge anything yourself", "never write a url from memory"]:
+        assert must in flat, must
 
 
-def test_the_expand_skill_reuses_and_does_not_guess():
-    _, body = front(ROOT / "skills/open-local-expand")
-    flat = re.sub(r"\s+", " ", body.lower())
+def test_expanding_reuses_and_does_not_guess():
+    flat = re.sub(r"\s+", " ", (ROOT / "skills/open-local/references/expand.md").read_text().lower())
     for must in ["run.py frontier", "run.py gaps", "one town per pull request", "never by editing an id", "ask before pushing", "agent-proposed"]:
         assert must in flat, must
+
+
+def test_the_one_skill_routes_to_all_three_jobs():
+    _, body = front(ROOT / "skills/open-local")
+    assert "references/build.md" in body and "references/expand.md" in body

@@ -6,8 +6,8 @@ paper people read, who keeps the best events calendar. You do not need to code.
 | You want to | Do this |
 |---|---|
 | Add one source | [Open an "Add a source" issue](https://github.com/d43pan/open-local/issues/new/choose): a form, no git |
-| Add your town | [Open an "Add a community" issue](https://github.com/d43pan/open-local/issues/new/choose), or let your AI agent do the legwork with the `open-local-build` skill |
-| Add the towns around one that is already mapped | Use the `open-local-expand` skill: it finds the unmapped neighbours and reuses what the registry already knows |
+| Add your town | [Open an "Add a community" issue](https://github.com/d43pan/open-local/issues/new/choose), or let your AI agent do the legwork with the Open Local skill |
+| Add the towns around one that is already mapped | Ask your agent to expand Open Local to the next town over: the skill finds the unmapped neighbours and reuses what the registry already knows |
 | Report something broken or wrong | [Open a "Broken source" issue](https://github.com/d43pan/open-local/issues/new/choose) |
 | Do it all yourself | Edit the YAML and open a pull request (below) |
 
@@ -16,7 +16,7 @@ New to all this? Read [docs/for-everyone.md](docs/for-everyone.md) first.
 ## What gets accepted
 
 The full rules are in
-[skills/open-local-build/references/acceptance.md](skills/open-local-build/references/acceptance.md).
+[skills/open-local/references/acceptance.md](skills/open-local/references/acceptance.md).
 In short: public, about the place, identifiable, honestly described, working, and not about
 private individuals. Listing is not endorsement and sources are not judged on viewpoint.
 
@@ -24,7 +24,7 @@ private individuals. Listing is not endorsement and sources are not judged on vi
 
 1. Fork and clone. Install the checking tools: `pip install pyyaml jsonschema pytest`.
 2. Find or create the place file: `registry/<place id>.yaml`
-   ([how to write one](skills/open-local-build/references/place-file.md)).
+   ([how to write one](skills/open-local/references/place-file.md)).
 3. Draft entries. `python3 skills/open-local/scripts/run.py propose <url> --place <id> --type <type>`
    loads the site, finds its feeds and prints YAML to paste in. Then read the site and fix
    the name, type, coverage and paywall fields. Field reference: [docs/registry.md](docs/registry.md).
@@ -40,7 +40,7 @@ private individuals. Listing is not endorsement and sources are not judged on vi
 
 ## With an AI agent
 
-Install the skills (see the README), then say: *"Use open-local-build to add my town."*
+Install the skill (see the README), then say: *"Use Open Local to add my town."*
 The agent asks you what you know, finds the sources, drafts the entries and, with your
 go-ahead, opens the pull request.
 

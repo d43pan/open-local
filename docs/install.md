@@ -1,35 +1,31 @@
-# Installing the skills
+# Installing the skill
 
-There are three skills. Most people want the first; add the others if you plan to map
-places.
+There is one skill, `open-local`. It answers questions about a place, and it also carries
+the instructions for adding a town and for growing coverage to the next towns over; those
+load only when someone asks for them.
 
-- `open-local`: ask about a place.
-- `open-local-build`: add or fix a place and send it back.
-- `open-local-expand`: grow coverage from a mapped place to the next towns over (uses
-  `open-local-build`).
-
-The folder names must stay exactly as they are (the Agent Skills format requires the
-folder to match the skill's name).
+The folder name must stay `open-local` (the Agent Skills format requires the folder to
+match the skill's name).
 
 ## Let your agent do it
 
 Paste this to your agent:
 
-> Install the Open Local skills from https://github.com/d43pan/open-local. Clone the
-> repository to a temporary folder, copy the three folders under `skills/` into your
-> skills folder keeping their names, then run
+> Install the Open Local skill from https://github.com/d43pan/open-local. Clone the
+> repository to a temporary folder, copy the folder `skills/open-local` into your skills
+> folder keeping that name, then run
 > `python3 <skills folder>/open-local/scripts/run.py where "Little Compton, RI"` to
 > confirm it works, and tell me what it printed. Do not run anything else from the
 > repository.
 
 ## Any agent that reads Agent Skills
 
-With Node.js installed, the open-source `skills` installer finds all the skills in this
-repository and puts them where your agent looks:
+With Node.js installed, the open-source `skills` installer finds the skill in this
+repository and puts it where your agent looks:
 
 ```
-npx skills add d43pan/open-local            # choose skills and agents when asked
-npx skills add d43pan/open-local -g -y      # every skill, for your user, no questions
+npx skills add d43pan/open-local            # choose agents when asked
+npx skills add d43pan/open-local -g -y      # for your user, no questions
 npx skills add d43pan/open-local -s open-local -a claude-code
 ```
 
@@ -39,7 +35,7 @@ npx skills add d43pan/open-local -s open-local -a claude-code
 git clone https://github.com/d43pan/open-local
 ```
 
-then copy the folders under `skills/` to your agent's skills folder:
+then copy the folder `skills/open-local` to your agent's skills folder:
 
 | Agent | Skills folder (per user) | In one project |
 |---|---|---|
@@ -49,7 +45,7 @@ then copy the folders under `skills/` to your agent's skills folder:
 | Hermes Agent | `~/.hermes/skills/` | |
 
 ```
-cp -r open-local/skills/* ~/.claude/skills/
+cp -r open-local/skills/open-local ~/.claude/skills/
 ```
 
 Hermes and OpenClaw can also install from GitHub directly:
@@ -86,7 +82,7 @@ week?"*
 | Method | Status on 2026-11-24 |
 |---|---|
 | Copy into `~/.claude/skills/` and run the tools | Tested |
-| Folder names, frontmatter and limits against the Agent Skills specification | Tested in CI: `tests/test_skills.py`, and the specification's own `skills-ref` validator reports the skills valid |
+| Folder names, frontmatter and limits against the Agent Skills specification | Tested in CI: `tests/test_skills.py`, and the specification's own `skills-ref` validator reports the skill valid |
 | `npx skills add`, Codex, OpenClaw, Hermes, Claude app upload | Paths and commands are taken from each tool's documentation (linked in [research/ecosystem.md](research/ecosystem.md)); not run by this project yet. Reports welcome. |
 
 ## Requirements

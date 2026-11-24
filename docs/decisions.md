@@ -5,7 +5,7 @@ research behind them is in [research/ecosystem.md](research/ecosystem.md).
 
 ## 1. Three parts that each stand alone
 
-**Decision.** The registry (data), the tools (Python) and the skills (instructions) are
+**Decision.** The registry (data), the tools (Python) and the skill (instructions) are
 separate. The registry is useful with no tools; the tools are useful with no agent.
 
 **Why.** No open, geography-keyed registry of local sources was found in the ecosystem
@@ -17,7 +17,7 @@ so it must not depend on our skill, or on any agent, to be worth contributing to
 
 **Decision.** The project is "Open Local", not "Open Local News". The registry lists any
 public source of local fact: records, calendars, hours, menus, shows, notices, as well as
-reporting. The skills report facts with their origin.
+reporting. The skill reports facts with their origin.
 
 **Why.** What people ask about their town is mostly not news in the newspaper sense:
 what is on, what is open, what was decided. And the label "news" invites an agent to
@@ -53,7 +53,7 @@ centre point.
 are CC0 and are what civic-tech tools in the US and Canada already use. OpenStreetMap
 data is under the ODbL, whose share-alike terms do not fit a CC0 file, so we store at most
 an id. Centre points keep the registry small and licence-clean at the cost of fuzzy radius
-searches, which the skills are told to describe as approximate.
+searches, which the skill is told to describe as approximate.
 
 ## 6. YAML to edit, JSON to consume
 
@@ -74,18 +74,21 @@ jsonschema are needed only to validate and rebuild (maintainers and CI).
 **Why.** Skills run inside many different agents and sandboxes; a `pip install` is often
 impossible. The cost is hand-written feed and iCalendar parsing, kept small and tested.
 
-## 8. Skills in `skills/<name>/`, one per job
+## 8. One skill, in `skills/open-local/`
 
-**Decision.** `skills/open-local` (ask about a place) and `skills/open-local-build` (map
-a place and send it back). The tools live inside the first skill's `scripts/`. A skill
+**Decision.** A single skill, `skills/open-local`. Its SKILL.md covers asking about a
+place and routes to two reference files for the other jobs: `references/build.md` (map a
+place and send it back) and `references/expand.md` (grow to the next towns over). The
+tools live in the skill's `scripts/`. A skill
 installed on its own downloads `dist/registry.json` and caches it for a day.
 
 **Why.** The Agent Skills specification requires the skill name to match its folder, the
 Claude apps want a ZIP of one skill folder, and installers such as `npx skills add`
 discover `skills/*`. A root-level SKILL.md would drag the whole repository into every
-agent's skill folder. Two skills because asking and contributing are different jobs with
-different instructions; one of them being about contribution makes giving back a
-first-class path rather than a paragraph at the end.
+agent's skill folder. One skill rather than several because there should be one thing to install and one name
+to remember; an early version split the jobs into three skills and that was more to
+explain than it was worth. The format's progressive disclosure does the separating: the
+mapping and expanding instructions cost nothing until someone asks for them.
 
 ## 9. Agents propose, people decide
 
@@ -139,7 +142,7 @@ seed data `verified` would have claimed a review that has not happened.
 ## 15. Growth is outward, one town at a time, from a recorded frontier
 
 **Decision.** A place may list `adjacent_unmapped` neighbours. `frontier` ranks them by
-how many mapped places border each, and a third skill, `open-local-expand`, maps one at a
+how many mapped places border each, and the skill's expanding workflow (`references/expand.md`) maps one at a
 time by reusing regional sources, per-town sections and portal patterns already in the
 registry before searching for anything new.
 

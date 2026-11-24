@@ -1,6 +1,6 @@
 # The registry, for people who want the data
 
-You do not need the skills or the tools to use this. The registry is a set of plain
+You do not need the skill or the tools to use this. The registry is a set of plain
 files in the public domain (CC0).
 
 ## Get it

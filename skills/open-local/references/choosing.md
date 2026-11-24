@@ -39,7 +39,7 @@ Wikidata or statistics-office page. Do not infer adjacency from coordinates.
   worth more than adding what will also go stale.
 - **The next place is organised differently** (another country, another language,
   unincorporated land, a tribal nation, a city neighbourhood). That is a new first
-  community, not an expansion: use `open-local-build` and expect little to carry over.
+  community, not an expansion: use [build.md](build.md) and expect little to carry over.
 
 ## How far in one sitting
 
