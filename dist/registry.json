@@ -1,6 +1,8 @@
 {
  "schema": "open-local/registry/1",
  "license": "CC0-1.0",
+ "skill_version": "0.2.0",
+ "data_version": "8f96da335607",
  "places": {
   "US": {
    "id": "US",
@@ -161,6 +163,445 @@
     "us_census_geoid": "44"
    }
   },
+  "US/RI/barrington": {
+   "id": "US/RI/barrington",
+   "name": "Barrington",
+   "kind": "municipality",
+   "local_kind": "town",
+   "country": "US",
+   "subdivision": "US-RI",
+   "parents": [
+    "US/RI/bristol-county"
+   ],
+   "centroid": {
+    "lat": 41.733,
+    "lon": -71.3197
+   },
+   "identifiers": {
+    "us_census_geoid": "4400105140"
+   },
+   "provenance": {
+    "method": "import",
+    "dataset": "US Census Gazetteer 2024 (county subdivisions)",
+    "imported": "2026-11-24"
+   }
+  },
+  "US/RI/bristol": {
+   "id": "US/RI/bristol",
+   "name": "Bristol",
+   "kind": "municipality",
+   "local_kind": "town",
+   "country": "US",
+   "subdivision": "US-RI",
+   "parents": [
+    "US/RI/bristol-county"
+   ],
+   "centroid": {
+    "lat": 41.6757,
+    "lon": -71.2733
+   },
+   "identifiers": {
+    "us_census_geoid": "4400109280"
+   },
+   "provenance": {
+    "method": "import",
+    "dataset": "US Census Gazetteer 2024 (county subdivisions)",
+    "imported": "2026-11-24"
+   }
+  },
+  "US/RI/bristol-county": {
+   "id": "US/RI/bristol-county",
+   "name": "Bristol County",
+   "kind": "county",
+   "local_kind": "county",
+   "country": "US",
+   "subdivision": "US-RI",
+   "parents": [
+    "US/RI"
+   ],
+   "centroid": {
+    "lat": 41.7068,
+    "lon": -71.2867
+   },
+   "identifiers": {
+    "us_census_geoid": "44001",
+    "ocd_division": "ocd-division/country:us/state:ri/county:bristol"
+   },
+   "provenance": {
+    "method": "import",
+    "dataset": "US Census Gazetteer 2024 (county subdivisions)",
+    "imported": "2026-11-24"
+   }
+  },
+  "US/RI/burrillville": {
+   "id": "US/RI/burrillville",
+   "name": "Burrillville",
+   "kind": "municipality",
+   "local_kind": "town",
+   "country": "US",
+   "subdivision": "US-RI",
+   "parents": [
+    "US/RI/providence-county"
+   ],
+   "centroid": {
+    "lat": 41.9703,
+    "lon": -71.6987
+   },
+   "identifiers": {
+    "us_census_geoid": "4400711800"
+   },
+   "provenance": {
+    "method": "import",
+    "dataset": "US Census Gazetteer 2024 (county subdivisions)",
+    "imported": "2026-11-24"
+   }
+  },
+  "US/RI/central-falls": {
+   "id": "US/RI/central-falls",
+   "name": "Central Falls",
+   "kind": "municipality",
+   "local_kind": "city",
+   "country": "US",
+   "subdivision": "US-RI",
+   "parents": [
+    "US/RI/providence-county"
+   ],
+   "centroid": {
+    "lat": 41.8901,
+    "lon": -71.3935
+   },
+   "identifiers": {
+    "us_census_geoid": "4400714140"
+   },
+   "provenance": {
+    "method": "import",
+    "dataset": "US Census Gazetteer 2024 (county subdivisions)",
+    "imported": "2026-11-24"
+   }
+  },
+  "US/RI/charlestown": {
+   "id": "US/RI/charlestown",
+   "name": "Charlestown",
+   "kind": "municipality",
+   "local_kind": "town",
+   "country": "US",
+   "subdivision": "US-RI",
+   "parents": [
+    "US/RI/washington-county"
+   ],
+   "centroid": {
+    "lat": 41.3714,
+    "lon": -71.6803
+   },
+   "identifiers": {
+    "us_census_geoid": "4400914500"
+   },
+   "provenance": {
+    "method": "import",
+    "dataset": "US Census Gazetteer 2024 (county subdivisions)",
+    "imported": "2026-11-24"
+   }
+  },
+  "US/RI/coventry": {
+   "id": "US/RI/coventry",
+   "name": "Coventry",
+   "kind": "municipality",
+   "local_kind": "town",
+   "country": "US",
+   "subdivision": "US-RI",
+   "parents": [
+    "US/RI/kent-county"
+   ],
+   "centroid": {
+    "lat": 41.6983,
+    "lon": -71.6627
+   },
+   "identifiers": {
+    "us_census_geoid": "4400318640"
+   },
+   "provenance": {
+    "method": "import",
+    "dataset": "US Census Gazetteer 2024 (county subdivisions)",
+    "imported": "2026-11-24"
+   }
+  },
+  "US/RI/cranston": {
+   "id": "US/RI/cranston",
+   "name": "Cranston",
+   "kind": "municipality",
+   "local_kind": "city",
+   "country": "US",
+   "subdivision": "US-RI",
+   "parents": [
+    "US/RI/providence-county"
+   ],
+   "centroid": {
+    "lat": 41.7697,
+    "lon": -71.485
+   },
+   "identifiers": {
+    "us_census_geoid": "4400719180"
+   },
+   "provenance": {
+    "method": "import",
+    "dataset": "US Census Gazetteer 2024 (county subdivisions)",
+    "imported": "2026-11-24"
+   }
+  },
+  "US/RI/cumberland": {
+   "id": "US/RI/cumberland",
+   "name": "Cumberland",
+   "kind": "municipality",
+   "local_kind": "town",
+   "country": "US",
+   "subdivision": "US-RI",
+   "parents": [
+    "US/RI/providence-county"
+   ],
+   "centroid": {
+    "lat": 41.9675,
+    "lon": -71.4206
+   },
+   "identifiers": {
+    "us_census_geoid": "4400720080"
+   },
+   "provenance": {
+    "method": "import",
+    "dataset": "US Census Gazetteer 2024 (county subdivisions)",
+    "imported": "2026-11-24"
+   }
+  },
+  "US/RI/east-greenwich": {
+   "id": "US/RI/east-greenwich",
+   "name": "East Greenwich",
+   "kind": "municipality",
+   "local_kind": "town",
+   "country": "US",
+   "subdivision": "US-RI",
+   "parents": [
+    "US/RI/kent-county"
+   ],
+   "centroid": {
+    "lat": 41.6373,
+    "lon": -71.5015
+   },
+   "identifiers": {
+    "us_census_geoid": "4400322240"
+   },
+   "provenance": {
+    "method": "import",
+    "dataset": "US Census Gazetteer 2024 (county subdivisions)",
+    "imported": "2026-11-24"
+   }
+  },
+  "US/RI/east-providence": {
+   "id": "US/RI/east-providence",
+   "name": "East Providence",
+   "kind": "municipality",
+   "local_kind": "city",
+   "country": "US",
+   "subdivision": "US-RI",
+   "parents": [
+    "US/RI/providence-county"
+   ],
+   "centroid": {
+    "lat": 41.8004,
+    "lon": -71.3593
+   },
+   "identifiers": {
+    "us_census_geoid": "4400722960"
+   },
+   "provenance": {
+    "method": "import",
+    "dataset": "US Census Gazetteer 2024 (county subdivisions)",
+    "imported": "2026-11-24"
+   }
+  },
+  "US/RI/exeter": {
+   "id": "US/RI/exeter",
+   "name": "Exeter",
+   "kind": "municipality",
+   "local_kind": "town",
+   "country": "US",
+   "subdivision": "US-RI",
+   "parents": [
+    "US/RI/washington-county"
+   ],
+   "centroid": {
+    "lat": 41.5694,
+    "lon": -71.6279
+   },
+   "identifiers": {
+    "us_census_geoid": "4400925300"
+   },
+   "provenance": {
+    "method": "import",
+    "dataset": "US Census Gazetteer 2024 (county subdivisions)",
+    "imported": "2026-11-24"
+   }
+  },
+  "US/RI/foster": {
+   "id": "US/RI/foster",
+   "name": "Foster",
+   "kind": "municipality",
+   "local_kind": "town",
+   "country": "US",
+   "subdivision": "US-RI",
+   "parents": [
+    "US/RI/providence-county"
+   ],
+   "centroid": {
+    "lat": 41.7888,
+    "lon": -71.7349
+   },
+   "identifiers": {
+    "us_census_geoid": "4400727460"
+   },
+   "provenance": {
+    "method": "import",
+    "dataset": "US Census Gazetteer 2024 (county subdivisions)",
+    "imported": "2026-11-24"
+   }
+  },
+  "US/RI/glocester": {
+   "id": "US/RI/glocester",
+   "name": "Glocester",
+   "kind": "municipality",
+   "local_kind": "town",
+   "country": "US",
+   "subdivision": "US-RI",
+   "parents": [
+    "US/RI/providence-county"
+   ],
+   "centroid": {
+    "lat": 41.8943,
+    "lon": -71.6869
+   },
+   "identifiers": {
+    "us_census_geoid": "4400730340"
+   },
+   "provenance": {
+    "method": "import",
+    "dataset": "US Census Gazetteer 2024 (county subdivisions)",
+    "imported": "2026-11-24"
+   }
+  },
+  "US/RI/hopkinton": {
+   "id": "US/RI/hopkinton",
+   "name": "Hopkinton",
+   "kind": "municipality",
+   "local_kind": "town",
+   "country": "US",
+   "subdivision": "US-RI",
+   "parents": [
+    "US/RI/washington-county"
+   ],
+   "centroid": {
+    "lat": 41.4791,
+    "lon": -71.7579
+   },
+   "identifiers": {
+    "us_census_geoid": "4400935380"
+   },
+   "provenance": {
+    "method": "import",
+    "dataset": "US Census Gazetteer 2024 (county subdivisions)",
+    "imported": "2026-11-24"
+   }
+  },
+  "US/RI/jamestown": {
+   "id": "US/RI/jamestown",
+   "name": "Jamestown",
+   "kind": "municipality",
+   "local_kind": "town",
+   "country": "US",
+   "subdivision": "US-RI",
+   "parents": [
+    "US/RI/newport-county"
+   ],
+   "centroid": {
+    "lat": 41.5197,
+    "lon": -71.3711
+   },
+   "identifiers": {
+    "us_census_geoid": "4400536820"
+   },
+   "provenance": {
+    "method": "import",
+    "dataset": "US Census Gazetteer 2024 (county subdivisions)",
+    "imported": "2026-11-24"
+   }
+  },
+  "US/RI/johnston": {
+   "id": "US/RI/johnston",
+   "name": "Johnston",
+   "kind": "municipality",
+   "local_kind": "town",
+   "country": "US",
+   "subdivision": "US-RI",
+   "parents": [
+    "US/RI/providence-county"
+   ],
+   "centroid": {
+    "lat": 41.8274,
+    "lon": -71.5199
+   },
+   "identifiers": {
+    "us_census_geoid": "4400737720"
+   },
+   "provenance": {
+    "method": "import",
+    "dataset": "US Census Gazetteer 2024 (county subdivisions)",
+    "imported": "2026-11-24"
+   }
+  },
+  "US/RI/kent-county": {
+   "id": "US/RI/kent-county",
+   "name": "Kent County",
+   "kind": "county",
+   "local_kind": "county",
+   "country": "US",
+   "subdivision": "US-RI",
+   "parents": [
+    "US/RI"
+   ],
+   "centroid": {
+    "lat": 41.6751,
+    "lon": -71.5803
+   },
+   "identifiers": {
+    "us_census_geoid": "44003",
+    "ocd_division": "ocd-division/country:us/state:ri/county:kent"
+   },
+   "provenance": {
+    "method": "import",
+    "dataset": "US Census Gazetteer 2024 (county subdivisions)",
+    "imported": "2026-11-24"
+   }
+  },
+  "US/RI/lincoln": {
+   "id": "US/RI/lincoln",
+   "name": "Lincoln",
+   "kind": "municipality",
+   "local_kind": "town",
+   "country": "US",
+   "subdivision": "US-RI",
+   "parents": [
+    "US/RI/providence-county"
+   ],
+   "centroid": {
+    "lat": 41.9155,
+    "lon": -71.4498
+   },
+   "identifiers": {
+    "us_census_geoid": "4400741500"
+   },
+   "provenance": {
+    "method": "import",
+    "dataset": "US Census Gazetteer 2024 (county subdivisions)",
+    "imported": "2026-11-24"
+   }
+  },
   "US/RI/little-compton": {
    "id": "US/RI/little-compton",
    "name": "Little Compton",
@@ -199,6 +640,98 @@
     "osm_relation": "7815285"
    }
   },
+  "US/RI/middletown": {
+   "id": "US/RI/middletown",
+   "name": "Middletown",
+   "kind": "municipality",
+   "local_kind": "town",
+   "country": "US",
+   "subdivision": "US-RI",
+   "parents": [
+    "US/RI/newport-county"
+   ],
+   "centroid": {
+    "lat": 41.5202,
+    "lon": -71.2802
+   },
+   "identifiers": {
+    "us_census_geoid": "4400545460"
+   },
+   "provenance": {
+    "method": "import",
+    "dataset": "US Census Gazetteer 2024 (county subdivisions)",
+    "imported": "2026-11-24"
+   }
+  },
+  "US/RI/narragansett": {
+   "id": "US/RI/narragansett",
+   "name": "Narragansett",
+   "kind": "municipality",
+   "local_kind": "town",
+   "country": "US",
+   "subdivision": "US-RI",
+   "parents": [
+    "US/RI/washington-county"
+   ],
+   "centroid": {
+    "lat": 41.398,
+    "lon": -71.4863
+   },
+   "identifiers": {
+    "us_census_geoid": "4400948340"
+   },
+   "provenance": {
+    "method": "import",
+    "dataset": "US Census Gazetteer 2024 (county subdivisions)",
+    "imported": "2026-11-24"
+   }
+  },
+  "US/RI/new-shoreham": {
+   "id": "US/RI/new-shoreham",
+   "name": "New Shoreham",
+   "kind": "municipality",
+   "local_kind": "town",
+   "country": "US",
+   "subdivision": "US-RI",
+   "parents": [
+    "US/RI/washington-county"
+   ],
+   "centroid": {
+    "lat": 41.1946,
+    "lon": -71.5724
+   },
+   "identifiers": {
+    "us_census_geoid": "4400950500"
+   },
+   "provenance": {
+    "method": "import",
+    "dataset": "US Census Gazetteer 2024 (county subdivisions)",
+    "imported": "2026-11-24"
+   }
+  },
+  "US/RI/newport": {
+   "id": "US/RI/newport",
+   "name": "Newport",
+   "kind": "municipality",
+   "local_kind": "city",
+   "country": "US",
+   "subdivision": "US-RI",
+   "parents": [
+    "US/RI/newport-county"
+   ],
+   "centroid": {
+    "lat": 41.4767,
+    "lon": -71.3196
+   },
+   "identifiers": {
+    "us_census_geoid": "4400549960"
+   },
+   "provenance": {
+    "method": "import",
+    "dataset": "US Census Gazetteer 2024 (county subdivisions)",
+    "imported": "2026-11-24"
+   }
+  },
   "US/RI/newport-county": {
    "id": "US/RI/newport-county",
    "name": "Newport County",
@@ -221,6 +754,98 @@
     "osm_relation": "404983"
    },
    "notes": "Rhode Island counties have no government of their own; the county is a geographic and statistical area. Regional sources are filed here."
+  },
+  "US/RI/north-kingstown": {
+   "id": "US/RI/north-kingstown",
+   "name": "North Kingstown",
+   "kind": "municipality",
+   "local_kind": "town",
+   "country": "US",
+   "subdivision": "US-RI",
+   "parents": [
+    "US/RI/washington-county"
+   ],
+   "centroid": {
+    "lat": 41.5715,
+    "lon": -71.4499
+   },
+   "identifiers": {
+    "us_census_geoid": "4400951580"
+   },
+   "provenance": {
+    "method": "import",
+    "dataset": "US Census Gazetteer 2024 (county subdivisions)",
+    "imported": "2026-11-24"
+   }
+  },
+  "US/RI/north-providence": {
+   "id": "US/RI/north-providence",
+   "name": "North Providence",
+   "kind": "municipality",
+   "local_kind": "town",
+   "country": "US",
+   "subdivision": "US-RI",
+   "parents": [
+    "US/RI/providence-county"
+   ],
+   "centroid": {
+    "lat": 41.8616,
+    "lon": -71.4569
+   },
+   "identifiers": {
+    "us_census_geoid": "4400751760"
+   },
+   "provenance": {
+    "method": "import",
+    "dataset": "US Census Gazetteer 2024 (county subdivisions)",
+    "imported": "2026-11-24"
+   }
+  },
+  "US/RI/north-smithfield": {
+   "id": "US/RI/north-smithfield",
+   "name": "North Smithfield",
+   "kind": "municipality",
+   "local_kind": "town",
+   "country": "US",
+   "subdivision": "US-RI",
+   "parents": [
+    "US/RI/providence-county"
+   ],
+   "centroid": {
+    "lat": 41.9752,
+    "lon": -71.5441
+   },
+   "identifiers": {
+    "us_census_geoid": "4400752480"
+   },
+   "provenance": {
+    "method": "import",
+    "dataset": "US Census Gazetteer 2024 (county subdivisions)",
+    "imported": "2026-11-24"
+   }
+  },
+  "US/RI/pawtucket": {
+   "id": "US/RI/pawtucket",
+   "name": "Pawtucket",
+   "kind": "municipality",
+   "local_kind": "city",
+   "country": "US",
+   "subdivision": "US-RI",
+   "parents": [
+    "US/RI/providence-county"
+   ],
+   "centroid": {
+    "lat": 41.8748,
+    "lon": -71.3733
+   },
+   "identifiers": {
+    "us_census_geoid": "4400754640"
+   },
+   "provenance": {
+    "method": "import",
+    "dataset": "US Census Gazetteer 2024 (county subdivisions)",
+    "imported": "2026-11-24"
+   }
   },
   "US/RI/portsmouth": {
    "id": "US/RI/portsmouth",
@@ -273,6 +898,145 @@
    },
    "notes": "On Aquidneck Island, joined to Tiverton by the Sakonnet River Bridge. Includes Prudence, Patience, Hope and Hog islands."
   },
+  "US/RI/providence": {
+   "id": "US/RI/providence",
+   "name": "Providence",
+   "kind": "municipality",
+   "local_kind": "city",
+   "country": "US",
+   "subdivision": "US-RI",
+   "parents": [
+    "US/RI/providence-county"
+   ],
+   "centroid": {
+    "lat": 41.8231,
+    "lon": -71.4188
+   },
+   "identifiers": {
+    "us_census_geoid": "4400759000"
+   },
+   "provenance": {
+    "method": "import",
+    "dataset": "US Census Gazetteer 2024 (county subdivisions)",
+    "imported": "2026-11-24"
+   }
+  },
+  "US/RI/providence-county": {
+   "id": "US/RI/providence-county",
+   "name": "Providence County",
+   "kind": "county",
+   "local_kind": "county",
+   "country": "US",
+   "subdivision": "US-RI",
+   "parents": [
+    "US/RI"
+   ],
+   "centroid": {
+    "lat": 41.8698,
+    "lon": -71.5786
+   },
+   "identifiers": {
+    "us_census_geoid": "44007",
+    "ocd_division": "ocd-division/country:us/state:ri/county:providence"
+   },
+   "provenance": {
+    "method": "import",
+    "dataset": "US Census Gazetteer 2024 (county subdivisions)",
+    "imported": "2026-11-24"
+   }
+  },
+  "US/RI/richmond": {
+   "id": "US/RI/richmond",
+   "name": "Richmond",
+   "kind": "municipality",
+   "local_kind": "town",
+   "country": "US",
+   "subdivision": "US-RI",
+   "parents": [
+    "US/RI/washington-county"
+   ],
+   "centroid": {
+    "lat": 41.4947,
+    "lon": -71.6693
+   },
+   "identifiers": {
+    "us_census_geoid": "4400961160"
+   },
+   "provenance": {
+    "method": "import",
+    "dataset": "US Census Gazetteer 2024 (county subdivisions)",
+    "imported": "2026-11-24"
+   }
+  },
+  "US/RI/scituate": {
+   "id": "US/RI/scituate",
+   "name": "Scituate",
+   "kind": "municipality",
+   "local_kind": "town",
+   "country": "US",
+   "subdivision": "US-RI",
+   "parents": [
+    "US/RI/providence-county"
+   ],
+   "centroid": {
+    "lat": 41.8115,
+    "lon": -71.6328
+   },
+   "identifiers": {
+    "us_census_geoid": "4400764220"
+   },
+   "provenance": {
+    "method": "import",
+    "dataset": "US Census Gazetteer 2024 (county subdivisions)",
+    "imported": "2026-11-24"
+   }
+  },
+  "US/RI/smithfield": {
+   "id": "US/RI/smithfield",
+   "name": "Smithfield",
+   "kind": "municipality",
+   "local_kind": "town",
+   "country": "US",
+   "subdivision": "US-RI",
+   "parents": [
+    "US/RI/providence-county"
+   ],
+   "centroid": {
+    "lat": 41.9009,
+    "lon": -71.5289
+   },
+   "identifiers": {
+    "us_census_geoid": "4400766200"
+   },
+   "provenance": {
+    "method": "import",
+    "dataset": "US Census Gazetteer 2024 (county subdivisions)",
+    "imported": "2026-11-24"
+   }
+  },
+  "US/RI/south-kingstown": {
+   "id": "US/RI/south-kingstown",
+   "name": "South Kingstown",
+   "kind": "municipality",
+   "local_kind": "town",
+   "country": "US",
+   "subdivision": "US-RI",
+   "parents": [
+    "US/RI/washington-county"
+   ],
+   "centroid": {
+    "lat": 41.4108,
+    "lon": -71.5475
+   },
+   "identifiers": {
+    "us_census_geoid": "4400967460"
+   },
+   "provenance": {
+    "method": "import",
+    "dataset": "US Census Gazetteer 2024 (county subdivisions)",
+    "imported": "2026-11-24"
+   }
+  },
   "US/RI/tiverton": {
    "id": "US/RI/tiverton",
    "name": "Tiverton",
@@ -316,6 +1080,168 @@
     "us_census_geoid": "4400570880",
     "geonames": "5225253",
     "osm_relation": "7814962"
+   }
+  },
+  "US/RI/warren": {
+   "id": "US/RI/warren",
+   "name": "Warren",
+   "kind": "municipality",
+   "local_kind": "town",
+   "country": "US",
+   "subdivision": "US-RI",
+   "parents": [
+    "US/RI/bristol-county"
+   ],
+   "centroid": {
+    "lat": 41.7251,
+    "lon": -71.2588
+   },
+   "identifiers": {
+    "us_census_geoid": "4400173760"
+   },
+   "provenance": {
+    "method": "import",
+    "dataset": "US Census Gazetteer 2024 (county subdivisions)",
+    "imported": "2026-11-24"
+   }
+  },
+  "US/RI/warwick": {
+   "id": "US/RI/warwick",
+   "name": "Warwick",
+   "kind": "municipality",
+   "local_kind": "city",
+   "country": "US",
+   "subdivision": "US-RI",
+   "parents": [
+    "US/RI/kent-county"
+   ],
+   "centroid": {
+    "lat": 41.7031,
+    "lon": -71.4203
+   },
+   "identifiers": {
+    "us_census_geoid": "4400374300"
+   },
+   "provenance": {
+    "method": "import",
+    "dataset": "US Census Gazetteer 2024 (county subdivisions)",
+    "imported": "2026-11-24"
+   }
+  },
+  "US/RI/washington-county": {
+   "id": "US/RI/washington-county",
+   "name": "Washington County",
+   "kind": "county",
+   "local_kind": "county",
+   "country": "US",
+   "subdivision": "US-RI",
+   "parents": [
+    "US/RI"
+   ],
+   "centroid": {
+    "lat": 41.3968,
+    "lon": -71.6203
+   },
+   "identifiers": {
+    "us_census_geoid": "44009",
+    "ocd_division": "ocd-division/country:us/state:ri/county:washington"
+   },
+   "provenance": {
+    "method": "import",
+    "dataset": "US Census Gazetteer 2024 (county subdivisions)",
+    "imported": "2026-11-24"
+   }
+  },
+  "US/RI/west-greenwich": {
+   "id": "US/RI/west-greenwich",
+   "name": "West Greenwich",
+   "kind": "municipality",
+   "local_kind": "town",
+   "country": "US",
+   "subdivision": "US-RI",
+   "parents": [
+    "US/RI/kent-county"
+   ],
+   "centroid": {
+    "lat": 41.6286,
+    "lon": -71.6589
+   },
+   "identifiers": {
+    "us_census_geoid": "4400377720"
+   },
+   "provenance": {
+    "method": "import",
+    "dataset": "US Census Gazetteer 2024 (county subdivisions)",
+    "imported": "2026-11-24"
+   }
+  },
+  "US/RI/west-warwick": {
+   "id": "US/RI/west-warwick",
+   "name": "West Warwick",
+   "kind": "municipality",
+   "local_kind": "town",
+   "country": "US",
+   "subdivision": "US-RI",
+   "parents": [
+    "US/RI/kent-county"
+   ],
+   "centroid": {
+    "lat": 41.6796,
+    "lon": -71.5211
+   },
+   "identifiers": {
+    "us_census_geoid": "4400378440"
+   },
+   "provenance": {
+    "method": "import",
+    "dataset": "US Census Gazetteer 2024 (county subdivisions)",
+    "imported": "2026-11-24"
+   }
+  },
+  "US/RI/westerly": {
+   "id": "US/RI/westerly",
+   "name": "Westerly",
+   "kind": "municipality",
+   "local_kind": "town",
+   "country": "US",
+   "subdivision": "US-RI",
+   "parents": [
+    "US/RI/washington-county"
+   ],
+   "centroid": {
+    "lat": 41.3234,
+    "lon": -71.8025
+   },
+   "identifiers": {
+    "us_census_geoid": "4400977000"
+   },
+   "provenance": {
+    "method": "import",
+    "dataset": "US Census Gazetteer 2024 (county subdivisions)",
+    "imported": "2026-11-24"
+   }
+  },
+  "US/RI/woonsocket": {
+   "id": "US/RI/woonsocket",
+   "name": "Woonsocket",
+   "kind": "municipality",
+   "local_kind": "city",
+   "country": "US",
+   "subdivision": "US-RI",
+   "parents": [
+    "US/RI/providence-county"
+   ],
+   "centroid": {
+    "lat": 42.0017,
+    "lon": -71.4999
+   },
+   "identifiers": {
+    "us_census_geoid": "4400780780"
+   },
+   "provenance": {
+    "method": "import",
+    "dataset": "US Census Gazetteer 2024 (county subdivisions)",
+    "imported": "2026-11-24"
    }
   },
   "US/farm-coast": {

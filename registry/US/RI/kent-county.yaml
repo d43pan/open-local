@@ -1,0 +1,19 @@
+place:
+  id: US/RI/kent-county
+  name: Kent County
+  kind: county
+  local_kind: county
+  country: US
+  subdivision: US-RI
+  parents:
+  - US/RI
+  centroid:
+    lat: 41.6751
+    lon: -71.5803
+  identifiers:
+    us_census_geoid: '44003'
+    ocd_division: ocd-division/country:us/state:ri/county:kent
+  provenance:
+    method: import
+    dataset: US Census Gazetteer 2024 (county subdivisions)
+    imported: '2026-11-24'

@@ -118,6 +118,331 @@
    "geometry": {
     "type": "Point",
     "coordinates": [
+     -71.3197,
+     41.733
+    ]
+   },
+   "properties": {
+    "id": "US/RI/barrington",
+    "name": "Barrington",
+    "kind": "municipality",
+    "sources": 0,
+    "us_census_geoid": "4400105140"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -71.2733,
+     41.6757
+    ]
+   },
+   "properties": {
+    "id": "US/RI/bristol",
+    "name": "Bristol",
+    "kind": "municipality",
+    "sources": 0,
+    "us_census_geoid": "4400109280"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -71.2867,
+     41.7068
+    ]
+   },
+   "properties": {
+    "id": "US/RI/bristol-county",
+    "name": "Bristol County",
+    "kind": "county",
+    "sources": 0,
+    "us_census_geoid": "44001",
+    "ocd_division": "ocd-division/country:us/state:ri/county:bristol"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -71.6987,
+     41.9703
+    ]
+   },
+   "properties": {
+    "id": "US/RI/burrillville",
+    "name": "Burrillville",
+    "kind": "municipality",
+    "sources": 0,
+    "us_census_geoid": "4400711800"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -71.3935,
+     41.8901
+    ]
+   },
+   "properties": {
+    "id": "US/RI/central-falls",
+    "name": "Central Falls",
+    "kind": "municipality",
+    "sources": 0,
+    "us_census_geoid": "4400714140"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -71.6803,
+     41.3714
+    ]
+   },
+   "properties": {
+    "id": "US/RI/charlestown",
+    "name": "Charlestown",
+    "kind": "municipality",
+    "sources": 0,
+    "us_census_geoid": "4400914500"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -71.6627,
+     41.6983
+    ]
+   },
+   "properties": {
+    "id": "US/RI/coventry",
+    "name": "Coventry",
+    "kind": "municipality",
+    "sources": 0,
+    "us_census_geoid": "4400318640"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -71.485,
+     41.7697
+    ]
+   },
+   "properties": {
+    "id": "US/RI/cranston",
+    "name": "Cranston",
+    "kind": "municipality",
+    "sources": 0,
+    "us_census_geoid": "4400719180"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -71.4206,
+     41.9675
+    ]
+   },
+   "properties": {
+    "id": "US/RI/cumberland",
+    "name": "Cumberland",
+    "kind": "municipality",
+    "sources": 0,
+    "us_census_geoid": "4400720080"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -71.5015,
+     41.6373
+    ]
+   },
+   "properties": {
+    "id": "US/RI/east-greenwich",
+    "name": "East Greenwich",
+    "kind": "municipality",
+    "sources": 0,
+    "us_census_geoid": "4400322240"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -71.3593,
+     41.8004
+    ]
+   },
+   "properties": {
+    "id": "US/RI/east-providence",
+    "name": "East Providence",
+    "kind": "municipality",
+    "sources": 0,
+    "us_census_geoid": "4400722960"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -71.6279,
+     41.5694
+    ]
+   },
+   "properties": {
+    "id": "US/RI/exeter",
+    "name": "Exeter",
+    "kind": "municipality",
+    "sources": 0,
+    "us_census_geoid": "4400925300"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -71.7349,
+     41.7888
+    ]
+   },
+   "properties": {
+    "id": "US/RI/foster",
+    "name": "Foster",
+    "kind": "municipality",
+    "sources": 0,
+    "us_census_geoid": "4400727460"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -71.6869,
+     41.8943
+    ]
+   },
+   "properties": {
+    "id": "US/RI/glocester",
+    "name": "Glocester",
+    "kind": "municipality",
+    "sources": 0,
+    "us_census_geoid": "4400730340"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -71.7579,
+     41.4791
+    ]
+   },
+   "properties": {
+    "id": "US/RI/hopkinton",
+    "name": "Hopkinton",
+    "kind": "municipality",
+    "sources": 0,
+    "us_census_geoid": "4400935380"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -71.3711,
+     41.5197
+    ]
+   },
+   "properties": {
+    "id": "US/RI/jamestown",
+    "name": "Jamestown",
+    "kind": "municipality",
+    "sources": 0,
+    "us_census_geoid": "4400536820"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -71.5199,
+     41.8274
+    ]
+   },
+   "properties": {
+    "id": "US/RI/johnston",
+    "name": "Johnston",
+    "kind": "municipality",
+    "sources": 0,
+    "us_census_geoid": "4400737720"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -71.5803,
+     41.6751
+    ]
+   },
+   "properties": {
+    "id": "US/RI/kent-county",
+    "name": "Kent County",
+    "kind": "county",
+    "sources": 0,
+    "us_census_geoid": "44003",
+    "ocd_division": "ocd-division/country:us/state:ri/county:kent"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -71.4498,
+     41.9155
+    ]
+   },
+   "properties": {
+    "id": "US/RI/lincoln",
+    "name": "Lincoln",
+    "kind": "municipality",
+    "sources": 0,
+    "us_census_geoid": "4400741500"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
      -71.168,
      41.5087
     ]
@@ -132,6 +457,74 @@
     "us_census_geoid": "4400542400",
     "geonames": "5223133",
     "osm_relation": "7815285"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -71.2802,
+     41.5202
+    ]
+   },
+   "properties": {
+    "id": "US/RI/middletown",
+    "name": "Middletown",
+    "kind": "municipality",
+    "sources": 0,
+    "us_census_geoid": "4400545460"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -71.4863,
+     41.398
+    ]
+   },
+   "properties": {
+    "id": "US/RI/narragansett",
+    "name": "Narragansett",
+    "kind": "municipality",
+    "sources": 0,
+    "us_census_geoid": "4400948340"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -71.5724,
+     41.1946
+    ]
+   },
+   "properties": {
+    "id": "US/RI/new-shoreham",
+    "name": "New Shoreham",
+    "kind": "municipality",
+    "sources": 0,
+    "us_census_geoid": "4400950500"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -71.3196,
+     41.4767
+    ]
+   },
+   "properties": {
+    "id": "US/RI/newport",
+    "name": "Newport",
+    "kind": "municipality",
+    "sources": 0,
+    "us_census_geoid": "4400549960"
    }
   },
   {
@@ -160,6 +553,74 @@
    "geometry": {
     "type": "Point",
     "coordinates": [
+     -71.4499,
+     41.5715
+    ]
+   },
+   "properties": {
+    "id": "US/RI/north-kingstown",
+    "name": "North Kingstown",
+    "kind": "municipality",
+    "sources": 0,
+    "us_census_geoid": "4400951580"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -71.4569,
+     41.8616
+    ]
+   },
+   "properties": {
+    "id": "US/RI/north-providence",
+    "name": "North Providence",
+    "kind": "municipality",
+    "sources": 0,
+    "us_census_geoid": "4400751760"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -71.5441,
+     41.9752
+    ]
+   },
+   "properties": {
+    "id": "US/RI/north-smithfield",
+    "name": "North Smithfield",
+    "kind": "municipality",
+    "sources": 0,
+    "us_census_geoid": "4400752480"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -71.3733,
+     41.8748
+    ]
+   },
+   "properties": {
+    "id": "US/RI/pawtucket",
+    "name": "Pawtucket",
+    "kind": "municipality",
+    "sources": 0,
+    "us_census_geoid": "4400754640"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
      -71.25,
      41.6
     ]
@@ -181,6 +642,109 @@
    "geometry": {
     "type": "Point",
     "coordinates": [
+     -71.4188,
+     41.8231
+    ]
+   },
+   "properties": {
+    "id": "US/RI/providence",
+    "name": "Providence",
+    "kind": "municipality",
+    "sources": 0,
+    "us_census_geoid": "4400759000"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -71.5786,
+     41.8698
+    ]
+   },
+   "properties": {
+    "id": "US/RI/providence-county",
+    "name": "Providence County",
+    "kind": "county",
+    "sources": 0,
+    "us_census_geoid": "44007",
+    "ocd_division": "ocd-division/country:us/state:ri/county:providence"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -71.6693,
+     41.4947
+    ]
+   },
+   "properties": {
+    "id": "US/RI/richmond",
+    "name": "Richmond",
+    "kind": "municipality",
+    "sources": 0,
+    "us_census_geoid": "4400961160"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -71.6328,
+     41.8115
+    ]
+   },
+   "properties": {
+    "id": "US/RI/scituate",
+    "name": "Scituate",
+    "kind": "municipality",
+    "sources": 0,
+    "us_census_geoid": "4400764220"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -71.5289,
+     41.9009
+    ]
+   },
+   "properties": {
+    "id": "US/RI/smithfield",
+    "name": "Smithfield",
+    "kind": "municipality",
+    "sources": 0,
+    "us_census_geoid": "4400766200"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -71.5475,
+     41.4108
+    ]
+   },
+   "properties": {
+    "id": "US/RI/south-kingstown",
+    "name": "South Kingstown",
+    "kind": "municipality",
+    "sources": 0,
+    "us_census_geoid": "4400967460"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
      -71.1798,
      41.6104
     ]
@@ -195,6 +759,126 @@
     "us_census_geoid": "4400570880",
     "geonames": "5225253",
     "osm_relation": "7814962"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -71.2588,
+     41.7251
+    ]
+   },
+   "properties": {
+    "id": "US/RI/warren",
+    "name": "Warren",
+    "kind": "municipality",
+    "sources": 0,
+    "us_census_geoid": "4400173760"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -71.4203,
+     41.7031
+    ]
+   },
+   "properties": {
+    "id": "US/RI/warwick",
+    "name": "Warwick",
+    "kind": "municipality",
+    "sources": 0,
+    "us_census_geoid": "4400374300"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -71.6203,
+     41.3968
+    ]
+   },
+   "properties": {
+    "id": "US/RI/washington-county",
+    "name": "Washington County",
+    "kind": "county",
+    "sources": 0,
+    "us_census_geoid": "44009",
+    "ocd_division": "ocd-division/country:us/state:ri/county:washington"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -71.6589,
+     41.6286
+    ]
+   },
+   "properties": {
+    "id": "US/RI/west-greenwich",
+    "name": "West Greenwich",
+    "kind": "municipality",
+    "sources": 0,
+    "us_census_geoid": "4400377720"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -71.5211,
+     41.6796
+    ]
+   },
+   "properties": {
+    "id": "US/RI/west-warwick",
+    "name": "West Warwick",
+    "kind": "municipality",
+    "sources": 0,
+    "us_census_geoid": "4400378440"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -71.8025,
+     41.3234
+    ]
+   },
+   "properties": {
+    "id": "US/RI/westerly",
+    "name": "Westerly",
+    "kind": "municipality",
+    "sources": 0,
+    "us_census_geoid": "4400977000"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -71.4999,
+     42.0017
+    ]
+   },
+   "properties": {
+    "id": "US/RI/woonsocket",
+    "name": "Woonsocket",
+    "kind": "municipality",
+    "sources": 0,
+    "us_census_geoid": "4400780780"
    }
   },
   {

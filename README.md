@@ -152,7 +152,8 @@ You are who this is for, and who it needs.
 
 The registry is yours to build on, with or without the skill:
 
-- `https://raw.githubusercontent.com/d43pan/open-local/main/dist/registry.json`
+- `https://raw.githubusercontent.com/d43pan/open-local/main/dist/registry.json` (everything), or
+  `dist/index.json` plus `dist/places/<place id>.json` for one place at a time
 - OPML for feed readers, CSV for spreadsheets, GeoJSON for maps, in [`dist/`](dist)
 - JSON Schema in [`schemas/`](schemas), field reference in [docs/registry.md](docs/registry.md)
 - Places carry Wikidata, Open Civic Data and census identifiers for joining to other data

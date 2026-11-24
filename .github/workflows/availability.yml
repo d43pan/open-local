@@ -1,57 +1,131 @@
 name: source availability
-# Network-dependent: loads every listed source. Runs on a schedule, never on pull requests,
+# Network-dependent: loads listed sources. Runs on a schedule, never on pull requests,
 # so a town website being down cannot block a contributor.
+#
+# Built to grow: each week checks one quarter of the sources (rotation by source id), so
+# every source is loaded at least once every four weeks; the quarter is split into
+# parallel shards by host, so one site's requests stay in one job and keep their spacing.
+# Results are stored in dist/checks/<home>.json (agents read how fresh an entry is) and
+# problems go to one issue per area (US/RI, US/MA, ...), naming maintainers from CODEOWNERS.
 on:
   schedule:
     - cron: "17 9 * * 1"   # Mondays 09:17 UTC
   workflow_dispatch:
+    inputs:
+      part:
+        description: "Rotation group w/R to check (default: this ISO week mod 4, of 4). Use 0/1 to check everything."
+        required: false
 permissions:
   contents: read
-  issues: write
+env:
+  SHARDS: 4
 jobs:
-  check:
+  plan:
     runs-on: ubuntu-latest
-    timeout-minutes: 60
+    outputs:
+      part: ${{ steps.p.outputs.part }}
+    steps:
+      - id: p
+        env:
+          PART: ${{ inputs.part }}
+        run: |
+          if [ -n "$PART" ]; then echo "part=$PART" >> "$GITHUB_OUTPUT";
+          else echo "part=$(( 10#$(date -u +%V) % 4 ))/4" >> "$GITHUB_OUTPUT"; fi
+  check:
+    needs: plan
+    runs-on: ubuntu-latest
+    timeout-minutes: 300
+    strategy:
+      fail-fast: false
+      matrix:
+        shard: [0, 1, 2, 3]   # keep in step with env.SHARDS
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
         with:
           python-version: "3.13"
       - run: pip install pyyaml
-      - name: Load every source
+      - name: Load this shard's sources
+        env:
+          PART: ${{ needs.plan.outputs.part }}
         run: |
-          python skills/open-local/scripts/run.py check --all > availability.json || true
-          python skills/open-local/scripts/run.py stale > stale.json
-          python - <<'PY'
-          import json
-          rep = json.load(open("availability.json")); stale = json.load(open("stale.json"))
-          bad = [r for r in rep["reports"] if r["problems"]]
-          lines = [f"Checked {rep['checked']} sources. {len(bad)} have a problem. {len(stale)} have not been verified in 180 days.", ""]
-          for r in bad:
-              lines.append(f"### {r['name']} (`{r['id']}`)")
-              lines += [f"- {p}" for p in r["problems"]]
-          if stale:
-              lines += ["", "### Not verified recently"] + [f"- `{s['id']}` (last verified: {s['verified'] or 'never'})" for s in stale]
-          lines += ["", "A failure here can be a site having a bad day. Confirm by hand before changing an entry's status."]
-          open("report.md", "w").write("\n".join(lines) + "\n")
-          open("count.txt", "w").write(str(len(bad)))
-          PY
-          cat report.md >> "$GITHUB_STEP_SUMMARY"
+          python skills/open-local/scripts/run.py check --part "$PART" \
+            --shard "${{ matrix.shard }}/$SHARDS" > "availability-${{ matrix.shard }}.json" || true
       - uses: actions/upload-artifact@v4
         with:
-          name: availability
-          path: |
-            availability.json
-            stale.json
-            report.md
-      - name: Open or update the tracking issue
+          name: availability-${{ matrix.shard }}
+          path: availability-${{ matrix.shard }}.json
+  report:
+    needs: [plan, check]
+    if: always() && needs.plan.result == 'success'
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write   # commit dist/checks/
+      issues: write
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.13"
+      - run: pip install pyyaml
+      - uses: actions/download-artifact@v4
+        with:
+          pattern: availability-*
+          merge-multiple: true
+      - name: Record results and write one report per area
+        env:
+          PART: ${{ needs.plan.outputs.part }}
+        run: |
+          python skills/open-local/scripts/run.py record availability-*.json
+          python skills/open-local/scripts/run.py stale > stale.json
+          mkdir -p reports
+          python - <<'PY'
+          import glob, json, os, pathlib, sys
+          sys.path.insert(0, "skills/open-local/scripts")
+          from openlocal import check
+          from openlocal.registry import Registry
+          reg = Registry.load()
+          reports = [r for f in sorted(glob.glob("availability-*.json")) for r in json.load(open(f))["reports"]]
+          owners = pathlib.Path(".github/CODEOWNERS")
+          by_area = check.report_by_area(reports, reg.sources, owners.read_text() if owners.exists() else "",
+                                         stale=json.load(open("stale.json")))
+          for area, text in by_area.items():
+              pathlib.Path("reports", area.replace("/", "_") + ".md").write_text(text)
+          bad = sum(1 for r in reports if r["problems"])
+          summary = f"Checked {len(reports)} sources (part {os.environ['PART']}); {bad} with a problem, in {len(by_area)} area(s)."
+          open("summary.txt", "w").write(summary + "\n")
+          PY
+          cat summary.txt >> "$GITHUB_STEP_SUMMARY"
+          cat reports/*.md >> "$GITHUB_STEP_SUMMARY" 2>/dev/null || true
+      - name: Commit check results
+        env:
+          PART: ${{ needs.plan.outputs.part }}
+        run: |
+          git add dist/checks
+          if git diff --cached --quiet; then exit 0; fi
+          git -c user.name="open-local checks" -c user.email="41898282+github-actions[bot]@users.noreply.github.com" \
+            commit -m "checks: record source availability (part $PART)"
+          git pull --rebase --quiet && git push
+      - name: Open or update one issue per area
         env:
           GH_TOKEN: ${{ github.token }}
         run: |
-          if [ "$(cat count.txt)" = "0" ]; then exit 0; fi
-          n=$(gh issue list --repo "$GITHUB_REPOSITORY" --label availability --state open --json number --jq '.[0].number')
-          if [ -n "$n" ]; then
-            gh issue comment "$n" --repo "$GITHUB_REPOSITORY" --body-file report.md
-          else
-            gh issue create --repo "$GITHUB_REPOSITORY" --title "Sources that did not load in the weekly check" --label availability --body-file report.md
-          fi
+          for f in reports/*.md; do
+            [ -e "$f" ] || continue
+            area=$(basename "$f" .md | tr '_' '/')
+            title="Sources that did not load: $area"
+            n=$(gh issue list --repo "$GITHUB_REPOSITORY" --label availability --state open --limit 200 \
+                  --json number,title --jq ".[] | select(.title == \"$title\") | .number" | head -1)
+            if [ -n "$n" ]; then
+              gh issue comment "$n" --repo "$GITHUB_REPOSITORY" --body-file "$f"
+            else
+              gh issue create --repo "$GITHUB_REPOSITORY" --title "$title" --label availability --body-file "$f"
+            fi
+          done
+      - uses: actions/upload-artifact@v4
+        with:
+          name: availability-report
+          path: |
+            availability-*.json
+            stale.json
+            reports/

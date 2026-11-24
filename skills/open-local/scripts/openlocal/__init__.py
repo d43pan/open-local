@@ -3,4 +3,4 @@
 Runtime code uses the Python standard library only. PyYAML and jsonschema are needed
 only to validate and rebuild the registry (maintainers and CI).
 """
-__version__ = "0.1.0"
+__version__ = "0.2.0"

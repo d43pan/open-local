@@ -1,0 +1,18 @@
+place:
+  id: US/RI/south-kingstown
+  name: South Kingstown
+  kind: municipality
+  local_kind: town
+  country: US
+  subdivision: US-RI
+  parents:
+  - US/RI/washington-county
+  centroid:
+    lat: 41.4108
+    lon: -71.5475
+  identifiers:
+    us_census_geoid: '4400967460'
+  provenance:
+    method: import
+    dataset: US Census Gazetteer 2024 (county subdivisions)
+    imported: '2026-11-24'

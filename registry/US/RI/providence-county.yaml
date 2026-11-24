@@ -1,0 +1,19 @@
+place:
+  id: US/RI/providence-county
+  name: Providence County
+  kind: county
+  local_kind: county
+  country: US
+  subdivision: US-RI
+  parents:
+  - US/RI
+  centroid:
+    lat: 41.8698
+    lon: -71.5786
+  identifiers:
+    us_census_geoid: '44007'
+    ocd_division: ocd-division/country:us/state:ri/county:providence
+  provenance:
+    method: import
+    dataset: US Census Gazetteer 2024 (county subdivisions)
+    imported: '2026-11-24'

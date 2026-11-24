@@ -4,7 +4,7 @@ description: Answer what is happening in a town (decisions, events, food, arts) 
 license: MIT
 compatibility: Needs Python 3.10+ and internet access. Works with any agent that can run a shell command and fetch web pages. No API key, no account. Adding a town also needs git, and a GitHub account to open the pull request.
 metadata:
-  version: "0.1.0"
+  version: "0.2.0"
   repository: https://github.com/d43pan/open-local
 ---
 
@@ -32,24 +32,31 @@ JSON and need only the Python standard library. Without a shell, see
 1. **Find the place.** `run.py where "Little Compton, RI"` (also `--postal 02837`, or
    `--lat 41.51 --lon -71.17`). If several places match, ask which. If the user gave no
    place and you do not already know theirs, ask; never guess. If the place is not in the
-   registry, say so, answer from a web search with that caveat, and offer step 7.
+   registry, say so, answer from a web search with that caveat, and offer step 7. A match
+   with `sources_of_its_own: 0` is a known place nobody has mapped yet: only county and
+   state sources reach it, so say that in the coverage report.
 2. **See what is known.** `run.py sources <place> --brief`. Add `--radius-km 24` for
    "within 15 miles", or `--neighbors`. Each source has a `relation`: `direct` (covers this
    place), `area` (covers the county, state or district it sits in) or `nearby`.
    More on scope: [references/geography.md](references/geography.md).
-3. **Gather what is new.** `run.py recent <place> --days 7 --ahead 14` returns items
-   published in the window, calendar events coming up, and a `coverage` block.
-   Narrow with `--type` or `--topic` (which types answer which question:
-   [references/questions.md](references/questions.md)).
+3. **Gather what is new.** `run.py recent <place> --days 7 --ahead 14 --brief` returns items
+   published in the window, calendar events coming up, and a `coverage` block. Start with
+   `--brief` (no summaries, a fraction of the size); drop it only when you need summaries.
+   Items from county- and state-wide sources are listed only if they name the place
+   (`--all-area` lists them all). Narrow with `--type` or `--topic` (which types answer
+   which question: [references/questions.md](references/questions.md)).
 4. **Read what the tool could not.** `coverage.read_by_hand` lists sources with no feed:
    agendas, minutes, notices, menus, hours. Open the ones that matter for the question with
    your own web tools. `run.py dates <url>` labels the dates on a page; `run.py changed <url>`
-   says whether a page changed since you last looked.
+   says whether a page changed since you last looked. `coverage.needs_a_person` lists
+   sources the tools must not read (robots.txt, terms, login): do not fetch them another
+   way; name them in the coverage report so the person can open them.
 5. **Fill gaps honestly.** If the registry is thin for the question, search the web, prefer
    first-hand pages, and label anything found this way "not in the registry".
    `run.py discover <url>` finds a site's feeds.
 6. **Write the answer** in the shape in [references/briefing.md](references/briefing.md):
-   what happened, what is coming, then a coverage report. Follow the rules below.
+   what happened, what is coming, then a coverage report. Follow the rules below. If the
+   output carries `registry.notice`, pass it on: the skill has an update.
 7. **Offer to improve the map.** If you found a good source that is missing, a listed one
    is broken, or the place is not in the registry, say so and offer to fix it by following
    [references/build.md](references/build.md). `run.py propose <url> --place <id>` prints

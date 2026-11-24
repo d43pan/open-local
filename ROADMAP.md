@@ -2,7 +2,7 @@
 
 A direction, not a promise. Open an issue to argue with any of it.
 
-## Now (0.1)
+## Now (0.2)
 
 - One skill, `open-local`, that does three jobs: answer questions about a place, map a new
   place, and grow coverage to the next towns over.
@@ -10,6 +10,10 @@ A direction, not a promise. Open an issue to argue with any of it.
 - Tools: feed discovery, recent items, dates, page changes, availability, proposals.
 - First mapped community: Little Compton, Rhode Island, with Tiverton, Westport (MA) and
   the regional sources around them.
+- 0.2, built to grow (issue #2): one file per place plus an index, brief output that lists
+  area-wide items only when they name the place, separately versioned data and skill,
+  sources marked "a person must open this", places seeded from the Census Gazetteer (all of
+  Rhode Island so far), and a weekly check that rotates, shards by site and records results.
 
 ## Next
 

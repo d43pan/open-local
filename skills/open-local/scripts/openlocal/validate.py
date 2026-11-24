@@ -22,8 +22,22 @@ def normalize_url(url: str) -> str:
     return f"{host}{path}" + (f"?{p.query}" if p.query else "")
 
 
-def validate(directory: pathlib.Path | None = None, today: dt.date | None = None) -> tuple[list[str], list[str]]:
-    """Return (errors, warnings). Errors fail a pull request; warnings do not."""
+def validate(directory: pathlib.Path | None = None, today: dt.date | None = None,
+             only: list[str] | None = None) -> tuple[list[str], list[str]]:
+    """Return (errors, warnings). Errors fail a pull request; warnings do not.
+
+    With only (repository paths of registry files, e.g. the ones a pull request changed),
+    warnings are limited to those files. Errors are always reported for the whole registry:
+    deleting or renaming a place can break a file the pull request never touched.
+    """
+    errors, warnings = _validate(directory, today)
+    if only is None:
+        return errors, warnings
+    wanted = {f.replace("\\", "/").split("registry/", 1)[-1] for f in only if f.endswith(".yaml")}
+    return errors, [w for w in warnings if any(w.startswith(x + ":") for x in wanted)]
+
+
+def _validate(directory: pathlib.Path | None = None, today: dt.date | None = None) -> tuple[list[str], list[str]]:
     import jsonschema
     today = today or dt.date.today()
     if registry.ROOT is None:
@@ -148,4 +162,12 @@ def validate(directory: pathlib.Path | None = None, today: dt.date | None = None
             errors.append(f"{tag}: contains an email address; the registry holds no personal contact details")
         if not s.get("endpoints"):
             warnings.append(f"{tag}: no endpoints listed; agents can only visit the home page")
+        for e in s.get("endpoints") or []:
+            if e.get("agent_readable") is False and not e.get("blocked_by"):
+                errors.append(f"{tag}: endpoint {e.get('url')} is marked agent_readable: false; say why with blocked_by")
+            if e.get("blocked_by") and e.get("agent_readable") is not False:
+                errors.append(f"{tag}: endpoint {e.get('url')} has blocked_by but is not marked agent_readable: false")
+        acc = s.get("access") or {}
+        if acc.get("agent_readable") is False and not acc.get("blocked_by"):
+            errors.append(f"{tag}: access.agent_readable is false; say why with access.blocked_by")
     return errors, warnings

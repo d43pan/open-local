@@ -73,8 +73,9 @@ python3 ~/.claude/skills/open-local/scripts/run.py where "Little Compton, RI"
 python3 ~/.claude/skills/open-local/scripts/run.py sources US/RI/little-compton --brief
 ```
 
-The first run downloads the registry (one file) and keeps it for a day in
-`~/.cache/open-local/`. Then ask your agent: *"What's happening in Little Compton this
+The first run downloads a small index of places and the file for the place you ask about,
+and keeps them for a day in `~/.cache/open-local/` (after that, an unchanged file costs one
+small request). It never downloads every town. Then ask your agent: *"What's happening in Little Compton this
 week?"*
 
 ## What was tested

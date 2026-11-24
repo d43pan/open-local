@@ -1,0 +1,18 @@
+place:
+  id: US/RI/barrington
+  name: Barrington
+  kind: municipality
+  local_kind: town
+  country: US
+  subdivision: US-RI
+  parents:
+  - US/RI/bristol-county
+  centroid:
+    lat: 41.733
+    lon: -71.3197
+  identifiers:
+    us_census_geoid: '4400105140'
+  provenance:
+    method: import
+    dataset: US Census Gazetteer 2024 (county subdivisions)
+    imported: '2026-11-24'

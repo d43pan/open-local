@@ -26,9 +26,11 @@ As of <today's date>. Sources: <n> read, <n> could not be read.
 ## Coverage
 - Read: <the sources actually read, by name>
 - Could not read: <name: why> …
+- Needs a person: <name: link, and why tools may not read it (robots.txt, terms, login)>
 - Not checked by this briefing: <kinds of source the registry lacks for this place>
 - Not in the registry: <anything found by web search, labelled>
 - This is what these sources published. It is not everything that happened.
+- Registry data <coverage.registry.data> (skill <coverage.registry.skill>)
 ```
 
 ## Notes

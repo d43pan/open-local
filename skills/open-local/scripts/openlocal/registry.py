@@ -19,8 +19,16 @@ import re
 import time
 import unicodedata
 
-REGISTRY_URL = "https://raw.githubusercontent.com/d43pan/open-local/main/dist/registry.json"
+DATA_URL = os.environ.get("OPEN_LOCAL_DATA_URL", "https://raw.githubusercontent.com/d43pan/open-local/main/dist/")
+REGISTRY_URL = DATA_URL + "registry.json"
 CACHE_HOURS = 24
+SCHEMA = "open-local/registry/1"
+SCHEMA_MAJOR = 1  # the newest major version of the published data this code can read
+PLACE_RADIUS_KM = 50  # a per-place file carries every place within this distance, so --radius-km up to it works
+
+
+class IncompatibleData(RuntimeError):
+    """The published data uses a newer schema than this copy of the skill understands."""
 
 
 def repo_root() -> pathlib.Path | None:
@@ -39,29 +47,84 @@ REGISTRY_DIR = (ROOT / "registry") if ROOT else None
 BUILT = (ROOT / "dist" / "registry.json") if ROOT else None
 
 
-def cache_file() -> pathlib.Path:
+def cache_dir() -> pathlib.Path:
     base = os.environ.get("XDG_CACHE_HOME", os.path.expanduser("~/.cache"))
-    return pathlib.Path(base) / "open-local" / "registry.json"
+    return pathlib.Path(base) / "open-local"
+
+
+def cache_file() -> pathlib.Path:
+    return cache_dir() / "registry.json"
+
+
+def cached_get(path: str) -> bytes | None:
+    """A published file (e.g. "index.json", "places/US/RI/little-compton.json"), cached a day.
+
+    After a day the copy is revalidated with its ETag, so an unchanged file costs one
+    small request. Returns None when the file does not exist (HTTP 404), or when it cannot
+    be fetched and no older copy is cached.
+    """
+    from . import net
+    if ".." in path.split("/") or path.startswith("/"):
+        raise ValueError(f"bad data path: {path}")
+    target = cache_dir() / path
+    tag_file = target.with_name(target.name + ".etag")
+    if target.exists() and (time.time() - target.stat().st_mtime) < CACHE_HOURS * 3600:
+        return target.read_bytes()
+    etag = tag_file.read_text(encoding="utf-8").strip() if (target.exists() and tag_file.exists()) else None
+    try:
+        r = net.fetch(DATA_URL + path, respect_robots=False, max_bytes=50_000_000, if_none_match=etag)
+        if r.status == 304 and target.exists():
+            target.touch()
+        elif r.status == 200:
+            if path.endswith(".json"):
+                json.loads(r.body)  # never cache something that is not JSON
+            target.parent.mkdir(parents=True, exist_ok=True)
+            target.write_bytes(r.body)
+            if r.headers.get("etag"):
+                tag_file.write_text(r.headers["etag"], encoding="utf-8")
+        elif r.status == 404:
+            return None
+    except (net.Blocked, net.FetchError, ValueError):
+        pass  # fall back to an older copy below
+    return target.read_bytes() if target.exists() else None
 
 
 def download() -> dict:
-    """Fetch the published registry (for a skill installed without the repository)."""
-    from . import net
-    cache = cache_file()
-    fresh = cache.exists() and (time.time() - cache.stat().st_mtime) < CACHE_HOURS * 3600
-    if not fresh:
-        try:
-            r = net.fetch(REGISTRY_URL, respect_robots=False, max_bytes=50_000_000)
-            if r.status == 200:
-                json.loads(r.body)
-                cache.parent.mkdir(parents=True, exist_ok=True)
-                cache.write_bytes(r.body)
-        except (net.Blocked, net.FetchError, ValueError):
-            pass  # fall back to an older copy below
-    if not cache.exists():
+    """Fetch the whole published registry (for a skill installed without the repository)."""
+    body = cached_get("registry.json")
+    if body is None:
         raise RuntimeError("No registry available: could not download " + REGISTRY_URL +
                            ". Clone https://github.com/d43pan/open-local and run from there, or set OPEN_LOCAL_REGISTRY to a registry.json.")
-    return json.loads(cache.read_text(encoding="utf-8"))
+    return json.loads(body)
+
+
+def version_key(v: str) -> tuple:
+    return tuple(int(x) if x.isdigit() else 0 for x in re.split(r"[.+-]", str(v))[:3])
+
+
+def compatibility(data: dict) -> str | None:
+    """Raise IncompatibleData if the data is too new to read; return a notice if the skill is out of date."""
+    from . import __version__
+    schema = str(data.get("schema") or SCHEMA)
+    try:
+        major = int(schema.rsplit("/", 1)[-1])
+    except ValueError:
+        major = SCHEMA_MAJOR
+    if major > SCHEMA_MAJOR:
+        raise IncompatibleData(f"The published registry uses {schema}, newer than this copy of the open-local skill "
+                               f"(version {__version__}) can read. Update the skill: https://github.com/d43pan/open-local#install")
+    latest = data.get("skill_version")
+    if latest and version_key(latest) > version_key(__version__):
+        return (f"A newer open-local skill ({latest}) is available; this copy is {__version__}. "
+                "It still works; update it when convenient: https://github.com/d43pan/open-local#install")
+    return None
+
+
+def data_version(places: dict, sources: list) -> str:
+    """A short fingerprint of the registry content, so an answer can say which data it used."""
+    import hashlib
+    blob = json.dumps({"places": places, "sources": sources}, sort_keys=True, ensure_ascii=False).encode()
+    return hashlib.sha256(blob).hexdigest()[:12]
 
 
 FEED_KINDS = ("rss", "atom", "jsonfeed", "ical")
@@ -95,8 +158,34 @@ def build(directory: pathlib.Path | None = None) -> dict:
             if not s.get("coverage"):
                 s["coverage"] = [{"place": place.get("id"), "level": "dedicated"}]
             sources.append(s)
-    return {"schema": "open-local/registry/1", "license": "CC0-1.0",
-            "places": dict(sorted(places.items())), "sources": sorted(sources, key=lambda s: s.get("id", ""))}
+    from . import __version__
+    places, sources = dict(sorted(places.items())), sorted(sources, key=lambda s: s.get("id", ""))
+    return {"schema": SCHEMA, "license": "CC0-1.0", "skill_version": __version__,
+            "data_version": data_version(places, sources), "places": places, "sources": sources}
+
+
+def read_checks(homes: set[str]) -> dict[str, dict]:
+    """The latest network-check result for each source whose home is one of these places.
+
+    Written by the scheduled availability check to dist/checks/<home>.json. Missing files
+    simply mean nothing has been recorded yet.
+    """
+    out: dict[str, dict] = {}
+    for home in sorted(h for h in homes if h):
+        path = f"checks/{home}.json"
+        if os.environ.get("OPEN_LOCAL_REGISTRY"):
+            body = None  # an explicit registry file comes without check results
+        elif ROOT:
+            f = ROOT / "dist" / path
+            body = f.read_bytes() if f.exists() else None
+        else:
+            body = cached_get(path)
+        if body:
+            try:
+                out.update(json.loads(body).get("sources") or {})
+            except ValueError:
+                pass
+    return out
 
 
 class Registry:
@@ -104,14 +193,41 @@ class Registry:
         self.data = data
         self.places: dict[str, dict] = data.get("places", {})
         self.sources: list[dict] = data.get("sources", [])
+        self.notice: str | None = compatibility(data)
+        self.partial = bool(data.get("partial"))  # True for an index or a per-place file, not the whole registry
         self._up: dict[str, set[str]] = {pid: set(p.get("parents") or []) for pid, p in self.places.items()}
         for pid, p in self.places.items():  # an area that "covers" a place acts as one more parent of it
             for member in p.get("covers") or []:
                 self._up.setdefault(member, set()).add(pid)
 
+    def versions(self) -> dict:
+        from . import __version__
+        return {"skill": __version__, "data": self.data.get("data_version"), "schema": self.data.get("schema"),
+                **({"notice": self.notice} if self.notice else {})}
+
+    _local_cache: dict = {}
+
+    @classmethod
+    def _local(cls) -> dict | None:
+        """The whole registry when it is on this machine (a file or a checkout), parsed once per run."""
+        env = os.environ.get("OPEN_LOCAL_REGISTRY")
+        key = env or (str(ROOT) if ROOT else None)
+        if key is None:
+            return None
+        if key not in cls._local_cache:
+            if env:
+                data = json.loads(pathlib.Path(env).read_text(encoding="utf-8"))
+            else:
+                try:
+                    data = build()
+                except ImportError:
+                    data = json.loads(BUILT.read_text(encoding="utf-8"))
+            cls._local_cache[key] = data
+        return json.loads(json.dumps(cls._local_cache[key]))  # a copy, so one caller's changes never leak to another
+
     @classmethod
     def load(cls, prefer_yaml: bool = True) -> "Registry":
-        """From OPEN_LOCAL_REGISTRY, else this checkout, else the published copy (cached a day)."""
+        """The whole registry: from OPEN_LOCAL_REGISTRY, else this checkout, else the published copy (cached a day)."""
         env = os.environ.get("OPEN_LOCAL_REGISTRY")
         if env:
             return cls(json.loads(pathlib.Path(env).read_text(encoding="utf-8")))
@@ -123,6 +239,69 @@ class Registry:
                     pass
             return cls(json.loads(BUILT.read_text(encoding="utf-8")))
         return cls(download())
+
+    @classmethod
+    def load_index(cls) -> "Registry":
+        """Enough to resolve any place by name, postal code or point, without any sources.
+
+        Installed skills fetch the small dist/index.json; a checkout uses the whole registry.
+        """
+        local = cls._local()
+        if local is not None:
+            return cls(local)
+        body = cached_get("index.json")
+        return cls(json.loads(body)) if body else cls(download())  # older published data has no index
+
+    @classmethod
+    def load_place(cls, pid: str, radius_km: float | None = None) -> "Registry":
+        """What is needed to answer about one place: it, the areas above it, its neighbours,
+        everything within PLACE_RADIUS_KM, and the sources covering any of them.
+
+        Installed skills fetch dist/places/<id>.json; a checkout uses the whole registry.
+        Falls back to the whole registry for a wider radius or older published data.
+        """
+        local = cls._local()
+        if local is None:
+            body = None if (radius_km or 0) > PLACE_RADIUS_KM else cached_get(f"places/{pid}.json")
+            local = json.loads(body) if body else download()
+        reg = cls(local)
+        if pid not in reg.places:
+            raise KeyError(pid)
+        relevant = reg.sources_for(pid, neighbors=True, radius_km=max(radius_km or 0, PLACE_RADIUS_KM))
+        checks = read_checks({s.get("home") for s in relevant})  # one small file per home, never one per place in the country
+        for s in reg.sources:
+            if s["id"] in checks:
+                s["last_checked"] = checks[s["id"]]
+        return reg
+
+    # ---- slicing for publication ----------------------------------------------------
+    def place_slice(self, pid: str) -> dict:
+        """The per-place file for pid (see load_place)."""
+        keep = {pid, *self.ancestors(pid), *(self.places[pid].get("neighbors") or [])}
+        c = self.places[pid].get("centroid")
+        if c:
+            keep.update(p for _, p in self.near(c["lat"], c["lon"], PLACE_RADIUS_KM))
+        for extra in list(keep):  # nearby places need their own areas so they resolve and describe correctly
+            keep.update(self.ancestors(extra))
+        sources = [s for s in self.sources if any(cv.get("place") in keep for cv in s.get("coverage") or [])]
+        return {"schema": self.data.get("schema", SCHEMA), "license": self.data.get("license", "CC0-1.0"),
+                "skill_version": self.data.get("skill_version"), "data_version": self.data.get("data_version"),
+                "partial": True, "place": pid, "radius_km": PLACE_RADIUS_KM,
+                "places": {k: self.places[k] for k in sorted(keep)}, "sources": sources}
+
+    INDEX_FIELDS = ("name", "kind", "local_kind", "country", "subdivision", "abbreviation", "aliases", "parents",
+                    "covers", "neighbors", "centroid", "postal_codes")
+
+    def index(self) -> dict:
+        """Every place, with only what resolving and describing it needs, plus how many sources it has."""
+        places = {}
+        for pid, p in self.places.items():
+            row = {k: p[k] for k in self.INDEX_FIELDS if p.get(k) not in (None, [], "")}
+            row["direct_sources"] = len(self.direct_sources(pid))
+            places[pid] = row
+        return {"schema": self.data.get("schema", SCHEMA), "license": self.data.get("license", "CC0-1.0"),
+                "skill_version": self.data.get("skill_version"), "data_version": self.data.get("data_version"),
+                "partial": True, "places": places, "sources": []}
 
     # ---- geography -------------------------------------------------------------------
     def ancestors(self, pid: str) -> list[str]:
@@ -205,10 +384,15 @@ class Registry:
 
     def describe(self, pid: str, matched_by: str = "") -> dict:
         p = self.places[pid]
-        return {"id": pid, "name": p.get("name"), "kind": p.get("kind"), "local_kind": p.get("local_kind"),
-                "matched_by": matched_by, "contained_in": self.ancestors(pid),
-                "neighbors": list(p.get("neighbors") or []), "centroid": p.get("centroid"),
-                "postal_codes": list(p.get("postal_codes") or [])}
+        own = p["direct_sources"] if "direct_sources" in p else len(self.direct_sources(pid))
+        out = {"id": pid, "name": p.get("name"), "kind": p.get("kind"), "local_kind": p.get("local_kind"),
+               "matched_by": matched_by, "contained_in": self.ancestors(pid),
+               "neighbors": list(p.get("neighbors") or []), "centroid": p.get("centroid"),
+               "postal_codes": list(p.get("postal_codes") or []), "sources_of_its_own": own}
+        if own == 0:
+            out["note"] = ("No sources of its own are mapped yet: only area-wide sources (county, state, region) reach it. "
+                           "Say so in the coverage report, and offer to map it (references/build.md).")
+        return out
 
     # ---- sources ---------------------------------------------------------------------
     def sources_for(self, pid: str, *, radius_km: float | None = None, neighbors: bool = False,
