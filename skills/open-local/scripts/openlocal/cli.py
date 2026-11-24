@@ -76,9 +76,12 @@ def main(argv: list[str] | None = None) -> int:
     p.add_argument("--all-area", action="store_true", help="also list items from area-wide sources that do not name the place")
     p.add_argument("--per-source", type=int, default=15, help="at most this many items from each feed (default 15)")
     p.add_argument("--fresh", action="store_true", help="read every source again, ignoring local copies")
-    p.add_argument("--max-age", type=int, default=None, metavar="MINUTES",
-                   help="use a local copy of a feed if it was read within this many minutes (default 60, or OPEN_LOCAL_CACHE_MINUTES)")
+    p.add_argument("--max-age", type=cache.parse_age, default=None, metavar="AGE",
+                   help="use a local copy of a feed read within this long: 90m, 6h, 2d (default 24h; "
+                        "see `cache --max-age` to change it for good)")
     p = sub.add_parser("cache"); p.add_argument("--clear", action="store_true", help="delete the local copies of feeds")
+    p.add_argument("--max-age", metavar="AGE", help="how long to trust copies from now on (90m, 6h, 2d; 0 = always re-read); "
+                                                    "'default' goes back to 24h. Saved in the settings file.")
     p = sub.add_parser("discover"); p.add_argument("url"); p.add_argument("--no-probe", action="store_true")
     p = sub.add_parser("dates"); p.add_argument("url")
     p = sub.add_parser("changed"); p.add_argument("url"); p.add_argument("--no-remember", action="store_true")
@@ -151,9 +154,16 @@ def run(ap, args) -> int:
         from . import seed
         return seed.main(args)
     if args.cmd == "cache":
+        if args.max_age is not None:
+            try:
+                cache.save_setting(None if args.max_age == "default" else args.max_age)
+            except ValueError as err:
+                print(err)
+                return 2
         removed = cache.clear() if args.clear else None
+        minutes, where = cache.setting()
         out({**cache.status(), **({"removed": removed} if removed is not None else {}),
-             "trusted_for_minutes": cache.default_minutes()})
+             "trusted_for_minutes": minutes, "trusted_for_set_by": where})
         return 0
     if args.cmd == "record":
         from . import registry

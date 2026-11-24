@@ -19,8 +19,9 @@ import time
 
 from . import net
 
-DEFAULT_MINUTES = 60
+DEFAULT_MINUTES = 24 * 60
 KEEP_DAYS = 30
+UNITS = {"m": 1, "h": 60, "d": 24 * 60}
 
 
 def directory() -> pathlib.Path:
@@ -28,11 +29,65 @@ def directory() -> pathlib.Path:
     return pathlib.Path(base) / "open-local" / "fetch"
 
 
-def default_minutes() -> int:
+def parse_age(text: str | int) -> int:
+    """ "90", "90m", "6h", "2d" -> minutes. A bare number is minutes."""
+    t = str(text).strip().lower()
+    unit = t[-1] if t and t[-1] in UNITS else "m"
+    number = t[:-1] if t and t[-1] in UNITS else t
     try:
-        return max(0, int(os.environ.get("OPEN_LOCAL_CACHE_MINUTES", DEFAULT_MINUTES)))
+        minutes = float(number) * UNITS[unit]
     except ValueError:
-        return DEFAULT_MINUTES
+        raise ValueError(f"not an age: {text!r} (use e.g. 90m, 6h, 2d)") from None
+    if minutes < 0:
+        raise ValueError(f"not an age: {text!r}")
+    return int(minutes)
+
+
+def settings_file() -> pathlib.Path:
+    base = os.environ.get("XDG_CONFIG_HOME", os.path.expanduser("~/.config"))
+    return pathlib.Path(base) / "open-local" / "settings.json"
+
+
+def _settings() -> dict:
+    try:
+        return json.loads(settings_file().read_text(encoding="utf-8"))
+    except (OSError, ValueError):
+        return {}
+
+
+def setting() -> tuple[int, str]:
+    """How long copies are trusted, and where that came from. The first one set wins:
+    OPEN_LOCAL_CACHE_MAX_AGE, OPEN_LOCAL_CACHE_MINUTES (older name), the settings file, the default."""
+    for name in ("OPEN_LOCAL_CACHE_MAX_AGE", "OPEN_LOCAL_CACHE_MINUTES"):
+        if os.environ.get(name):
+            try:
+                return parse_age(os.environ[name]), f"environment ({name})"
+            except ValueError:
+                pass
+    if "cache_max_age" in _settings():
+        try:
+            return parse_age(_settings()["cache_max_age"]), f"settings file ({settings_file()})"
+        except ValueError:
+            pass
+    return DEFAULT_MINUTES, "default"
+
+
+def default_minutes() -> int:
+    return setting()[0]
+
+
+def save_setting(age: str | None) -> dict:
+    """Keep an age in the settings file (None removes it, back to the default)."""
+    data = _settings()
+    if age is None:
+        data.pop("cache_max_age", None)
+    else:
+        parse_age(age)
+        data["cache_max_age"] = age
+    f = settings_file()
+    f.parent.mkdir(parents=True, exist_ok=True)
+    f.write_text(json.dumps(data, indent=1) + "\n", encoding="utf-8")
+    return data
 
 
 class Cache:
