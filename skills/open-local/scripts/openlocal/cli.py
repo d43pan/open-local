@@ -6,6 +6,7 @@
   discover   find the feeds and calendars a website offers
   dates      the dates a web page declares, labelled by meaning
   changed    has this page changed since the last look
+  cache      the local copies of feeds already read (--clear to delete them)
   propose    draft a registry entry for a person to review
   frontier   unmapped places next to mapped ones: where to expand next
   gaps       what kinds of source a place has, and what its neighbours have that it lacks
@@ -25,7 +26,7 @@ import argparse
 import json
 import sys
 
-from . import __version__, check, export, feeds, net, pages, propose, recent
+from . import __version__, cache, check, export, feeds, net, pages, propose, recent
 from .registry import IncompatibleData, Registry
 
 
@@ -74,6 +75,10 @@ def main(argv: list[str] | None = None) -> int:
     p.add_argument("--brief", action="store_true", help="leave out summaries and per-feed detail (much smaller)")
     p.add_argument("--all-area", action="store_true", help="also list items from area-wide sources that do not name the place")
     p.add_argument("--per-source", type=int, default=15, help="at most this many items from each feed (default 15)")
+    p.add_argument("--fresh", action="store_true", help="read every source again, ignoring local copies")
+    p.add_argument("--max-age", type=int, default=None, metavar="MINUTES",
+                   help="use a local copy of a feed if it was read within this many minutes (default 60, or OPEN_LOCAL_CACHE_MINUTES)")
+    p = sub.add_parser("cache"); p.add_argument("--clear", action="store_true", help="delete the local copies of feeds")
     p = sub.add_parser("discover"); p.add_argument("url"); p.add_argument("--no-probe", action="store_true")
     p = sub.add_parser("dates"); p.add_argument("url")
     p = sub.add_parser("changed"); p.add_argument("url"); p.add_argument("--no-remember", action="store_true")
@@ -145,6 +150,11 @@ def run(ap, args) -> int:
     if args.cmd == "seed":
         from . import seed
         return seed.main(args)
+    if args.cmd == "cache":
+        removed = cache.clear() if args.clear else None
+        out({**cache.status(), **({"removed": removed} if removed is not None else {}),
+             "trusted_for_minutes": cache.default_minutes()})
+        return 0
     if args.cmd == "record":
         from . import registry
         if registry.ROOT is None:
@@ -183,7 +193,8 @@ def run(ap, args) -> int:
                 out({"place": reg.describe(pid), "sources": srcs, "registry": reg.versions()})
         else:
             got = recent.recent(reg, pid, days=args.days, ahead=args.ahead, radius_km=args.radius_km, neighbors=args.neighbors,
-                                types=args.types, topics=args.topics, per_source=args.per_source, all_area=args.all_area)
+                                types=args.types, topics=args.topics, per_source=args.per_source, all_area=args.all_area,
+                                fetch=cache.Cache(max_age_minutes=0 if args.fresh else args.max_age))
             out(recent.brief(got) if args.brief else got)
         return 0
 

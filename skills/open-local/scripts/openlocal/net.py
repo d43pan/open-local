@@ -172,11 +172,12 @@ def allowed_by_robots(url: str, timeout: float = 15.0) -> bool:
 
 
 def fetch(url: str, *, method: str = "GET", timeout: float = 20.0, max_bytes: int = MAX_BYTES,
-          respect_robots: bool = True, accept: str = "*/*", if_none_match: str | None = None) -> Response:
+          respect_robots: bool = True, accept: str = "*/*", if_none_match: str | None = None,
+          if_modified_since: str | None = None) -> Response:
     """GET (or HEAD) a public URL safely. Raises Blocked or FetchError.
 
-    With if_none_match (an ETag from an earlier response), an unchanged resource comes
-    back as status 304 with an empty body.
+    With if_none_match (an ETag from an earlier response) or if_modified_since (its
+    Last-Modified), an unchanged resource comes back as status 304 with an empty body.
     """
     seen: list[str] = []
     for _ in range(MAX_REDIRECTS + 1):
@@ -187,6 +188,8 @@ def fetch(url: str, *, method: str = "GET", timeout: float = 20.0, max_bytes: in
                    "Connection": "close"}
         if if_none_match:
             headers["If-None-Match"] = if_none_match
+        if if_modified_since:
+            headers["If-Modified-Since"] = if_modified_since
         status, hdrs, body, truncated = _request(parts, method, headers, timeout, max_bytes)
         if status in (301, 302, 303, 307, 308) and hdrs.get("location"):
             seen.append(url)

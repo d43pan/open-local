@@ -10,6 +10,12 @@ FIX = pathlib.Path(__file__).parent / "fixtures"
 from openlocal import net, registry  # noqa: E402
 
 
+@pytest.fixture(autouse=True)
+def own_cache_folder(monkeypatch, tmp_path):
+    """Tests never read or write the real ~/.cache."""
+    monkeypatch.setenv("XDG_CACHE_HOME", str(tmp_path / "cache"))
+
+
 @pytest.fixture
 def reg():
     return registry.Registry(registry.build(FIX / "registry"))

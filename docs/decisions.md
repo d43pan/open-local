@@ -259,3 +259,25 @@ adding data that anyone can review in a pull request, never code. A fix written 
 town should help every town on the same platform. Free-text notes that pile up reasoning
 drift out of date and get read by agents as if they were instructions; structured
 fields can be validated, and notes stay short and factual.
+
+## 23. Each machine remembers what it read; nothing is recrawled inside an hour
+
+`recent` keeps a local copy of every feed and calendar it reads
+(`~/.cache/open-local/fetch/`). A copy read within the last hour is used without
+touching the network. An older copy is checked with the ETag or Last-Modified the site
+gave, so an unchanged feed costs one small request. If a site does not answer, the last
+good copy (up to 30 days old) is used and reported as old, with its age. A site whose
+robots.txt now refuses is never read from a copy. `--fresh` reads everything again;
+`--max-age` or `OPEN_LOCAL_CACHE_MINUTES` change the hour; `run.py cache --clear`
+deletes the copies. Every answer's coverage report says how many feeds came from
+copies and how old the oldest was.
+
+The copies are local. Nothing is uploaded, and no shared copy of other people's feeds is
+published by this project.
+
+**Why.** An agent asked three questions about a town in one conversation was loading
+every source three times: slow for the person and rude to small town websites. A feed
+reader's manners (wait, then ask "has it changed?") fix both. A shared, published
+cache would save more, but it would mean this project republishing other publishers'
+text, a server-like service to keep fresh, and one more place for stale facts to hide;
+that is a separate decision, not taken here.
