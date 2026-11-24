@@ -9,6 +9,7 @@ from __future__ import annotations
 
 import datetime as dt
 import re
+import urllib.parse
 
 from . import feeds, net
 from .registry import FEED_KINDS, Registry, norm
@@ -69,6 +70,26 @@ def place_names(reg: Registry, place: str) -> list[str]:
 def needs_person(s: dict, url: str, why: str, blocked_by: str, detected: bool = False) -> dict:
     return {"source_id": s["id"], "name": s["name"], "url": s["url"], "endpoint": url, "blocked_by": blocked_by,
             "why": why, **({"detected_now": True} if detected else {})}
+
+
+def item_link(link: str | None, feed_url: str, page_url: str) -> str:
+    """A link a person can open: relative links made absolute against the feed, only http(s).
+
+    Some feeds (CivicPlus calendars, for one) give every item a relative link back to the feed
+    itself; that is no use to a reader, so the source's own page stands in for it.
+    """
+    if link:
+        full = urllib.parse.urljoin(feed_url, link.strip())
+        if urllib.parse.urlsplit(full).scheme in ("http", "https") and not _same_feed(full, feed_url):
+            return full
+    return page_url or feed_url
+
+
+def _same_feed(a: str, b: str) -> bool:
+    """Same host, path and query parameters (in any order), ignoring scheme and fragment."""
+    pa, pb = urllib.parse.urlsplit(a), urllib.parse.urlsplit(b)
+    return (pa.netloc.lower(), pa.path.lower(), sorted(urllib.parse.parse_qsl(pa.query))) == \
+           (pb.netloc.lower(), pb.path.lower(), sorted(urllib.parse.parse_qsl(pb.query)))
 
 
 def recent(reg: Registry, place: str, *, days: int = 7, ahead: int = 14, radius_km: float | None = None,
@@ -143,7 +164,7 @@ def recent(reg: Registry, place: str, *, days: int = 7, ahead: int = 14, radius_
                 if kept >= per_source:
                     break
                 kept += 1
-                items.append({"kind": "event" if is_event else "item", "title": i["title"], "url": i.get("url") or e["url"],
+                items.append({"kind": "event" if is_event else "item", "title": i["title"], "url": item_link(i.get("url"), e["url"], s["url"]),
                               "date": date, "date_means": "when the event starts" if is_event else "when this was published",
                               "summary": i.get("summary", ""), **({"location": i["location"]} if i.get("location") else {}),
                               "source_id": s["id"], "source_name": s["name"], "source_type": s["type"],
