@@ -1,0 +1,57 @@
+{
+ "schema": "open-local/checks/1",
+ "home": "US/RI",
+ "sources": {
+  "us-ri-boston-globe-rhode-island": {
+   "checked": "2026-11-24",
+   "ok": true,
+   "problems": [],
+   "endpoints": [
+    {
+     "url": "https://www.bostonglobe.com/metro/rhode-island/",
+     "kind": "home",
+     "http": 200,
+     "ok": true
+    }
+   ]
+  },
+  "us-ri-save-the-bay": {
+   "checked": "2026-11-24",
+   "ok": true,
+   "problems": [],
+   "endpoints": [
+    {
+     "url": "https://savebay.org/",
+     "kind": "home",
+     "http": 200,
+     "ok": true
+    },
+    {
+     "url": "https://savebay.org/feed/",
+     "kind": "rss",
+     "http": 200,
+     "ok": true
+    }
+   ]
+  },
+  "us-ri-the-publics-radio": {
+   "checked": "2026-11-24",
+   "ok": true,
+   "problems": [],
+   "endpoints": [
+    {
+     "url": "https://thepublicsradio.org/",
+     "kind": "home",
+     "http": 200,
+     "ok": true
+    },
+    {
+     "url": "https://thepublicsradio.org/feed/",
+     "kind": "podcast",
+     "http": 200,
+     "ok": true
+    }
+   ]
+  }
+ }
+}

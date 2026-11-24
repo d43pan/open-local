@@ -1,0 +1,126 @@
+{
+ "schema": "open-local/checks/1",
+ "home": "US/RI/tiverton",
+ "sources": {
+  "us-ri-tiverton-farmers-market": {
+   "checked": "2026-11-24",
+   "ok": true,
+   "problems": [],
+   "endpoints": [
+    {
+     "url": "https://www.tivertonfarmersmarket.com/",
+     "kind": "home",
+     "http": 200,
+     "ok": true
+    },
+    {
+     "url": "https://www.tivertonfarmersmarket.com/popup-events",
+     "kind": "html",
+     "http": 200,
+     "ok": true
+    },
+    {
+     "url": "https://www.tivertonfarmersmarket.com/sitemap.xml",
+     "kind": "sitemap",
+     "http": 200,
+     "ok": true
+    }
+   ]
+  },
+  "us-ri-tiverton-four-corners": {
+   "checked": "2026-11-24",
+   "ok": true,
+   "problems": [],
+   "endpoints": [
+    {
+     "url": "https://www.tivertonfourcorners.com/",
+     "kind": "home",
+     "http": 200,
+     "ok": true
+    },
+    {
+     "url": "https://www.tivertonfourcorners.com/events-2",
+     "kind": "html",
+     "http": 200,
+     "ok": true
+    },
+    {
+     "url": "https://www.tivertonfourcorners.com/shopsandgalleries",
+     "kind": "html",
+     "http": 200,
+     "ok": true
+    },
+    {
+     "url": "https://www.tivertonfourcorners.com/food-and-dining",
+     "kind": "html",
+     "http": 200,
+     "ok": true
+    },
+    {
+     "url": "https://www.tivertonfourcorners.com/sitemap.xml",
+     "kind": "sitemap",
+     "http": 200,
+     "ok": true
+    }
+   ]
+  },
+  "us-ri-tiverton-four-corners-arts-center": {
+   "checked": "2026-11-24",
+   "ok": true,
+   "problems": [],
+   "endpoints": [
+    {
+     "url": "https://www.fourcornersarts.org/",
+     "kind": "home",
+     "http": 200,
+     "ok": true
+    },
+    {
+     "url": "https://www.fourcornersarts.org/events",
+     "kind": "html",
+     "http": 200,
+     "ok": true
+    },
+    {
+     "url": "https://www.fourcornersarts.org/sitemap.xml",
+     "kind": "sitemap",
+     "http": 200,
+     "ok": true
+    }
+   ]
+  },
+  "us-ri-tiverton-planning-board": {
+   "checked": "2026-11-24",
+   "ok": false,
+   "problems": [
+    "rss feed is empty: https://opengov.sos.ri.gov/RSSFeed/Rss?feedType=7&entityID=3530&filter1=&filter2=&Keywords=&FromDate=&ToDate=&RefineSearch=&PublicBodies="
+   ],
+   "endpoints": [
+    {
+     "url": "https://opengov.sos.ri.gov/OpenMeetingsPublic/OpenMeetingDashboard?subtopmenuId=201&EntityID=3530",
+     "kind": "home",
+     "http": 200,
+     "ok": true
+    },
+    {
+     "url": "https://opengov.sos.ri.gov/OpenMeetingsPublic/OpenMeetingDashboard?subtopmenuId=201&EntityID=3530",
+     "kind": "html",
+     "http": 200,
+     "ok": true
+    },
+    {
+     "url": "https://opengov.sos.ri.gov/RSSFeed/Rss?feedType=9&entityID=3530&filter1=&filter2=&Keywords=&FromDate=&ToDate=&RefineSearch=&PublicBodies=",
+     "kind": "rss",
+     "http": 200,
+     "ok": true
+    },
+    {
+     "url": "https://opengov.sos.ri.gov/RSSFeed/Rss?feedType=7&entityID=3530&filter1=&filter2=&Keywords=&FromDate=&ToDate=&RefineSearch=&PublicBodies=",
+     "kind": "rss",
+     "http": 200,
+     "ok": true
+    }
+   ]
+  }
+ }
+}

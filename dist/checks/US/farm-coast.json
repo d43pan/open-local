@@ -1,0 +1,31 @@
+{
+ "schema": "open-local/checks/1",
+ "home": "US/farm-coast",
+ "sources": {
+  "us-farm-coast-south-coast-artists": {
+   "checked": "2026-11-24",
+   "ok": true,
+   "problems": [],
+   "endpoints": [
+    {
+     "url": "https://www.southcoastartists.org/",
+     "kind": "home",
+     "http": 200,
+     "ok": true
+    },
+    {
+     "url": "https://www.southcoastartists.org/2026-open-studio-tour-participants",
+     "kind": "html",
+     "http": 200,
+     "ok": true
+    },
+    {
+     "url": "https://www.southcoastartists.org/sitemap.xml",
+     "kind": "sitemap",
+     "http": 200,
+     "ok": true
+    }
+   ]
+  }
+ }
+}

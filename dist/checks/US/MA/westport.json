@@ -1,0 +1,110 @@
+{
+ "schema": "open-local/checks/1",
+ "home": "US/MA/westport",
+ "sources": {
+  "us-ma-westport-boards-and-meetings": {
+   "checked": "2026-11-24",
+   "ok": true,
+   "problems": [],
+   "endpoints": [
+    {
+     "url": "https://www.westport-ma.com/government/meetings.php",
+     "kind": "home",
+     "http": 200,
+     "ok": true
+    },
+    {
+     "url": "https://www.westport-ma.com/government/meetings.php",
+     "kind": "html",
+     "http": 200,
+     "ok": true
+    },
+    {
+     "url": "https://www.westport-ma.com/government/select_board/index.php",
+     "kind": "html",
+     "http": 200,
+     "ok": true
+    },
+    {
+     "url": "https://www.westport-ma.com/departments/planning/agendas_minutes.php",
+     "kind": "html",
+     "http": 200,
+     "ok": true
+    },
+    {
+     "url": "https://www.westport-ma.com/government/boards_committtees/zoning_board_of_appeals/index.php",
+     "kind": "html",
+     "http": 200,
+     "ok": true
+    },
+    {
+     "url": "https://www.westport-ma.com/departments/conservation_commission/agendas_minutes.php",
+     "kind": "html",
+     "http": 200,
+     "ok": true
+    },
+    {
+     "url": "https://www.westport-ma.com/departments/health/agendas_minutes.php",
+     "kind": "html",
+     "http": 200,
+     "ok": true
+    },
+    {
+     "url": "https://www.westport-ma.com/government/town_clerk/meeting_notice_posting_sheet.php",
+     "kind": "html",
+     "http": 200,
+     "ok": true
+    }
+   ]
+  },
+  "us-ma-westport-government-tv": {
+   "checked": "2026-11-24",
+   "ok": true,
+   "problems": [],
+   "endpoints": [
+    {
+     "url": "https://www.youtube.com/channel/UCV9Hpg60YgmPnqPe1q2lgBw",
+     "kind": "home",
+     "http": 200,
+     "ok": true
+    },
+    {
+     "url": "https://www.youtube.com/feeds/videos.xml?channel_id=UCV9Hpg60YgmPnqPe1q2lgBw",
+     "kind": "atom",
+     "blocked": "disallowed by robots.txt"
+    }
+   ]
+  },
+  "us-ma-westport-historical-society": {
+   "checked": "2026-11-24",
+   "ok": true,
+   "problems": [],
+   "endpoints": [
+    {
+     "url": "https://wpthistory.org/",
+     "kind": "home",
+     "http": 200,
+     "ok": true
+    },
+    {
+     "url": "https://wpthistory.org/feed/",
+     "kind": "rss",
+     "http": 200,
+     "ok": true
+    },
+    {
+     "url": "https://wpthistory.org/events/feed/",
+     "kind": "rss",
+     "http": 200,
+     "ok": true
+    },
+    {
+     "url": "https://wpthistory.org/handy-house/events/",
+     "kind": "html",
+     "http": 200,
+     "ok": true
+    }
+   ]
+  }
+ }
+}

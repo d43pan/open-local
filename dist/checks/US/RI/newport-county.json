@@ -1,0 +1,71 @@
+{
+ "schema": "open-local/checks/1",
+ "home": "US/RI/newport-county",
+ "sources": {
+  "us-ri-newport-county-discover-newport": {
+   "checked": "2026-11-24",
+   "ok": true,
+   "problems": [],
+   "endpoints": [
+    {
+     "url": "https://www.discovernewport.org/",
+     "kind": "home",
+     "http": 200,
+     "ok": true
+    },
+    {
+     "url": "https://www.discovernewport.org/about-newport/nine-coastal-communities/little-compton/",
+     "kind": "html",
+     "http": 200,
+     "ok": true
+    },
+    {
+     "url": "https://www.discovernewport.org/about-newport/nine-coastal-communities/tiverton/",
+     "kind": "html",
+     "http": 200,
+     "ok": true
+    },
+    {
+     "url": "https://www.discovernewport.org/about-newport/nine-coastal-communities/portsmouth/",
+     "kind": "html",
+     "http": 200,
+     "ok": true
+    },
+    {
+     "url": "https://www.discovernewport.org/events/",
+     "kind": "html",
+     "http": 200,
+     "ok": true
+    },
+    {
+     "url": "https://www.discovernewport.org/sitemap.xml",
+     "kind": "sitemap",
+     "http": 200,
+     "ok": true
+    }
+   ]
+  },
+  "us-ri-newport-county-newport-this-week": {
+   "checked": "2026-11-24",
+   "ok": false,
+   "problems": [
+    "home failed (TimeoutError: timed out): https://www.newportthisweek.com/",
+    "rss failed (TimeoutError: timed out): https://www.newportthisweek.com/feed/"
+   ],
+   "endpoints": [
+    {
+     "url": "https://www.newportthisweek.com/",
+     "kind": "home",
+     "http": null,
+     "ok": false
+    },
+    {
+     "url": "https://www.newportthisweek.com/feed/",
+     "kind": "rss",
+     "http": null,
+     "ok": false
+    }
+   ]
+  }
+ }
+}

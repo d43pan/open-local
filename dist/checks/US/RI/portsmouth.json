@@ -1,0 +1,62 @@
+{
+ "schema": "open-local/checks/1",
+ "home": "US/RI/portsmouth",
+ "sources": {
+  "us-ri-portsmouth-meeting-videos": {
+   "checked": "2026-11-24",
+   "ok": true,
+   "problems": [],
+   "endpoints": [
+    {
+     "url": "https://www.youtube.com/channel/UCOwlnQCR0Uge45gTnIt2G_Q",
+     "kind": "home",
+     "http": 200,
+     "ok": true
+    },
+    {
+     "url": "https://www.youtube.com/feeds/videos.xml?channel_id=UCOwlnQCR0Uge45gTnIt2G_Q",
+     "kind": "atom",
+     "blocked": "disallowed by robots.txt"
+    }
+   ]
+  },
+  "us-ri-portsmouth-parks-recreation": {
+   "checked": "2026-11-24",
+   "ok": true,
+   "problems": [],
+   "endpoints": [
+    {
+     "url": "https://www.portsmouthri.gov/406/Parks-Recreation",
+     "kind": "home",
+     "http": 200,
+     "ok": true
+    },
+    {
+     "url": "https://www.portsmouthri.gov/406/Parks-Recreation",
+     "kind": "html",
+     "http": 200,
+     "ok": true
+    }
+   ]
+  },
+  "us-ri-portsmouth-patch": {
+   "checked": "2026-11-24",
+   "ok": true,
+   "problems": [],
+   "endpoints": [
+    {
+     "url": "https://patch.com/rhode-island/portsmouth",
+     "kind": "home",
+     "http": 200,
+     "ok": true
+    },
+    {
+     "url": "https://patch.com/feeds/rhode-island/portsmouth",
+     "kind": "rss",
+     "http": 200,
+     "ok": true
+    }
+   ]
+  }
+ }
+}

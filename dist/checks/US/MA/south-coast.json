@@ -1,0 +1,25 @@
+{
+ "schema": "open-local/checks/1",
+ "home": "US/MA/south-coast",
+ "sources": {
+  "us-ma-south-coast-new-bedford-light": {
+   "checked": "2026-11-24",
+   "ok": true,
+   "problems": [],
+   "endpoints": [
+    {
+     "url": "https://newbedfordlight.org/",
+     "kind": "home",
+     "http": 200,
+     "ok": true
+    },
+    {
+     "url": "https://newbedfordlight.org/feed/",
+     "kind": "rss",
+     "http": 200,
+     "ok": true
+    }
+   ]
+  }
+ }
+}
