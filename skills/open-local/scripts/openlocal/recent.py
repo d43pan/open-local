@@ -171,7 +171,10 @@ def recent(reg: Registry, place: str, *, days: int = 7, ahead: int = 14, radius_
                               "classification": s["classification"], "relation": s["relation"],
                               "paywall": (s.get("access") or {}).get("paywall", "unknown")})
             dropped += off_topic
+            how = getattr(fetch, "how", {}).get(e["url"])
             fetched.append({"source_id": s["id"], "endpoint": e["url"], "kind": f["kind"], "in_feed": len(f["items"]), "in_window": kept,
+                            **({"read_from": how["from"], **({"copy_minutes_old": how["copy_minutes_old"]} if "copy_minutes_old" in how else {})}
+                               if how and how["from"] != "network" else {}),
                             **({"not_about_place": off_topic} if off_topic else {})})
     group_duplicates(items)
     order = {"direct": 0, "area": 1, "nearby": 2}
@@ -185,6 +188,7 @@ def recent(reg: Registry, place: str, *, days: int = 7, ahead: int = 14, radius_
                      "area_filter": "off: every item from area-wide sources is listed" if all_area else
                                     "on: items from area-wide sources are listed only if they name the place (all_area to list all)",
                      "registry": reg.versions(),
+                     **({"cache": fetch.summary()} if hasattr(fetch, "summary") else {}),
                      "warning": "This lists only what the known sources published in machine-readable form. "
                                 "Sources under read_by_hand, needs_a_person and failed were not read. "
                                 "Absence of an item is not evidence that nothing happened."},
@@ -219,6 +223,8 @@ def brief(out: dict) -> dict:
         "area_items_not_about_place": cov["area_items_not_about_place"],
         "registry": cov["registry"], "warning": cov["warning"],
     }
+    if cov.get("cache"):
+        short["cache"] = {k: v for k, v in cov["cache"].items() if k != "note" and v != 0}
     place = {k: out["place"][k] for k in ("id", "name", "sources_of_its_own", "note") if k in out["place"]}
     return {"place": place, "window": out["window"], "items": items, "coverage": short, "handling": out["handling"],
             "detail": "Brief form: summaries left out. Run without --brief for summaries, groups and per-feed counts."}
