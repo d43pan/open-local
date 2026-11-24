@@ -89,6 +89,10 @@ def validate(directory: pathlib.Path | None = None, today: dt.date | None = None
                 nc = places.get(n, {}).get("centroid")
                 if c and nc and reg.distance_km(c, nc) > 100:
                     warnings.append(f"{rel}: neighbor {n} is {reg.distance_km(c, nc):.0f} km away")
+        known_q = {(pl.get("identifiers") or {}).get("wikidata"): other for other, pl in places.items()}
+        for adj in place.get("adjacent_unmapped") or []:
+            if adj.get("wikidata") in known_q and adj.get("wikidata"):
+                errors.append(f"{rel}: adjacent_unmapped lists {adj['name']}, but it is in the registry as {known_q[adj['wikidata']]}; move it to neighbors")
         if place.get("kind") in ("municipality", "neighbourhood") and not place.get("centroid"):
             warnings.append(f"{rel}: no centroid, so radius and coordinate searches cannot find it")
 

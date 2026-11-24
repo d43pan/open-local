@@ -13,6 +13,13 @@ place:
   neighbors:
   - US/RI/little-compton
   - US/RI/tiverton
+  adjacent_unmapped:
+  - name: Dartmouth, Massachusetts
+    wikidata: Q1811258
+    note: To the east. Usually counted as part of the Farm Coast.
+  - name: Fall River, Massachusetts
+    wikidata: Q49194
+    note: To the north.
   centroid:
     lat: 41.5779
     lon: -71.0819

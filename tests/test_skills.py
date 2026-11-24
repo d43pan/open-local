@@ -19,8 +19,8 @@ def front(skill):
     return yaml.safe_load(fm), body
 
 
-def test_there_are_two_skills():
-    assert [s.name for s in SKILLS] == ["open-local", "open-local-build"]
+def test_the_skills():
+    assert [s.name for s in SKILLS] == ["open-local", "open-local-build", "open-local-expand"]
 
 
 @pytest.mark.parametrize("skill", SKILLS, ids=lambda s: s.name)
@@ -83,3 +83,10 @@ def test_the_build_skill_keeps_a_person_in_the_loop():
     _, body = front(ROOT / "skills/open-local-build")
     for must in ["agent-proposed", "ask before pushing", "Do not merge", "Never\n  write a URL from memory"]:
         assert re.sub(r"\s+", " ", must.lower()) in re.sub(r"\s+", " ", body.lower()), must
+
+
+def test_the_expand_skill_reuses_and_does_not_guess():
+    _, body = front(ROOT / "skills/open-local-expand")
+    flat = re.sub(r"\s+", " ", body.lower())
+    for must in ["run.py frontier", "run.py gaps", "one town per pull request", "never by editing an id", "ask before pushing", "agent-proposed"]:
+        assert must in flat, must

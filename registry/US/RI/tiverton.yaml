@@ -13,6 +13,13 @@ place:
   neighbors:
   - US/RI/little-compton
   - US/MA/westport
+  adjacent_unmapped:
+  - name: Fall River, Massachusetts
+    wikidata: Q49194
+    note: To the north, across the state line.
+  - name: Portsmouth, Rhode Island
+    wikidata: Q1787188
+    note: Across the Sakonnet River, joined by the Sakonnet River Bridge. Same county and same weekly newspaper group.
   centroid:
     lat: 41.6104
     lon: -71.1798

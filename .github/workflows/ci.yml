@@ -38,6 +38,7 @@ jobs:
           pip install skills-ref
           python -m skills_ref.cli validate skills/open-local
           python -m skills_ref.cli validate skills/open-local-build
+          python -m skills_ref.cli validate skills/open-local-expand
       - name: The tools run with the standard library alone
         run: |
           python skills/open-local/scripts/run.py where "Little Compton, RI"

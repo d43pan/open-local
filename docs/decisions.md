@@ -74,7 +74,7 @@ jsonschema are needed only to validate and rebuild (maintainers and CI).
 **Why.** Skills run inside many different agents and sandboxes; a `pip install` is often
 impossible. The cost is hand-written feed and iCalendar parsing, kept small and tested.
 
-## 8. Skills in `skills/<name>/`, two of them
+## 8. Skills in `skills/<name>/`, one per job
 
 **Decision.** `skills/open-local` (ask about a place) and `skills/open-local-build` (map
 a place and send it back). The tools live inside the first skill's `scripts/`. A skill
@@ -135,6 +135,19 @@ was seeded by an AI research agent and is `checked`.
 **Why.** Loading is not the same as being right. Whether a site is really the town's
 paper of record, or a calendar is the one people use, is local knowledge. Marking the
 seed data `verified` would have claimed a review that has not happened.
+
+## 15. Growth is outward, one town at a time, from a recorded frontier
+
+**Decision.** A place may list `adjacent_unmapped` neighbours. `frontier` ranks them by
+how many mapped places border each, and a third skill, `open-local-expand`, maps one at a
+time by reusing regional sources, per-town sections and portal patterns already in the
+registry before searching for anything new.
+
+**Why.** The second town costs a fraction of the first, because the state portal, the
+weekly paper and the regional newsrooms are already known. Growing from an edge also
+makes "near me" answers better for people already covered, and keeps each pull request
+small enough for a local to review. Adjacency is recorded by people, not computed from
+coordinates, because water and borders make nearby places strangers.
 
 ## 12. What we reuse instead of building
 

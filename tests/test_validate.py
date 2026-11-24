@@ -64,6 +64,8 @@ A = "XX/NO/alder.yaml"
     (lambda d: d["sources"][0].update(surprise=True), "Additional properties"),
     (lambda d: d["place"].update(country="YY"), "must start with its country code"),
     (lambda d: d["place"].update(subdivision="YY-NO"), "is not in country"),
+    (lambda d: d["place"].update(identifiers={"wikidata": "Q7"}, adjacent_unmapped=[{"name": "Itself", "wikidata": "Q7"}]), "move it to neighbors"),
+    (lambda d: d["place"].update(adjacent_unmapped=[{"wikidata": "Q7"}]), "'name' is a required property"),
 ])
 def test_bad_entries_are_caught(broken, change, expect):
     errors = broken(A, change)

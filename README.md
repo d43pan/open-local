@@ -4,8 +4,9 @@
 
 Open Local is an open, shared map of where local information lives: the town website,
 the page where minutes get posted, the weekly paper, the library calendar, the farm
-stand, the gallery. Plus two skills that let any AI agent use that map to answer questions
-about a place with facts and sources, and help people add their own.
+stand, the gallery. Plus three skills that let any AI agent use that map to answer questions
+about a place with facts and sources, help people add their own town, and grow coverage
+out to the towns next door.
 
 Ask your agent:
 
@@ -42,7 +43,7 @@ who did it, and agents are told to send readers to them.
 |---|---|---|
 | **The registry** ([`registry/`](registry), [`dist/`](dist)) | Places and the public sources that cover them, as YAML you can edit and JSON, OPML, CSV and GeoJSON you can consume. Public domain (CC0). | Yes: it is plain files |
 | **The tools** ([`skills/open-local/scripts`](skills/open-local/scripts)) | Small Python programs: find sources for a place, read their feeds and calendars, discover feeds, spot page changes, check links, draft new entries. Standard library only, no API keys. | Yes: `python3 run.py --help` |
-| **The skills** ([`skills/`](skills)) | Instructions in the open [Agent Skills](https://agentskills.io) format. `open-local` answers questions about a place. `open-local-build` helps someone map their own community and send it back. | Works with Claude, Codex, OpenClaw, Hermes and other agents that read skills |
+| **The skills** ([`skills/`](skills)) | Instructions in the open [Agent Skills](https://agentskills.io) format. `open-local` answers questions about a place. `open-local-build` helps someone map their own community and send it back. `open-local-expand` grows coverage from a mapped place to its neighbours, reusing what the registry already knows. | Works with Claude, Codex, OpenClaw, Hermes and other agents that read skills |
 
 ## Coverage today
 
@@ -58,6 +59,9 @@ maintainer, and the process the project is built around.
 A real answer produced with the skill, including its coverage report:
 [examples/little-compton-briefing.md](examples/little-compton-briefing.md).
 
+Next towns out, recorded as the frontier: Fall River and Dartmouth, MA and Portsmouth, RI
+(`python3 run.py frontier`).
+
 Your town is not here yet. [Add it](#add-your-town).
 
 ## Install
@@ -65,8 +69,8 @@ Your town is not here yet. [Add it](#add-your-town).
 Paste this to your agent:
 
 > Install the Open Local skills from https://github.com/d43pan/open-local. Clone the
-> repository to a temporary folder, copy `skills/open-local` and `skills/open-local-build`
-> into your skills folder keeping those folder names, then run
+> repository to a temporary folder, copy the three folders under `skills/` into your
+> skills folder keeping their names, then run
 > `python3 <skills folder>/open-local/scripts/run.py where "Little Compton, RI"` to
 > confirm it works, and tell me what it printed. Do not run anything else from the
 > repository.
@@ -75,8 +79,8 @@ Or by hand:
 
 ```
 git clone https://github.com/d43pan/open-local
-cp -r open-local/skills/open-local open-local/skills/open-local-build ~/.claude/skills/   # Claude Code
-cp -r open-local/skills/open-local open-local/skills/open-local-build ~/.agents/skills/   # Codex and others
+cp -r open-local/skills/* ~/.claude/skills/   # Claude Code
+cp -r open-local/skills/* ~/.agents/skills/   # Codex and others
 ```
 
 Or with the open-source skills installer: `npx skills add d43pan/open-local`
@@ -106,6 +110,8 @@ python3 run.py recent US/RI/little-compton --days 7 --ahead 14
 python3 run.py recent US/MA/westport --radius-km 24 --type events --type library
 python3 run.py export opml --place US/RI/little-compton > little-compton.opml
 python3 run.py discover https://example.org
+python3 run.py frontier                 # unmapped towns next to mapped ones
+python3 run.py gaps US/RI/tiverton      # what kinds of source a place lacks
 ```
 
 ## Add your town
@@ -117,6 +123,9 @@ You know where your town's information lives. That is the contribution.
 - **With your AI agent:** *"Use open-local-build to add my town to Open Local."* It asks
   what you know, checks each site, finds the feeds, shows you the list to correct, and
   opens the pull request when you say so.
+- **Already mapped? Push outward:** *"Use open-local-expand to add the next town over."*
+  It finds the unmapped neighbours, reuses the regional sources and site patterns already
+  in the registry, and hunts only for what is truly local.
 - **By hand:** [CONTRIBUTING.md](CONTRIBUTING.md).
 
 Agents may draft entries; people review them. Nothing is merged without a human

@@ -57,3 +57,33 @@ def test_filters(reg):
 def test_unknown_place_raises(reg):
     with pytest.raises(KeyError):
         reg.sources_for("XX/NO/nowhere")
+
+
+def test_frontier_ranks_unmapped_neighbours_and_suggests_what_to_reuse(reg):
+    reg.places["XX/NO/alder"]["adjacent_unmapped"] = [{"name": "Cedar", "wikidata": "Q5"}, {"name": "Dune"}]
+    reg.places["XX/NO/birch"]["adjacent_unmapped"] = [{"name": "Cedar", "wikidata": "Q5", "note": "by the bridge"}]
+    rows = reg.frontier()
+    assert [r["name"] for r in rows] == ["Cedar", "Dune"]          # Cedar borders two mapped places
+    cedar = rows[0]
+    assert cedar["borders"] == ["XX/NO/alder", "XX/NO/birch"] and cedar["notes"] == ["by the bridge"]
+    assert [a["place"] for a in cedar["likely_shared_areas"]] == ["XX/NO/school-district", "XX/NO", "XX"]  # most specific first
+    reuse = {s["id"] for s in cedar["neighbour_sources_to_check"]}
+    assert "xx-no-alder-harbour-times" in reuse      # a paper that already covers two towns
+    assert "xx-no-alder-town-council" in reuse       # a portal pattern worth looking up for the new town
+    assert "xx-no-alder-farm-stand" not in reuse     # the town's own farm stand does not transfer
+    assert [r["name"] for r in reg.frontier("XX/NO/birch")] == ["Cedar"]
+
+
+def test_frontier_drops_places_that_have_since_been_mapped(reg):
+    reg.places["XX/NO/alder"]["adjacent_unmapped"] = [{"name": "Birch", "wikidata": "Q9"}]
+    reg.places["XX/NO/birch"]["identifiers"] = {"wikidata": "Q9"}
+    assert reg.frontier() == []
+
+
+def test_gaps(reg):
+    g = reg.gaps("XX/NO/birch")
+    assert g["has"] == {"library": 1, "newspaper": 1} and g["sources"] == 2
+    assert "government" in g["missing_core_types"] and "library" not in g["missing_core_types"]
+    assert {"meetings", "farm-market"} <= set(g["neighbours_have"])
+    assert g["neighbours_have"]["meetings"][0]["place"] == "XX/NO/alder"
+    assert g["area_sources_reaching_it"] == 2

@@ -4,7 +4,8 @@ A direction, not a promise. Open an issue to argue with any of it.
 
 ## Now (0.1)
 
-- Two skills: ask about a place (`open-local`), map a place (`open-local-build`).
+- Three skills: ask about a place (`open-local`), map a place (`open-local-build`), grow
+  to the next towns over (`open-local-expand`).
 - Registry format, validation, exports (JSON, OPML, CSV, GeoJSON).
 - Tools: feed discovery, recent items, dates, page changes, availability, proposals.
 - First mapped community: Little Compton, Rhode Island, with Tiverton, Westport (MA) and
@@ -12,6 +13,8 @@ A direction, not a promise. Open an issue to argue with any of it.
 
 ## Next
 
+- **Work the frontier.** Fall River and Dartmouth, MA and Portsmouth, RI are recorded as
+  the next places out from the first three towns.
 - **Ten communities in five places that are organised differently**, at least three
   outside the US, to test that the place model holds (no counties, parishes, two
   languages, a city neighbourhood).

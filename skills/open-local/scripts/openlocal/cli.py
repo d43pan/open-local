@@ -7,6 +7,8 @@
   dates      the dates a web page declares, labelled by meaning
   changed    has this page changed since the last look
   propose    draft a registry entry for a person to review
+  frontier   unmapped places next to mapped ones: where to expand next
+  gaps       what kinds of source a place has, and what its neighbours have that it lacks
   validate   check the registry (needs PyYAML and jsonschema)
   check      load every endpoint of the sources for a place (network)
   stale      entries nobody has verified lately
@@ -79,6 +81,8 @@ def main(argv: list[str] | None = None) -> int:
     p = sub.add_parser("export"); p.add_argument("format", choices=["json", "opml", "csv", "geojson"]); p.add_argument("--place")
     p = sub.add_parser("build"); p.add_argument("--check", action="store_true", help="fail if dist/ is out of date")
     p = sub.add_parser("search"); p.add_argument("text")
+    p = sub.add_parser("frontier"); add_place(p, required=False)
+    p = sub.add_parser("gaps"); add_place(p, required=False)
     args = ap.parse_args(argv)
 
     if args.cmd == "validate":
@@ -143,6 +147,13 @@ def main(argv: list[str] | None = None) -> int:
         bad = [r for r in reports if r["problems"]]
         out({"checked": len(reports), "with_problems": len(bad), "reports": reports})
         return 1 if bad else 0
+    elif args.cmd == "frontier":
+        pid = one_place(reg, args) if (args.place or args.postal or args.lat is not None) else None
+        rows = reg.frontier(pid)
+        out({"frontier": rows, "note": "Places listed by mapped neighbours as adjacent and not yet in the registry. "
+                                        "An empty list means nobody has recorded the next places out, not that there are none."})
+    elif args.cmd == "gaps":
+        out(reg.gaps(one_place(reg, args)))
     elif args.cmd == "stale":
         out(check.stale_entries(reg, args.max_age_days))
     elif args.cmd == "dupes":

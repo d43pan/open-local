@@ -260,6 +260,72 @@ class Registry:
             del s["_rank"]
         return out
 
+    # ---- growing coverage --------------------------------------------------------------
+    CORE_TYPES = ("government", "meetings", "newspaper", "news-site", "library", "schools", "events",
+                  "planning-zoning", "public-safety", "community-organization", "food-drink", "farm-market", "arts-culture")
+    SHARED_TYPES = ("newspaper", "news-site", "tourism", "television", "radio", "chamber-of-commerce",
+                    "transportation", "public-notices", "meetings", "planning-zoning", "schools")
+
+    def direct_sources(self, pid: str) -> list[dict]:
+        return [s for s in self.sources if s.get("status") != "retired" and any(c.get("place") == pid for c in s.get("coverage") or [])]
+
+    def frontier(self, pid: str | None = None) -> list[dict]:
+        """Unmapped places next to mapped ones: where coverage can grow next.
+
+        Ranked by how many mapped places border each one, since more shared borders means
+        more shared sources to reuse. With pid, only that place's unmapped neighbours.
+        """
+        found: dict[str, dict] = {}
+        known_q = {(p.get("identifiers") or {}).get("wikidata") for p in self.places.values()}
+        for place_id, p in self.places.items():
+            for adj in p.get("adjacent_unmapped") or []:
+                if adj.get("wikidata") and adj["wikidata"] in known_q:
+                    continue  # already mapped under its own file
+                key = adj.get("wikidata") or norm(adj["name"])
+                row = found.setdefault(key, {"name": adj["name"], "wikidata": adj.get("wikidata"), "borders": [], "notes": []})
+                row["borders"].append(place_id)
+                if adj.get("note"):
+                    row["notes"].append(adj["note"])
+        rows = [r for r in found.values() if pid is None or pid in r["borders"]]
+        for r in rows:
+            areas: dict[str, int] = {}
+            reuse: dict[str, dict] = {}
+            for b in r["borders"]:
+                for a in self.ancestors(b):
+                    areas[a] = areas.get(a, 0) + 1
+                for s in self.direct_sources(b):
+                    if len(s.get("coverage") or []) > 1 or s.get("type") in self.SHARED_TYPES:
+                        reuse[s["id"]] = {"id": s["id"], "name": s["name"], "type": s["type"], "url": s["url"],
+                                          "platform": s.get("platform"), "seen_in": b}
+            r["likely_shared_areas"] = [{"place": a, "name": self.places[a]["name"], "area_sources": len(self.direct_sources(a))}
+                                        for a, n in sorted(areas.items(), key=lambda kv: (-kv[1], -len(self.ancestors(kv[0])), kv[0]))]
+            r["neighbour_sources_to_check"] = sorted(reuse.values(), key=lambda s: (s["type"], s["name"]))
+        rows.sort(key=lambda r: (-len(r["borders"]), r["name"]))
+        return rows
+
+    def gaps(self, pid: str) -> dict:
+        """What kinds of source a place has, and what its neighbours have that it lacks."""
+        if pid not in self.places:
+            raise KeyError(pid)
+        mine: dict[str, list[str]] = {}
+        for s in self.direct_sources(pid):
+            mine.setdefault(s["type"], []).append(s["name"])
+        theirs: dict[str, list[dict]] = {}
+        for n in self.places[pid].get("neighbors") or []:
+            for s in self.direct_sources(n):
+                if s["type"] not in mine:
+                    theirs.setdefault(s["type"], []).append({"place": n, "name": s["name"], "url": s["url"], "platform": s.get("platform")})
+        statuses: dict[str, int] = {}
+        for s in self.direct_sources(pid):
+            statuses[s.get("status", "?")] = statuses.get(s.get("status", "?"), 0) + 1
+        with_feed = sum(1 for s in self.direct_sources(pid) if any(e["kind"] in FEED_KINDS for e in s.get("endpoints") or []))
+        return {"place": pid, "sources": sum(len(v) for v in mine.values()), "with_feed_or_calendar": with_feed, "by_status": statuses,
+                "has": {k: len(v) for k, v in sorted(mine.items())},
+                "missing_core_types": [t for t in self.CORE_TYPES if t not in mine],
+                "neighbours_have": {k: v for k, v in sorted(theirs.items())},
+                "area_sources_reaching_it": len([s for s in self.sources_for(pid) if s["relation"] == "area"]),
+                "note": "A missing type is a place to look, not proof of a gap: some towns have no paper, no chamber, no farm stand."}
+
     def search(self, text: str) -> list[dict]:
         want = norm(text)
         return [s for s in self.sources if want in norm(" ".join(str(s.get(k, "")) for k in ("id", "name", "description", "publisher", "type"))

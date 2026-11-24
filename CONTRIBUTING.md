@@ -7,6 +7,7 @@ paper people read, who keeps the best events calendar. You do not need to code.
 |---|---|
 | Add one source | [Open an "Add a source" issue](https://github.com/d43pan/open-local/issues/new/choose): a form, no git |
 | Add your town | [Open an "Add a community" issue](https://github.com/d43pan/open-local/issues/new/choose), or let your AI agent do the legwork with the `open-local-build` skill |
+| Add the towns around one that is already mapped | Use the `open-local-expand` skill: it finds the unmapped neighbours and reuses what the registry already knows |
 | Report something broken or wrong | [Open a "Broken source" issue](https://github.com/d43pan/open-local/issues/new/choose) |
 | Do it all yourself | Edit the YAML and open a pull request (below) |
 

@@ -41,6 +41,7 @@ registry.json
 | `parents` | Areas that contain it. Any number. |
 | `covers` | For areas that cut across the hierarchy: the places inside. |
 | `neighbors` | Adjacent places. |
+| `adjacent_unmapped` | Adjacent places not in the registry yet (`name`, `wikidata`, `note`): the frontier. |
 | `centroid` | `{lat, lon}`, WGS 84. A point, not a boundary. |
 | `postal_codes`, `languages`, `timezone` | As named. |
 | `identifiers` | `wikidata`, `ocd_division`, `us_census_geoid`, `geonames`, `osm_relation`, and others as strings. |

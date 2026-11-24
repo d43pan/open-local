@@ -41,6 +41,18 @@
         "parents": {"type": "array", "items": {"$ref": "#/$defs/placeId"}, "description": "Areas that contain this place. More than one is fine."},
         "covers": {"type": "array", "items": {"$ref": "#/$defs/placeId"}, "description": "For areas that are not strict parents (a school district, a watershed, a named region): the places inside it."},
         "neighbors": {"type": "array", "items": {"$ref": "#/$defs/placeId"}},
+        "adjacent_unmapped": {
+          "type": "array",
+          "description": "Places next to this one that are not in the registry yet. This is the frontier: where coverage can grow next. Move an entry to neighbors once its place file exists.",
+          "items": {
+            "type": "object", "required": ["name"], "additionalProperties": false,
+            "properties": {
+              "name": {"type": "string", "minLength": 1},
+              "wikidata": {"type": "string", "pattern": "^Q[1-9][0-9]*$"},
+              "note": {"type": "string"}
+            }
+          }
+        },
         "centroid": {"$ref": "#/$defs/point"},
         "postal_codes": {"type": "array", "items": {"type": "string"}},
         "languages": {"type": "array", "items": {"type": "string"}},

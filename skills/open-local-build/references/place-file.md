@@ -39,6 +39,9 @@ sources:
   region like "South Coast") are their own place with `kind: district`, `natural` or
   `custom` and a `covers:` list of the places inside. Sources filed there reach all of them.
 - **Neighbours go both ways.** If A lists B, B should list A.
+- **Record the frontier.** List adjoining places that have no file yet under
+  `adjacent_unmapped` (a `name`, and the `wikidata` id if you can copy it). It tells the
+  next contributor where to go, and the `open-local-expand` skill reads it.
 - **Centroid:** a point roughly in the middle, to three decimal places. It powers "near me"
   and radius searches. Take it from the place's Wikidata item (coordinate location) or
   the national statistics office.
