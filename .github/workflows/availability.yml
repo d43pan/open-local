@@ -1,0 +1,57 @@
+name: source availability
+# Network-dependent: loads every listed source. Runs on a schedule, never on pull requests,
+# so a town website being down cannot block a contributor.
+on:
+  schedule:
+    - cron: "17 9 * * 1"   # Mondays 09:17 UTC
+  workflow_dispatch:
+permissions:
+  contents: read
+  issues: write
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.13"
+      - run: pip install pyyaml
+      - name: Load every source
+        run: |
+          python skills/open-local/scripts/run.py check --all > availability.json || true
+          python skills/open-local/scripts/run.py stale > stale.json
+          python - <<'PY'
+          import json
+          rep = json.load(open("availability.json")); stale = json.load(open("stale.json"))
+          bad = [r for r in rep["reports"] if r["problems"]]
+          lines = [f"Checked {rep['checked']} sources. {len(bad)} have a problem. {len(stale)} have not been verified in 180 days.", ""]
+          for r in bad:
+              lines.append(f"### {r['name']} (`{r['id']}`)")
+              lines += [f"- {p}" for p in r["problems"]]
+          if stale:
+              lines += ["", "### Not verified recently"] + [f"- `{s['id']}` (last verified: {s['verified'] or 'never'})" for s in stale]
+          lines += ["", "A failure here can be a site having a bad day. Confirm by hand before changing an entry's status."]
+          open("report.md", "w").write("\n".join(lines) + "\n")
+          open("count.txt", "w").write(str(len(bad)))
+          PY
+          cat report.md >> "$GITHUB_STEP_SUMMARY"
+      - uses: actions/upload-artifact@v4
+        with:
+          name: availability
+          path: |
+            availability.json
+            stale.json
+            report.md
+      - name: Open or update the tracking issue
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          if [ "$(cat count.txt)" = "0" ]; then exit 0; fi
+          n=$(gh issue list --repo "$GITHUB_REPOSITORY" --label availability --state open --json number --jq '.[0].number')
+          if [ -n "$n" ]; then
+            gh issue comment "$n" --repo "$GITHUB_REPOSITORY" --body-file report.md
+          else
+            gh issue create --repo "$GITHUB_REPOSITORY" --title "Sources that did not load in the weekly check" --label availability --body-file report.md
+          fi

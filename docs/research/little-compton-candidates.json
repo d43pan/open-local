@@ -1,0 +1,2990 @@
+{
+  "checked": "2026-11-24",
+  "sources": [
+    {
+      "name": "Town of Little Compton official website",
+      "publisher": "Town of Little Compton",
+      "homepage": "https://www.littlecomptonri.org/",
+      "source_type": "town-website",
+      "coverage": {
+        "little_compton": "dedicated"
+      },
+      "primary_or_secondary": "primary (town publishes its own announcements)",
+      "endpoints": [
+        {
+          "kind": "html listing page",
+          "url": "https://www.littlecomptonri.org/newslist.php",
+          "check": "HTTP 200, HTML, title 'Little Compton, RI'"
+        },
+        {
+          "kind": "html listing page",
+          "url": "https://www.littlecomptonri.org/government/town_council/agendas.php",
+          "check": "HTTP 200, HTML, title 'Little Compton, RI'"
+        },
+        {
+          "kind": "html listing page",
+          "url": "https://www.littlecomptonri.org/government/boards_commissions/index.php",
+          "check": "HTTP 200, HTML, title 'Little Compton, RI'"
+        },
+        {
+          "kind": "html listing page",
+          "url": "https://www.littlecomptonri.org/departments/emergency_management/index.php",
+          "check": "HTTP 200, HTML, title 'Little Compton, RI'"
+        },
+        {
+          "kind": "html listing page",
+          "url": "https://www.littlecomptonri.org/departments/police/index.php",
+          "check": "HTTP 200, HTML, title 'Little Compton, RI'"
+        }
+      ],
+      "paywall": "none",
+      "language": "en",
+      "frequency": "irregular (a few news items a month)",
+      "platform": "Revize",
+      "notes": "No RSS/Atom feed and no sitemap.xml (/rss.xml, /rss.php, /sitemap.xml all 404). littlecompton.gov redirects here. News is an HTML list only.",
+      "verified": "fetched 2026-11-24: homepage HTTP 200, HTML, title 'Little Compton, RI'; no feed found",
+      "has_live_feed": false
+    },
+    {
+      "name": "Little Compton Town Calendar",
+      "publisher": "Town of Little Compton",
+      "homepage": "https://www.littlecomptonri.org/calendar.php",
+      "source_type": "event-calendar",
+      "coverage": {
+        "little_compton": "dedicated"
+      },
+      "primary_or_secondary": "primary (town meeting and event calendar)",
+      "endpoints": [
+        {
+          "kind": "ical",
+          "url": "https://calendar.google.com/calendar/ical/littlecompton.cal%40gmail.com/public/basic.ics",
+          "check": "HTTP 200, iCalendar, 3061 events, latest DTSTART 2027-01-01"
+        }
+      ],
+      "paywall": "none",
+      "language": "en",
+      "frequency": null,
+      "platform": "Google Calendar embedded in Revize",
+      "notes": "Calendar page embeds public Google Calendar (the town calendar account); the public ICS is the only machine-readable feed the town site offers.",
+      "verified": "fetched 2026-11-24: homepage HTTP 200, HTML, title 'Town Calendar'; ical HTTP 200, iCalendar, 3061 events, latest DTSTART 2027-01-01",
+      "has_live_feed": true
+    },
+    {
+      "name": "The Little Compton Download (town newsletter)",
+      "publisher": "Town of Little Compton",
+      "homepage": "https://littlecompton.download/",
+      "source_type": "newsletter",
+      "coverage": {
+        "little_compton": "dedicated"
+      },
+      "primary_or_secondary": "primary (official town e-newsletter)",
+      "endpoints": [
+        {
+          "kind": "html listing page",
+          "url": "https://littlecompton.download/",
+          "check": "HTTP 200, HTML, title 'The Little Compton Download'"
+        }
+      ],
+      "paywall": "none",
+      "language": "en",
+      "frequency": null,
+      "platform": "MailerLite landing page",
+      "notes": "Sign-up page with a 'Previous Issues' archive rendered client-side; /feed and /rss return a 'Page Not Found' page.",
+      "verified": "fetched 2026-11-24: homepage HTTP 200, HTML, title 'The Little Compton Download'; no feed found",
+      "has_live_feed": false
+    },
+    {
+      "name": "Town of Little Compton meeting videos (YouTube)",
+      "publisher": "Town of Little Compton",
+      "homepage": "https://www.youtube.com/channel/UCNoKeQBPql33aEtqzOXHO9g",
+      "source_type": "meeting-video",
+      "coverage": {
+        "little_compton": "dedicated"
+      },
+      "primary_or_secondary": "primary (town's own meeting recordings)",
+      "endpoints": [
+        {
+          "kind": "atom",
+          "url": "https://www.youtube.com/feeds/videos.xml?channel_id=UCNoKeQBPql33aEtqzOXHO9g",
+          "check": "HTTP 200, atom feed, 15 items, newest 2026-11-20"
+        }
+      ],
+      "paywall": "none",
+      "language": "en",
+      "frequency": null,
+      "platform": "YouTube",
+      "notes": "Linked from the town site as 'Meeting Videos'.",
+      "verified": "fetched 2026-11-24: homepage HTTP 200, HTML, title 'Town of Little Compton - YouTube'; atom HTTP 200, atom feed, 15 items, newest 2026-11-20",
+      "has_live_feed": true
+    },
+    {
+      "name": "RI Open Meetings: all Little Compton public bodies",
+      "publisher": "Rhode Island Department of State (filings by Town of Little Compton bodies)",
+      "homepage": "https://opengov.sos.ri.gov/OpenMeetings",
+      "source_type": "meeting-notices-agendas-minutes",
+      "coverage": {
+        "little_compton": "dedicated"
+      },
+      "primary_or_secondary": "primary (statutory filings by the bodies themselves)",
+      "endpoints": [
+        {
+          "kind": "rss",
+          "url": "https://opengov.sos.ri.gov/RSSFeed/Rss?feedType=1&entityID=0&filter1=&filter2=&Keywords=&FromDate=&ToDate=&RefineSearch=&PublicBodies=Little%20Compton",
+          "check": "HTTP 200, rss feed, 3 items, newest 2026-11-30"
+        },
+        {
+          "kind": "html listing page",
+          "url": "https://opengov.sos.ri.gov/OpenMeetingsPublic/OpenMeetingDashboard?subtopmenuId=201&EntityID=1820",
+          "check": "HTTP 200, HTML, title 'Rhode Island Department of State'"
+        },
+        {
+          "kind": "html listing page",
+          "url": "https://opengov.sos.ri.gov/OpenMeetingsPublic/OpenMeetingDashboard?subtopmenuId=201&EntityID=1822",
+          "check": "HTTP 200, HTML, title 'Rhode Island Department of State'"
+        },
+        {
+          "kind": "html listing page",
+          "url": "https://opengov.sos.ri.gov/OpenMeetingsPublic/OpenMeetingDashboard?subtopmenuId=201&EntityID=1823",
+          "check": "HTTP 200, HTML, title 'Rhode Island Department of State'"
+        },
+        {
+          "kind": "html listing page",
+          "url": "https://opengov.sos.ri.gov/OpenMeetingsPublic/OpenMeetingDashboard?subtopmenuId=201&EntityID=1825",
+          "check": "HTTP 200, HTML, title 'Rhode Island Department of State'"
+        },
+        {
+          "kind": "html listing page",
+          "url": "https://opengov.sos.ri.gov/OpenMeetingsPublic/OpenMeetingDashboard?subtopmenuId=201&EntityID=1826",
+          "check": "HTTP 200, HTML, title 'Rhode Island Department of State'"
+        },
+        {
+          "kind": "html listing page",
+          "url": "https://opengov.sos.ri.gov/OpenMeetingsPublic/OpenMeetingDashboard?subtopmenuId=201&EntityID=1827",
+          "check": "HTTP 200, HTML, title 'Rhode Island Department of State'"
+        },
+        {
+          "kind": "html listing page",
+          "url": "https://opengov.sos.ri.gov/OpenMeetingsPublic/OpenMeetingDashboard?subtopmenuId=201&EntityID=1828",
+          "check": "HTTP 200, HTML, title 'Rhode Island Department of State'"
+        },
+        {
+          "kind": "html listing page",
+          "url": "https://opengov.sos.ri.gov/OpenMeetingsPublic/OpenMeetingDashboard?subtopmenuId=201&EntityID=1829",
+          "check": "HTTP 200, HTML, title 'Rhode Island Department of State'"
+        },
+        {
+          "kind": "html listing page",
+          "url": "https://opengov.sos.ri.gov/OpenMeetingsPublic/OpenMeetingDashboard?subtopmenuId=201&EntityID=1830",
+          "check": "HTTP 200, HTML, title 'Rhode Island Department of State'"
+        },
+        {
+          "kind": "html listing page",
+          "url": "https://opengov.sos.ri.gov/OpenMeetingsPublic/OpenMeetingDashboard?subtopmenuId=201&EntityID=1831",
+          "check": "HTTP 200, HTML, title 'Rhode Island Department of State'"
+        },
+        {
+          "kind": "html listing page",
+          "url": "https://opengov.sos.ri.gov/OpenMeetingsPublic/OpenMeetingDashboard?subtopmenuId=201&EntityID=1833",
+          "check": "HTTP 200, HTML, title 'Rhode Island Department of State'"
+        },
+        {
+          "kind": "html listing page",
+          "url": "https://opengov.sos.ri.gov/OpenMeetingsPublic/OpenMeetingDashboard?subtopmenuId=201&EntityID=1836",
+          "check": "HTTP 200, HTML, title 'Rhode Island Department of State'"
+        },
+        {
+          "kind": "html listing page",
+          "url": "https://opengov.sos.ri.gov/OpenMeetingsPublic/OpenMeetingDashboard?subtopmenuId=201&EntityID=1845",
+          "check": "HTTP 200, HTML, title 'Rhode Island Department of State'"
+        }
+      ],
+      "paywall": "none",
+      "language": "en",
+      "frequency": "several filings a week",
+      "platform": "RI SOS Open Meetings (opengov.sos.ri.gov)",
+      "notes": "RSS = upcoming meetings filtered by body name 'Little Compton'. Dashboards listed are bodies with filings in 2025-26: Agricultural Conservancy Trust 1820, Beach Commission 1822, Board of Canvassers 1823, Budget Committee 1825, Charter Review 1826, Conservation Commission 1827, Free Public Library Trust 1828, Harbor Commission 1829, Hazard Mitigation 1830, Housing Trust 1831, Pension Committee 1833, Recreation Committee 1836, 'Little Compton, Town of' 1845. Per-body feeds: feedType=9 recently filed minutes, feedType=7 upcoming (returns HTTP 404 with an empty RSS body when nothing is scheduled). Agendas and minutes themselves are PDFs. Do NOT request feedType=3 (all completed meetings statewide, >100 MB).",
+      "verified": "fetched 2026-11-24: homepage HTTP 200, HTML, title 'Rhode Island Department of State'; rss HTTP 200, rss feed, 3 items, newest 2026-11-30",
+      "has_live_feed": true
+    },
+    {
+      "name": "RI Open Meetings: Little Compton Town Council",
+      "publisher": "Little Compton Town Council (via Rhode Island Department of State)",
+      "homepage": "https://opengov.sos.ri.gov/OpenMeetingsPublic/OpenMeetingDashboard?subtopmenuId=201&EntityID=1843",
+      "source_type": "town-council",
+      "coverage": {
+        "little_compton": "dedicated"
+      },
+      "primary_or_secondary": "primary (body's own notices, agendas, minutes)",
+      "endpoints": [
+        {
+          "kind": "html listing page",
+          "url": "https://opengov.sos.ri.gov/OpenMeetingsPublic/OpenMeetingDashboard?subtopmenuId=201&EntityID=1843",
+          "check": "HTTP 200, HTML, title 'Rhode Island Department of State'"
+        },
+        {
+          "kind": "rss",
+          "url": "https://opengov.sos.ri.gov/RSSFeed/Rss?feedType=9&entityID=1843&filter1=&filter2=&Keywords=&FromDate=&ToDate=&RefineSearch=&PublicBodies=",
+          "check": "HTTP 200, rss feed, 50 items, newest 2026-10-14"
+        },
+        {
+          "kind": "rss",
+          "url": "https://opengov.sos.ri.gov/RSSFeed/Rss?feedType=7&entityID=1843&filter1=&filter2=&Keywords=&FromDate=&ToDate=&RefineSearch=&PublicBodies=",
+          "check": "HTTP 200, rss feed, 0 items, no item dates"
+        }
+      ],
+      "paywall": "none",
+      "language": "en",
+      "frequency": null,
+      "platform": "RI SOS Open Meetings",
+      "notes": "EntityID 1843. Minutes and agendas are PDF attachments on each MeetingInformation page.",
+      "verified": "fetched 2026-11-24: homepage HTTP 200, HTML, title 'Rhode Island Department of State'; rss HTTP 200, rss feed, 50 items, newest 2026-10-14; rss HTTP 200, rss feed, 0 items, no item dates",
+      "has_live_feed": true
+    },
+    {
+      "name": "RI Open Meetings: Little Compton Planning Board",
+      "publisher": "Little Compton Planning Board (via Rhode Island Department of State)",
+      "homepage": "https://opengov.sos.ri.gov/OpenMeetingsPublic/OpenMeetingDashboard?subtopmenuId=201&EntityID=1834",
+      "source_type": "planning-zoning",
+      "coverage": {
+        "little_compton": "dedicated"
+      },
+      "primary_or_secondary": "primary (body's own notices, agendas, minutes)",
+      "endpoints": [
+        {
+          "kind": "html listing page",
+          "url": "https://opengov.sos.ri.gov/OpenMeetingsPublic/OpenMeetingDashboard?subtopmenuId=201&EntityID=1834",
+          "check": "HTTP 200, HTML, title 'Rhode Island Department of State'"
+        },
+        {
+          "kind": "rss",
+          "url": "https://opengov.sos.ri.gov/RSSFeed/Rss?feedType=9&entityID=1834&filter1=&filter2=&Keywords=&FromDate=&ToDate=&RefineSearch=&PublicBodies=",
+          "check": "HTTP 200, rss feed, 50 items, newest 2026-11-16"
+        },
+        {
+          "kind": "rss",
+          "url": "https://opengov.sos.ri.gov/RSSFeed/Rss?feedType=7&entityID=1834&filter1=&filter2=&Keywords=&FromDate=&ToDate=&RefineSearch=&PublicBodies=",
+          "check": "HTTP 200, rss feed, 0 items, no item dates"
+        }
+      ],
+      "paywall": "none",
+      "language": "en",
+      "frequency": null,
+      "platform": "RI SOS Open Meetings",
+      "notes": "EntityID 1834. Minutes and agendas are PDF attachments on each MeetingInformation page.",
+      "verified": "fetched 2026-11-24: homepage HTTP 200, HTML, title 'Rhode Island Department of State'; rss HTTP 200, rss feed, 50 items, newest 2026-11-16; rss HTTP 200, rss feed, 0 items, no item dates",
+      "has_live_feed": true
+    },
+    {
+      "name": "RI Open Meetings: Little Compton Zoning Board of Review",
+      "publisher": "Little Compton Zoning Board of Review (via Rhode Island Department of State)",
+      "homepage": "https://opengov.sos.ri.gov/OpenMeetingsPublic/OpenMeetingDashboard?subtopmenuId=201&EntityID=1844",
+      "source_type": "planning-zoning",
+      "coverage": {
+        "little_compton": "dedicated"
+      },
+      "primary_or_secondary": "primary (body's own notices, agendas, minutes)",
+      "endpoints": [
+        {
+          "kind": "html listing page",
+          "url": "https://opengov.sos.ri.gov/OpenMeetingsPublic/OpenMeetingDashboard?subtopmenuId=201&EntityID=1844",
+          "check": "HTTP 200, HTML, title 'Rhode Island Department of State'"
+        },
+        {
+          "kind": "rss",
+          "url": "https://opengov.sos.ri.gov/RSSFeed/Rss?feedType=9&entityID=1844&filter1=&filter2=&Keywords=&FromDate=&ToDate=&RefineSearch=&PublicBodies=",
+          "check": "HTTP 200, rss feed, 50 items, newest 2026-03-19"
+        },
+        {
+          "kind": "rss",
+          "url": "https://opengov.sos.ri.gov/RSSFeed/Rss?feedType=7&entityID=1844&filter1=&filter2=&Keywords=&FromDate=&ToDate=&RefineSearch=&PublicBodies=",
+          "check": "HTTP 200, rss feed, 0 items, no item dates"
+        }
+      ],
+      "paywall": "none",
+      "language": "en",
+      "frequency": null,
+      "platform": "RI SOS Open Meetings",
+      "notes": "EntityID 1844. Minutes and agendas are PDF attachments on each MeetingInformation page.",
+      "verified": "fetched 2026-11-24: homepage HTTP 200, HTML, title 'Rhode Island Department of State'; rss HTTP 200, rss feed, 50 items, newest 2026-03-19; rss HTTP 200, rss feed, 0 items, no item dates",
+      "has_live_feed": false
+    },
+    {
+      "name": "RI Open Meetings: Little Compton School Committee",
+      "publisher": "Little Compton School Committee (via Rhode Island Department of State)",
+      "homepage": "https://opengov.sos.ri.gov/OpenMeetingsPublic/OpenMeetingDashboard?subtopmenuId=201&EntityID=1841",
+      "source_type": "school-committee",
+      "coverage": {
+        "little_compton": "dedicated"
+      },
+      "primary_or_secondary": "primary (body's own notices, agendas, minutes)",
+      "endpoints": [
+        {
+          "kind": "html listing page",
+          "url": "https://opengov.sos.ri.gov/OpenMeetingsPublic/OpenMeetingDashboard?subtopmenuId=201&EntityID=1841",
+          "check": "HTTP 200, HTML, title 'Rhode Island Department of State'"
+        },
+        {
+          "kind": "rss",
+          "url": "https://opengov.sos.ri.gov/RSSFeed/Rss?feedType=9&entityID=1841&filter1=&filter2=&Keywords=&FromDate=&ToDate=&RefineSearch=&PublicBodies=",
+          "check": "HTTP 200, rss feed, 50 items, newest 2026-11-02"
+        },
+        {
+          "kind": "rss",
+          "url": "https://opengov.sos.ri.gov/RSSFeed/Rss?feedType=7&entityID=1841&filter1=&filter2=&Keywords=&FromDate=&ToDate=&RefineSearch=&PublicBodies=",
+          "check": "HTTP 200, rss feed, 0 items, no item dates"
+        }
+      ],
+      "paywall": "none",
+      "language": "en",
+      "frequency": null,
+      "platform": "RI SOS Open Meetings",
+      "notes": "EntityID 1841. Minutes and agendas are PDF attachments on each MeetingInformation page.",
+      "verified": "fetched 2026-11-24: homepage HTTP 200, HTML, title 'Rhode Island Department of State'; rss HTTP 200, rss feed, 50 items, newest 2026-11-02; rss HTTP 200, rss feed, 0 items, no item dates",
+      "has_live_feed": true
+    },
+    {
+      "name": "Little Compton Document Center (budgets, audits, financial reports)",
+      "publisher": "Town of Little Compton",
+      "homepage": "https://www.littlecomptonri.org/government/document_center.php",
+      "source_type": "budget-finance",
+      "coverage": {
+        "little_compton": "dedicated"
+      },
+      "primary_or_secondary": "primary",
+      "endpoints": [
+        {
+          "kind": "html listing page",
+          "url": "https://www.littlecomptonri.org/government/document_center.php",
+          "check": "HTTP 200, HTML, title 'Little Compton, RI'"
+        },
+        {
+          "kind": "html listing page",
+          "url": "https://www.littlecomptonri.org/departments/treasurer/index.php",
+          "check": "HTTP 200, HTML, title 'Little Compton, RI'"
+        }
+      ],
+      "paywall": "none",
+      "language": "en",
+      "frequency": null,
+      "platform": "Revize",
+      "notes": "PDF documents grouped by department (Financial Reports anchor #outer-52).",
+      "verified": "fetched 2026-11-24: homepage HTTP 200, HTML, title 'Little Compton, RI'; no feed found",
+      "has_live_feed": false
+    },
+    {
+      "name": "Little Compton Building & Zoning / permit portal",
+      "publisher": "Town of Little Compton",
+      "homepage": "https://www.littlecomptonri.org/departments/building_inspections/index.php",
+      "source_type": "building-permits",
+      "coverage": {
+        "little_compton": "dedicated"
+      },
+      "primary_or_secondary": "primary",
+      "endpoints": [
+        {
+          "kind": "html listing page",
+          "url": "https://littlecomptonri.portal.opengov.com/",
+          "check": "HTTP 200, HTML, title 'OpenGov'"
+        },
+        {
+          "kind": "html listing page",
+          "url": "https://www.littlecomptonri.org/departments/planning_zoning.php",
+          "check": "HTTP 200, HTML, title 'Little Compton, RI'"
+        }
+      ],
+      "paywall": "none",
+      "language": "en",
+      "frequency": null,
+      "platform": "OpenGov Permitting & Licensing (formerly ViewPoint Cloud)",
+      "notes": "Portal is a JavaScript app; no public feed found. Town also links the statewide e-permitting portal.",
+      "verified": "fetched 2026-11-24: homepage HTTP 200, HTML, title 'Little Compton, RI'; no feed found",
+      "has_live_feed": false
+    },
+    {
+      "name": "Little Compton Fire Department",
+      "publisher": "Little Compton Fire Department",
+      "homepage": "https://www.littlecomptonfirerescue.com/",
+      "source_type": "fire-ems",
+      "coverage": {
+        "little_compton": "dedicated"
+      },
+      "primary_or_secondary": "primary",
+      "endpoints": [],
+      "paywall": "none",
+      "language": "en",
+      "frequency": null,
+      "platform": "Firehouse Solutions (ColdFusion)",
+      "notes": "Department's own site; town also has a page and links CodeRED sign-up.",
+      "verified": "fetched 2026-11-24: homepage HTTP 200, HTML, title 'Little Compton Fire Department - Newport County, RI'; no feed found",
+      "has_live_feed": false
+    },
+    {
+      "name": "Little Compton beaches, parks and recreation pages",
+      "publisher": "Town of Little Compton",
+      "homepage": "https://www.littlecomptonri.org/community/recreation.php",
+      "source_type": "parks-recreation",
+      "coverage": {
+        "little_compton": "dedicated"
+      },
+      "primary_or_secondary": "primary",
+      "endpoints": [
+        {
+          "kind": "html listing page",
+          "url": "https://www.littlecomptonri.org/community/beaches.php",
+          "check": "HTTP 200, HTML, title 'Little Compton, RI'"
+        },
+        {
+          "kind": "html listing page",
+          "url": "https://www.littlecomptonri.org/community/parks.php",
+          "check": "HTTP 200, HTML, title 'Little Compton, RI'"
+        },
+        {
+          "kind": "html listing page",
+          "url": "https://opengov.sos.ri.gov/OpenMeetingsPublic/OpenMeetingDashboard?subtopmenuId=201&EntityID=1836",
+          "check": "HTTP 200, HTML, title 'Rhode Island Department of State'"
+        }
+      ],
+      "paywall": "none",
+      "language": "en",
+      "frequency": null,
+      "platform": "Revize",
+      "notes": null,
+      "verified": "fetched 2026-11-24: homepage HTTP 200, HTML, title 'Little Compton, RI'; no feed found",
+      "has_live_feed": false
+    },
+    {
+      "name": "Little Compton School Department (Wilbur & McMahon School)",
+      "publisher": "Little Compton School Department",
+      "homepage": "https://lcsd.k12.ri.us/",
+      "source_type": "school-district",
+      "coverage": {
+        "little_compton": "dedicated"
+      },
+      "primary_or_secondary": "primary",
+      "endpoints": [
+        {
+          "kind": "rss",
+          "url": "https://lcsd.k12.ri.us/blog-feed.xml",
+          "check": "HTTP 200, rss feed, 14 items, newest 2023-03-14"
+        },
+        {
+          "kind": "sitemap",
+          "url": "https://lcsd.k12.ri.us/sitemap.xml",
+          "check": "HTTP 200, sitemap, 1 URLs"
+        }
+      ],
+      "paywall": "none",
+      "language": "en",
+      "frequency": null,
+      "platform": "Wix",
+      "notes": "Blog feed exists but looks dormant; School Committee agendas/minutes are on the RI SOS portal (EntityID 1841).",
+      "verified": "fetched 2026-11-24: homepage HTTP 200, HTML, title 'Little Compton School Department'; rss HTTP 200, rss feed, 14 items, newest 2023-03-14",
+      "has_live_feed": false
+    },
+    {
+      "name": "Brownell Library",
+      "publisher": "Brownell Library (Little Compton Free Public Library)",
+      "homepage": "https://brownell-libraryri.org/",
+      "source_type": "library",
+      "coverage": {
+        "little_compton": "dedicated"
+      },
+      "primary_or_secondary": "primary (library's own news and events)",
+      "endpoints": [
+        {
+          "kind": "rss",
+          "url": "https://brownell-libraryri.org/feed/",
+          "check": "HTTP 200, rss feed, 14 items, newest 2026-11-21"
+        },
+        {
+          "kind": "ical",
+          "url": "https://brownell-libraryri.org/events/?ical=1",
+          "check": "HTTP 200, iCalendar, 8 events, latest DTSTART 2027-11-07"
+        },
+        {
+          "kind": "api",
+          "url": "https://brownell-libraryri.org/wp-json/wp/v2/posts?per_page=5",
+          "check": "HTTP 200, JSON array, 5 items"
+        }
+      ],
+      "paywall": "none",
+      "language": "en",
+      "frequency": null,
+      "platform": "WordPress + The Events Calendar",
+      "notes": null,
+      "verified": "fetched 2026-11-24: homepage HTTP 200, HTML, title 'Brownell Library'; rss HTTP 200, rss feed, 14 items, newest 2026-11-21; ical HTTP 200, iCalendar, 8 events, latest DTSTART 2027-11-07; api HTTP 200, JSON array, 5 items",
+      "has_live_feed": true
+    },
+    {
+      "name": "Little Compton Community Center",
+      "publisher": "Little Compton Community Center",
+      "homepage": "https://lccenter.org/",
+      "source_type": "community-organisation",
+      "coverage": {
+        "little_compton": "dedicated"
+      },
+      "primary_or_secondary": "primary (own programmes, lunches, concerts, newsletter)",
+      "endpoints": [
+        {
+          "kind": "rss",
+          "url": "https://lccenter.org/newsletter-archive?format=rss",
+          "check": "HTTP 200, rss feed, 20 items, newest 2026-09-01"
+        },
+        {
+          "kind": "html listing page",
+          "url": "https://lccenter.org/building-use-calendar",
+          "check": "HTTP 200, HTML, title 'Building Use Calendar &mdash; Little Compton Community Center'"
+        },
+        {
+          "kind": "sitemap",
+          "url": "https://lccenter.org/sitemap.xml",
+          "check": "HTTP 200, sitemap, 64 URLs"
+        }
+      ],
+      "paywall": "none",
+      "language": "en",
+      "frequency": "monthly newsletter",
+      "platform": "Squarespace",
+      "notes": "Also hosts concerts, community meals/senior lunch and a food-related 'buy nothing' programme pages; site root ?format=rss returns 400, the newsletter collection feed works.",
+      "verified": "fetched 2026-11-24: homepage HTTP 200, HTML, title 'Little Compton Community Center'; rss HTTP 200, rss feed, 20 items, newest 2026-09-01",
+      "has_live_feed": true
+    },
+    {
+      "name": "Little Compton Historical Society",
+      "publisher": "Little Compton Historical Society",
+      "homepage": "https://littlecompton.org/",
+      "source_type": "historical-society",
+      "coverage": {
+        "little_compton": "dedicated"
+      },
+      "primary_or_secondary": "primary (museum; own events and exhibits)",
+      "endpoints": [
+        {
+          "kind": "rss",
+          "url": "https://littlecompton.org/feed/",
+          "check": "HTTP 200, rss feed, 10 items, newest 2023-11-15"
+        },
+        {
+          "kind": "ical",
+          "url": "https://littlecompton.org/events/?ical=1",
+          "check": "HTTP 200, iCalendar, 17 events, latest DTSTART 2028-11-05"
+        }
+      ],
+      "paywall": "none",
+      "language": "en",
+      "frequency": null,
+      "platform": "WordPress + The Events Calendar",
+      "notes": "Museum (Wilbor House). Posts feed is stale; the events iCal is the live feed. Host rate-limits (HTTP 429 on rapid requests).",
+      "verified": "fetched 2026-11-24: homepage HTTP 200, HTML, title 'Little Compton Historical Society &#8211; Little Compton Historical Society'; rss HTTP 200, rss feed, 10 items, newest 2023-11-15; ical HTTP 200, iCalendar, 17 events, latest DTSTART 2028-11-05",
+      "has_live_feed": true
+    },
+    {
+      "name": "Sakonnet Preservation Association",
+      "publisher": "Sakonnet Preservation Association",
+      "homepage": "https://www.sakonnetpreservation.org/",
+      "source_type": "land-trust",
+      "coverage": {
+        "little_compton": "dedicated"
+      },
+      "primary_or_secondary": "primary",
+      "endpoints": [
+        {
+          "kind": "rss",
+          "url": "https://www.sakonnetpreservation.org/feed/",
+          "check": "HTTP 200, rss feed, 10 items, newest 2020-01-01"
+        }
+      ],
+      "paywall": "none",
+      "language": "en",
+      "frequency": null,
+      "platform": "WordPress (Elementor)",
+      "notes": "Feed present but posts are old.",
+      "verified": "fetched 2026-11-24: homepage HTTP 200, HTML, title 'Little Compton&#039;s First Land Trust - Sakonnet Preservation Association'; rss HTTP 200, rss feed, 10 items, newest 2020-01-01",
+      "has_live_feed": false
+    },
+    {
+      "name": "Little Compton Agricultural Conservancy Trust",
+      "publisher": "Little Compton Agricultural Conservancy Trust (town-chartered)",
+      "homepage": "https://www.lcact.net/",
+      "source_type": "land-trust",
+      "coverage": {
+        "little_compton": "dedicated"
+      },
+      "primary_or_secondary": "primary",
+      "endpoints": [
+        {
+          "kind": "rss",
+          "url": "https://www.lcact.net/feed/",
+          "check": "HTTP 200, rss feed, 3 items, newest 2024-12-18"
+        },
+        {
+          "kind": "api",
+          "url": "https://www.lcact.net/wp-json/wp/v2/posts?per_page=5",
+          "check": "HTTP 200, JSON array, 3 items"
+        },
+        {
+          "kind": "html listing page",
+          "url": "https://opengov.sos.ri.gov/OpenMeetingsPublic/OpenMeetingDashboard?subtopmenuId=201&EntityID=1820",
+          "check": "HTTP 200, HTML, title 'Rhode Island Department of State'"
+        }
+      ],
+      "paywall": "none",
+      "language": "en",
+      "frequency": null,
+      "platform": "WordPress",
+      "notes": "Meeting notices/minutes on RI SOS portal EntityID 1820. lcact.org does not resolve; lcact.net is the live domain.",
+      "verified": "fetched 2026-11-24: homepage HTTP 200, HTML, title 'Home - Little Compton Agricultural Conservancy Trust'; rss HTTP 200, rss feed, 3 items, newest 2024-12-18; api HTTP 200, JSON array, 3 items",
+      "has_live_feed": false
+    },
+    {
+      "name": "Little Compton Garden Club",
+      "publisher": "Little Compton Garden Club",
+      "homepage": "https://littlecomptongardenclub.org/",
+      "source_type": "community-organisation",
+      "coverage": {
+        "little_compton": "dedicated"
+      },
+      "primary_or_secondary": "primary",
+      "endpoints": [
+        {
+          "kind": "rss",
+          "url": "https://littlecomptongardenclub.org/feed/",
+          "check": "HTTP 200, rss feed, 10 items, newest 2026-11-02"
+        }
+      ],
+      "paywall": "none",
+      "language": "en",
+      "frequency": null,
+      "platform": "WordPress",
+      "notes": null,
+      "verified": "fetched 2026-11-24: homepage HTTP 200, HTML, title 'Little Compton Garden Club | Member of the Garden Club of America'; rss HTTP 200, rss feed, 10 items, newest 2026-11-02",
+      "has_live_feed": true
+    },
+    {
+      "name": "Sogkonate Garden Club",
+      "publisher": "Sogkonate Garden Club",
+      "homepage": "https://www.sogkonate.org/",
+      "source_type": "community-organisation",
+      "coverage": {
+        "little_compton": "dedicated"
+      },
+      "primary_or_secondary": "primary",
+      "endpoints": [
+        {
+          "kind": "html listing page",
+          "url": "https://www.sogkonate.org/upcoming-public-events",
+          "check": "HTTP 200, HTML, title 'Public Events &mdash; Members'"
+        },
+        {
+          "kind": "rss",
+          "url": "https://www.sogkonate.org/blog?format=rss",
+          "check": "HTTP 200, rss feed, 11 items, newest 2024-04-17"
+        },
+        {
+          "kind": "sitemap",
+          "url": "https://www.sogkonate.org/sitemap.xml",
+          "check": "HTTP 200, sitemap, 48 URLs"
+        }
+      ],
+      "paywall": "none",
+      "language": "en",
+      "frequency": null,
+      "platform": "Squarespace",
+      "notes": null,
+      "verified": "fetched 2026-11-24: homepage HTTP 200, HTML, title 'Members'; rss HTTP 200, rss feed, 11 items, newest 2024-04-17",
+      "has_live_feed": false
+    },
+    {
+      "name": "United Congregational Church of Little Compton",
+      "publisher": "United Congregational Church of Little Compton (UCC)",
+      "homepage": "https://www.ucclittlecompton.org/",
+      "source_type": "church",
+      "coverage": {
+        "little_compton": "dedicated"
+      },
+      "primary_or_secondary": "primary",
+      "endpoints": [
+        {
+          "kind": "html listing page",
+          "url": "https://www.ucclittlecompton.org/calendar.html",
+          "check": "HTTP 200, HTML, title 'Calendar - UNITED CONGREGATIONAL CHURCH OF LITTLE COMPTON'"
+        }
+      ],
+      "paywall": "none",
+      "language": "en",
+      "frequency": null,
+      "platform": "Weebly",
+      "notes": "Public calendar page; also organises the annual Summer Fair & Road Race.",
+      "verified": "fetched 2026-11-24: homepage HTTP 200, HTML, title 'UNITED CONGREGATIONAL CHURCH OF LITTLE COMPTON - Home'; no feed found",
+      "has_live_feed": false
+    },
+    {
+      "name": "St. Catherine of Siena Church",
+      "publisher": "St. Catherine of Siena Parish (Diocese of Providence)",
+      "homepage": "https://saintcatherinesiena.com/",
+      "source_type": "church",
+      "coverage": {
+        "little_compton": "dedicated"
+      },
+      "primary_or_secondary": "primary",
+      "endpoints": [
+        {
+          "kind": "rss",
+          "url": "https://saintcatherinesiena.com/feed/",
+          "check": "HTTP 200, rss feed, 1 items, newest 2026-01-12"
+        }
+      ],
+      "paywall": "none",
+      "language": "en",
+      "frequency": null,
+      "platform": "WordPress",
+      "notes": "Feed has very few posts.",
+      "verified": "fetched 2026-11-24: homepage HTTP 200, HTML, title 'St. Catherine of Siena Church &#8211; Catholic Church in Little Compton, Rhode I'; rss HTTP 200, rss feed, 1 items, newest 2026-01-12",
+      "has_live_feed": false
+    },
+    {
+      "name": "Friends of the Sakonnet Lighthouse",
+      "publisher": "Friends of the Sakonnet Lighthouse",
+      "homepage": "https://www.sakonnetlighthouse.org/",
+      "source_type": "community-organisation",
+      "coverage": {
+        "little_compton": "dedicated"
+      },
+      "primary_or_secondary": "primary",
+      "endpoints": [],
+      "paywall": "none",
+      "language": "en",
+      "frequency": null,
+      "platform": null,
+      "notes": "Small static site.",
+      "verified": "fetched 2026-11-24: homepage HTTP 200, HTML, title 'The Sakonnet Lighthouse - Home'; no feed found",
+      "has_live_feed": false
+    },
+    {
+      "name": "Sakonnet Times / EastBayRI.com: Little Compton",
+      "publisher": "East Bay Media Group",
+      "homepage": "https://www.eastbayri.com/little-compton/",
+      "source_type": "newspaper",
+      "coverage": {
+        "little_compton": "dedicated",
+        "tiverton": "regular",
+        "westport": "regular"
+      },
+      "primary_or_secondary": "primary (original local reporting)",
+      "endpoints": [
+        {
+          "kind": "rss",
+          "url": "https://www.eastbayri.com/little-compton/category/news/browse.rss",
+          "check": "HTTP 200, rss feed, 25 items, newest 2026-11-23"
+        },
+        {
+          "kind": "html listing page",
+          "url": "https://www.eastbayri.com/little-compton/category/local/browse.html",
+          "check": "HTTP 200, HTML, title 'Browse | EastBayRI.com - News, Opinion, Things to Do in the East Bay'"
+        },
+        {
+          "kind": "html listing page",
+          "url": "https://www.eastbayri.com/little-compton/calendar/",
+          "check": "HTTP 200, HTML, title 'Calendar | EastBayRI.com - News, Opinion, Things to Do in the East Bay'"
+        },
+        {
+          "kind": "html listing page",
+          "url": "https://www.eastbayri.com/little-compton/eeditions/",
+          "check": "HTTP 200, HTML, title 'E-Editions | EastBayRI.com - News, Opinion, Things to Do in the East Bay'"
+        }
+      ],
+      "paywall": "metered",
+      "language": "en",
+      "frequency": "weekly print (Sakonnet Times), web updates most days",
+      "platform": "Creative Circle Media Solutions",
+      "notes": "The weekly Sakonnet Times covers Little Compton and Tiverton. Town section pages and their browse.rss also carry East Bay-wide stories, so filter by town name. Subscriber login and day pass offered. robots.txt and sitemap.xml return 403/404. Hosts paid legal/public notices in print.",
+      "verified": "fetched 2026-11-24: homepage HTTP 200, HTML, title 'Little Compton | EastBayRI.com - News, Opinion, Things to Do in the East Bay'; rss HTTP 200, rss feed, 25 items, newest 2026-11-23",
+      "has_live_feed": true
+    },
+    {
+      "name": "Tiverton-Little Compton Patch",
+      "publisher": "Patch Media",
+      "homepage": "https://patch.com/rhode-island/tiverton",
+      "source_type": "news-site",
+      "coverage": {
+        "little_compton": "regular",
+        "tiverton": "regular"
+      },
+      "primary_or_secondary": "secondary (mostly aggregated/regional and user-posted items; some original)",
+      "endpoints": [
+        {
+          "kind": "rss",
+          "url": "https://patch.com/feeds/rhode-island/tiverton",
+          "check": "HTTP 200, rss feed, 6 items, newest 2026-11-23"
+        }
+      ],
+      "paywall": "none",
+      "language": "en",
+      "frequency": "daily",
+      "platform": "Patch",
+      "notes": null,
+      "verified": "fetched 2026-11-24: homepage HTTP 200, HTML, title 'Tiverton-Little Compton News, Breaking News in Tiverton-Little Compton, RI'; rss HTTP 200, rss feed, 6 items, newest 2026-11-23",
+      "has_live_feed": true
+    },
+    {
+      "name": "Sakonnet Vineyard",
+      "publisher": "Sakonnet Vineyard",
+      "homepage": "https://www.sakonnetwine.com/",
+      "source_type": "food-drink",
+      "coverage": {
+        "little_compton": "dedicated"
+      },
+      "primary_or_secondary": "primary (first-hand hours, events, menu)",
+      "endpoints": [
+        {
+          "kind": "rss",
+          "url": "https://www.sakonnetwine.com/events?format=rss",
+          "check": "HTTP 200, rss feed, 28 items, newest 2026-11-12"
+        },
+        {
+          "kind": "html listing page",
+          "url": "https://www.sakonnetwine.com/events",
+          "check": "HTTP 200, HTML, title 'Events | Discover Events at the Vineyard &mdash; Sakonnet Vineyard'"
+        },
+        {
+          "kind": "html listing page",
+          "url": "https://www.sakonnetwine.com/menu",
+          "check": "HTTP 200, HTML, title 'Menu 1 &mdash; Sakonnet Vineyard'"
+        },
+        {
+          "kind": "sitemap",
+          "url": "https://www.sakonnetwine.com/sitemap.xml",
+          "check": "HTTP 200, sitemap, 214 URLs"
+        }
+      ],
+      "paywall": "none",
+      "language": "en",
+      "frequency": null,
+      "platform": "Squarespace",
+      "notes": "Events collection RSS works (?format=ical on the collection returns HTML, not ICS).",
+      "verified": "fetched 2026-11-24: homepage HTTP 200, HTML, title 'Sakonnet Vineyard'; rss HTTP 200, rss feed, 28 items, newest 2026-11-12",
+      "has_live_feed": true
+    },
+    {
+      "name": "Wishing Stone Farm",
+      "publisher": "Wishing Stone Farm",
+      "homepage": "https://www.wishingstonefarm.com/",
+      "source_type": "farm-market",
+      "coverage": {
+        "little_compton": "dedicated"
+      },
+      "primary_or_secondary": "primary (first-hand farm stand, markets and CSA info)",
+      "endpoints": [
+        {
+          "kind": "sitemap",
+          "url": "https://www.wishingstonefarm.com/sitemap.xml",
+          "check": "HTTP 200, sitemap, 7 URLs"
+        }
+      ],
+      "paywall": "none",
+      "language": "en",
+      "frequency": null,
+      "platform": "Squarespace",
+      "notes": null,
+      "verified": "fetched 2026-11-24: homepage HTTP 200, HTML, title 'Wishing Stone Farm'; no feed found",
+      "has_live_feed": false
+    },
+    {
+      "name": "Young Family Farm",
+      "publisher": "Young Family Farm",
+      "homepage": "https://www.youngfamilyfarm.com/",
+      "source_type": "farm-market",
+      "coverage": {
+        "little_compton": "dedicated"
+      },
+      "primary_or_secondary": "primary (first-hand farm stand hours and pick-your-own info)",
+      "endpoints": [
+        {
+          "kind": "rss",
+          "url": "https://www.youngfamilyfarm.com/blog-feed.xml",
+          "check": "HTTP 200, rss feed, 1 items, newest 2026-02-17"
+        }
+      ],
+      "paywall": "none",
+      "language": "en",
+      "frequency": null,
+      "platform": "Wix",
+      "notes": "Blog feed has a single post.",
+      "verified": "fetched 2026-11-24: homepage HTTP 200, HTML, title 'Young Family Farm in Little Compton | Fresh Produce &amp; Flowers'; rss HTTP 200, rss feed, 1 items, newest 2026-02-17",
+      "has_live_feed": false
+    },
+    {
+      "name": "Sweet & Salty Farm",
+      "publisher": "Sweet & Salty Farm",
+      "homepage": "https://sweetandsaltyfarm.com/",
+      "source_type": "farm-market",
+      "coverage": {
+        "little_compton": "dedicated"
+      },
+      "primary_or_secondary": "primary (first-hand; farmstead cheese and yogurt maker)",
+      "endpoints": [
+        {
+          "kind": "rss",
+          "url": "https://sweetandsaltyfarm.com/feed/",
+          "check": "HTTP 200, rss feed, 0 items, no item dates"
+        }
+      ],
+      "paywall": "none",
+      "language": "en",
+      "frequency": null,
+      "platform": "WordPress",
+      "notes": "Feed exists but is empty.",
+      "verified": "fetched 2026-11-24: homepage HTTP 200, HTML, title 'Sweet &amp; Salty Farm - A small family farm in Little Compton, Rhode Island'; rss HTTP 200, rss feed, 0 items, no item dates",
+      "has_live_feed": false
+    },
+    {
+      "name": "Gray's Grist Mill (Adamsville)",
+      "publisher": "Gray's Grist Mill",
+      "homepage": "https://www.graysgristmill.com/",
+      "source_type": "food-drink",
+      "coverage": {
+        "little_compton": "regular",
+        "westport": "regular"
+      },
+      "primary_or_secondary": "primary (first-hand)",
+      "endpoints": [],
+      "paywall": "none",
+      "language": "en",
+      "frequency": null,
+      "platform": "WordPress",
+      "notes": "Historic mill in Adamsville on the Little Compton/Westport line.",
+      "verified": "fetched 2026-11-24: homepage HTTP 200, HTML, title 'Gray's Grist Mill - Stone Ground Rhode Island Johnnycake Meal'; no feed found",
+      "has_live_feed": false
+    },
+    {
+      "name": "Sakonnet Garden",
+      "publisher": "Sakonnet Garden",
+      "homepage": "https://www.sakonnetgarden.net/",
+      "source_type": "tourism",
+      "coverage": {
+        "little_compton": "dedicated"
+      },
+      "primary_or_secondary": "primary (first-hand open days and events)",
+      "endpoints": [
+        {
+          "kind": "html listing page",
+          "url": "https://www.sakonnetgarden.net/events",
+          "check": "HTTP 200, HTML, title 'Events &mdash; Sakonnet Garden'"
+        },
+        {
+          "kind": "sitemap",
+          "url": "https://www.sakonnetgarden.net/sitemap.xml",
+          "check": "HTTP 200, sitemap, 12 URLs"
+        }
+      ],
+      "paywall": "none",
+      "language": "en",
+      "frequency": null,
+      "platform": "Squarespace",
+      "notes": null,
+      "verified": "fetched 2026-11-24: homepage HTTP 200, HTML, title 'Sakonnet Garden'; no feed found",
+      "has_live_feed": false
+    },
+    {
+      "name": "South Coast Artists (Open Studio Tour)",
+      "publisher": "South Coast Artists, Inc.",
+      "homepage": "https://www.southcoastartists.org/",
+      "source_type": "arts-culture",
+      "coverage": {
+        "little_compton": "regular",
+        "tiverton": "regular",
+        "westport": "regular",
+        "south_coast_ma": "regular"
+      },
+      "primary_or_secondary": "primary (the association's own tour and member listings)",
+      "endpoints": [
+        {
+          "kind": "html listing page",
+          "url": "https://www.southcoastartists.org/2026-open-studio-tour-participants",
+          "check": "HTTP 200, HTML, title '2026 Open Studio Tour Participants &mdash; South Coast Artists'"
+        },
+        {
+          "kind": "sitemap",
+          "url": "https://www.southcoastartists.org/sitemap.xml",
+          "check": "HTTP 200, sitemap, 374 URLs"
+        }
+      ],
+      "paywall": "none",
+      "language": "en",
+      "frequency": "annual tour (two summer weekends)",
+      "platform": "Squarespace",
+      "notes": "Open-studio tour across Tiverton, Little Compton, Westport and Dartmouth.",
+      "verified": "fetched 2026-11-24: homepage HTTP 200, HTML, title 'South Coast Artists'; no feed found",
+      "has_live_feed": false
+    },
+    {
+      "name": "Farmcoast New England",
+      "publisher": "Farmcoast New England",
+      "homepage": "https://www.farmcoast.com/",
+      "source_type": "tourism",
+      "coverage": {
+        "little_compton": "regular",
+        "tiverton": "regular",
+        "westport": "regular",
+        "south_coast_ma": "regular"
+      },
+      "primary_or_secondary": "secondary (listing by a third party: farms, places to eat/shop/stay, events)",
+      "endpoints": [
+        {
+          "kind": "html listing page",
+          "url": "https://www.farmcoast.com/little-compton-1",
+          "check": "HTTP 200, HTML, title 'About 1 &mdash; Farmcoast New England'"
+        },
+        {
+          "kind": "html listing page",
+          "url": "https://www.farmcoast.com/tiverton",
+          "check": "HTTP 200, HTML, title 'About 5 &mdash; Farmcoast New England'"
+        },
+        {
+          "kind": "html listing page",
+          "url": "https://www.farmcoast.com/westport-1",
+          "check": "HTTP 200, HTML, title 'About 1 &mdash; Farmcoast New England'"
+        },
+        {
+          "kind": "html listing page",
+          "url": "https://www.farmcoast.com/farms-and-farmstands",
+          "check": "HTTP 200, HTML, title 'General 2 &mdash; Farmcoast New England'"
+        },
+        {
+          "kind": "html listing page",
+          "url": "https://www.farmcoast.com/places-to-eat",
+          "check": "HTTP 200, HTML, title 'General 2 &mdash; Farmcoast New England'"
+        },
+        {
+          "kind": "rss",
+          "url": "https://www.farmcoast.com/events?format=rss",
+          "check": "HTTP 200, rss feed, 5 items, newest 2019-07-11"
+        },
+        {
+          "kind": "rss",
+          "url": "https://www.farmcoast.com/blog?format=rss",
+          "check": "HTTP 200, rss feed, 4 items, newest 2019-03-11"
+        },
+        {
+          "kind": "sitemap",
+          "url": "https://www.farmcoast.com/sitemap.xml",
+          "check": "HTTP 200, sitemap, 47 URLs"
+        }
+      ],
+      "paywall": "none",
+      "language": "en",
+      "frequency": null,
+      "platform": "Squarespace",
+      "notes": null,
+      "verified": "fetched 2026-11-24: homepage HTTP 200, HTML, title 'Farmcoast New England'; rss HTTP 200, rss feed, 5 items, newest 2019-07-11; rss HTTP 200, rss feed, 4 items, newest 2019-03-11",
+      "has_live_feed": false
+    },
+    {
+      "name": "Discover Newport: Little Compton and Tiverton pages",
+      "publisher": "Discover Newport (Newport County regional tourism council)",
+      "homepage": "https://www.discovernewport.org/",
+      "source_type": "tourism",
+      "coverage": {
+        "little_compton": "regular",
+        "tiverton": "regular",
+        "newport_county": "dedicated"
+      },
+      "primary_or_secondary": "secondary (tourism listings by the regional destination marketing body)",
+      "endpoints": [
+        {
+          "kind": "html listing page",
+          "url": "https://www.discovernewport.org/about-newport/nine-coastal-communities/little-compton/",
+          "check": "HTTP 200, HTML, title 'Little Compton, RI | Beaches, History &amp; Things to Do'"
+        },
+        {
+          "kind": "html listing page",
+          "url": "https://www.discovernewport.org/about-newport/nine-coastal-communities/tiverton/",
+          "check": "HTTP 200, HTML, title 'Tiverton, Rhode Island | Coastal Crafts, History &amp; Views'"
+        },
+        {
+          "kind": "html listing page",
+          "url": "https://www.discovernewport.org/events/",
+          "check": "HTTP 200, HTML, title 'Events in Newport RI | Best Happenings, Festivals &amp; Music'"
+        },
+        {
+          "kind": "sitemap",
+          "url": "https://www.discovernewport.org/sitemap.xml",
+          "check": "HTTP 200, sitemap, 3344 URLs"
+        }
+      ],
+      "paywall": "none",
+      "language": "en",
+      "frequency": null,
+      "platform": "Simpleview",
+      "notes": null,
+      "verified": "fetched 2026-11-24: homepage HTTP 200, HTML, title 'Discover Newport, RI | The Classic Coast Weekend Getaway'; no feed found",
+      "has_live_feed": false
+    },
+    {
+      "name": "Town of Tiverton official website",
+      "publisher": "Town of Tiverton",
+      "homepage": "https://www.tiverton.ri.gov/",
+      "source_type": "town-website",
+      "coverage": {
+        "tiverton": "dedicated"
+      },
+      "primary_or_secondary": "primary",
+      "endpoints": [
+        {
+          "kind": "rss",
+          "url": "https://www.tiverton.ri.gov/RSSFeed.aspx?ModID=1&CID=All-newsflash.xml",
+          "check": "HTTP 200, rss feed, 3 items, newest 2026-11-03"
+        },
+        {
+          "kind": "rss",
+          "url": "https://www.tiverton.ri.gov/RSSFeed.aspx?ModID=58&CID=All-calendar.xml",
+          "check": "HTTP 200, rss feed, 12 items, newest 2026-11-16"
+        },
+        {
+          "kind": "rss",
+          "url": "https://www.tiverton.ri.gov/RSSFeed.aspx?ModID=63&CID=All-0",
+          "check": "HTTP 200, rss feed, 0 items, no item dates"
+        },
+        {
+          "kind": "rss",
+          "url": "https://www.tiverton.ri.gov/RSSFeed.aspx?CommunityJobs=False&ModID=66&CID=All-0",
+          "check": "HTTP 200, rss feed, 0 items, no item dates"
+        },
+        {
+          "kind": "ical",
+          "url": "https://www.tiverton.ri.gov/common/modules/iCalendar/iCalendar.aspx?catID=14&feed=calendar",
+          "check": "HTTP 200, iCalendar, 20 events, latest DTSTART 2028-01-01"
+        },
+        {
+          "kind": "html listing page",
+          "url": "https://www.tiverton.ri.gov/rss.aspx",
+          "check": "HTTP 200, HTML, title 'RSS • Tiverton, RI • CivicEngage'"
+        },
+        {
+          "kind": "html listing page",
+          "url": "https://www.tiverton.ri.gov/CivicAlerts.aspx?CID=1",
+          "check": "HTTP 200, HTML, title 'News Flash &#x2022; Tiverton, RI', redirected to https://www.tiverton.ri.gov/m/newsflash?cat=1"
+        },
+        {
+          "kind": "html listing page",
+          "url": "https://www.tiverton.ri.gov/Bids.aspx",
+          "check": "HTTP 200, HTML, title 'Bid Postings • Tiverton, RI • CivicEngage'"
+        },
+        {
+          "kind": "sitemap",
+          "url": "https://www.tiverton.ri.gov/sitemap.xml",
+          "check": "HTTP 200, sitemap, 207 URLs"
+        },
+        {
+          "kind": "html listing page",
+          "url": "https://www.tiverton.ri.gov/178/Budget-Process-Financial-Town-Referendum",
+          "check": "HTTP 200, HTML, title 'Budget Process &amp; Financial Town Referendum (FTR) | Tiverton, RI'"
+        },
+        {
+          "kind": "html listing page",
+          "url": "https://www.tiverton.ri.gov/DocumentCenter",
+          "check": "HTTP 200, HTML, title 'Document Center • Tiverton, RI • CivicEngage'"
+        },
+        {
+          "kind": "html listing page",
+          "url": "https://www.tiverton.ri.gov/161/Recreation-Beaches",
+          "check": "HTTP 200, HTML, title 'Recreation &amp; Beaches | Tiverton, RI'"
+        }
+      ],
+      "paywall": "none",
+      "language": "en",
+      "frequency": null,
+      "platform": "CivicPlus CivicEngage",
+      "notes": "Full RSS index at /rss.aspx (news by category incl. Police, Fire, Recreation; calendars incl. Senior Center; alerts; jobs). AgendaCenter module exists but is empty: agendas/minutes live on ClerkBase and the RI SOS portal.",
+      "verified": "fetched 2026-11-24: homepage HTTP 200, HTML, title 'Tiverton, RI | Official Website'; rss HTTP 200, rss feed, 3 items, newest 2026-11-03; rss HTTP 200, rss feed, 12 items, newest 2026-11-16; rss HTTP 200, rss feed, 0 items, no item dates",
+      "has_live_feed": true
+    },
+    {
+      "name": "Tiverton agendas, minutes and town code (ClerkBase)",
+      "publisher": "Town of Tiverton (Town Clerk)",
+      "homepage": "https://clerkshq.com/tiverton-ri",
+      "source_type": "meeting-notices-agendas-minutes",
+      "coverage": {
+        "tiverton": "dedicated"
+      },
+      "primary_or_secondary": "primary",
+      "endpoints": [
+        {
+          "kind": "html listing page",
+          "url": "https://clerkshq.com/tiverton-ri",
+          "check": "HTTP 200, HTML, title 'Tiverton, RI - ClerkBase'"
+        },
+        {
+          "kind": "html listing page",
+          "url": "https://www.tiverton.ri.gov/276/Public-Hearings",
+          "check": "HTTP 200, HTML, title 'Public Hearings | Tiverton, RI'"
+        }
+      ],
+      "paywall": "none",
+      "language": "en",
+      "frequency": null,
+      "platform": "ClerkBase",
+      "notes": "Linked from the town's Agendas & Minutes and Public Hearings pages. No feed found.",
+      "verified": "fetched 2026-11-24: homepage HTTP 200, HTML, title 'Tiverton, RI - ClerkBase'; no feed found",
+      "has_live_feed": false
+    },
+    {
+      "name": "RI Open Meetings: all Tiverton public bodies",
+      "publisher": "Rhode Island Department of State (filings by Town of Tiverton bodies)",
+      "homepage": "https://opengov.sos.ri.gov/OpenMeetings",
+      "source_type": "meeting-notices-agendas-minutes",
+      "coverage": {
+        "tiverton": "dedicated"
+      },
+      "primary_or_secondary": "primary (statutory filings by the bodies themselves)",
+      "endpoints": [
+        {
+          "kind": "rss",
+          "url": "https://opengov.sos.ri.gov/RSSFeed/Rss?feedType=1&entityID=0&filter1=&filter2=&Keywords=&FromDate=&ToDate=&RefineSearch=&PublicBodies=Tiverton",
+          "check": "HTTP 200, rss feed, 2 items, newest 2026-12-10"
+        },
+        {
+          "kind": "html listing page",
+          "url": "https://opengov.sos.ri.gov/OpenMeetingsPublic/OpenMeetingDashboard?subtopmenuId=201&EntityID=3503",
+          "check": "HTTP 200, HTML, title 'Rhode Island Department of State'"
+        },
+        {
+          "kind": "html listing page",
+          "url": "https://opengov.sos.ri.gov/OpenMeetingsPublic/OpenMeetingDashboard?subtopmenuId=201&EntityID=3504",
+          "check": "HTTP 200, HTML, title 'Rhode Island Department of State'"
+        },
+        {
+          "kind": "html listing page",
+          "url": "https://opengov.sos.ri.gov/OpenMeetingsPublic/OpenMeetingDashboard?subtopmenuId=201&EntityID=3506",
+          "check": "HTTP 200, HTML, title 'Rhode Island Department of State'"
+        },
+        {
+          "kind": "html listing page",
+          "url": "https://opengov.sos.ri.gov/OpenMeetingsPublic/OpenMeetingDashboard?subtopmenuId=201&EntityID=3509",
+          "check": "HTTP 200, HTML, title 'Rhode Island Department of State'"
+        },
+        {
+          "kind": "html listing page",
+          "url": "https://opengov.sos.ri.gov/OpenMeetingsPublic/OpenMeetingDashboard?subtopmenuId=201&EntityID=3511",
+          "check": "HTTP 200, HTML, title 'Rhode Island Department of State'"
+        },
+        {
+          "kind": "html listing page",
+          "url": "https://opengov.sos.ri.gov/OpenMeetingsPublic/OpenMeetingDashboard?subtopmenuId=201&EntityID=3518",
+          "check": "HTTP 200, HTML, title 'Rhode Island Department of State'"
+        },
+        {
+          "kind": "html listing page",
+          "url": "https://opengov.sos.ri.gov/OpenMeetingsPublic/OpenMeetingDashboard?subtopmenuId=201&EntityID=3519",
+          "check": "HTTP 200, HTML, title 'Rhode Island Department of State'"
+        },
+        {
+          "kind": "html listing page",
+          "url": "https://opengov.sos.ri.gov/OpenMeetingsPublic/OpenMeetingDashboard?subtopmenuId=201&EntityID=3520",
+          "check": "HTTP 200, HTML, title 'Rhode Island Department of State'"
+        },
+        {
+          "kind": "html listing page",
+          "url": "https://opengov.sos.ri.gov/OpenMeetingsPublic/OpenMeetingDashboard?subtopmenuId=201&EntityID=3521",
+          "check": "HTTP 200, HTML, title 'Rhode Island Department of State'"
+        },
+        {
+          "kind": "html listing page",
+          "url": "https://opengov.sos.ri.gov/OpenMeetingsPublic/OpenMeetingDashboard?subtopmenuId=201&EntityID=3524",
+          "check": "HTTP 200, HTML, title 'Rhode Island Department of State'"
+        },
+        {
+          "kind": "html listing page",
+          "url": "https://opengov.sos.ri.gov/OpenMeetingsPublic/OpenMeetingDashboard?subtopmenuId=201&EntityID=3528",
+          "check": "HTTP 200, HTML, title 'Rhode Island Department of State'"
+        },
+        {
+          "kind": "html listing page",
+          "url": "https://opengov.sos.ri.gov/OpenMeetingsPublic/OpenMeetingDashboard?subtopmenuId=201&EntityID=3529",
+          "check": "HTTP 200, HTML, title 'Rhode Island Department of State'"
+        },
+        {
+          "kind": "html listing page",
+          "url": "https://opengov.sos.ri.gov/OpenMeetingsPublic/OpenMeetingDashboard?subtopmenuId=201&EntityID=3534",
+          "check": "HTTP 200, HTML, title 'Rhode Island Department of State'"
+        },
+        {
+          "kind": "html listing page",
+          "url": "https://opengov.sos.ri.gov/OpenMeetingsPublic/OpenMeetingDashboard?subtopmenuId=201&EntityID=3546",
+          "check": "HTTP 200, HTML, title 'Rhode Island Department of State'"
+        },
+        {
+          "kind": "html listing page",
+          "url": "https://opengov.sos.ri.gov/OpenMeetingsPublic/OpenMeetingDashboard?subtopmenuId=201&EntityID=3549",
+          "check": "HTTP 200, HTML, title 'Rhode Island Department of State'"
+        },
+        {
+          "kind": "html listing page",
+          "url": "https://opengov.sos.ri.gov/OpenMeetingsPublic/OpenMeetingDashboard?subtopmenuId=201&EntityID=3550",
+          "check": "HTTP 200, HTML, title 'Rhode Island Department of State'"
+        },
+        {
+          "kind": "html listing page",
+          "url": "https://opengov.sos.ri.gov/OpenMeetingsPublic/OpenMeetingDashboard?subtopmenuId=201&EntityID=2392",
+          "check": "HTTP 200, HTML, title 'Rhode Island Department of State'"
+        }
+      ],
+      "paywall": "none",
+      "language": "en",
+      "frequency": null,
+      "platform": "RI SOS Open Meetings",
+      "notes": "RSS = upcoming meetings filtered by body name 'Tiverton'. Active bodies: Board of Canvassers 3503, Budget Committee 3504, Cemetery Commission 3506, Conservation Commission 3509, Economic Development Commission 3511, Harbor Commission 3518, Historic Preservation Advisory Board 3519, Historical Cemeteries Commission 3520, Housing Authority 3521, Library Trustees 3524, Open Space Commission 3528, Personnel Board 3529, Recreation Commission 3534, Wastewater District 3546, Zoning Board of Review 3549, 'Tiverton, Town of' 3550, North Tiverton Fire District 2392. Same per-body feed pattern as Little Compton (feedType 9 minutes, 7 upcoming).",
+      "verified": "fetched 2026-11-24: homepage HTTP 200, HTML, title 'Rhode Island Department of State'; rss HTTP 200, rss feed, 2 items, newest 2026-12-10",
+      "has_live_feed": true
+    },
+    {
+      "name": "RI Open Meetings: Tiverton Town Council",
+      "publisher": "Tiverton Town Council (via Rhode Island Department of State)",
+      "homepage": "https://opengov.sos.ri.gov/OpenMeetingsPublic/OpenMeetingDashboard?subtopmenuId=201&EntityID=3543",
+      "source_type": "town-council",
+      "coverage": {
+        "tiverton": "dedicated"
+      },
+      "primary_or_secondary": "primary",
+      "endpoints": [
+        {
+          "kind": "html listing page",
+          "url": "https://opengov.sos.ri.gov/OpenMeetingsPublic/OpenMeetingDashboard?subtopmenuId=201&EntityID=3543",
+          "check": "HTTP 200, HTML, title 'Rhode Island Department of State'"
+        },
+        {
+          "kind": "rss",
+          "url": "https://opengov.sos.ri.gov/RSSFeed/Rss?feedType=9&entityID=3543&filter1=&filter2=&Keywords=&FromDate=&ToDate=&RefineSearch=&PublicBodies=",
+          "check": "HTTP 200, rss feed, 50 items, newest 2026-10-28"
+        },
+        {
+          "kind": "rss",
+          "url": "https://opengov.sos.ri.gov/RSSFeed/Rss?feedType=7&entityID=3543&filter1=&filter2=&Keywords=&FromDate=&ToDate=&RefineSearch=&PublicBodies=",
+          "check": "HTTP 200, rss feed, 0 items, no item dates"
+        }
+      ],
+      "paywall": "none",
+      "language": "en",
+      "frequency": null,
+      "platform": "RI SOS Open Meetings",
+      "notes": "EntityID 3543.",
+      "verified": "fetched 2026-11-24: homepage HTTP 200, HTML, title 'Rhode Island Department of State'; rss HTTP 200, rss feed, 50 items, newest 2026-10-28; rss HTTP 200, rss feed, 0 items, no item dates",
+      "has_live_feed": true
+    },
+    {
+      "name": "RI Open Meetings: Tiverton Planning Board",
+      "publisher": "Tiverton Planning Board (via Rhode Island Department of State)",
+      "homepage": "https://opengov.sos.ri.gov/OpenMeetingsPublic/OpenMeetingDashboard?subtopmenuId=201&EntityID=3530",
+      "source_type": "planning-zoning",
+      "coverage": {
+        "tiverton": "dedicated"
+      },
+      "primary_or_secondary": "primary",
+      "endpoints": [
+        {
+          "kind": "html listing page",
+          "url": "https://opengov.sos.ri.gov/OpenMeetingsPublic/OpenMeetingDashboard?subtopmenuId=201&EntityID=3530",
+          "check": "HTTP 200, HTML, title 'Rhode Island Department of State'"
+        },
+        {
+          "kind": "rss",
+          "url": "https://opengov.sos.ri.gov/RSSFeed/Rss?feedType=9&entityID=3530&filter1=&filter2=&Keywords=&FromDate=&ToDate=&RefineSearch=&PublicBodies=",
+          "check": "HTTP 200, rss feed, 50 items, newest 2026-11-13"
+        },
+        {
+          "kind": "rss",
+          "url": "https://opengov.sos.ri.gov/RSSFeed/Rss?feedType=7&entityID=3530&filter1=&filter2=&Keywords=&FromDate=&ToDate=&RefineSearch=&PublicBodies=",
+          "check": "HTTP 200, rss feed, 0 items, no item dates"
+        }
+      ],
+      "paywall": "none",
+      "language": "en",
+      "frequency": null,
+      "platform": "RI SOS Open Meetings",
+      "notes": "EntityID 3530.",
+      "verified": "fetched 2026-11-24: homepage HTTP 200, HTML, title 'Rhode Island Department of State'; rss HTTP 200, rss feed, 50 items, newest 2026-11-13; rss HTTP 200, rss feed, 0 items, no item dates",
+      "has_live_feed": true
+    },
+    {
+      "name": "RI Open Meetings: Tiverton School Committee",
+      "publisher": "Tiverton School Committee (via Rhode Island Department of State)",
+      "homepage": "https://opengov.sos.ri.gov/OpenMeetingsPublic/OpenMeetingDashboard?subtopmenuId=201&EntityID=3536",
+      "source_type": "school-committee",
+      "coverage": {
+        "tiverton": "dedicated"
+      },
+      "primary_or_secondary": "primary",
+      "endpoints": [
+        {
+          "kind": "html listing page",
+          "url": "https://opengov.sos.ri.gov/OpenMeetingsPublic/OpenMeetingDashboard?subtopmenuId=201&EntityID=3536",
+          "check": "HTTP 200, HTML, title 'Rhode Island Department of State'"
+        },
+        {
+          "kind": "rss",
+          "url": "https://opengov.sos.ri.gov/RSSFeed/Rss?feedType=9&entityID=3536&filter1=&filter2=&Keywords=&FromDate=&ToDate=&RefineSearch=&PublicBodies=",
+          "check": "HTTP 200, rss feed, 50 items, newest 2026-09-24"
+        },
+        {
+          "kind": "rss",
+          "url": "https://opengov.sos.ri.gov/RSSFeed/Rss?feedType=7&entityID=3536&filter1=&filter2=&Keywords=&FromDate=&ToDate=&RefineSearch=&PublicBodies=",
+          "check": "HTTP 200, rss feed, 0 items, no item dates"
+        }
+      ],
+      "paywall": "none",
+      "language": "en",
+      "frequency": null,
+      "platform": "RI SOS Open Meetings",
+      "notes": "EntityID 3536.",
+      "verified": "fetched 2026-11-24: homepage HTTP 200, HTML, title 'Rhode Island Department of State'; rss HTTP 200, rss feed, 50 items, newest 2026-09-24; rss HTTP 200, rss feed, 0 items, no item dates",
+      "has_live_feed": true
+    },
+    {
+      "name": "TivertonVideos (town meeting video, YouTube)",
+      "publisher": "Town of Tiverton",
+      "homepage": "https://www.youtube.com/@TivertonVideos",
+      "source_type": "meeting-video",
+      "coverage": {
+        "tiverton": "dedicated"
+      },
+      "primary_or_secondary": "primary",
+      "endpoints": [
+        {
+          "kind": "atom",
+          "url": "https://www.youtube.com/feeds/videos.xml?channel_id=UCIJBJ4JV_pTWGv1Kdgb2siw",
+          "check": "HTTP 200, atom feed, 15 items, newest 2026-11-11"
+        }
+      ],
+      "paywall": "none",
+      "language": "en",
+      "frequency": null,
+      "platform": "YouTube",
+      "notes": "tiverton.ri.gov/Youtube redirects to this channel.",
+      "verified": "fetched 2026-11-24: homepage HTTP 200, HTML, title 'TivertonVideos - YouTube'; atom HTTP 200, atom feed, 15 items, newest 2026-11-11",
+      "has_live_feed": true
+    },
+    {
+      "name": "Tiverton building permits portal",
+      "publisher": "Town of Tiverton",
+      "homepage": "https://www.tiverton.ri.gov/252/Building-Permits",
+      "source_type": "building-permits",
+      "coverage": {
+        "tiverton": "dedicated"
+      },
+      "primary_or_secondary": "primary",
+      "endpoints": [
+        {
+          "kind": "html listing page",
+          "url": "https://tivertonri.portal.opengov.com/",
+          "check": "HTTP 200, HTML, title 'OpenGov'"
+        }
+      ],
+      "paywall": "none",
+      "language": "en",
+      "frequency": null,
+      "platform": "OpenGov Permitting & Licensing",
+      "notes": "JavaScript app, no public feed found.",
+      "verified": "fetched 2026-11-24: homepage HTTP 200, HTML, title 'Building / Code / Zoning | Tiverton, RI', redirected to https://www.tiverton.ri.gov/223/Building-Code-Zoning; no feed found",
+      "has_live_feed": false
+    },
+    {
+      "name": "Tiverton Police Department",
+      "publisher": "Town of Tiverton",
+      "homepage": "https://www.tiverton.ri.gov/160/Police",
+      "source_type": "police",
+      "coverage": {
+        "tiverton": "dedicated"
+      },
+      "primary_or_secondary": "primary",
+      "endpoints": [
+        {
+          "kind": "rss",
+          "url": "https://www.tiverton.ri.gov/RSSFeed.aspx?ModID=1&CID=Police-7",
+          "check": "HTTP 200, rss feed, 0 items, no item dates"
+        },
+        {
+          "kind": "html listing page",
+          "url": "https://crimemapping.infoshare.com/RI/Tiverton",
+          "check": "HTTP 200, HTML, title 'CSI Crime Mapping'"
+        }
+      ],
+      "paywall": "none",
+      "language": "en",
+      "frequency": null,
+      "platform": "CivicPlus CivicEngage",
+      "notes": "Police news category RSS; page links a crime-mapping portal.",
+      "verified": "fetched 2026-11-24: homepage HTTP 200, HTML, title 'Police | Tiverton, RI'; rss HTTP 200, rss feed, 0 items, no item dates",
+      "has_live_feed": false
+    },
+    {
+      "name": "Tiverton Public Library",
+      "publisher": "Tiverton Public Library",
+      "homepage": "https://tivertonlibrary.org/",
+      "source_type": "library",
+      "coverage": {
+        "tiverton": "dedicated"
+      },
+      "primary_or_secondary": "primary",
+      "endpoints": [
+        {
+          "kind": "rss",
+          "url": "https://tivertonlibrary.org/feed/",
+          "check": "HTTP 200, rss feed, 10 items, newest 2026-11-19"
+        },
+        {
+          "kind": "rss",
+          "url": "https://tivertonlibrary.org/events/feed/",
+          "check": "HTTP 200, rss feed, 0 items, no item dates"
+        },
+        {
+          "kind": "html listing page",
+          "url": "https://tivertonlibrary.org/events/",
+          "check": "HTTP 200, HTML, title 'Events | Tiverton Public Library | 401-625-6796'"
+        },
+        {
+          "kind": "html listing page",
+          "url": "https://tivertonlibrary.org/local-community/",
+          "check": "HTTP 200, HTML, title 'Local Community Links | Tiverton Public Library | 401-625-6796'"
+        }
+      ],
+      "paywall": "none",
+      "language": "en",
+      "frequency": null,
+      "platform": "WordPress",
+      "notes": "?ical=1 returns HTML (no iCal export). Local Community Links page is a useful directory.",
+      "verified": "fetched 2026-11-24: homepage HTTP 200, HTML, title 'Tiverton Public Library | 401-625-6796'; rss HTTP 200, rss feed, 10 items, newest 2026-11-19; rss HTTP 200, rss feed, 0 items, no item dates",
+      "has_live_feed": true
+    },
+    {
+      "name": "Tiverton Land Trust",
+      "publisher": "Tiverton Land Trust",
+      "homepage": "https://www.tivertonlandtrust.org/",
+      "source_type": "land-trust",
+      "coverage": {
+        "tiverton": "dedicated"
+      },
+      "primary_or_secondary": "primary",
+      "endpoints": [
+        {
+          "kind": "html listing page",
+          "url": "https://www.tivertonlandtrust.org/events",
+          "check": "HTTP 200, HTML, title 'Events &mdash; Tiverton Land Trust'"
+        },
+        {
+          "kind": "html listing page",
+          "url": "https://www.tivertonlandtrust.org/news",
+          "check": "HTTP 200, HTML, title 'Fieldnotes &mdash; Tiverton Land Trust'"
+        },
+        {
+          "kind": "rss",
+          "url": "https://www.tivertonlandtrust.org/news?format=rss",
+          "check": "HTTP 200, rss feed, 15 items, newest 2026-04-27"
+        },
+        {
+          "kind": "sitemap",
+          "url": "https://www.tivertonlandtrust.org/sitemap.xml",
+          "check": "HTTP 200, sitemap, 49 URLs"
+        }
+      ],
+      "paywall": "none",
+      "language": "en",
+      "frequency": null,
+      "platform": "Squarespace",
+      "notes": null,
+      "verified": "fetched 2026-11-24: homepage HTTP 200, HTML, title 'The Tiverton Land Trust Needs You'; rss HTTP 200, rss feed, 15 items, newest 2026-04-27",
+      "has_live_feed": false
+    },
+    {
+      "name": "Tiverton Wastewater District",
+      "publisher": "Tiverton Wastewater District",
+      "homepage": "https://www.twwd.org/dashboard/",
+      "source_type": "utility-district",
+      "coverage": {
+        "tiverton": "dedicated"
+      },
+      "primary_or_secondary": "primary",
+      "endpoints": [
+        {
+          "kind": "rss",
+          "url": "https://www.twwd.org/dashboard/feed/",
+          "check": "HTTP 200, rss feed, 2 items, newest 2026-10-02"
+        },
+        {
+          "kind": "html listing page",
+          "url": "https://opengov.sos.ri.gov/OpenMeetingsPublic/OpenMeetingDashboard?subtopmenuId=201&EntityID=3546",
+          "check": "HTTP 200, HTML, title 'Rhode Island Department of State'"
+        }
+      ],
+      "paywall": "none",
+      "language": "en",
+      "frequency": null,
+      "platform": "WordPress",
+      "notes": null,
+      "verified": "fetched 2026-11-24: homepage HTTP 200, HTML, title 'Tiverton Wastewater District &#8211; TWWD'; rss HTTP 200, rss feed, 2 items, newest 2026-10-02",
+      "has_live_feed": true
+    },
+    {
+      "name": "Sakonnet Times / EastBayRI.com: Tiverton",
+      "publisher": "East Bay Media Group",
+      "homepage": "https://www.eastbayri.com/tiverton/",
+      "source_type": "newspaper",
+      "coverage": {
+        "tiverton": "dedicated",
+        "little_compton": "regular"
+      },
+      "primary_or_secondary": "primary (original local reporting)",
+      "endpoints": [
+        {
+          "kind": "rss",
+          "url": "https://www.eastbayri.com/tiverton/category/news/browse.rss",
+          "check": "HTTP 200, rss feed, 25 items, newest 2026-11-23"
+        },
+        {
+          "kind": "html listing page",
+          "url": "https://www.eastbayri.com/tiverton/category/local/browse.html",
+          "check": "HTTP 200, HTML, title 'Browse | EastBayRI.com - News, Opinion, Things to Do in the East Bay'"
+        }
+      ],
+      "paywall": "metered",
+      "language": "en",
+      "frequency": "weekly print, web most days",
+      "platform": "Creative Circle Media Solutions",
+      "notes": "Same publisher/paywall as the Little Compton section; section feed also carries region-wide stories.",
+      "verified": "fetched 2026-11-24: homepage HTTP 200, HTML, title 'Tiverton | EastBayRI.com - News, Opinion, Things to Do in the East Bay'; rss HTTP 200, rss feed, 25 items, newest 2026-11-23",
+      "has_live_feed": true
+    },
+    {
+      "name": "Four Corners Arts Center",
+      "publisher": "Tiverton Four Corners Arts Center",
+      "homepage": "https://www.fourcornersarts.org/",
+      "source_type": "arts-culture",
+      "coverage": {
+        "tiverton": "dedicated"
+      },
+      "primary_or_secondary": "primary (own exhibitions, concerts, classes)",
+      "endpoints": [
+        {
+          "kind": "rss",
+          "url": "https://www.fourcornersarts.org/events?format=rss",
+          "check": "HTTP 200, rss feed, 9 items, newest 2021-09-15"
+        },
+        {
+          "kind": "html listing page",
+          "url": "https://www.fourcornersarts.org/events",
+          "check": "HTTP 200, HTML, title 'Events &mdash; Four Corners Arts Center'"
+        },
+        {
+          "kind": "sitemap",
+          "url": "https://www.fourcornersarts.org/sitemap.xml",
+          "check": "HTTP 200, sitemap, 18 URLs"
+        }
+      ],
+      "paywall": "none",
+      "language": "en",
+      "frequency": null,
+      "platform": "Squarespace",
+      "notes": null,
+      "verified": "fetched 2026-11-24: homepage HTTP 200, HTML, title 'Four Corners Arts Center'; rss HTTP 200, rss feed, 9 items, newest 2021-09-15",
+      "has_live_feed": false
+    },
+    {
+      "name": "Tiverton Four Corners",
+      "publisher": "Tiverton Four Corners Merchants Association",
+      "homepage": "https://www.tivertonfourcorners.com/",
+      "source_type": "business",
+      "coverage": {
+        "tiverton": "dedicated"
+      },
+      "primary_or_secondary": "secondary for individual shops (merchants-association listing); primary for village events",
+      "endpoints": [
+        {
+          "kind": "html listing page",
+          "url": "https://www.tivertonfourcorners.com/events-2",
+          "check": "HTTP 200, HTML, title 'Events &mdash; Tiverton Four Corners'"
+        },
+        {
+          "kind": "html listing page",
+          "url": "https://www.tivertonfourcorners.com/shopsandgalleries",
+          "check": "HTTP 200, HTML, title 'Shops &amp; Galleries &mdash; Tiverton Four Corners'"
+        },
+        {
+          "kind": "html listing page",
+          "url": "https://www.tivertonfourcorners.com/food-and-dining",
+          "check": "HTTP 200, HTML, title 'Food &amp; Dining &mdash; Tiverton Four Corners'"
+        },
+        {
+          "kind": "sitemap",
+          "url": "https://www.tivertonfourcorners.com/sitemap.xml",
+          "check": "HTTP 200, sitemap, 283 URLs"
+        }
+      ],
+      "paywall": "none",
+      "language": "en",
+      "frequency": null,
+      "platform": "Squarespace",
+      "notes": null,
+      "verified": "fetched 2026-11-24: homepage HTTP 200, HTML, title 'Tiverton Four Corners'; no feed found",
+      "has_live_feed": false
+    },
+    {
+      "name": "Tiverton Farmers Market",
+      "publisher": "Tiverton Farmers Market",
+      "homepage": "https://www.tivertonfarmersmarket.com/",
+      "source_type": "farm-market",
+      "coverage": {
+        "tiverton": "dedicated"
+      },
+      "primary_or_secondary": "primary (market's own schedule and vendor list)",
+      "endpoints": [
+        {
+          "kind": "html listing page",
+          "url": "https://www.tivertonfarmersmarket.com/popup-events",
+          "check": "HTTP 200, HTML, title 'Events &mdash; Tiverton Farmer&#39;s Market'"
+        },
+        {
+          "kind": "sitemap",
+          "url": "https://www.tivertonfarmersmarket.com/sitemap.xml",
+          "check": "HTTP 200, sitemap, 96 URLs"
+        }
+      ],
+      "paywall": "none",
+      "language": "en",
+      "frequency": "weekly market",
+      "platform": "Squarespace",
+      "notes": null,
+      "verified": "fetched 2026-11-24: homepage HTTP 200, HTML, title 'Tiverton Farmer&#39;s Market'; no feed found",
+      "has_live_feed": false
+    },
+    {
+      "name": "Town of Westport official website",
+      "publisher": "Town of Westport, Massachusetts",
+      "homepage": "https://www.westport-ma.com/",
+      "source_type": "town-website",
+      "coverage": {
+        "westport": "dedicated"
+      },
+      "primary_or_secondary": "primary",
+      "endpoints": [
+        {
+          "kind": "rss",
+          "url": "https://www.westport-ma.com/rss.xml",
+          "check": "HTTP 200, rss feed, 12 items, no item dates"
+        },
+        {
+          "kind": "html listing page",
+          "url": "https://www.westport-ma.com/newslist.php",
+          "check": "HTTP 200, HTML, title 'Westport,MA'"
+        },
+        {
+          "kind": "html listing page",
+          "url": "https://www.westport-ma.com/calendar.php",
+          "check": "HTTP 200, HTML, title 'Westport,MA'"
+        },
+        {
+          "kind": "html listing page",
+          "url": "https://www.westport-ma.com/where_do_i_go_for/bid_opportunities/index.php",
+          "check": "HTTP 200, HTML, title 'Bid Opportunities'"
+        },
+        {
+          "kind": "html listing page",
+          "url": "https://www.westport-ma.com/sitemap.php",
+          "check": "HTTP 200, HTML, title 'Westport,MA'"
+        },
+        {
+          "kind": "html listing page",
+          "url": "https://www.westport-ma.com/departments/accountant/budget_information.php",
+          "check": "HTTP 200, HTML, title 'Westport,MA'"
+        },
+        {
+          "kind": "html listing page",
+          "url": "https://www.westport-ma.com/departments/police/notices.php",
+          "check": "HTTP 200, HTML, title 'Westport,MA'"
+        }
+      ],
+      "paywall": "none",
+      "language": "en",
+      "frequency": null,
+      "platform": "Revize",
+      "notes": "rss.xml carries news items but with no pubDate elements. westport-ma.gov redirects to westport-ma.com.",
+      "verified": "fetched 2026-11-24: homepage HTTP 200, HTML, title 'Westport,MA'; rss HTTP 200, rss feed, 12 items, no item dates",
+      "has_live_feed": false
+    },
+    {
+      "name": "Westport boards: meetings, agendas and minutes",
+      "publisher": "Town of Westport, Massachusetts",
+      "homepage": "https://www.westport-ma.com/government/meetings.php",
+      "source_type": "meeting-notices-agendas-minutes",
+      "coverage": {
+        "westport": "dedicated"
+      },
+      "primary_or_secondary": "primary",
+      "endpoints": [
+        {
+          "kind": "html listing page",
+          "url": "https://www.westport-ma.com/government/meetings.php",
+          "check": "HTTP 200, HTML, title 'Westport,MA'"
+        },
+        {
+          "kind": "html listing page",
+          "url": "https://www.westport-ma.com/government/select_board/index.php",
+          "check": "HTTP 200, HTML, title 'Westport,MA'"
+        },
+        {
+          "kind": "html listing page",
+          "url": "https://www.westport-ma.com/departments/planning/agendas_minutes.php",
+          "check": "HTTP 200, HTML, title 'Westport,MA'"
+        },
+        {
+          "kind": "html listing page",
+          "url": "https://www.westport-ma.com/government/boards_committtees/zoning_board_of_appeals/index.php",
+          "check": "HTTP 200, HTML, title 'Westport,MA'"
+        },
+        {
+          "kind": "html listing page",
+          "url": "https://www.westport-ma.com/departments/conservation_commission/agendas_minutes.php",
+          "check": "HTTP 200, HTML, title 'Westport,MA'"
+        },
+        {
+          "kind": "html listing page",
+          "url": "https://www.westport-ma.com/departments/health/agendas_minutes.php",
+          "check": "HTTP 200, HTML, title 'Agendas &amp; Minutes'"
+        },
+        {
+          "kind": "html listing page",
+          "url": "https://www.westport-ma.com/government/town_clerk/meeting_notice_posting_sheet.php",
+          "check": "HTTP 200, HTML, title 'Westport,MA'"
+        }
+      ],
+      "paywall": "none",
+      "language": "en",
+      "frequency": null,
+      "platform": "Revize",
+      "notes": "Massachusetts towns post on their own sites: agendas/minutes are PDFs linked from per-board pages; no feed.",
+      "verified": "fetched 2026-11-24: homepage HTTP 200, HTML, title 'Westport,MA'; no feed found",
+      "has_live_feed": false
+    },
+    {
+      "name": "Westport Government TV (YouTube)",
+      "publisher": "Town of Westport / Westport Community Television",
+      "homepage": "https://www.youtube.com/channel/UCV9Hpg60YgmPnqPe1q2lgBw",
+      "source_type": "meeting-video",
+      "coverage": {
+        "westport": "dedicated"
+      },
+      "primary_or_secondary": "primary",
+      "endpoints": [
+        {
+          "kind": "atom",
+          "url": "https://www.youtube.com/feeds/videos.xml?channel_id=UCV9Hpg60YgmPnqPe1q2lgBw",
+          "check": "HTTP 200, atom feed, 15 items, newest 2026-11-24"
+        }
+      ],
+      "paywall": "none",
+      "language": "en",
+      "frequency": null,
+      "platform": "YouTube",
+      "notes": "Linked from town site as 'On Demand Westport Government TV'.",
+      "verified": "fetched 2026-11-24: homepage HTTP 200, HTML, title 'Westport Government TV - YouTube'; atom HTTP 200, atom feed, 15 items, newest 2026-11-24",
+      "has_live_feed": true
+    },
+    {
+      "name": "Westport Community TV (YouTube)",
+      "publisher": "Westport Community Television",
+      "homepage": "https://www.youtube.com/@westportcommunitytv",
+      "source_type": "public-access-tv",
+      "coverage": {
+        "westport": "dedicated"
+      },
+      "primary_or_secondary": "primary",
+      "endpoints": [
+        {
+          "kind": "atom",
+          "url": "https://www.youtube.com/feeds/videos.xml?channel_id=UCROOgZlRktKpL4_F2p4D0xw",
+          "check": "HTTP 200, atom feed, 15 items, newest 2026-11-23"
+        }
+      ],
+      "paywall": "none",
+      "language": "en",
+      "frequency": null,
+      "platform": "YouTube",
+      "notes": null,
+      "verified": "fetched 2026-11-24: homepage HTTP 200, HTML, title 'Westport Community TV - YouTube'; atom HTTP 200, atom feed, 15 items, newest 2026-11-23",
+      "has_live_feed": true
+    },
+    {
+      "name": "Westport Building Department / PermitEyes",
+      "publisher": "Town of Westport, Massachusetts",
+      "homepage": "https://www.westport-ma.com/departments/building/index.php",
+      "source_type": "building-permits",
+      "coverage": {
+        "westport": "dedicated"
+      },
+      "primary_or_secondary": "primary",
+      "endpoints": [
+        {
+          "kind": "html listing page",
+          "url": "https://permiteyes.us/westport/loginuser.php",
+          "check": "HTTP 200, HTML, title 'Permiteyes'"
+        }
+      ],
+      "paywall": "none",
+      "language": "en",
+      "frequency": null,
+      "platform": "Revize; PermitEyes (Full Circle Technologies)",
+      "notes": "Permit portal requires login; no public permit list found.",
+      "verified": "fetched 2026-11-24: homepage HTTP 200, HTML, title 'Westport,MA'; no feed found",
+      "has_live_feed": false
+    },
+    {
+      "name": "Westport Fire Department",
+      "publisher": "Westport Fire Department",
+      "homepage": "https://www.westportfire.org/",
+      "source_type": "fire-ems",
+      "coverage": {
+        "westport": "dedicated"
+      },
+      "primary_or_secondary": "primary",
+      "endpoints": [
+        {
+          "kind": "rss",
+          "url": "https://www.westportfire.org/blog-feed.xml",
+          "check": "HTTP 200, rss feed, 20 items, newest 2025-07-28"
+        }
+      ],
+      "paywall": "none",
+      "language": "en",
+      "frequency": null,
+      "platform": "Wix",
+      "notes": null,
+      "verified": "fetched 2026-11-24: homepage HTTP 200, HTML, title 'Home | Westport Fire Dept.'; rss HTTP 200, rss feed, 20 items, newest 2025-07-28",
+      "has_live_feed": false
+    },
+    {
+      "name": "Westport Community Schools",
+      "publisher": "Westport Community Schools",
+      "homepage": "https://www.westportschools.org/",
+      "source_type": "school-district",
+      "coverage": {
+        "westport": "dedicated"
+      },
+      "primary_or_secondary": "primary",
+      "endpoints": [
+        {
+          "kind": "html listing page",
+          "url": "https://www.westportschools.org/news-media/news",
+          "check": "HTTP 200, HTML, title 'News - Westport Community Schools'"
+        },
+        {
+          "kind": "html listing page",
+          "url": "https://www.westportschools.org/about/westport-school-committee",
+          "check": "HTTP 200, HTML, title 'School Committee - Westport Community Schools'"
+        },
+        {
+          "kind": "html listing page",
+          "url": "https://www.westportschools.org/about/westport-school-committee/past-agendas",
+          "check": "HTTP 200, HTML, title 'Past Agendas - Westport Community Schools'"
+        },
+        {
+          "kind": "html listing page",
+          "url": "https://www.westportschools.org/about/calendar",
+          "check": "HTTP 200, HTML, title 'Calendar - Westport Community Schools'"
+        },
+        {
+          "kind": "html listing page",
+          "url": "https://www.westportschools.org/news-media/press-releases",
+          "check": "HTTP 200, HTML, title 'Press Releases - Westport Community Schools'"
+        }
+      ],
+      "paywall": "none",
+      "language": "en",
+      "frequency": null,
+      "platform": null,
+      "notes": "No RSS found (/rss 404, no sitemap.xml).",
+      "verified": "fetched 2026-11-24: homepage HTTP 200, HTML, title 'Home - Westport Community Schools'; no feed found",
+      "has_live_feed": false
+    },
+    {
+      "name": "Westport Free Public Library",
+      "publisher": "Town of Westport, Massachusetts",
+      "homepage": "https://www.westport-ma.com/departments/westport_free_public_library/index.php",
+      "source_type": "library",
+      "coverage": {
+        "westport": "dedicated"
+      },
+      "primary_or_secondary": "primary",
+      "endpoints": [
+        {
+          "kind": "html listing page",
+          "url": "https://www.westport-ma.com/departments/westport_free_public_library/childrens_programs.php",
+          "check": "HTTP 200, HTML, title 'Children's Programs'"
+        }
+      ],
+      "paywall": "none",
+      "language": "en",
+      "frequency": null,
+      "platform": "Revize",
+      "notes": "Library lives on the town site. Beware westportlibrary.org, which is Westport, Connecticut.",
+      "verified": "fetched 2026-11-24: homepage HTTP 200, HTML, title 'Westport Free Public Library'; no feed found",
+      "has_live_feed": false
+    },
+    {
+      "name": "Westport Recreation and Council on Aging",
+      "publisher": "Town of Westport, Massachusetts",
+      "homepage": "https://www.westport-ma.com/residents/recreation/index.php",
+      "source_type": "parks-recreation",
+      "coverage": {
+        "westport": "dedicated"
+      },
+      "primary_or_secondary": "primary",
+      "endpoints": [
+        {
+          "kind": "html listing page",
+          "url": "https://www.westport-ma.com/residents/council_on_aging/index.php",
+          "check": "HTTP 200, HTML, title 'Westport,MA'"
+        },
+        {
+          "kind": "html listing page",
+          "url": "https://www.westport-ma.com/government/boards_committees/cultural_council/index.php",
+          "check": "HTTP 200, HTML, title 'Westport,MA'"
+        }
+      ],
+      "paywall": "none",
+      "language": "en",
+      "frequency": null,
+      "platform": "Revize",
+      "notes": "Also lists the Westport Cultural Council page (local arts grants).",
+      "verified": "fetched 2026-11-24: homepage HTTP 200, HTML, title 'Westport,MA'; no feed found",
+      "has_live_feed": false
+    },
+    {
+      "name": "Westport River Watershed Alliance",
+      "publisher": "Westport River Watershed Alliance",
+      "homepage": "https://www.westportwatershed.org/",
+      "source_type": "environment",
+      "coverage": {
+        "westport": "dedicated"
+      },
+      "primary_or_secondary": "primary",
+      "endpoints": [
+        {
+          "kind": "rss",
+          "url": "https://www.westportwatershed.org/blog-feed.xml",
+          "check": "HTTP 200, rss feed, 20 items, newest 2026-10-30"
+        }
+      ],
+      "paywall": "none",
+      "language": "en",
+      "frequency": null,
+      "platform": "Wix",
+      "notes": null,
+      "verified": "fetched 2026-11-24: homepage HTTP 200, HTML, title 'Westport River Watershed Alliance | environmental non-profit | 493 Old County Ro'; rss HTTP 200, rss feed, 20 items, newest 2026-10-30",
+      "has_live_feed": true
+    },
+    {
+      "name": "Westport Land Conservation Trust",
+      "publisher": "Westport Land Conservation Trust",
+      "homepage": "https://westportlandtrust.org/",
+      "source_type": "land-trust",
+      "coverage": {
+        "westport": "dedicated"
+      },
+      "primary_or_secondary": "primary",
+      "endpoints": [
+        {
+          "kind": "rss",
+          "url": "https://westportlandtrust.org/feed/",
+          "check": "HTTP 200, rss feed, 12 items, newest 2026-10-27"
+        },
+        {
+          "kind": "api",
+          "url": "https://westportlandtrust.org/wp-json/wp/v2/posts?per_page=5",
+          "check": "HTTP 200, JSON array, 5 items"
+        }
+      ],
+      "paywall": "none",
+      "language": "en",
+      "frequency": null,
+      "platform": "WordPress",
+      "notes": null,
+      "verified": "fetched 2026-11-24: homepage HTTP 200, HTML, title 'Home - Westport Land Conservation Trust'; rss HTTP 200, rss feed, 12 items, newest 2026-10-27; api HTTP 200, JSON array, 5 items",
+      "has_live_feed": true
+    },
+    {
+      "name": "Westport Historical Society (Handy House)",
+      "publisher": "Westport Historical Society",
+      "homepage": "https://wpthistory.org/",
+      "source_type": "museum",
+      "coverage": {
+        "westport": "dedicated"
+      },
+      "primary_or_secondary": "primary",
+      "endpoints": [
+        {
+          "kind": "rss",
+          "url": "https://wpthistory.org/feed/",
+          "check": "HTTP 200, rss feed, 10 items, newest 2026-11-06"
+        },
+        {
+          "kind": "rss",
+          "url": "https://wpthistory.org/events/feed/",
+          "check": "HTTP 200, rss feed, 10 items, newest 2026-11-04"
+        },
+        {
+          "kind": "html listing page",
+          "url": "https://wpthistory.org/handy-house/events/",
+          "check": "HTTP 200, HTML, title 'Events - Westport Historical Society'"
+        }
+      ],
+      "paywall": "none",
+      "language": "en",
+      "frequency": null,
+      "platform": "WordPress",
+      "notes": null,
+      "verified": "fetched 2026-11-24: homepage HTTP 200, HTML, title 'Home - Westport Historical Society'; rss HTTP 200, rss feed, 10 items, newest 2026-11-06; rss HTTP 200, rss feed, 10 items, newest 2026-11-04",
+      "has_live_feed": true
+    },
+    {
+      "name": "Westport Shorelines / EastBayRI.com: Westport",
+      "publisher": "East Bay Media Group",
+      "homepage": "https://www.eastbayri.com/westport/",
+      "source_type": "newspaper",
+      "coverage": {
+        "westport": "dedicated"
+      },
+      "primary_or_secondary": "primary (original local reporting)",
+      "endpoints": [
+        {
+          "kind": "rss",
+          "url": "https://www.eastbayri.com/westport/category/news/browse.rss",
+          "check": "HTTP 200, rss feed, 25 items, newest 2026-11-23"
+        },
+        {
+          "kind": "html listing page",
+          "url": "https://www.eastbayri.com/westport/category/local/browse.html",
+          "check": "HTTP 200, HTML, title 'Browse | EastBayRI.com - News, Opinion, Things to Do in the East Bay'"
+        },
+        {
+          "kind": "html listing page",
+          "url": "https://www.eastbayri.com/westport/calendar/",
+          "check": "HTTP 200, HTML, title 'Calendar | EastBayRI.com - News, Opinion, Things to Do in the East Bay'"
+        }
+      ],
+      "paywall": "metered",
+      "language": "en",
+      "frequency": "weekly print, web most days",
+      "platform": "Creative Circle Media Solutions",
+      "notes": null,
+      "verified": "fetched 2026-11-24: homepage HTTP 200, HTML, title 'Westport | EastBayRI.com - News, Opinion, Things to Do in the East Bay'; rss HTTP 200, rss feed, 25 items, newest 2026-11-23",
+      "has_live_feed": true
+    },
+    {
+      "name": "Westport Art Group",
+      "publisher": "Westport Art Group",
+      "homepage": "https://www.westportartgroup.com/",
+      "source_type": "arts-culture",
+      "coverage": {
+        "westport": "dedicated"
+      },
+      "primary_or_secondary": "primary (own classes, exhibitions, calendar)",
+      "endpoints": [
+        {
+          "kind": "html listing page",
+          "url": "https://www.westportartgroup.com/calendar",
+          "check": "HTTP 200, HTML, title 'Events &mdash; Westport Art Group'"
+        },
+        {
+          "kind": "html listing page",
+          "url": "https://www.westportartgroup.com/events-exhibitions",
+          "check": "HTTP 200, HTML, title 'Events and Exhibitions &mdash; Westport Art Group'"
+        },
+        {
+          "kind": "sitemap",
+          "url": "https://www.westportartgroup.com/sitemap.xml",
+          "check": "HTTP 200, sitemap, 76 URLs"
+        }
+      ],
+      "paywall": "none",
+      "language": "en",
+      "frequency": null,
+      "platform": "Squarespace",
+      "notes": null,
+      "verified": "fetched 2026-11-24: homepage HTTP 200, HTML, title 'Westport Art Group'; no feed found",
+      "has_live_feed": false
+    },
+    {
+      "name": "Westport Rivers Vineyard & Winery",
+      "publisher": "Westport Rivers Vineyard & Winery",
+      "homepage": "https://www.westportrivers.com/",
+      "source_type": "food-drink",
+      "coverage": {
+        "westport": "dedicated"
+      },
+      "primary_or_secondary": "primary (first-hand hours, tastings, Sunset Music series)",
+      "endpoints": [
+        {
+          "kind": "html listing page",
+          "url": "https://www.westportrivers.com/events-sunset-music",
+          "check": "HTTP 200, HTML, title 'Westport Rivers Vineyard Sunset Music Series &mdash; Westport Rivers Vineyard &a'"
+        },
+        {
+          "kind": "html listing page",
+          "url": "https://www.westportrivers.com/taste-and-tour",
+          "check": "HTTP 200, HTML, title 'Westport Rivers Vineyard Tours and Tasting &mdash; Westport Rivers Vineyard &amp'"
+        },
+        {
+          "kind": "sitemap",
+          "url": "https://www.westportrivers.com/sitemap.xml",
+          "check": "HTTP 200, sitemap, 18 URLs"
+        }
+      ],
+      "paywall": "none",
+      "language": "en",
+      "frequency": null,
+      "platform": "Squarespace",
+      "notes": null,
+      "verified": "fetched 2026-11-24: homepage HTTP 200, HTML, title 'Westport Rivers Vineyard &amp; WineryWestport Rivers Vineyard'; no feed found",
+      "has_live_feed": false
+    },
+    {
+      "name": "Buzzards Bay Brewing",
+      "publisher": "Buzzards Bay Brewing",
+      "homepage": "https://buzzardsbrew.com/",
+      "source_type": "food-drink",
+      "coverage": {
+        "westport": "dedicated"
+      },
+      "primary_or_secondary": "primary (first-hand hours, events)",
+      "endpoints": [
+        {
+          "kind": "rss",
+          "url": "https://buzzardsbrew.com/feed/",
+          "check": "HTTP 200, rss feed, 1 items, newest 2025-07-17"
+        }
+      ],
+      "paywall": "none",
+      "language": "en",
+      "frequency": null,
+      "platform": "WordPress (Elementor)",
+      "notes": "Feed has one old post; events are on the homepage/social.",
+      "verified": "fetched 2026-11-24: homepage HTTP 200, HTML, title 'Buzzards Bay Brewing &#8211; Your South Coast Beer™'; rss HTTP 200, rss feed, 1 items, newest 2025-07-17",
+      "has_live_feed": false
+    },
+    {
+      "name": "Newport This Week",
+      "publisher": "Newport This Week (Island Communications)",
+      "homepage": "https://www.newportthisweek.com/",
+      "source_type": "newspaper",
+      "coverage": {
+        "newport_county": "dedicated",
+        "little_compton": "occasional",
+        "tiverton": "occasional"
+      },
+      "primary_or_secondary": "primary (original reporting)",
+      "endpoints": [
+        {
+          "kind": "rss",
+          "url": "https://www.newportthisweek.com/feed/",
+          "check": "HTTP 200, rss feed, 20 items, newest 2026-11-23"
+        }
+      ],
+      "paywall": "none",
+      "language": "en",
+      "frequency": "weekly print, web through the week",
+      "platform": "WordPress",
+      "notes": null,
+      "verified": "fetched 2026-11-24: homepage HTTP 200, HTML, title 'Newport This Week'; rss HTTP 200, rss feed, 20 items, newest 2026-11-23",
+      "has_live_feed": true
+    },
+    {
+      "name": "What'sUpNewp",
+      "publisher": "What's Up Newp (What's Up Rhode Island)",
+      "homepage": "https://whatsupnewp.com/",
+      "source_type": "news-site",
+      "coverage": {
+        "newport_county": "dedicated",
+        "rhode_island": "regular",
+        "little_compton": "occasional",
+        "tiverton": "occasional"
+      },
+      "primary_or_secondary": "primary (original reporting plus press releases)",
+      "endpoints": [
+        {
+          "kind": "rss",
+          "url": "https://whatsupnewp.com/feed/",
+          "check": "HTTP 200, rss feed, 100 items, newest 2026-11-24"
+        }
+      ],
+      "paywall": "none",
+      "language": "en",
+      "frequency": "many posts daily",
+      "platform": "WordPress (Newspack)",
+      "notes": "Host rate-limits rapid requests (HTTP 429).",
+      "verified": "fetched 2026-11-24: homepage HTTP 200, HTML, title 'What&#039;s Up Newp | Your source for Newport and Rhode Island news'; rss HTTP 200, rss feed, 100 items, newest 2026-11-24",
+      "has_live_feed": true
+    },
+    {
+      "name": "The Public's Radio",
+      "publisher": "Rhode Island PBS & The Public's Radio",
+      "homepage": "https://thepublicsradio.org/",
+      "source_type": "public-radio",
+      "coverage": {
+        "rhode_island": "dedicated",
+        "south_coast_ma": "regular",
+        "little_compton": "occasional",
+        "tiverton": "occasional",
+        "westport": "occasional"
+      },
+      "primary_or_secondary": "primary (original reporting)",
+      "endpoints": [
+        {
+          "kind": "rss (podcast feed, not news)",
+          "url": "https://thepublicsradio.org/feed/",
+          "check": "HTTP 200, rss feed, 1000 items, newest 2026-10-10"
+        }
+      ],
+      "paywall": "none",
+      "language": "en",
+      "frequency": "daily",
+      "platform": "WordPress (Newspack)",
+      "notes": "Has a South Coast (New Bedford) bureau. ripr.org did not resolve. SURPRISE: the advertised /feed/ is not the news feed; it returned 1000 items of the 'Possibly' podcast (newest 2026-10-10). No working news RSS was confirmed (wp-json was rate-limited, HTTP 429).",
+      "verified": "fetched 2026-11-24: homepage HTTP 200, HTML, title 'Homepage - TPR: The Public&#039;s Radio'; rss (podcast feed, not news) HTTP 200, rss feed, 1000 items, newest 2026-10-10",
+      "has_live_feed": false
+    },
+    {
+      "name": "Rhode Island Current",
+      "publisher": "States Newsroom",
+      "homepage": "https://rhodeislandcurrent.com/",
+      "source_type": "news-site",
+      "coverage": {
+        "rhode_island": "dedicated",
+        "little_compton": "occasional",
+        "tiverton": "occasional"
+      },
+      "primary_or_secondary": "primary (original statehouse reporting)",
+      "endpoints": [
+        {
+          "kind": "rss",
+          "url": "https://rhodeislandcurrent.com/feed/",
+          "check": "HTTP 200, rss feed, 100 items, newest 2026-11-23"
+        }
+      ],
+      "paywall": "none",
+      "language": "en",
+      "frequency": "daily",
+      "platform": "WordPress",
+      "notes": "Homepage returns a Cloudflare challenge (HTTP 403) to plain HTTP clients, but /feed/ loads without challenge.",
+      "verified": "fetched 2026-11-24: homepage HTTP 403 Cloudflare challenge to a plain client; the feed below loads; rss HTTP 200, rss feed, 100 items, newest 2026-11-23",
+      "has_live_feed": true
+    },
+    {
+      "name": "ecoRI News",
+      "publisher": "ecoRI News",
+      "homepage": "https://ecori.org/",
+      "source_type": "news-site",
+      "coverage": {
+        "rhode_island": "dedicated",
+        "south_coast_ma": "occasional",
+        "little_compton": "occasional",
+        "tiverton": "occasional"
+      },
+      "primary_or_secondary": "primary (original environmental reporting)",
+      "endpoints": [
+        {
+          "kind": "rss",
+          "url": "https://ecori.org/feed/",
+          "check": "HTTP 200, rss feed, 10 items, newest 2026-11-23"
+        },
+        {
+          "kind": "rss",
+          "url": "https://ecori.org/tag/little-compton/feed/",
+          "check": "HTTP 200, rss feed, 1 items, newest 2023-10-16"
+        },
+        {
+          "kind": "ical",
+          "url": "https://ecori.org/events/?ical=1",
+          "check": "HTTP 200, iCalendar, 10 events, latest DTSTART 2028-11-05"
+        }
+      ],
+      "paywall": "none",
+      "language": "en",
+      "frequency": "daily",
+      "platform": "WordPress + The Events Calendar",
+      "notes": null,
+      "verified": "fetched 2026-11-24: homepage HTTP 200, HTML, title 'ecoRI News | Environmental News for Rhode Island'; rss HTTP 200, rss feed, 10 items, newest 2026-11-23; rss HTTP 200, rss feed, 1 items, newest 2023-10-16; ical HTTP 200, iCalendar, 10 events, latest DTSTART 2028-11-05",
+      "has_live_feed": true
+    },
+    {
+      "name": "Boston Globe Rhode Island",
+      "publisher": "Boston Globe Media Partners",
+      "homepage": "https://www.bostonglobe.com/metro/rhode-island/",
+      "source_type": "newspaper",
+      "coverage": {
+        "rhode_island": "dedicated",
+        "little_compton": "occasional",
+        "tiverton": "occasional"
+      },
+      "primary_or_secondary": "primary (original reporting)",
+      "endpoints": [],
+      "paywall": "metered",
+      "language": "en",
+      "frequency": "daily",
+      "platform": "Arc XP",
+      "notes": "Redirects to /metro/new-england/rhode-island/. The Arc outbound RSS URL for the section returned an empty channel.",
+      "verified": "fetched 2026-11-24: homepage HTTP 200, HTML, title 'Rhode Island News, Sports, Weather | Globe RI', redirected to https://www.bostonglobe.com/metro/new-england/rhode-island/; no feed found",
+      "has_live_feed": false
+    },
+    {
+      "name": "WPRI 12 (East Bay and SE Mass sections)",
+      "publisher": "Nexstar Media Group",
+      "homepage": "https://www.wpri.com/",
+      "source_type": "tv-station",
+      "coverage": {
+        "rhode_island": "dedicated",
+        "south_coast_ma": "regular",
+        "little_compton": "occasional",
+        "tiverton": "occasional",
+        "westport": "occasional"
+      },
+      "primary_or_secondary": "primary (original reporting)",
+      "endpoints": [
+        {
+          "kind": "rss",
+          "url": "https://www.wpri.com/feed/",
+          "check": "HTTP 200, rss feed, 30 items, newest 2026-11-24"
+        },
+        {
+          "kind": "rss",
+          "url": "https://www.wpri.com/news/local-news/east-bay/feed/",
+          "check": "HTTP 200, rss feed, 25 items, newest 2026-11-21"
+        },
+        {
+          "kind": "rss",
+          "url": "https://www.wpri.com/news/local-news/se-mass/feed/",
+          "check": "HTTP 200, rss feed, 30 items, newest 2026-11-23"
+        }
+      ],
+      "paywall": "none",
+      "language": "en",
+      "frequency": "continuous",
+      "platform": "WordPress VIP",
+      "notes": "HTML pages return 403 (PerimeterX) to plain clients but the RSS feeds load fine.",
+      "verified": "fetched 2026-11-24: homepage HTTP 403 bot wall to a plain client; the feeds below load; rss HTTP 200, rss feed, 30 items, newest 2026-11-24; rss HTTP 200, rss feed, 25 items, newest 2026-11-21; rss HTTP 200, rss feed, 30 items, newest 2026-11-23",
+      "has_live_feed": true
+    },
+    {
+      "name": "NBC 10 WJAR",
+      "publisher": "Sinclair Broadcast Group",
+      "homepage": "https://turnto10.com/",
+      "source_type": "tv-station",
+      "coverage": {
+        "rhode_island": "dedicated",
+        "south_coast_ma": "regular",
+        "little_compton": "occasional",
+        "tiverton": "occasional",
+        "westport": "occasional"
+      },
+      "primary_or_secondary": "primary (original reporting)",
+      "endpoints": [
+        {
+          "kind": "rss",
+          "url": "https://turnto10.com/news/local.rss",
+          "check": "HTTP 200, rss feed, 41 items, newest 2026-11-24"
+        }
+      ],
+      "paywall": "none",
+      "language": "en",
+      "frequency": "continuous",
+      "platform": "Sinclair CMS",
+      "notes": null,
+      "verified": "fetched 2026-11-24: homepage HTTP 200, HTML, title 'Providence News, Weather, Sports, Breaking News'; rss HTTP 200, rss feed, 41 items, newest 2026-11-24",
+      "has_live_feed": true
+    },
+    {
+      "name": "The New Bedford Light",
+      "publisher": "The New Bedford Light (nonprofit)",
+      "homepage": "https://newbedfordlight.org/",
+      "source_type": "news-site",
+      "coverage": {
+        "south_coast_ma": "dedicated",
+        "westport": "occasional"
+      },
+      "primary_or_secondary": "primary (original reporting)",
+      "endpoints": [
+        {
+          "kind": "rss",
+          "url": "https://newbedfordlight.org/feed/",
+          "check": "loaded HTTP 200 earlier on 2026-11-24: RSS, 10 items, newest 2026-11-23; final pass got HTTP 429 (host rate limit)"
+        }
+      ],
+      "paywall": "none",
+      "language": "en",
+      "frequency": "daily",
+      "platform": "WordPress (Newspack)",
+      "notes": null,
+      "verified": "fetched 2026-11-24: homepage loaded HTTP 200 earlier on 2026-11-24 (title 'The New Bedford Light'); final pass got HTTP 429 (host rate limit); rss loaded HTTP 200 earlier on 2026-11-24: RSS, 10 items, newest 2026-11-23; final pass got HTTP 429 (host rate limit)",
+      "has_live_feed": true
+    },
+    {
+      "name": "Dartmouth Week",
+      "publisher": "Beaver Dam Partners",
+      "homepage": "https://dartmouth.theweektoday.com/",
+      "source_type": "newspaper",
+      "coverage": {
+        "south_coast_ma": "dedicated",
+        "westport": "occasional"
+      },
+      "primary_or_secondary": "primary (original reporting; Dartmouth-focused, neighbouring Westport appears occasionally)",
+      "endpoints": [
+        {
+          "kind": "rss",
+          "url": "https://dartmouth.theweektoday.com/rss.xml",
+          "check": "HTTP 200, rss feed, 10 items, newest 2026-11-22"
+        },
+        {
+          "kind": "html listing page",
+          "url": "https://dartmouth.theweektoday.com/tags/westport",
+          "check": "HTTP 200, HTML, title 'westport | Dartmouth'"
+        }
+      ],
+      "paywall": "none",
+      "language": "en",
+      "frequency": "weekly print, web daily",
+      "platform": "Drupal",
+      "notes": null,
+      "verified": "fetched 2026-11-24: homepage HTTP 200, HTML, title 'Dartmouth | News - Dartmouth, MA - Dartmouth Week'; rss HTTP 200, rss feed, 10 items, newest 2026-11-22",
+      "has_live_feed": true
+    },
+    {
+      "name": "Fall River Reporter",
+      "publisher": "Fall River Reporter",
+      "homepage": "https://fallriverreporter.com/",
+      "source_type": "news-site",
+      "coverage": {
+        "south_coast_ma": "dedicated",
+        "westport": "regular",
+        "tiverton": "occasional"
+      },
+      "primary_or_secondary": "primary/secondary mix (original briefs plus police and agency releases)",
+      "endpoints": [
+        {
+          "kind": "rss",
+          "url": "https://fallriverreporter.com/feed/",
+          "check": "HTTP 200, rss feed, 10 items, newest 2026-11-24"
+        }
+      ],
+      "paywall": "none",
+      "language": "en",
+      "frequency": "many posts daily",
+      "platform": "WordPress",
+      "notes": null,
+      "verified": "fetched 2026-11-24: homepage HTTP 200, HTML, title 'Fall River Reporter &#8211; News and information for Fall River'; rss HTTP 200, rss feed, 10 items, newest 2026-11-24",
+      "has_live_feed": true
+    },
+    {
+      "name": "RIPTA",
+      "publisher": "Rhode Island Public Transit Authority",
+      "homepage": "https://www.ripta.com/",
+      "source_type": "transport",
+      "coverage": {
+        "rhode_island": "dedicated",
+        "tiverton": "occasional",
+        "newport_county": "regular"
+      },
+      "primary_or_secondary": "primary",
+      "endpoints": [
+        {
+          "kind": "rss",
+          "url": "https://www.ripta.com/rss.xml",
+          "check": "HTTP 200, rss feed, 10 items, newest 2026-11-19"
+        },
+        {
+          "kind": "html listing page",
+          "url": "https://www.ripta.com/alerts",
+          "check": "HTTP 200, HTML, title 'Service Alerts | RIPTA'"
+        }
+      ],
+      "paywall": "none",
+      "language": "en",
+      "frequency": null,
+      "platform": "Drupal",
+      "notes": "Little Compton has no fixed-route RIPTA service; Tiverton has limited service.",
+      "verified": "fetched 2026-11-24: homepage HTTP 200, HTML, title 'Home page | RIPTA'; rss HTTP 200, rss feed, 10 items, newest 2026-11-19",
+      "has_live_feed": true
+    },
+    {
+      "name": "SRTA",
+      "publisher": "Southeastern Regional Transit Authority",
+      "homepage": "https://www.srtabus.com/",
+      "source_type": "transport",
+      "coverage": {
+        "south_coast_ma": "dedicated",
+        "westport": "occasional"
+      },
+      "primary_or_secondary": "primary",
+      "endpoints": [
+        {
+          "kind": "rss",
+          "url": "https://www.srtabus.com/feed/",
+          "check": "HTTP 200, rss feed, 10 items, newest 2026-11-20"
+        }
+      ],
+      "paywall": "none",
+      "language": "en",
+      "frequency": null,
+      "platform": "WordPress",
+      "notes": "Fall River/New Bedford buses; Westport is in the SRTA district.",
+      "verified": "fetched 2026-11-24: homepage HTTP 200, HTML, title 'SRTA &#8211; Southeastern Regional Transit Authority'; rss HTTP 200, rss feed, 10 items, newest 2026-11-20",
+      "has_live_feed": true
+    },
+    {
+      "name": "Save The Bay",
+      "publisher": "Save The Bay (Narragansett Bay)",
+      "homepage": "https://savebay.org/",
+      "source_type": "environment",
+      "coverage": {
+        "rhode_island": "dedicated",
+        "little_compton": "occasional",
+        "tiverton": "occasional"
+      },
+      "primary_or_secondary": "primary",
+      "endpoints": [
+        {
+          "kind": "rss",
+          "url": "https://savebay.org/feed/",
+          "check": "HTTP 200, rss feed, 5 items, newest 2026-11-20"
+        }
+      ],
+      "paywall": "none",
+      "language": "en",
+      "frequency": null,
+      "platform": "WordPress",
+      "notes": null,
+      "verified": "fetched 2026-11-24: homepage HTTP 200, HTML, title 'Homepage - Save The Bay'; rss HTTP 200, rss feed, 5 items, newest 2026-11-20",
+      "has_live_feed": true
+    },
+    {
+      "name": "RI.gov press releases",
+      "publisher": "State of Rhode Island",
+      "homepage": "https://www.ri.gov/press/",
+      "source_type": "state-government",
+      "coverage": {
+        "rhode_island": "dedicated",
+        "little_compton": "occasional",
+        "tiverton": "occasional"
+      },
+      "primary_or_secondary": "primary (state agencies' own releases, incl. RIDOH, RIDEM, RIEMA)",
+      "endpoints": [
+        {
+          "kind": "html listing page",
+          "url": "https://www.ri.gov/press/",
+          "check": "HTTP 200, HTML, title 'RI.gov: Rhode Island Government'"
+        }
+      ],
+      "paywall": "none",
+      "language": "en",
+      "frequency": null,
+      "platform": null,
+      "notes": "Central release index that loads without bot protection, unlike the individual agency sites. /press/rss/ is 404.",
+      "verified": "fetched 2026-11-24: homepage HTTP 200, HTML, title 'RI.gov: Rhode Island Government'; no feed found",
+      "has_live_feed": false
+    },
+    {
+      "name": "Rhode Island Public Notices",
+      "publisher": "Rhode Island Press Association member newspapers",
+      "homepage": "https://www.ripublicnotices.com/",
+      "source_type": "public-notices",
+      "coverage": {
+        "rhode_island": "dedicated",
+        "little_compton": "regular",
+        "tiverton": "regular"
+      },
+      "primary_or_secondary": "secondary (aggregates legal notices published in RI newspapers)",
+      "endpoints": [
+        {
+          "kind": "html listing page",
+          "url": "https://www.ripublicnotices.com/",
+          "check": "HTTP 200 on two of three fetches on 2026-11-24 (27 KB JavaScript app, empty <title>); third fetch timed out"
+        }
+      ],
+      "paywall": "none",
+      "language": "en",
+      "frequency": null,
+      "platform": null,
+      "notes": "Search-driven site, no feed found. Homepage is a JavaScript app (HTTP 200, empty <title>); one of three fetches timed out.",
+      "verified": "fetched 2026-11-24: homepage HTTP 200 on two of three fetches on 2026-11-24 (27 KB JavaScript app, empty <title>); third fetch timed out; no feed found",
+      "has_live_feed": false
+    },
+    {
+      "name": "Massachusetts Public Notices",
+      "publisher": "Massachusetts Press Association (Massachusetts Newspaper Publishers Association)",
+      "homepage": "https://www.masspublicnotices.org/",
+      "source_type": "public-notices",
+      "coverage": {
+        "south_coast_ma": "regular",
+        "westport": "regular"
+      },
+      "primary_or_secondary": "secondary (aggregates legal notices published in MA newspapers)",
+      "endpoints": [
+        {
+          "kind": "html listing page",
+          "url": "https://www.masspublicnotices.org/",
+          "check": "HTTP 200, HTML, title 'Public Notice Massachusetts | Massachusetts Press Association', redirected to https://www.masspublicnotices.org/(S(ppfjnanrf5rwrkbxcqxb5xvo))/default.aspx"
+        }
+      ],
+      "paywall": "none",
+      "language": "en",
+      "frequency": null,
+      "platform": "Column/ASP.NET",
+      "notes": "Session-ID URLs; search-driven, no feed found.",
+      "verified": "fetched 2026-11-24: homepage HTTP 200, HTML, title 'Public Notice Massachusetts | Massachusetts Press Association', redirected to https://www.masspublicnotices.org/(S(ppfjnanrf5rwrkbxcqxb5xvo))/default.aspx; no feed found",
+      "has_live_feed": false
+    },
+    {
+      "name": "Greater Newport Chamber of Commerce",
+      "publisher": "Greater Newport Chamber of Commerce",
+      "homepage": "https://www.newportchamber.com/",
+      "source_type": "chamber-of-commerce",
+      "coverage": {
+        "newport_county": "dedicated",
+        "little_compton": "occasional",
+        "tiverton": "occasional"
+      },
+      "primary_or_secondary": "primary for chamber news; secondary as a member business directory",
+      "endpoints": [
+        {
+          "kind": "rss",
+          "url": "https://www.newportchamber.com/feed/",
+          "check": "HTTP 200, rss feed, 10 items, newest 2026-10-30"
+        }
+      ],
+      "paywall": "none",
+      "language": "en",
+      "frequency": null,
+      "platform": "WordPress",
+      "notes": null,
+      "verified": "fetched 2026-11-24: homepage HTTP 200, HTML, title 'Home - Greater Newport Chamber of Commerce - RI'; rss HTTP 200, rss feed, 10 items, newest 2026-10-30",
+      "has_live_feed": true
+    }
+  ],
+  "unverified_leads": [
+    {
+      "name": "Newport Daily News",
+      "url": "https://www.newportri.com/",
+      "why": "Gannett site returns HTTP 402 'Access Restricted' to curl and the WebFetch tool could not fetch it; covers Newport County incl. Tiverton/Little Compton; expected hard/metered paywall"
+    },
+    {
+      "name": "The Providence Journal",
+      "url": "https://www.providencejournal.com/",
+      "why": "same Gannett HTTP 402 block; /arcio/rss/ also 402"
+    },
+    {
+      "name": "The Herald News (Fall River)",
+      "url": "https://www.heraldnews.com/",
+      "why": "same Gannett HTTP 402 block; historically covers Tiverton and Westport"
+    },
+    {
+      "name": "The Standard-Times / SouthCoastToday",
+      "url": "https://www.southcoasttoday.com/",
+      "why": "same Gannett HTTP 402 block; covers Westport/Dartmouth"
+    },
+    {
+      "name": "Wicked Local Westport",
+      "url": "https://www.wickedlocal.com/westport",
+      "why": "Gannett HTTP 402"
+    },
+    {
+      "name": "RIDEM (RI Dept. of Environmental Management)",
+      "url": "https://dem.ri.gov/",
+      "why": "Cloudflare 'Just a moment' HTTP 403 to curl and to WebFetch (also /press-releases). Use https://www.ri.gov/press/ (verified) for releases"
+    },
+    {
+      "name": "RIDOH (RI Dept. of Health) incl. beach closures",
+      "url": "https://health.ri.gov/",
+      "why": "Cloudflare HTTP 403 to curl; https://health.ri.gov/beaches returned 403 to WebFetch, so the beach-closure page URL is NOT confirmed"
+    },
+    {
+      "name": "RIEMA (RI Emergency Management Agency)",
+      "url": "https://riema.ri.gov/",
+      "why": "Cloudflare HTTP 403 to curl and WebFetch"
+    },
+    {
+      "name": "Tiverton School District",
+      "url": "https://www.tivertonschools.org/",
+      "why": "curl gets an HTTP 200 'Client Challenge' interstitial; WebFetch saw the title 'Home | Tiverton School District' but no content, so no endpoints confirmed. School Committee filings are verified on RI SOS EntityID 3536"
+    },
+    {
+      "name": "Little Compton town code (eCode360)",
+      "url": "https://ecode360.com/LI4093",
+      "why": "linked from the town site; Cloudflare HTTP 403 to curl"
+    },
+    {
+      "name": "ABC6 WLNE",
+      "url": "https://www.abc6.com/",
+      "why": "loads (HTTP 200) but redirects to https://coastalabc.com/ with a generic title; /feed/ and /news/ 404; could not confirm current branding/ownership or a feed"
+    },
+    {
+      "name": "GoLocalProv",
+      "url": "https://www.golocalprov.com/",
+      "why": "Cloudflare HTTP 403"
+    },
+    {
+      "name": "SEMAP (Southeastern Massachusetts Agricultural Partnership) farm/market listings",
+      "url": "https://semaponline.org/",
+      "why": "Cloudflare HTTP 403; appeared in search results for Westport farmers market"
+    },
+    {
+      "name": "Westport Patch",
+      "url": "https://patch.com/massachusetts/westport-ma",
+      "why": "page and https://patch.com/feeds/massachusetts/westport-ma both load (HTTP 200) but the feed had 0 items; low value"
+    },
+    {
+      "name": "Tiverton Fact Check",
+      "url": "https://tivertonfactcheck.org/",
+      "why": "loads, WordPress feed at /feed/ works, but newest post is from 2021 (dormant)"
+    },
+    {
+      "name": "North Tiverton Fire District Water Department",
+      "url": "https://northtivertonwater.org/",
+      "why": "VERIFIED working (WordPress, /feed/ 5 items, newest 2026-11-05); left out of sources only to respect the size cap"
+    },
+    {
+      "name": "Simmons Cafe & Market (Little Compton)",
+      "url": "https://www.simmonscafeandmarket.com/",
+      "why": "domain named in a directory listing; connection failed"
+    },
+    {
+      "name": "Walker's Roadside Stand, The Art Cafe, Commons Lunch, Wilbur's General Store, The Barn (Little Compton/Adamsville)",
+      "url": null,
+      "why": "no working official website found (guessed domains did not resolve); probably Facebook/Instagram only"
+    },
+    {
+      "name": "Sakonnet Lobster",
+      "url": "https://www.sakonnetlobster.com/",
+      "why": "HTTP 503"
+    },
+    {
+      "name": "Tiverton Historical Society, Stone Bridge Fire District, Little Compton Village Improvement Society, Little Compton Game Club",
+      "url": null,
+      "why": "no official website found by search"
+    },
+    {
+      "name": "Dedee Shattuck Gallery (Westport)",
+      "url": "https://dedeeshattuckgallery.com/",
+      "why": "HTTP 301 then connection failure"
+    },
+    {
+      "name": "Westport Free Public Library own domain",
+      "url": null,
+      "why": "only the town-site department page was found; westportlibrary.org is Westport, Connecticut"
+    },
+    {
+      "name": "The New Bedford Light events iCal",
+      "url": "https://newbedfordlight.org/events/?ical=1",
+      "why": "advertised in the homepage <link rel=alternate>, but the host returned HTTP 429 when fetched"
+    },
+    {
+      "name": "What'sUpNewp town tag feeds",
+      "url": "https://whatsupnewp.com/tag/little-compton/feed/",
+      "why": "HTTP 429 on every attempt (host rate limit); main /feed/ is verified"
+    },
+    {
+      "name": "The Public's Radio news feed",
+      "url": "https://thepublicsradio.org/wp-json/wp/v2/posts",
+      "why": "the /feed/ URL serves a podcast; wp-json attempt returned HTTP 429"
+    },
+    {
+      "name": "Working sites cut for the size cap",
+      "url": null,
+      "why": "Lees Market (leesmarket.com), The Back Eddy (thebackeddy.com), Westport Sea Farms (westportseafarms.com), Gray's Ice Cream (graysicecream.com), Evelyn's Drive-In (evelynsdrivein.com), Westport Town Farm (thetrustees.org/place/westport-town-farm/) and Farm Fresh RI (farmfreshri.org, /feed/ live) all loaded HTTP 200 but were cut for the size cap. Buzzards Bay Coalition (savebuzzardsbay.org) appeared in search results but was not fetched"
+    }
+  ],
+  "places": {
+    "little_compton": {
+      "name": "Little Compton, Rhode Island",
+      "wikidata": "Q2448539",
+      "census_geoid_county_subdivision": "4400542400",
+      "census_state_fips": "44",
+      "census_county_fips": "44005",
+      "census_cousub_fips": "42400",
+      "census_place_note": "Town is a county subdivision (MCD), not an incorporated place",
+      "osm_relation": 7815285,
+      "geonames_id": 5223133,
+      "geonames_note": "5223133 = 'Town of Little Compton' (ADM3); 5223129 is the populated place and is the value on Wikidata P1566",
+      "gnis": "1220062",
+      "ocd_division_id": "ocd-division/country:us/state:ri/place:little_compton",
+      "centroid": {
+        "lat": 41.5087,
+        "lon": -71.168
+      },
+      "zip_codes": [
+        "02837"
+      ],
+      "zip_note": "02837 is the ZCTA containing the town (Census geocoder). Adamsville village uses PO-box ZIP 02801 (not verified against USPS here)."
+    },
+    "tiverton": {
+      "name": "Tiverton, Rhode Island",
+      "wikidata": "Q1027996",
+      "census_geoid_county_subdivision": "4400570880",
+      "census_state_fips": "44",
+      "census_county_fips": "44005",
+      "census_cousub_fips": "70880",
+      "osm_relation": 7814962,
+      "geonames_id": 5225253,
+      "geonames_note": "5225253 = 'Town of Tiverton' (ADM3); 5225245 is the populated place (Wikidata P1566)",
+      "gnis": "1220066",
+      "ocd_division_id": "ocd-division/country:us/state:ri/place:tiverton",
+      "centroid": {
+        "lat": 41.6104,
+        "lon": -71.1798
+      },
+      "zip_codes": [
+        "02878"
+      ]
+    },
+    "westport": {
+      "name": "Westport, Massachusetts",
+      "wikidata": "Q432359",
+      "census_geoid_county_subdivision": "2500577570",
+      "census_state_fips": "25",
+      "census_county_fips": "25005",
+      "census_county_name": "Bristol County, MA",
+      "census_cousub_fips": "77570",
+      "osm_relation": 2396251,
+      "geonames_id": 4955304,
+      "geonames_note": "4955304 = 'Town of Westport' (ADM3, Bristol, MA). Wikidata P1566 gives 4939191, which GeoNames titles 'Head of Westport' (a village), so do not use it for the town",
+      "gnis": "618287 (Wikidata also lists 613221)",
+      "ocd_division_id": "ocd-division/country:us/state:ma/place:westport",
+      "centroid": {
+        "lat": 41.5779,
+        "lon": -71.0819
+      },
+      "zip_codes": [
+        "02790",
+        "02791"
+      ],
+      "zip_note": "Census geocoder returned ZCTA 02790 for the town centre and 02791 for Westport Point."
+    },
+    "newport_county": {
+      "name": "Newport County, Rhode Island",
+      "wikidata": "Q54260",
+      "census_geoid_county": "44005",
+      "census_state_fips": "44",
+      "osm_relation": 404983,
+      "geonames_id": 5223601,
+      "gnis": "1219779",
+      "ocd_division_id": "ocd-division/country:us/state:ri/county:newport",
+      "centroid": {
+        "lat": 41.4997,
+        "lon": -71.2811
+      }
+    },
+    "_verified_from": {
+      "wikidata": "https://www.wikidata.org/w/api.php?action=wbgetentities&ids=Q2448539|Q1027996|Q432359|Q54260&props=claims&format=json (P402 OSM relation, P774/P882 FIPS, P590 GNIS, P1566 GeoNames, P281 ZIP)",
+      "census": "https://geocoding.geo.census.gov/geocoder/geographies/coordinates (benchmark Public_AR_Current, layers Counties / County Subdivisions / 2020 ZCTAs): GEOIDs and internal-point centroids (CENTLAT/CENTLON) quoted above",
+      "osm": "https://nominatim.openstreetmap.org/search?q=<town>, <county>, <state>&format=json returned the same relation IDs as Wikidata P402",
+      "geonames": "https://www.geonames.org/5223133 , /5225253 , /4955304 , /5223601 (page titles checked); search via https://www.geonames.org/advanced-search.html",
+      "ocd": "https://raw.githubusercontent.com/opencivicdata/ocd-division-ids/master/identifiers/country-us.csv (rows carry census GEOIDs place-4400542400, place-4400570880, place-2500577570, place-44005)"
+    }
+  },
+  "notes": "All URLs in 'sources' were fetched on 2026-11-24 with curl (desktop Chrome User-Agent) from a US host; each endpoint carries a 'check' string with what came back. Key findings: (1) The Little Compton town site (Revize) has no RSS, Atom or sitemap; its only machine-readable output is the public Google Calendar ICS. Council/board agendas and minutes are PDFs on the RI Secretary of State Open Meetings portal, which does have RSS: /RSSFeed/Rss?feedType=1&entityID=0&...&PublicBodies=<name> (upcoming, filtered by name), feedType=9&entityID=<id> (recently filed minutes for one body), feedType=7&entityID=<id> (upcoming for one body). Entity IDs are listed in the notes of the Open Meetings sources; Little Compton bodies are 1819-1845, Tiverton bodies 3501-3550 plus North Tiverton Fire District 2392. Avoid feedType=3 (statewide archive, >100 MB). (2) Tiverton (CivicPlus) has full RSS and iCal; its AgendaCenter is empty and agendas/minutes are on ClerkBase (clerkshq.com/tiverton-ri) and the SOS portal. (3) Westport MA (Revize) has /rss.xml without item dates; agendas/minutes are PDFs on per-board pages; meeting video is on two YouTube channels. (4) EastBayRI town sections share one Creative Circle feed pattern (<town>/category/news/browse.rss) and mix in region-wide stories. (5) Gannett papers (Newport Daily News, Providence Journal, Herald News, Standard-Times) and RI state agency sites (dem/health/riema.ri.gov) block automated clients, so they are leads only. (6) Several WordPress/Newspack hosts (whatsupnewp.com, newbedfordlight.org, thepublicsradio.org, littlecompton.org) rate-limit quickly with HTTP 429: crawl slowly. (7) Many small-organisation feeds exist but are dormant (Historical Society posts 2023, Sakonnet Preservation 2020, LCACT 2024, school blog 2023, Four Corners Arts events feed 2021, Farmcoast 2019); see 'has_live_feed'. Paywall values for EastBayRI and the Globe are 'metered' based on visible subscriber/day-pass prompts; exact meters were not tested. Coverage levels (dedicated/regular/occasional) for regional outlets are judgments, not measured. Scope was widened mid-task to 'Open Local' (food-drink, farm-market, arts-culture, museum, tourism, business types)."
+}

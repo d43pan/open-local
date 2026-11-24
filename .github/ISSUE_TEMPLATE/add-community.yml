@@ -1,0 +1,24 @@
+name: Add a community
+description: Ask for a town, neighbourhood or region to be added, or offer to map it yourself.
+title: "Add community: "
+labels: [community, add]
+body:
+  - type: input
+    id: place
+    attributes: {label: Place, description: "Name, and what it sits inside. Example: Lunenburg, Nova Scotia, Canada"}
+    validations: {required: true}
+  - type: textarea
+    id: sources
+    attributes:
+      label: Where do people there find out what is going on?
+      description: "One per line, with web addresses if you have them: the town site, the paper, the library calendar, where meetings are posted, farms, galleries. Or paste YAML produced by the open-local-build skill."
+    validations: {required: true}
+  - type: dropdown
+    id: role
+    attributes:
+      label: Would you like to look after this place?
+      description: Community maintainers review changes for places they know. See GOVERNANCE.md.
+      options: ["Yes, I live or work there", "Yes, I am a journalist, librarian or with a local organisation", Maybe later, "No, just requesting"]
+  - type: textarea
+    id: notes
+    attributes: {label: Anything unusual about how the place is organised?, description: "For example: no county, shared school district, information published at a regional level, more than one language."}

@@ -1,0 +1,16 @@
+place:
+  id: US
+  name: United States
+  kind: country
+  country: US
+  aliases:
+  - USA
+  - United States of America
+  centroid:
+    lat: 39.828
+    lon: -98.579
+  languages:
+  - en
+  identifiers:
+    wikidata: Q30
+    ocd_division: ocd-division/country:us

@@ -1,0 +1,21 @@
+name: Report a broken or wrong source
+description: A listed source has moved, died, changed, or is described wrongly.
+title: "Broken source: "
+labels: [source, broken]
+body:
+  - type: input
+    id: which
+    attributes: {label: Which source?, description: Its name, id or web address.}
+    validations: {required: true}
+  - type: dropdown
+    id: what
+    attributes:
+      label: What is wrong?
+      options: [It does not load, It moved to a new address, It stopped publishing, It is described wrongly, It covers a different place, It should not be listed, The owner asked for it to be removed, Something else]
+    validations: {required: true}
+  - type: input
+    id: new
+    attributes: {label: "New address, if you know it", placeholder: "https://"}
+  - type: textarea
+    id: detail
+    attributes: {label: Details}

@@ -1,0 +1,19 @@
+place:
+  id: XX/NO/birch
+  name: Birch
+  kind: municipality
+  country: XX
+  parents: [XX/NO]
+  neighbors: [XX/NO/alder]
+  centroid: {lat: 41.60, lon: -71.19}
+  postal_codes: ["02878"]
+sources:
+  - id: xx-no-birch-library
+    name: Birch Library
+    url: https://library.birch.example.org/
+    type: library
+    classification: primary
+    endpoints: [{kind: ical, url: "https://library.birch.example.org/events.ics"}]
+    discovered: "2026-01-02"
+    verified: "2026-01-03"
+    status: verified

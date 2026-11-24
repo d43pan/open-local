@@ -1,0 +1,39 @@
+name: Add a source
+description: A website, feed or calendar that should be listed for a place. No technical knowledge needed.
+title: "Add source: "
+labels: [source, add]
+body:
+  - type: input
+    id: url
+    attributes: {label: Web address, placeholder: "https://"}
+    validations: {required: true}
+  - type: input
+    id: name
+    attributes: {label: What is it called?}
+    validations: {required: true}
+  - type: input
+    id: place
+    attributes: {label: Which place or places does it cover?, description: "Town, county or region. Example: Little Compton and Tiverton, Rhode Island"}
+    validations: {required: true}
+  - type: dropdown
+    id: kind
+    attributes:
+      label: What kind of source is it?
+      options: [Town or government site, Meetings (agendas or minutes), Newspaper or news site, Newsletter or blog, Library, School, Events calendar, Community group, Food or farm, Arts or culture, Business or tourism, Radio / TV / podcast, Something else]
+    validations: {required: true}
+  - type: dropdown
+    id: firsthand
+    attributes:
+      label: Does it publish its own information?
+      description: First-hand means the organisation itself, or a newsroom doing its own reporting.
+      options: [Yes (first-hand), "No, it lists or repeats others", A mix, Not sure]
+  - type: textarea
+    id: notes
+    attributes: {label: Anything else?, description: "How often it updates, whether it has a paywall, why it matters locally. Please do not include anyone's personal contact details."}
+  - type: checkboxes
+    id: rules
+    attributes:
+      label: Checks
+      options:
+        - {label: "It is public: anyone can read it without logging in.", required: true}
+        - {label: I opened the address today and it works., required: true}

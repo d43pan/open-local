@@ -1,0 +1,196 @@
+{
+ "type": "FeatureCollection",
+ "features": [
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -98.579,
+     39.828
+    ]
+   },
+   "properties": {
+    "id": "US",
+    "name": "United States",
+    "kind": "country",
+    "sources": 0,
+    "wikidata": "Q30",
+    "ocd_division": "ocd-division/country:us"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -71.8,
+     42.3
+    ]
+   },
+   "properties": {
+    "id": "US/MA",
+    "name": "Massachusetts",
+    "kind": "region",
+    "sources": 1,
+    "wikidata": "Q771",
+    "ocd_division": "ocd-division/country:us/state:ma",
+    "us_census_geoid": "25"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -71.09,
+     41.75
+    ]
+   },
+   "properties": {
+    "id": "US/MA/bristol-county",
+    "name": "Bristol County",
+    "kind": "county",
+    "sources": 0,
+    "wikidata": "Q54082",
+    "ocd_division": "ocd-division/country:us/state:ma/county:bristol",
+    "us_census_geoid": "25005"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -71.0,
+     41.64
+    ]
+   },
+   "properties": {
+    "id": "US/MA/south-coast",
+    "name": "South Coast",
+    "kind": "custom",
+    "sources": 8
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -71.0819,
+     41.5779
+    ]
+   },
+   "properties": {
+    "id": "US/MA/westport",
+    "name": "Westport",
+    "kind": "municipality",
+    "sources": 19,
+    "wikidata": "Q432359",
+    "ocd_division": "ocd-division/country:us/state:ma/place:westport",
+    "us_census_geoid": "2500577570",
+    "geonames": "4955304",
+    "osm_relation": "2396251"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -71.5,
+     41.7
+    ]
+   },
+   "properties": {
+    "id": "US/RI",
+    "name": "Rhode Island",
+    "kind": "region",
+    "sources": 11,
+    "wikidata": "Q1387",
+    "ocd_division": "ocd-division/country:us/state:ri",
+    "us_census_geoid": "44"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -71.168,
+     41.5087
+    ]
+   },
+   "properties": {
+    "id": "US/RI/little-compton",
+    "name": "Little Compton",
+    "kind": "municipality",
+    "sources": 35,
+    "wikidata": "Q2448539",
+    "ocd_division": "ocd-division/country:us/state:ri/place:little_compton",
+    "us_census_geoid": "4400542400",
+    "geonames": "5223133",
+    "osm_relation": "7815285"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -71.2811,
+     41.4997
+    ]
+   },
+   "properties": {
+    "id": "US/RI/newport-county",
+    "name": "Newport County",
+    "kind": "county",
+    "sources": 5,
+    "wikidata": "Q54260",
+    "ocd_division": "ocd-division/country:us/state:ri/county:newport",
+    "us_census_geoid": "44005",
+    "geonames": "5223601",
+    "osm_relation": "404983"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -71.1798,
+     41.6104
+    ]
+   },
+   "properties": {
+    "id": "US/RI/tiverton",
+    "name": "Tiverton",
+    "kind": "municipality",
+    "sources": 21,
+    "wikidata": "Q1027996",
+    "ocd_division": "ocd-division/country:us/state:ri/place:tiverton",
+    "us_census_geoid": "4400570880",
+    "geonames": "5225253",
+    "osm_relation": "7814962"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -71.14,
+     41.57
+    ]
+   },
+   "properties": {
+    "id": "US/farm-coast",
+    "name": "Farm Coast",
+    "kind": "custom",
+    "sources": 2
+   }
+  }
+ ]
+}

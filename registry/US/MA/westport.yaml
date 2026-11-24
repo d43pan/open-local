@@ -1,0 +1,495 @@
+place:
+  id: US/MA/westport
+  name: Westport
+  kind: municipality
+  local_kind: town
+  country: US
+  subdivision: US-MA
+  aliases:
+  - Westport Point
+  - Head of Westport
+  parents:
+  - US/MA/bristol-county
+  neighbors:
+  - US/RI/little-compton
+  - US/RI/tiverton
+  centroid:
+    lat: 41.5779
+    lon: -71.0819
+  postal_codes:
+  - 02790
+  - 02791
+  languages:
+  - en
+  timezone: America/New_York
+  identifiers:
+    wikidata: Q432359
+    ocd_division: ocd-division/country:us/state:ma/place:westport
+    us_census_geoid: '2500577570'
+    geonames: '4955304'
+    osm_relation: '2396251'
+sources:
+- id: us-ma-westport-town-website
+  name: Town of Westport official website
+  publisher: Town of Westport, Massachusetts
+  url: https://www.westport-ma.com/
+  type: government
+  classification: primary
+  coverage:
+  - place: US/MA/westport
+    level: dedicated
+  jurisdiction: US/MA/westport
+  languages:
+  - en
+  endpoints:
+  - kind: rss
+    url: https://www.westport-ma.com/rss.xml
+  - kind: html
+    url: https://www.westport-ma.com/newslist.php
+  - kind: html
+    url: https://www.westport-ma.com/calendar.php
+  - kind: html
+    url: https://www.westport-ma.com/where_do_i_go_for/bid_opportunities/index.php
+  - kind: html
+    url: https://www.westport-ma.com/sitemap.php
+  - kind: html
+    url: https://www.westport-ma.com/departments/accountant/budget_information.php
+  - kind: html
+    url: https://www.westport-ma.com/departments/police/notices.php
+  access:
+    paywall: none
+  platform: Revize
+  discovered: '2026-11-24'
+  status: checked
+  provenance:
+    method: agent-proposed
+    evidence: Found and loaded by a research agent on 2026-11-24, then re-loaded with this project's own tools.
+  notes: rss.xml carries news items but with no pubDate elements. westport-ma.gov redirects to westport-ma.com.
+  verified: '2026-11-24'
+- id: us-ma-westport-boards-and-meetings
+  name: 'Westport boards: meetings, agendas and minutes'
+  publisher: Town of Westport, Massachusetts
+  url: https://www.westport-ma.com/government/meetings.php
+  type: meetings
+  classification: primary
+  coverage:
+  - place: US/MA/westport
+    level: dedicated
+  jurisdiction: US/MA/westport
+  languages:
+  - en
+  endpoints:
+  - kind: html
+    url: https://www.westport-ma.com/government/meetings.php
+  - kind: html
+    url: https://www.westport-ma.com/government/select_board/index.php
+  - kind: html
+    url: https://www.westport-ma.com/departments/planning/agendas_minutes.php
+  - kind: html
+    url: https://www.westport-ma.com/government/boards_committtees/zoning_board_of_appeals/index.php
+  - kind: html
+    url: https://www.westport-ma.com/departments/conservation_commission/agendas_minutes.php
+  - kind: html
+    url: https://www.westport-ma.com/departments/health/agendas_minutes.php
+  - kind: html
+    url: https://www.westport-ma.com/government/town_clerk/meeting_notice_posting_sheet.php
+  access:
+    paywall: none
+  platform: Revize
+  discovered: '2026-11-24'
+  status: checked
+  provenance:
+    method: agent-proposed
+    evidence: Found and loaded by a research agent on 2026-11-24, then re-loaded with this project's own tools.
+  notes: 'Massachusetts towns post on their own sites: agendas/minutes are PDFs linked from per-board pages; no
+    feed.'
+  verified: '2026-11-24'
+- id: us-ma-westport-government-tv
+  name: Westport Government TV (YouTube)
+  publisher: Town of Westport / Westport Community Television
+  url: https://www.youtube.com/channel/UCV9Hpg60YgmPnqPe1q2lgBw
+  type: meeting-video
+  classification: primary
+  coverage:
+  - place: US/MA/westport
+    level: dedicated
+  languages:
+  - en
+  topics:
+  - meetings
+  - video
+  endpoints:
+  - kind: atom
+    url: https://www.youtube.com/feeds/videos.xml?channel_id=UCV9Hpg60YgmPnqPe1q2lgBw
+    note: The site's robots.txt disallows automated fetching of this address, so the tools skip it. Open it yourself.
+  access:
+    paywall: none
+  platform: YouTube
+  discovered: '2026-11-24'
+  status: checked
+  provenance:
+    method: agent-proposed
+    evidence: Found and loaded by a research agent on 2026-11-24, then re-loaded with this project's own tools.
+  notes: Linked from town site as 'On Demand Westport Government TV'.
+  verified: '2026-11-24'
+- id: us-ma-westport-community-tv
+  name: Westport Community TV (YouTube)
+  publisher: Westport Community Television
+  url: https://www.youtube.com/@westportcommunitytv
+  type: public-access-tv
+  classification: primary
+  coverage:
+  - place: US/MA/westport
+    level: dedicated
+  languages:
+  - en
+  endpoints:
+  - kind: atom
+    url: https://www.youtube.com/feeds/videos.xml?channel_id=UCROOgZlRktKpL4_F2p4D0xw
+    note: The site's robots.txt disallows automated fetching of this address, so the tools skip it. Open it yourself.
+  access:
+    paywall: none
+  platform: YouTube
+  discovered: '2026-11-24'
+  status: checked
+  provenance:
+    method: agent-proposed
+    evidence: Found and loaded by a research agent on 2026-11-24, then re-loaded with this project's own tools.
+  verified: '2026-11-24'
+- id: us-ma-westport-building-department
+  name: Westport Building Department / PermitEyes
+  publisher: Town of Westport, Massachusetts
+  url: https://www.westport-ma.com/departments/building/index.php
+  type: permits
+  classification: primary
+  coverage:
+  - place: US/MA/westport
+    level: dedicated
+  jurisdiction: US/MA/westport
+  languages:
+  - en
+  topics:
+  - permits
+  - development
+  endpoints:
+  - kind: html
+    url: https://permiteyes.us/westport/loginuser.php
+  access:
+    paywall: none
+  platform: Revize; PermitEyes (Full Circle Technologies)
+  discovered: '2026-11-24'
+  status: checked
+  provenance:
+    method: agent-proposed
+    evidence: Found and loaded by a research agent on 2026-11-24, then re-loaded with this project's own tools.
+  notes: Permit portal requires login; no public permit list found.
+  verified: '2026-11-24'
+- id: us-ma-westport-fire-department
+  name: Westport Fire Department
+  publisher: Westport Fire Department
+  url: https://www.westportfire.org/
+  type: public-safety
+  classification: primary
+  coverage:
+  - place: US/MA/westport
+    level: dedicated
+  jurisdiction: US/MA/westport
+  languages:
+  - en
+  topics:
+  - fire
+  - emergency
+  access:
+    paywall: none
+  platform: Wix
+  discovered: '2026-11-24'
+  status: checked
+  provenance:
+    method: agent-proposed
+    evidence: Found and loaded by a research agent on 2026-11-24, then re-loaded with this project's own tools.
+  verified: '2026-11-24'
+  notes: A feed at https://www.westportfire.org/blog-feed.xml exists but is dormant (checked 2026-11-24), so it
+    is not listed.
+- id: us-ma-westport-community-schools
+  name: Westport Community Schools
+  publisher: Westport Community Schools
+  url: https://www.westportschools.org/
+  type: schools
+  classification: primary
+  coverage:
+  - place: US/MA/westport
+    level: dedicated
+  jurisdiction: US/MA/westport
+  languages:
+  - en
+  topics:
+  - schools
+  endpoints:
+  - kind: html
+    url: https://www.westportschools.org/news-media/news
+  - kind: html
+    url: https://www.westportschools.org/about/westport-school-committee
+  - kind: html
+    url: https://www.westportschools.org/about/westport-school-committee/past-agendas
+  - kind: html
+    url: https://www.westportschools.org/about/calendar
+  - kind: html
+    url: https://www.westportschools.org/news-media/press-releases
+  access:
+    paywall: none
+  discovered: '2026-11-24'
+  status: checked
+  provenance:
+    method: agent-proposed
+    evidence: Found and loaded by a research agent on 2026-11-24, then re-loaded with this project's own tools.
+  notes: No RSS found (/rss 404, no sitemap.xml).
+  verified: '2026-11-24'
+- id: us-ma-westport-free-public-library
+  name: Westport Free Public Library
+  publisher: Town of Westport, Massachusetts
+  url: https://www.westport-ma.com/departments/westport_free_public_library/index.php
+  type: library
+  classification: primary
+  coverage:
+  - place: US/MA/westport
+    level: dedicated
+  languages:
+  - en
+  topics:
+  - events
+  - books
+  endpoints:
+  - kind: html
+    url: https://www.westport-ma.com/departments/westport_free_public_library/childrens_programs.php
+  access:
+    paywall: none
+  platform: Revize
+  discovered: '2026-11-24'
+  status: checked
+  provenance:
+    method: agent-proposed
+    evidence: Found and loaded by a research agent on 2026-11-24, then re-loaded with this project's own tools.
+  notes: Library lives on the town site. Beware westportlibrary.org, which is Westport, Connecticut.
+  verified: '2026-11-24'
+- id: us-ma-westport-recreation-council-on-aging
+  name: Westport Recreation and Council on Aging
+  publisher: Town of Westport, Massachusetts
+  url: https://www.westport-ma.com/residents/recreation/index.php
+  type: parks-recreation
+  classification: primary
+  coverage:
+  - place: US/MA/westport
+    level: dedicated
+  jurisdiction: US/MA/westport
+  languages:
+  - en
+  endpoints:
+  - kind: html
+    url: https://www.westport-ma.com/residents/council_on_aging/index.php
+  - kind: html
+    url: https://www.westport-ma.com/government/boards_committees/cultural_council/index.php
+  access:
+    paywall: none
+  platform: Revize
+  discovered: '2026-11-24'
+  status: checked
+  provenance:
+    method: agent-proposed
+    evidence: Found and loaded by a research agent on 2026-11-24, then re-loaded with this project's own tools.
+  notes: Also lists the Westport Cultural Council page (local arts grants).
+  verified: '2026-11-24'
+- id: us-ma-westport-river-watershed-alliance
+  name: Westport River Watershed Alliance
+  publisher: Westport River Watershed Alliance
+  url: https://www.westportwatershed.org/
+  type: environment
+  classification: primary
+  coverage:
+  - place: US/MA/westport
+    level: dedicated
+  languages:
+  - en
+  endpoints:
+  - kind: rss
+    url: https://www.westportwatershed.org/blog-feed.xml
+    note: 20 items on 2026-11-24, newest dated 2026-10-30.
+  access:
+    paywall: none
+  platform: Wix
+  discovered: '2026-11-24'
+  status: checked
+  provenance:
+    method: agent-proposed
+    evidence: Found and loaded by a research agent on 2026-11-24, then re-loaded with this project's own tools.
+  verified: '2026-11-24'
+- id: us-ma-westport-land-conservation-trust
+  name: Westport Land Conservation Trust
+  publisher: Westport Land Conservation Trust
+  url: https://westportlandtrust.org/
+  type: environment
+  classification: primary
+  coverage:
+  - place: US/MA/westport
+    level: dedicated
+  languages:
+  - en
+  topics:
+  - land-conservation
+  endpoints:
+  - kind: rss
+    url: https://westportlandtrust.org/feed/
+    note: 12 items on 2026-11-24, newest dated 2026-10-27.
+  - kind: api
+    url: https://westportlandtrust.org/wp-json/wp/v2/posts?per_page=5
+  access:
+    paywall: none
+  platform: WordPress
+  discovered: '2026-11-24'
+  status: checked
+  provenance:
+    method: agent-proposed
+    evidence: Found and loaded by a research agent on 2026-11-24, then re-loaded with this project's own tools.
+  verified: '2026-11-24'
+- id: us-ma-westport-historical-society
+  name: Westport Historical Society (Handy House)
+  publisher: Westport Historical Society
+  url: https://wpthistory.org/
+  type: museum
+  classification: primary
+  coverage:
+  - place: US/MA/westport
+    level: dedicated
+  languages:
+  - en
+  topics:
+  - history
+  - culture
+  endpoints:
+  - kind: rss
+    url: https://wpthistory.org/feed/
+    note: 10 items on 2026-11-24, newest dated 2026-11-06.
+  - kind: rss
+    url: https://wpthistory.org/events/feed/
+    note: 10 items on 2026-11-24, newest dated 2026-11-04.
+  - kind: html
+    url: https://wpthistory.org/handy-house/events/
+  access:
+    paywall: none
+  platform: WordPress
+  discovered: '2026-11-24'
+  status: checked
+  provenance:
+    method: agent-proposed
+    evidence: Found and loaded by a research agent on 2026-11-24, then re-loaded with this project's own tools.
+  verified: '2026-11-24'
+- id: us-ma-westport-shorelines
+  name: 'Westport Shorelines / EastBayRI.com: Westport'
+  publisher: East Bay Media Group
+  url: https://www.eastbayri.com/westport/
+  type: newspaper
+  classification: primary
+  coverage:
+  - place: US/MA/westport
+    level: dedicated
+  languages:
+  - en
+  endpoints:
+  - kind: rss
+    url: https://www.eastbayri.com/westport/category/news/browse.rss
+    note: 25 items on 2026-11-24, newest dated 2026-11-23.
+  - kind: html
+    url: https://www.eastbayri.com/westport/category/local/browse.html
+  - kind: html
+    url: https://www.eastbayri.com/westport/calendar/
+  frequency: weekly
+  access:
+    paywall: metered
+  platform: Creative Circle Media Solutions
+  discovered: '2026-11-24'
+  status: checked
+  provenance:
+    method: agent-proposed
+    evidence: Found and loaded by a research agent on 2026-11-24, then re-loaded with this project's own tools.
+  verified: '2026-11-24'
+- id: us-ma-westport-art-group
+  name: Westport Art Group
+  publisher: Westport Art Group
+  url: https://www.westportartgroup.com/
+  type: arts-culture
+  classification: primary
+  coverage:
+  - place: US/MA/westport
+    level: dedicated
+  languages:
+  - en
+  topics:
+  - arts
+  endpoints:
+  - kind: html
+    url: https://www.westportartgroup.com/calendar
+  - kind: html
+    url: https://www.westportartgroup.com/events-exhibitions
+  - kind: sitemap
+    url: https://www.westportartgroup.com/sitemap.xml
+  access:
+    paywall: none
+  platform: Squarespace
+  discovered: '2026-11-24'
+  status: checked
+  provenance:
+    method: agent-proposed
+    evidence: Found and loaded by a research agent on 2026-11-24, then re-loaded with this project's own tools.
+  verified: '2026-11-24'
+- id: us-ma-westport-westport-rivers-vineyard
+  name: Westport Rivers Vineyard & Winery
+  publisher: Westport Rivers Vineyard & Winery
+  url: https://www.westportrivers.com/
+  type: food-drink
+  classification: primary
+  coverage:
+  - place: US/MA/westport
+    level: dedicated
+  languages:
+  - en
+  topics:
+  - food
+  endpoints:
+  - kind: html
+    url: https://www.westportrivers.com/events-sunset-music
+  - kind: html
+    url: https://www.westportrivers.com/taste-and-tour
+  - kind: sitemap
+    url: https://www.westportrivers.com/sitemap.xml
+  access:
+    paywall: none
+  platform: Squarespace
+  discovered: '2026-11-24'
+  status: checked
+  provenance:
+    method: agent-proposed
+    evidence: Found and loaded by a research agent on 2026-11-24, then re-loaded with this project's own tools.
+  verified: '2026-11-24'
+- id: us-ma-westport-buzzards-bay-brewing
+  name: Buzzards Bay Brewing
+  publisher: Buzzards Bay Brewing
+  url: https://buzzardsbrew.com/
+  type: food-drink
+  classification: primary
+  coverage:
+  - place: US/MA/westport
+    level: dedicated
+  languages:
+  - en
+  topics:
+  - food
+  access:
+    paywall: none
+  platform: WordPress (Elementor)
+  discovered: '2026-11-24'
+  status: checked
+  provenance:
+    method: agent-proposed
+    evidence: Found and loaded by a research agent on 2026-11-24, then re-loaded with this project's own tools.
+  notes: Feed has one old post; events are on the homepage/social. A feed at https://buzzardsbrew.com/feed/ exists
+    but is dormant (checked 2026-11-24), so it is not listed.
+  verified: '2026-11-24'

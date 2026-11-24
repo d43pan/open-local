@@ -1,0 +1,6 @@
+<?xml version="1.0"?>
+<rss version="2.0"><channel><title>Harbour Times</title>
+<item><title>Council approves harbour dredging contract</title><link>https://harbourtimes.example.org/a1</link><pubDate>Mon, 23 Nov 2026 14:00:00 GMT</pubDate><description><![CDATA[<p>The council voted 4-1 on Thursday.</p><script>alert(1)</script>]]></description></item>
+<item><title>Old story</title><link>https://harbourtimes.example.org/a0</link><pubDate>Mon, 02 Mar 2026 14:00:00 GMT</pubDate><description>Old.</description></item>
+<item><title>No date here</title><link>https://harbourtimes.example.org/a2</link></item>
+</channel></rss>

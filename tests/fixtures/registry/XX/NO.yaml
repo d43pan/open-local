@@ -1,0 +1,22 @@
+place:
+  id: XX/NO
+  name: Northshire
+  kind: region
+  local_kind: shire
+  country: XX
+  subdivision: XX-NO
+  abbreviation: "NO"
+  parents: [XX]
+  centroid: {lat: 41.6, lon: -71.2}
+sources:
+  - id: xx-no-shire-gazette
+    name: Shire Gazette
+    url: https://gazette.example.org/
+    type: newspaper
+    classification: primary
+    coverage: [{place: XX/NO, level: regular}]
+    endpoints: [{kind: rss, url: "https://gazette.example.org/feed/"}]
+    access: {paywall: metered}
+    discovered: "2026-01-02"
+    verified: "2026-01-03"
+    status: verified

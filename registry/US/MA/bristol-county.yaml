@@ -1,0 +1,16 @@
+place:
+  id: US/MA/bristol-county
+  name: Bristol County
+  kind: county
+  country: US
+  subdivision: US-MA
+  parents:
+  - US/MA
+  centroid:
+    lat: 41.75
+    lon: -71.09
+  timezone: America/New_York
+  identifiers:
+    wikidata: Q54082
+    ocd_division: ocd-division/country:us/state:ma/county:bristol
+    us_census_geoid: '25005'

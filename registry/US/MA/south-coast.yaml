@@ -1,0 +1,129 @@
+place:
+  id: US/MA/south-coast
+  name: South Coast
+  kind: custom
+  local_kind: named region
+  country: US
+  subdivision: US-MA
+  aliases:
+  - SouthCoast
+  - South Coast Massachusetts
+  parents:
+  - US/MA
+  covers:
+  - US/MA/westport
+  centroid:
+    lat: 41.64
+    lon: -71.0
+  timezone: America/New_York
+  notes: The Fall River, New Bedford and Dartmouth area of south-eastern Massachusetts. An informal region with
+    no government. Only the member places present in the registry are listed under covers.
+sources:
+- id: us-ma-south-coast-new-bedford-light
+  name: The New Bedford Light
+  publisher: The New Bedford Light (nonprofit)
+  url: https://newbedfordlight.org/
+  type: news-site
+  classification: primary
+  coverage:
+  - place: US/MA/south-coast
+    level: dedicated
+  languages:
+  - en
+  endpoints:
+  - kind: rss
+    url: https://newbedfordlight.org/feed/
+  frequency: daily
+  access:
+    paywall: none
+    restrictions: 'Refuses automated requests: returned HTTP 403 to this project''s tools on 2026-11-24, though
+      it loads in a browser. Read it by hand.'
+  platform: WordPress (Newspack)
+  discovered: '2026-11-24'
+  status: unverified
+  provenance:
+    method: agent-proposed
+    evidence: Found and loaded by a research agent on 2026-11-24, then re-loaded with this project's own tools.
+- id: us-ma-south-coast-dartmouth-week
+  name: Dartmouth Week
+  publisher: Beaver Dam Partners
+  url: https://dartmouth.theweektoday.com/
+  type: newspaper
+  classification: primary
+  coverage:
+  - place: US/MA/south-coast
+    level: dedicated
+  languages:
+  - en
+  endpoints:
+  - kind: rss
+    url: https://dartmouth.theweektoday.com/rss.xml
+    note: 10 items on 2026-11-24, newest dated 2026-11-22.
+  - kind: html
+    url: https://dartmouth.theweektoday.com/tags/westport
+  frequency: weekly
+  access:
+    paywall: none
+  platform: Drupal
+  discovered: '2026-11-24'
+  status: checked
+  provenance:
+    method: agent-proposed
+    evidence: Found and loaded by a research agent on 2026-11-24, then re-loaded with this project's own tools.
+  verified: '2026-11-24'
+- id: us-ma-south-coast-fall-river-reporter
+  name: Fall River Reporter
+  publisher: Fall River Reporter
+  url: https://fallriverreporter.com/
+  type: news-site
+  classification: mixed
+  coverage:
+  - place: US/MA/south-coast
+    level: dedicated
+  - place: US/MA/westport
+    level: regular
+  - place: US/RI/tiverton
+    level: occasional
+  languages:
+  - en
+  endpoints:
+  - kind: rss
+    url: https://fallriverreporter.com/feed/
+    note: 10 items on 2026-11-24, newest dated 2026-11-24.
+  frequency: continuous
+  access:
+    paywall: none
+  platform: WordPress
+  discovered: '2026-11-24'
+  status: checked
+  provenance:
+    method: agent-proposed
+    evidence: Found and loaded by a research agent on 2026-11-24, then re-loaded with this project's own tools.
+  verified: '2026-11-24'
+- id: us-ma-south-coast-srta
+  name: SRTA
+  publisher: Southeastern Regional Transit Authority
+  url: https://www.srtabus.com/
+  type: transportation
+  classification: primary
+  coverage:
+  - place: US/MA/south-coast
+    level: dedicated
+  languages:
+  - en
+  topics:
+  - transit
+  endpoints:
+  - kind: rss
+    url: https://www.srtabus.com/feed/
+    note: 10 items on 2026-11-24, newest dated 2026-11-20.
+  access:
+    paywall: none
+  platform: WordPress
+  discovered: '2026-11-24'
+  status: checked
+  provenance:
+    method: agent-proposed
+    evidence: Found and loaded by a research agent on 2026-11-24, then re-loaded with this project's own tools.
+  notes: Fall River/New Bedford buses; Westport is in the SRTA district.
+  verified: '2026-11-24'

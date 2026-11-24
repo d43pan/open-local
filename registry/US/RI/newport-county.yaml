@@ -1,0 +1,133 @@
+place:
+  id: US/RI/newport-county
+  name: Newport County
+  kind: county
+  country: US
+  subdivision: US-RI
+  parents:
+  - US/RI
+  centroid:
+    lat: 41.4997
+    lon: -71.2811
+  timezone: America/New_York
+  identifiers:
+    wikidata: Q54260
+    ocd_division: ocd-division/country:us/state:ri/county:newport
+    us_census_geoid: '44005'
+    geonames: '5223601'
+    osm_relation: '404983'
+  notes: Rhode Island counties have no government of their own; the county is a geographic and statistical area.
+    Regional sources are filed here.
+sources:
+- id: us-ri-newport-county-discover-newport
+  name: 'Discover Newport: Little Compton and Tiverton pages'
+  publisher: Discover Newport (Newport County regional tourism council)
+  url: https://www.discovernewport.org/
+  type: tourism
+  classification: secondary
+  coverage:
+  - place: US/RI/little-compton
+    level: regular
+  - place: US/RI/tiverton
+    level: regular
+  - place: US/RI/newport-county
+    level: dedicated
+  languages:
+  - en
+  topics:
+  - visiting
+  endpoints:
+  - kind: html
+    url: https://www.discovernewport.org/about-newport/nine-coastal-communities/little-compton/
+  - kind: html
+    url: https://www.discovernewport.org/about-newport/nine-coastal-communities/tiverton/
+  - kind: html
+    url: https://www.discovernewport.org/events/
+  - kind: sitemap
+    url: https://www.discovernewport.org/sitemap.xml
+  access:
+    paywall: none
+  platform: Simpleview
+  discovered: '2026-11-24'
+  status: checked
+  provenance:
+    method: agent-proposed
+    evidence: Found and loaded by a research agent on 2026-11-24, then re-loaded with this project's own tools.
+  verified: '2026-11-24'
+- id: us-ri-newport-county-newport-this-week
+  name: Newport This Week
+  publisher: Newport This Week (Island Communications)
+  url: https://www.newportthisweek.com/
+  type: newspaper
+  classification: primary
+  coverage:
+  - place: US/RI/newport-county
+    level: dedicated
+  languages:
+  - en
+  endpoints:
+  - kind: rss
+    url: https://www.newportthisweek.com/feed/
+    note: 20 items on 2026-11-24, newest dated 2026-11-23.
+  frequency: weekly
+  access:
+    paywall: none
+  platform: WordPress
+  discovered: '2026-11-24'
+  status: checked
+  provenance:
+    method: agent-proposed
+    evidence: Found and loaded by a research agent on 2026-11-24, then re-loaded with this project's own tools.
+  verified: '2026-11-24'
+- id: us-ri-newport-county-whats-up-newp
+  name: What'sUpNewp
+  publisher: What's Up Newp (What's Up Rhode Island)
+  url: https://whatsupnewp.com/
+  type: news-site
+  classification: primary
+  coverage:
+  - place: US/RI/newport-county
+    level: dedicated
+  - place: US/RI
+    level: regular
+  languages:
+  - en
+  endpoints:
+  - kind: rss
+    url: https://whatsupnewp.com/feed/
+  frequency: continuous
+  access:
+    paywall: none
+    restrictions: 'Refuses automated requests: returned HTTP 403 to this project''s tools on 2026-11-24, though
+      it loads in a browser. Read it by hand.'
+  platform: WordPress (Newspack)
+  discovered: '2026-11-24'
+  status: unverified
+  provenance:
+    method: agent-proposed
+    evidence: Found and loaded by a research agent on 2026-11-24, then re-loaded with this project's own tools.
+  notes: Host rate-limits rapid requests (HTTP 429).
+- id: us-ri-newport-county-greater-newport-chamber
+  name: Greater Newport Chamber of Commerce
+  publisher: Greater Newport Chamber of Commerce
+  url: https://www.newportchamber.com/
+  type: chamber-of-commerce
+  classification: primary
+  coverage:
+  - place: US/RI/newport-county
+    level: dedicated
+  languages:
+  - en
+  endpoints:
+  - kind: rss
+    url: https://www.newportchamber.com/feed/
+    note: 10 items on 2026-11-24, newest dated 2026-10-30.
+  access:
+    paywall: none
+  platform: WordPress
+  discovered: '2026-11-24'
+  status: checked
+  provenance:
+    method: agent-proposed
+    evidence: Found and loaded by a research agent on 2026-11-24, then re-loaded with this project's own tools.
+  verified: '2026-11-24'

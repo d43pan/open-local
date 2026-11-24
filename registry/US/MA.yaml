@@ -1,0 +1,45 @@
+place:
+  id: US/MA
+  name: Massachusetts
+  kind: region
+  local_kind: state
+  country: US
+  subdivision: US-MA
+  abbreviation: MA
+  parents:
+  - US
+  centroid:
+    lat: 42.3
+    lon: -71.8
+  timezone: America/New_York
+  identifiers:
+    wikidata: Q771
+    ocd_division: ocd-division/country:us/state:ma
+    us_census_geoid: '25'
+sources:
+- id: us-ma-public-notices
+  name: Massachusetts Public Notices
+  publisher: Massachusetts Press Association (Massachusetts Newspaper Publishers Association)
+  url: https://www.masspublicnotices.org/
+  type: public-notices
+  classification: secondary
+  coverage:
+  - place: US/MA
+    level: regular
+  languages:
+  - en
+  topics:
+  - legal-notices
+  endpoints:
+  - kind: html
+    url: https://www.masspublicnotices.org/
+  access:
+    paywall: none
+  platform: Column/ASP.NET
+  discovered: '2026-11-24'
+  status: checked
+  provenance:
+    method: agent-proposed
+    evidence: Found and loaded by a research agent on 2026-11-24, then re-loaded with this project's own tools.
+  notes: Session-ID URLs; search-driven, no feed found.
+  verified: '2026-11-24'

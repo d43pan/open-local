@@ -1,0 +1,16 @@
+place:
+  id: XX/NO/school-district
+  name: Twin Towns School District
+  kind: district
+  country: XX
+  parents: [XX/NO]
+  covers: [XX/NO/alder, XX/NO/birch]
+sources:
+  - id: xx-no-school-district-committee
+    name: Twin Towns School Committee
+    url: https://schools.example.org/
+    type: schools
+    classification: primary
+    discovered: "2026-01-02"
+    verified: "2026-01-03"
+    status: verified

@@ -1,0 +1,44 @@
+name: checks
+# Deterministic checks for every pull request. No network access to listed sources.
+on:
+  pull_request:
+  push:
+    branches: [main]
+permissions:
+  contents: read
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        python: ["3.10", "3.13"]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python }}
+      - run: pip install pyyaml jsonschema pytest
+      - name: Validate the registry (schema, ids, geography, URLs)
+        run: python skills/open-local/scripts/run.py validate
+      - name: Published files match the registry
+        run: python skills/open-local/scripts/run.py build --check
+      - name: Tests (feeds, discovery, exports, safety, skills, evals)
+        run: pytest -q
+  skill-spec:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.13"
+      - name: Agent Skills reference validator
+        # A second opinion from the spec's own (demo-grade) tool. tests/test_skills.py enforces the same rules.
+        continue-on-error: true
+        run: |
+          pip install skills-ref
+          skills-ref validate skills/open-local
+          skills-ref validate skills/open-local-build
+      - name: The tools run with the standard library alone
+        run: |
+          python skills/open-local/scripts/run.py where "Little Compton, RI"
+          OPEN_LOCAL_REGISTRY=dist/registry.json python skills/open-local/scripts/run.py sources US/RI/little-compton --brief

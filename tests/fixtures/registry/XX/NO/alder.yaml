@@ -1,0 +1,47 @@
+place:
+  id: XX/NO/alder
+  name: Alder
+  kind: municipality
+  local_kind: town
+  country: XX
+  subdivision: XX-NO
+  aliases: [Alder Harbour]
+  parents: [XX/NO]
+  neighbors: [XX/NO/birch]
+  centroid: {lat: 41.51, lon: -71.17}
+  postal_codes: ["02837"]
+sources:
+  - id: xx-no-alder-town-council
+    name: Alder Town Council
+    url: https://alder.example.org/council
+    type: meetings
+    classification: primary
+    jurisdiction: XX/NO/alder
+    endpoints:
+      - {kind: ical, url: "https://alder.example.org/council.ics"}
+      - {kind: html, url: "https://alder.example.org/council/minutes"}
+    discovered: "2026-01-02"
+    verified: "2026-01-03"
+    status: verified
+  - id: xx-no-alder-harbour-times
+    name: Harbour Times
+    url: https://harbourtimes.example.org/
+    type: newspaper
+    classification: primary
+    coverage:
+      - {place: XX/NO/alder, level: dedicated}
+      - {place: XX/NO/birch, level: regular}
+    location: {place: XX/NO/birch}
+    endpoints: [{kind: rss, url: "https://harbourtimes.example.org/rss.xml"}]
+    discovered: "2026-01-02"
+    verified: "2026-01-03"
+    status: verified
+  - id: xx-no-alder-farm-stand
+    name: Alder Farm Stand
+    url: https://farm.example.org/
+    type: farm-market
+    classification: primary
+    topics: [food]
+    discovered: "2026-01-02"
+    verified: "2026-01-03"
+    status: verified

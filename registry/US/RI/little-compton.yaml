@@ -1,0 +1,977 @@
+place:
+  id: US/RI/little-compton
+  name: Little Compton
+  kind: municipality
+  local_kind: town
+  country: US
+  subdivision: US-RI
+  aliases:
+  - Sakonnet
+  - Adamsville
+  - Little Compton Commons
+  parents:
+  - US/RI/newport-county
+  neighbors:
+  - US/RI/tiverton
+  - US/MA/westport
+  centroid:
+    lat: 41.5087
+    lon: -71.168
+  postal_codes:
+  - 02837
+  languages:
+  - en
+  timezone: America/New_York
+  identifiers:
+    wikidata: Q2448539
+    ocd_division: ocd-division/country:us/state:ri/place:little_compton
+    us_census_geoid: '4400542400'
+    geonames: '5223133'
+    osm_relation: '7815285'
+sources:
+- id: us-ri-little-compton-town-website
+  name: Town of Little Compton official website
+  publisher: Town of Little Compton
+  url: https://www.littlecomptonri.org/
+  type: government
+  classification: primary
+  coverage:
+  - place: US/RI/little-compton
+    level: dedicated
+  jurisdiction: US/RI/little-compton
+  languages:
+  - en
+  endpoints:
+  - kind: html
+    url: https://www.littlecomptonri.org/newslist.php
+  - kind: html
+    url: https://www.littlecomptonri.org/government/town_council/agendas.php
+  - kind: html
+    url: https://www.littlecomptonri.org/government/boards_commissions/index.php
+  - kind: html
+    url: https://www.littlecomptonri.org/departments/emergency_management/index.php
+  - kind: html
+    url: https://www.littlecomptonri.org/departments/police/index.php
+  frequency: irregular
+  access:
+    paywall: none
+  platform: Revize
+  discovered: '2026-11-24'
+  status: checked
+  provenance:
+    method: agent-proposed
+    evidence: Found and loaded by a research agent on 2026-11-24, then re-loaded with this project's own tools.
+  notes: No RSS/Atom feed and no sitemap.xml (/rss.xml, /rss.php, /sitemap.xml all 404). littlecompton.gov redirects
+    here. News is an HTML list only.
+  verified: '2026-11-24'
+- id: us-ri-little-compton-town-calendar
+  name: Little Compton Town Calendar
+  publisher: Town of Little Compton
+  url: https://www.littlecomptonri.org/calendar.php
+  type: events
+  classification: primary
+  coverage:
+  - place: US/RI/little-compton
+    level: dedicated
+  languages:
+  - en
+  endpoints:
+  - kind: ical
+    url: https://calendar.google.com/calendar/ical/littlecompton.cal%40gmail.com/public/basic.ics
+    note: The site's robots.txt disallows automated fetching of this address, so the tools skip it. Open it yourself.
+  access:
+    paywall: none
+  platform: Google Calendar embedded in Revize
+  discovered: '2026-11-24'
+  status: checked
+  provenance:
+    method: agent-proposed
+    evidence: Found and loaded by a research agent on 2026-11-24, then re-loaded with this project's own tools.
+  notes: Calendar page embeds public Google Calendar (address on the site); the public ICS is the only machine-readable
+    feed the town site offers.
+  verified: '2026-11-24'
+- id: us-ri-little-compton-download-newsletter
+  name: The Little Compton Download (town newsletter)
+  publisher: Town of Little Compton
+  url: https://littlecompton.download/
+  type: newsletter
+  classification: primary
+  coverage:
+  - place: US/RI/little-compton
+    level: dedicated
+  languages:
+  - en
+  endpoints:
+  - kind: html
+    url: https://littlecompton.download/
+  access:
+    paywall: none
+  platform: MailerLite landing page
+  discovered: '2026-11-24'
+  status: checked
+  provenance:
+    method: agent-proposed
+    evidence: Found and loaded by a research agent on 2026-11-24, then re-loaded with this project's own tools.
+  notes: Sign-up page with a 'Previous Issues' archive rendered client-side; /feed and /rss return a 'Page Not Found'
+    page.
+  verified: '2026-11-24'
+- id: us-ri-little-compton-meeting-videos
+  name: Town of Little Compton meeting videos (YouTube)
+  publisher: Town of Little Compton
+  url: https://www.youtube.com/channel/UCNoKeQBPql33aEtqzOXHO9g
+  type: meeting-video
+  classification: primary
+  coverage:
+  - place: US/RI/little-compton
+    level: dedicated
+  languages:
+  - en
+  topics:
+  - meetings
+  - video
+  endpoints:
+  - kind: atom
+    url: https://www.youtube.com/feeds/videos.xml?channel_id=UCNoKeQBPql33aEtqzOXHO9g
+    note: The site's robots.txt disallows automated fetching of this address, so the tools skip it. Open it yourself.
+  access:
+    paywall: none
+  platform: YouTube
+  discovered: '2026-11-24'
+  status: checked
+  provenance:
+    method: agent-proposed
+    evidence: Found and loaded by a research agent on 2026-11-24, then re-loaded with this project's own tools.
+  notes: Linked from the town site as 'Meeting Videos'.
+  verified: '2026-11-24'
+- id: us-ri-little-compton-open-meetings-all-bodies
+  name: 'RI Open Meetings: all Little Compton public bodies'
+  publisher: Rhode Island Department of State (filings by Town of Little Compton bodies)
+  url: https://opengov.sos.ri.gov/OpenMeetings
+  type: meetings
+  classification: primary
+  coverage:
+  - place: US/RI/little-compton
+    level: dedicated
+  jurisdiction: US/RI/little-compton
+  languages:
+  - en
+  endpoints:
+  - kind: rss
+    url: https://opengov.sos.ri.gov/RSSFeed/Rss?feedType=1&entityID=0&filter1=&filter2=&Keywords=&FromDate=&ToDate=&RefineSearch=&PublicBodies=Little%20Compton
+    note: 3 items on 2026-11-24, newest dated 2026-11-30.
+  - kind: html
+    url: https://opengov.sos.ri.gov/OpenMeetingsPublic/OpenMeetingDashboard?subtopmenuId=201&EntityID=1820
+  - kind: html
+    url: https://opengov.sos.ri.gov/OpenMeetingsPublic/OpenMeetingDashboard?subtopmenuId=201&EntityID=1822
+  - kind: html
+    url: https://opengov.sos.ri.gov/OpenMeetingsPublic/OpenMeetingDashboard?subtopmenuId=201&EntityID=1823
+  - kind: html
+    url: https://opengov.sos.ri.gov/OpenMeetingsPublic/OpenMeetingDashboard?subtopmenuId=201&EntityID=1825
+  - kind: html
+    url: https://opengov.sos.ri.gov/OpenMeetingsPublic/OpenMeetingDashboard?subtopmenuId=201&EntityID=1826
+  - kind: html
+    url: https://opengov.sos.ri.gov/OpenMeetingsPublic/OpenMeetingDashboard?subtopmenuId=201&EntityID=1827
+  - kind: html
+    url: https://opengov.sos.ri.gov/OpenMeetingsPublic/OpenMeetingDashboard?subtopmenuId=201&EntityID=1828
+  - kind: html
+    url: https://opengov.sos.ri.gov/OpenMeetingsPublic/OpenMeetingDashboard?subtopmenuId=201&EntityID=1829
+  - kind: html
+    url: https://opengov.sos.ri.gov/OpenMeetingsPublic/OpenMeetingDashboard?subtopmenuId=201&EntityID=1830
+  - kind: html
+    url: https://opengov.sos.ri.gov/OpenMeetingsPublic/OpenMeetingDashboard?subtopmenuId=201&EntityID=1831
+  - kind: html
+    url: https://opengov.sos.ri.gov/OpenMeetingsPublic/OpenMeetingDashboard?subtopmenuId=201&EntityID=1833
+  - kind: html
+    url: https://opengov.sos.ri.gov/OpenMeetingsPublic/OpenMeetingDashboard?subtopmenuId=201&EntityID=1836
+  - kind: html
+    url: https://opengov.sos.ri.gov/OpenMeetingsPublic/OpenMeetingDashboard?subtopmenuId=201&EntityID=1845
+  frequency: continuous
+  access:
+    paywall: none
+  platform: RI SOS Open Meetings (opengov.sos.ri.gov)
+  discovered: '2026-11-24'
+  status: checked
+  provenance:
+    method: agent-proposed
+    evidence: Found and loaded by a research agent on 2026-11-24, then re-loaded with this project's own tools.
+  notes: 'RSS = upcoming meetings filtered by body name ''Little Compton''. Dashboards listed are bodies with filings
+    in 2025-26: Agricultural Conservancy Trust 1820, Beach Commission 1822, Board of Canvassers 1823, Budget Committee
+    1825, Charter Review 1826, Conservation Commission 1827, Free Public Library Trust 1828, Harbor Commission 1829,
+    Hazard Mitigation 1830, Housing Trust 1831, Pension Committee 1833, Recreation Committee 1836, ''Little Compton,
+    Town of'' 1845. Per-body feeds: feedType=9 recently filed minutes, feedType=7 upcoming (returns HTTP 404 with
+    an empty RSS body when nothing is scheduled). Agendas and minutes themselves are PDFs. Do NOT request feedType=3
+    (all completed meetings statewide, >100 MB).'
+  verified: '2026-11-24'
+- id: us-ri-little-compton-town-council
+  name: 'RI Open Meetings: Little Compton Town Council'
+  publisher: Little Compton Town Council (via Rhode Island Department of State)
+  url: https://opengov.sos.ri.gov/OpenMeetingsPublic/OpenMeetingDashboard?subtopmenuId=201&EntityID=1843
+  type: meetings
+  classification: primary
+  coverage:
+  - place: US/RI/little-compton
+    level: dedicated
+  jurisdiction: US/RI/little-compton
+  languages:
+  - en
+  topics:
+  - government
+  - meetings
+  endpoints:
+  - kind: html
+    url: https://opengov.sos.ri.gov/OpenMeetingsPublic/OpenMeetingDashboard?subtopmenuId=201&EntityID=1843
+  - kind: rss
+    url: https://opengov.sos.ri.gov/RSSFeed/Rss?feedType=9&entityID=1843&filter1=&filter2=&Keywords=&FromDate=&ToDate=&RefineSearch=&PublicBodies=
+    note: 50 items on 2026-11-24, newest dated 2026-10-14.
+  - kind: rss
+    url: https://opengov.sos.ri.gov/RSSFeed/Rss?feedType=7&entityID=1843&filter1=&filter2=&Keywords=&FromDate=&ToDate=&RefineSearch=&PublicBodies=
+    note: Empty on 2026-11-24. This feed only has items when something is scheduled or posted.
+  access:
+    paywall: none
+  platform: RI SOS Open Meetings
+  discovered: '2026-11-24'
+  status: checked
+  provenance:
+    method: agent-proposed
+    evidence: Found and loaded by a research agent on 2026-11-24, then re-loaded with this project's own tools.
+  notes: EntityID 1843. Minutes and agendas are PDF attachments on each MeetingInformation page.
+  verified: '2026-11-24'
+- id: us-ri-little-compton-planning-board
+  name: 'RI Open Meetings: Little Compton Planning Board'
+  publisher: Little Compton Planning Board (via Rhode Island Department of State)
+  url: https://opengov.sos.ri.gov/OpenMeetingsPublic/OpenMeetingDashboard?subtopmenuId=201&EntityID=1834
+  type: planning-zoning
+  classification: primary
+  coverage:
+  - place: US/RI/little-compton
+    level: dedicated
+  jurisdiction: US/RI/little-compton
+  languages:
+  - en
+  topics:
+  - development
+  - meetings
+  endpoints:
+  - kind: html
+    url: https://opengov.sos.ri.gov/OpenMeetingsPublic/OpenMeetingDashboard?subtopmenuId=201&EntityID=1834
+  - kind: rss
+    url: https://opengov.sos.ri.gov/RSSFeed/Rss?feedType=9&entityID=1834&filter1=&filter2=&Keywords=&FromDate=&ToDate=&RefineSearch=&PublicBodies=
+    note: 50 items on 2026-11-24, newest dated 2026-11-16.
+  - kind: rss
+    url: https://opengov.sos.ri.gov/RSSFeed/Rss?feedType=7&entityID=1834&filter1=&filter2=&Keywords=&FromDate=&ToDate=&RefineSearch=&PublicBodies=
+    note: Empty on 2026-11-24. This feed only has items when something is scheduled or posted.
+  access:
+    paywall: none
+  platform: RI SOS Open Meetings
+  discovered: '2026-11-24'
+  status: checked
+  provenance:
+    method: agent-proposed
+    evidence: Found and loaded by a research agent on 2026-11-24, then re-loaded with this project's own tools.
+  notes: EntityID 1834. Minutes and agendas are PDF attachments on each MeetingInformation page.
+  verified: '2026-11-24'
+- id: us-ri-little-compton-zoning-board
+  name: 'RI Open Meetings: Little Compton Zoning Board of Review'
+  publisher: Little Compton Zoning Board of Review (via Rhode Island Department of State)
+  url: https://opengov.sos.ri.gov/OpenMeetingsPublic/OpenMeetingDashboard?subtopmenuId=201&EntityID=1844
+  type: planning-zoning
+  classification: primary
+  coverage:
+  - place: US/RI/little-compton
+    level: dedicated
+  jurisdiction: US/RI/little-compton
+  languages:
+  - en
+  topics:
+  - development
+  - meetings
+  endpoints:
+  - kind: html
+    url: https://opengov.sos.ri.gov/OpenMeetingsPublic/OpenMeetingDashboard?subtopmenuId=201&EntityID=1844
+  - kind: rss
+    url: https://opengov.sos.ri.gov/RSSFeed/Rss?feedType=9&entityID=1844&filter1=&filter2=&Keywords=&FromDate=&ToDate=&RefineSearch=&PublicBodies=
+    note: 50 items on 2026-11-24, newest dated 2026-03-19.
+  - kind: rss
+    url: https://opengov.sos.ri.gov/RSSFeed/Rss?feedType=7&entityID=1844&filter1=&filter2=&Keywords=&FromDate=&ToDate=&RefineSearch=&PublicBodies=
+    note: Empty on 2026-11-24. This feed only has items when something is scheduled or posted.
+  access:
+    paywall: none
+  platform: RI SOS Open Meetings
+  discovered: '2026-11-24'
+  status: checked
+  provenance:
+    method: agent-proposed
+    evidence: Found and loaded by a research agent on 2026-11-24, then re-loaded with this project's own tools.
+  notes: EntityID 1844. Minutes and agendas are PDF attachments on each MeetingInformation page.
+  verified: '2026-11-24'
+- id: us-ri-little-compton-school-committee
+  name: 'RI Open Meetings: Little Compton School Committee'
+  publisher: Little Compton School Committee (via Rhode Island Department of State)
+  url: https://opengov.sos.ri.gov/OpenMeetingsPublic/OpenMeetingDashboard?subtopmenuId=201&EntityID=1841
+  type: schools
+  classification: primary
+  coverage:
+  - place: US/RI/little-compton
+    level: dedicated
+  jurisdiction: US/RI/little-compton
+  languages:
+  - en
+  topics:
+  - schools
+  - meetings
+  endpoints:
+  - kind: html
+    url: https://opengov.sos.ri.gov/OpenMeetingsPublic/OpenMeetingDashboard?subtopmenuId=201&EntityID=1841
+  - kind: rss
+    url: https://opengov.sos.ri.gov/RSSFeed/Rss?feedType=9&entityID=1841&filter1=&filter2=&Keywords=&FromDate=&ToDate=&RefineSearch=&PublicBodies=
+    note: 50 items on 2026-11-24, newest dated 2026-11-02.
+  - kind: rss
+    url: https://opengov.sos.ri.gov/RSSFeed/Rss?feedType=7&entityID=1841&filter1=&filter2=&Keywords=&FromDate=&ToDate=&RefineSearch=&PublicBodies=
+    note: Empty on 2026-11-24. This feed only has items when something is scheduled or posted.
+  access:
+    paywall: none
+  platform: RI SOS Open Meetings
+  discovered: '2026-11-24'
+  status: checked
+  provenance:
+    method: agent-proposed
+    evidence: Found and loaded by a research agent on 2026-11-24, then re-loaded with this project's own tools.
+  notes: EntityID 1841. Minutes and agendas are PDF attachments on each MeetingInformation page.
+  verified: '2026-11-24'
+- id: us-ri-little-compton-document-center
+  name: Little Compton Document Center (budgets, audits, financial reports)
+  publisher: Town of Little Compton
+  url: https://www.littlecomptonri.org/government/document_center.php
+  type: budget
+  classification: primary
+  coverage:
+  - place: US/RI/little-compton
+    level: dedicated
+  jurisdiction: US/RI/little-compton
+  languages:
+  - en
+  topics:
+  - budget
+  endpoints:
+  - kind: html
+    url: https://www.littlecomptonri.org/government/document_center.php
+  - kind: html
+    url: https://www.littlecomptonri.org/departments/treasurer/index.php
+  access:
+    paywall: none
+  platform: Revize
+  discovered: '2026-11-24'
+  status: checked
+  provenance:
+    method: agent-proposed
+    evidence: Found and loaded by a research agent on 2026-11-24, then re-loaded with this project's own tools.
+  notes: 'PDF documents grouped by department (Financial Reports anchor #outer-52).'
+  verified: '2026-11-24'
+- id: us-ri-little-compton-building-zoning
+  name: Little Compton Building & Zoning / permit portal
+  publisher: Town of Little Compton
+  url: https://www.littlecomptonri.org/departments/building_inspections/index.php
+  type: permits
+  classification: primary
+  coverage:
+  - place: US/RI/little-compton
+    level: dedicated
+  jurisdiction: US/RI/little-compton
+  languages:
+  - en
+  topics:
+  - permits
+  - development
+  endpoints:
+  - kind: html
+    url: https://littlecomptonri.portal.opengov.com/
+    note: The site's robots.txt disallows automated fetching of this address, so the tools skip it. Open it yourself.
+  - kind: html
+    url: https://www.littlecomptonri.org/departments/planning_zoning.php
+  access:
+    paywall: none
+  platform: OpenGov Permitting & Licensing (formerly ViewPoint Cloud)
+  discovered: '2026-11-24'
+  status: checked
+  provenance:
+    method: agent-proposed
+    evidence: Found and loaded by a research agent on 2026-11-24, then re-loaded with this project's own tools.
+  notes: Portal is a JavaScript app; no public feed found. Town also links the statewide e-permitting portal.
+  verified: '2026-11-24'
+- id: us-ri-little-compton-fire-department
+  name: Little Compton Fire Department
+  publisher: Little Compton Fire Department
+  url: https://www.littlecomptonfirerescue.com/
+  type: public-safety
+  classification: primary
+  coverage:
+  - place: US/RI/little-compton
+    level: dedicated
+  jurisdiction: US/RI/little-compton
+  languages:
+  - en
+  topics:
+  - fire
+  - emergency
+  access:
+    paywall: none
+  platform: Firehouse Solutions (ColdFusion)
+  discovered: '2026-11-24'
+  status: checked
+  provenance:
+    method: agent-proposed
+    evidence: Found and loaded by a research agent on 2026-11-24, then re-loaded with this project's own tools.
+  notes: Department's own site; town also has a page and links CodeRED sign-up.
+  verified: '2026-11-24'
+- id: us-ri-little-compton-beaches-parks-recreation
+  name: Little Compton beaches, parks and recreation pages
+  publisher: Town of Little Compton
+  url: https://www.littlecomptonri.org/community/recreation.php
+  type: parks-recreation
+  classification: primary
+  coverage:
+  - place: US/RI/little-compton
+    level: dedicated
+  jurisdiction: US/RI/little-compton
+  languages:
+  - en
+  endpoints:
+  - kind: html
+    url: https://www.littlecomptonri.org/community/beaches.php
+  - kind: html
+    url: https://www.littlecomptonri.org/community/parks.php
+  - kind: html
+    url: https://opengov.sos.ri.gov/OpenMeetingsPublic/OpenMeetingDashboard?subtopmenuId=201&EntityID=1836
+  access:
+    paywall: none
+  platform: Revize
+  discovered: '2026-11-24'
+  status: checked
+  provenance:
+    method: agent-proposed
+    evidence: Found and loaded by a research agent on 2026-11-24, then re-loaded with this project's own tools.
+  verified: '2026-11-24'
+- id: us-ri-little-compton-school-department
+  name: Little Compton School Department (Wilbur & McMahon School)
+  publisher: Little Compton School Department
+  url: https://lcsd.k12.ri.us/
+  type: schools
+  classification: primary
+  coverage:
+  - place: US/RI/little-compton
+    level: dedicated
+  jurisdiction: US/RI/little-compton
+  languages:
+  - en
+  topics:
+  - schools
+  endpoints:
+  - kind: sitemap
+    url: https://lcsd.k12.ri.us/sitemap.xml
+  access:
+    paywall: none
+  platform: Wix
+  discovered: '2026-11-24'
+  status: checked
+  provenance:
+    method: agent-proposed
+    evidence: Found and loaded by a research agent on 2026-11-24, then re-loaded with this project's own tools.
+  notes: Blog feed exists but looks dormant; School Committee agendas/minutes are on the RI SOS portal (EntityID
+    1841). A feed at https://lcsd.k12.ri.us/blog-feed.xml exists but is dormant (checked 2026-11-24), so it is not
+    listed.
+  verified: '2026-11-24'
+- id: us-ri-little-compton-brownell-library
+  name: Brownell Library
+  publisher: Brownell Library (Little Compton Free Public Library)
+  url: https://brownell-libraryri.org/
+  type: library
+  classification: primary
+  coverage:
+  - place: US/RI/little-compton
+    level: dedicated
+  languages:
+  - en
+  topics:
+  - events
+  - books
+  endpoints:
+  - kind: rss
+    url: https://brownell-libraryri.org/feed/
+    note: 14 items on 2026-11-24, newest dated 2026-11-21.
+  - kind: ical
+    url: https://brownell-libraryri.org/events/?ical=1
+    note: 8 events on 2026-11-24.
+  - kind: api
+    url: https://brownell-libraryri.org/wp-json/wp/v2/posts?per_page=5
+  access:
+    paywall: none
+  platform: WordPress + The Events Calendar
+  discovered: '2026-11-24'
+  status: checked
+  provenance:
+    method: agent-proposed
+    evidence: Found and loaded by a research agent on 2026-11-24, then re-loaded with this project's own tools.
+  verified: '2026-11-24'
+- id: us-ri-little-compton-community-center
+  name: Little Compton Community Center
+  publisher: Little Compton Community Center
+  url: https://lccenter.org/
+  type: community-organization
+  classification: primary
+  coverage:
+  - place: US/RI/little-compton
+    level: dedicated
+  languages:
+  - en
+  endpoints:
+  - kind: rss
+    url: https://lccenter.org/newsletter-archive?format=rss
+    note: 20 items on 2026-11-24, newest dated 2026-09-01.
+  - kind: html
+    url: https://lccenter.org/building-use-calendar
+  - kind: sitemap
+    url: https://lccenter.org/sitemap.xml
+  frequency: monthly
+  access:
+    paywall: none
+  platform: Squarespace
+  discovered: '2026-11-24'
+  status: checked
+  provenance:
+    method: agent-proposed
+    evidence: Found and loaded by a research agent on 2026-11-24, then re-loaded with this project's own tools.
+  notes: Also hosts concerts, community meals/senior lunch and a food-related 'buy nothing' programme pages; site
+    root ?format=rss returns 400, the newsletter collection feed works.
+  verified: '2026-11-24'
+- id: us-ri-little-compton-historical-society
+  name: Little Compton Historical Society
+  publisher: Little Compton Historical Society
+  url: https://littlecompton.org/
+  type: history
+  classification: primary
+  coverage:
+  - place: US/RI/little-compton
+    level: dedicated
+  languages:
+  - en
+  topics:
+  - history
+  endpoints:
+  - kind: rss
+    url: https://littlecompton.org/feed/
+  - kind: ical
+    url: https://littlecompton.org/events/?ical=1
+  access:
+    paywall: none
+    restrictions: 'Refuses automated requests: returned HTTP 403 to this project''s tools on 2026-11-24, though
+      it loads in a browser. Read it by hand.'
+  platform: WordPress + The Events Calendar
+  discovered: '2026-11-24'
+  status: unverified
+  provenance:
+    method: agent-proposed
+    evidence: Found and loaded by a research agent on 2026-11-24, then re-loaded with this project's own tools.
+  notes: Museum (Wilbor House). Posts feed is stale; the events iCal is the live feed. Host rate-limits (HTTP 429
+    on rapid requests).
+- id: us-ri-little-compton-sakonnet-preservation-association
+  name: Sakonnet Preservation Association
+  publisher: Sakonnet Preservation Association
+  url: https://www.sakonnetpreservation.org/
+  type: environment
+  classification: primary
+  coverage:
+  - place: US/RI/little-compton
+    level: dedicated
+  languages:
+  - en
+  topics:
+  - land-conservation
+  access:
+    paywall: none
+  platform: WordPress (Elementor)
+  discovered: '2026-11-24'
+  status: checked
+  provenance:
+    method: agent-proposed
+    evidence: Found and loaded by a research agent on 2026-11-24, then re-loaded with this project's own tools.
+  notes: Feed present but posts are old. A feed at https://www.sakonnetpreservation.org/feed/ exists but is dormant
+    (checked 2026-11-24), so it is not listed.
+  verified: '2026-11-24'
+- id: us-ri-little-compton-agricultural-conservancy-trust
+  name: Little Compton Agricultural Conservancy Trust
+  publisher: Little Compton Agricultural Conservancy Trust (town-chartered)
+  url: https://www.lcact.net/
+  type: environment
+  classification: primary
+  coverage:
+  - place: US/RI/little-compton
+    level: dedicated
+  languages:
+  - en
+  topics:
+  - land-conservation
+  endpoints:
+  - kind: api
+    url: https://www.lcact.net/wp-json/wp/v2/posts?per_page=5
+  - kind: html
+    url: https://opengov.sos.ri.gov/OpenMeetingsPublic/OpenMeetingDashboard?subtopmenuId=201&EntityID=1820
+  access:
+    paywall: none
+  platform: WordPress
+  discovered: '2026-11-24'
+  status: checked
+  provenance:
+    method: agent-proposed
+    evidence: Found and loaded by a research agent on 2026-11-24, then re-loaded with this project's own tools.
+  notes: Meeting notices/minutes on RI SOS portal EntityID 1820. lcact.org does not resolve; lcact.net is the live
+    domain. A feed at https://www.lcact.net/feed/ exists but is dormant (checked 2026-11-24), so it is not listed.
+  verified: '2026-11-24'
+- id: us-ri-little-compton-garden-club
+  name: Little Compton Garden Club
+  publisher: Little Compton Garden Club
+  url: https://littlecomptongardenclub.org/
+  type: community-organization
+  classification: primary
+  coverage:
+  - place: US/RI/little-compton
+    level: dedicated
+  languages:
+  - en
+  endpoints:
+  - kind: rss
+    url: https://littlecomptongardenclub.org/feed/
+    note: 10 items on 2026-11-24, newest dated 2026-11-02.
+  access:
+    paywall: none
+  platform: WordPress
+  discovered: '2026-11-24'
+  status: checked
+  provenance:
+    method: agent-proposed
+    evidence: Found and loaded by a research agent on 2026-11-24, then re-loaded with this project's own tools.
+  verified: '2026-11-24'
+- id: us-ri-little-compton-sogkonate-garden-club
+  name: Sogkonate Garden Club
+  publisher: Sogkonate Garden Club
+  url: https://www.sogkonate.org/
+  type: community-organization
+  classification: primary
+  coverage:
+  - place: US/RI/little-compton
+    level: dedicated
+  languages:
+  - en
+  endpoints:
+  - kind: html
+    url: https://www.sogkonate.org/upcoming-public-events
+  - kind: sitemap
+    url: https://www.sogkonate.org/sitemap.xml
+  access:
+    paywall: none
+  platform: Squarespace
+  discovered: '2026-11-24'
+  status: checked
+  provenance:
+    method: agent-proposed
+    evidence: Found and loaded by a research agent on 2026-11-24, then re-loaded with this project's own tools.
+  verified: '2026-11-24'
+  notes: A feed at https://www.sogkonate.org/blog?format=rss exists but is dormant (checked 2026-11-24), so it is
+    not listed.
+- id: us-ri-little-compton-united-congregational-church
+  name: United Congregational Church of Little Compton
+  publisher: United Congregational Church of Little Compton (UCC)
+  url: https://www.ucclittlecompton.org/
+  type: religious
+  classification: primary
+  coverage:
+  - place: US/RI/little-compton
+    level: dedicated
+  languages:
+  - en
+  endpoints:
+  - kind: html
+    url: https://www.ucclittlecompton.org/calendar.html
+  access:
+    paywall: none
+  platform: Weebly
+  discovered: '2026-11-24'
+  status: checked
+  provenance:
+    method: agent-proposed
+    evidence: Found and loaded by a research agent on 2026-11-24, then re-loaded with this project's own tools.
+  notes: Public calendar page; also organises the annual Summer Fair & Road Race.
+  verified: '2026-11-24'
+- id: us-ri-little-compton-st-catherine-of-siena
+  name: St. Catherine of Siena Church
+  publisher: St. Catherine of Siena Parish (Diocese of Providence)
+  url: https://saintcatherinesiena.com/
+  type: religious
+  classification: primary
+  coverage:
+  - place: US/RI/little-compton
+    level: dedicated
+  languages:
+  - en
+  endpoints:
+  - kind: rss
+    url: https://saintcatherinesiena.com/feed/
+    note: 1 items on 2026-11-24, newest dated 2026-01-12.
+  access:
+    paywall: none
+  platform: WordPress
+  discovered: '2026-11-24'
+  status: checked
+  provenance:
+    method: agent-proposed
+    evidence: Found and loaded by a research agent on 2026-11-24, then re-loaded with this project's own tools.
+  notes: Feed has very few posts.
+  verified: '2026-11-24'
+- id: us-ri-little-compton-friends-of-sakonnet-lighthouse
+  name: Friends of the Sakonnet Lighthouse
+  publisher: Friends of the Sakonnet Lighthouse
+  url: https://www.sakonnetlighthouse.org/
+  type: community-organization
+  classification: primary
+  coverage:
+  - place: US/RI/little-compton
+    level: dedicated
+  languages:
+  - en
+  access:
+    paywall: none
+  discovered: '2026-11-24'
+  status: checked
+  provenance:
+    method: agent-proposed
+    evidence: Found and loaded by a research agent on 2026-11-24, then re-loaded with this project's own tools.
+  notes: Small static site.
+  verified: '2026-11-24'
+- id: us-ri-little-compton-sakonnet-times
+  name: 'Sakonnet Times / EastBayRI.com: Little Compton'
+  publisher: East Bay Media Group
+  url: https://www.eastbayri.com/little-compton/
+  type: newspaper
+  classification: primary
+  coverage:
+  - place: US/RI/little-compton
+    level: dedicated
+  - place: US/RI/tiverton
+    level: regular
+  - place: US/MA/westport
+    level: regular
+  languages:
+  - en
+  endpoints:
+  - kind: rss
+    url: https://www.eastbayri.com/little-compton/category/news/browse.rss
+    note: 25 items on 2026-11-24, newest dated 2026-11-23.
+  - kind: html
+    url: https://www.eastbayri.com/little-compton/category/local/browse.html
+  - kind: html
+    url: https://www.eastbayri.com/little-compton/calendar/
+  - kind: html
+    url: https://www.eastbayri.com/little-compton/eeditions/
+  frequency: weekly
+  access:
+    paywall: metered
+  platform: Creative Circle Media Solutions
+  discovered: '2026-11-24'
+  status: checked
+  provenance:
+    method: agent-proposed
+    evidence: Found and loaded by a research agent on 2026-11-24, then re-loaded with this project's own tools.
+  notes: The weekly Sakonnet Times covers Little Compton and Tiverton. Town section pages and their browse.rss also
+    carry East Bay-wide stories, so filter by town name. Subscriber login and day pass offered. robots.txt and sitemap.xml
+    return 403/404. Hosts paid legal/public notices in print.
+  verified: '2026-11-24'
+- id: us-ri-little-compton-patch
+  name: Tiverton-Little Compton Patch
+  publisher: Patch Media
+  url: https://patch.com/rhode-island/tiverton
+  type: news-site
+  classification: secondary
+  coverage:
+  - place: US/RI/little-compton
+    level: regular
+  - place: US/RI/tiverton
+    level: regular
+  languages:
+  - en
+  endpoints:
+  - kind: rss
+    url: https://patch.com/feeds/rhode-island/tiverton
+    note: 6 items on 2026-11-24, newest dated 2026-11-23.
+  frequency: daily
+  access:
+    paywall: none
+  platform: Patch
+  discovered: '2026-11-24'
+  status: checked
+  provenance:
+    method: agent-proposed
+    evidence: Found and loaded by a research agent on 2026-11-24, then re-loaded with this project's own tools.
+  verified: '2026-11-24'
+- id: us-ri-little-compton-sakonnet-vineyard
+  name: Sakonnet Vineyard
+  publisher: Sakonnet Vineyard
+  url: https://www.sakonnetwine.com/
+  type: food-drink
+  classification: primary
+  coverage:
+  - place: US/RI/little-compton
+    level: dedicated
+  languages:
+  - en
+  topics:
+  - food
+  endpoints:
+  - kind: rss
+    url: https://www.sakonnetwine.com/events?format=rss
+    note: 28 items on 2026-11-24, newest dated 2026-11-12.
+  - kind: html
+    url: https://www.sakonnetwine.com/events
+  - kind: html
+    url: https://www.sakonnetwine.com/menu
+  - kind: sitemap
+    url: https://www.sakonnetwine.com/sitemap.xml
+  access:
+    paywall: none
+  platform: Squarespace
+  discovered: '2026-11-24'
+  status: checked
+  provenance:
+    method: agent-proposed
+    evidence: Found and loaded by a research agent on 2026-11-24, then re-loaded with this project's own tools.
+  notes: Events collection RSS works (?format=ical on the collection returns HTML, not ICS).
+  verified: '2026-11-24'
+- id: us-ri-little-compton-wishing-stone-farm
+  name: Wishing Stone Farm
+  publisher: Wishing Stone Farm
+  url: https://www.wishingstonefarm.com/
+  type: farm-market
+  classification: primary
+  coverage:
+  - place: US/RI/little-compton
+    level: dedicated
+  languages:
+  - en
+  topics:
+  - food
+  - farms
+  endpoints:
+  - kind: sitemap
+    url: https://www.wishingstonefarm.com/sitemap.xml
+  access:
+    paywall: none
+  platform: Squarespace
+  discovered: '2026-11-24'
+  status: checked
+  provenance:
+    method: agent-proposed
+    evidence: Found and loaded by a research agent on 2026-11-24, then re-loaded with this project's own tools.
+  verified: '2026-11-24'
+- id: us-ri-little-compton-young-family-farm
+  name: Young Family Farm
+  publisher: Young Family Farm
+  url: https://www.youngfamilyfarm.com/
+  type: farm-market
+  classification: primary
+  coverage:
+  - place: US/RI/little-compton
+    level: dedicated
+  languages:
+  - en
+  topics:
+  - food
+  - farms
+  endpoints:
+  - kind: rss
+    url: https://www.youngfamilyfarm.com/blog-feed.xml
+    note: 1 items on 2026-11-24, newest dated 2026-02-17.
+  access:
+    paywall: none
+  platform: Wix
+  discovered: '2026-11-24'
+  status: checked
+  provenance:
+    method: agent-proposed
+    evidence: Found and loaded by a research agent on 2026-11-24, then re-loaded with this project's own tools.
+  notes: Blog feed has a single post.
+  verified: '2026-11-24'
+- id: us-ri-little-compton-sweet-and-salty-farm
+  name: Sweet & Salty Farm
+  publisher: Sweet & Salty Farm
+  url: https://sweetandsaltyfarm.com/
+  type: farm-market
+  classification: primary
+  coverage:
+  - place: US/RI/little-compton
+    level: dedicated
+  languages:
+  - en
+  topics:
+  - food
+  - farms
+  access:
+    paywall: none
+  platform: WordPress
+  discovered: '2026-11-24'
+  status: checked
+  provenance:
+    method: agent-proposed
+    evidence: Found and loaded by a research agent on 2026-11-24, then re-loaded with this project's own tools.
+  notes: Feed exists but is empty. A feed at https://sweetandsaltyfarm.com/feed/ exists but is dormant (checked
+    2026-11-24), so it is not listed.
+  verified: '2026-11-24'
+- id: us-ri-little-compton-grays-grist-mill
+  name: Gray's Grist Mill (Adamsville)
+  publisher: Gray's Grist Mill
+  url: https://www.graysgristmill.com/
+  type: food-drink
+  classification: primary
+  coverage:
+  - place: US/RI/little-compton
+    level: regular
+  - place: US/MA/westport
+    level: regular
+  languages:
+  - en
+  topics:
+  - food
+  access:
+    paywall: none
+  platform: WordPress
+  discovered: '2026-11-24'
+  status: checked
+  provenance:
+    method: agent-proposed
+    evidence: Found and loaded by a research agent on 2026-11-24, then re-loaded with this project's own tools.
+  notes: Historic mill in Adamsville on the Little Compton/Westport line.
+  verified: '2026-11-24'
+- id: us-ri-little-compton-sakonnet-garden
+  name: Sakonnet Garden
+  publisher: Sakonnet Garden
+  url: https://www.sakonnetgarden.net/
+  type: tourism
+  classification: primary
+  coverage:
+  - place: US/RI/little-compton
+    level: dedicated
+  languages:
+  - en
+  topics:
+  - visiting
+  endpoints:
+  - kind: html
+    url: https://www.sakonnetgarden.net/events
+  - kind: sitemap
+    url: https://www.sakonnetgarden.net/sitemap.xml
+  access:
+    paywall: none
+  platform: Squarespace
+  discovered: '2026-11-24'
+  status: checked
+  provenance:
+    method: agent-proposed
+    evidence: Found and loaded by a research agent on 2026-11-24, then re-loaded with this project's own tools.
+  verified: '2026-11-24'
