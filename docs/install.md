@@ -84,7 +84,7 @@ week?"*
 | Method | Status on 2026-11-24 |
 |---|---|
 | Copy into `~/.claude/skills/` and run the tools | Tested |
-| Folder names, frontmatter and limits against the Agent Skills specification | Tested in CI (`tests/test_skills.py`) |
+| Folder names, frontmatter and limits against the Agent Skills specification | Tested in CI: `tests/test_skills.py`, and the specification's own `skills-ref` validator reports both skills valid |
 | `npx skills add`, Codex, OpenClaw, Hermes, Claude app upload | Paths and commands are taken from each tool's documentation (linked in [research/ecosystem.md](research/ecosystem.md)); not run by this project yet. Reports welcome. |
 
 ## Requirements
