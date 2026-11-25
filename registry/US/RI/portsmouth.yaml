@@ -15,10 +15,7 @@ place:
   neighbors:
   - US/RI/tiverton
   - US/RI/bristol
-  adjacent_unmapped:
-  - name: Middletown, Rhode Island
-    wikidata: Q1013038
-    note: To the south, on the same island.
+  - US/RI/middletown
   centroid:
     lat: 41.6
     lon: -71.25
@@ -537,8 +534,9 @@ sources:
   coverage:
   - place: US/RI/portsmouth
     level: regular
-    note: 'Covers all of Aquidneck Island: Portsmouth, Middletown and Newport. Only Portsmouth is in the registry
-      so far.'
+    note: 'Covers all of Aquidneck Island: Portsmouth, Middletown and Newport.'
+  - place: US/RI/middletown
+    level: regular
   languages:
   - en
   topics:

@@ -7,12 +7,223 @@ place:
   subdivision: US-RI
   parents:
   - US/RI/newport-county
+  neighbors:
+  - US/RI/portsmouth
+  - US/RI/newport
   centroid:
     lat: 41.5202
     lon: -71.2802
+  postal_codes:
+  - 02842
+  languages:
+  - en
+  timezone: America/New_York
   identifiers:
     us_census_geoid: '4400545460'
+    wikidata: Q1013038
   provenance:
     method: import
     dataset: US Census Gazetteer 2024 (county subdivisions)
     imported: '2026-11-24'
+  notes: On Aquidneck Island between Portsmouth to the north and Newport to the south. Shares a school-regionalization
+    discussion with Newport.
+sources:
+- id: us-ri-middletown-town-website
+  name: Town of Middletown official website
+  publisher: Town of Middletown
+  url: https://middletownri.gov/
+  type: government
+  classification: primary
+  coverage:
+  - place: US/RI/middletown
+    level: dedicated
+  jurisdiction: US/RI/middletown
+  languages:
+  - en
+  topics:
+  - government
+  - alerts
+  endpoints:
+  - kind: rss
+    url: https://middletownri.gov/RSSFeed.aspx?ModID=1&CID=All-newsflash.xml
+    title: News Flash
+    note: 80 items on 2026-11-25, newest dated 2026-11-24.
+  - kind: ical
+    url: https://middletownri.gov/common/modules/iCalendar/iCalendar.aspx?catID=14&feed=calendar
+    title: Town calendar
+    note: 264 events on 2026-11-25, including recurring meetings years ahead. Each event links back to this feed.
+  access:
+    paywall: none
+  platform: CivicPlus
+  discovered: '2026-11-25'
+  verified: '2026-11-25'
+  status: checked
+  provenance:
+    method: agent-proposed
+    evidence: Home page and both feeds loaded with this project's tools on 2026-11-25; feed addresses follow the
+      CivicPlus pattern seen on the Portsmouth and Tiverton sites and were loaded, not assumed.
+  notes: The site's /rss.aspx index is disallowed by robots.txt. A calendar RSS feed (ModID=58) also loads but
+    repeats the iCal feed. The Agenda Creator feed (ModID=65) loads empty; agendas and minutes are on ClerkBase.
+- id: us-ri-middletown-clerkbase
+  name: Middletown agendas, minutes and town code (ClerkBase)
+  publisher: Town of Middletown (Town Clerk)
+  url: https://clerkshq.com/middletown-ri
+  type: meetings
+  classification: primary
+  coverage:
+  - place: US/RI/middletown
+    level: dedicated
+  jurisdiction: US/RI/middletown
+  languages:
+  - en
+  endpoints:
+  - kind: html
+    url: https://clerkshq.com/middletown-ri
+  access:
+    paywall: none
+  platform: ClerkBase
+  discovered: '2026-11-25'
+  verified: '2026-11-25'
+  status: checked
+  provenance:
+    method: agent-proposed
+    evidence: Loaded on 2026-11-25 titled 'Middletown, RI - ClerkBase'; Town Council agendas are posted under
+      clerkshq.com/Content/Middletown-ri/council/.
+  notes: Town Council agendas and minutes, one page per meeting. No feed found.
+- id: us-ri-middletown-open-meetings-all-bodies
+  name: 'RI Open Meetings: all Middletown public bodies'
+  publisher: Rhode Island Department of State (filings by Town of Middletown bodies)
+  url: https://opengov.sos.ri.gov/OpenMeetings
+  type: meetings
+  classification: primary
+  coverage:
+  - place: US/RI/middletown
+    level: dedicated
+  jurisdiction: US/RI/middletown
+  languages:
+  - en
+  topics:
+  - government
+  - meetings
+  endpoints:
+  - kind: rss
+    url: https://opengov.sos.ri.gov/RSSFeed/Rss?feedType=1&entityID=0&filter1=&filter2=&Keywords=&FromDate=&ToDate=&RefineSearch=&PublicBodies=Middletown
+    title: Upcoming meetings of bodies with Middletown in the name
+    note: 7 items on 2026-11-25 (Planning Board, Conservation Commission, Technical Review Committee, Affordable
+      Housing Committee, School Committee, Library trustees). Item dates are meeting dates.
+  access:
+    paywall: none
+  platform: RI SOS Open Meetings
+  discovered: '2026-11-25'
+  verified: '2026-11-25'
+  status: checked
+  provenance:
+    method: agent-proposed
+    evidence: The name-filtered feed loaded on 2026-11-25; it follows the pattern of the Portsmouth and Tiverton
+      entries.
+  notes: Per-body dashboards and feeds exist; their entity numbers were not looked up yet.
+- id: us-ri-middletown-patch
+  name: Middletown Patch
+  publisher: Patch Media
+  url: https://patch.com/rhode-island/middletown
+  type: news-site
+  classification: secondary
+  coverage:
+  - place: US/RI/middletown
+    level: dedicated
+  languages:
+  - en
+  topics:
+  - news
+  endpoints:
+  - kind: rss
+    url: https://patch.com/feeds/rhode-island/middletown
+    note: 5 items on 2026-11-25, newest dated 2026-11-24.
+  access:
+    paywall: none
+  platform: Patch
+  discovered: '2026-11-25'
+  verified: '2026-11-25'
+  status: checked
+  provenance:
+    method: agent-proposed
+    evidence: Page and feed loaded on 2026-11-25; feed address follows the Portsmouth Patch entry.
+  notes: Like other Patch sites, mixes local items with statewide ones.
+- id: us-ri-middletown-public-schools
+  name: Middletown Public Schools
+  publisher: Middletown Public Schools
+  url: https://www.mpsri.net/
+  type: schools
+  classification: primary
+  coverage:
+  - place: US/RI/middletown
+    level: dedicated
+  jurisdiction: US/RI/middletown
+  languages:
+  - en
+  endpoints:
+  - kind: html
+    url: https://www.mpsri.net/
+  access:
+    paywall: none
+  discovered: '2026-11-25'
+  verified: '2026-11-25'
+  status: checked
+  provenance:
+    method: agent-proposed
+    evidence: Home page loaded on 2026-11-25 titled 'Home | Middletown Public Schools'. No feed found.
+  notes: School Committee meetings are in the RI Open Meetings entry.
+- id: us-ri-middletown-public-library
+  name: Middletown Public Library
+  publisher: Middletown Public Library
+  url: https://middletownpubliclibraryri.org/
+  type: library
+  classification: primary
+  coverage:
+  - place: US/RI/middletown
+    level: dedicated
+  languages:
+  - en
+  topics:
+  - events
+  endpoints:
+  - kind: html
+    url: https://middletownpubliclibraryri.libcal.com/
+    title: Events calendar (LibCal)
+  access:
+    paywall: none
+  platform: LibCal
+  discovered: '2026-11-25'
+  verified: '2026-11-25'
+  status: checked
+  provenance:
+    method: agent-proposed
+    evidence: Home page loaded on 2026-11-25; the events calendar is on LibCal. /rss.xml loads but is empty, so it
+      is not listed.
+- id: us-ri-middletown-norman-bird-sanctuary
+  name: Norman Bird Sanctuary
+  publisher: Norman Bird Sanctuary
+  url: https://normanbirdsanctuary.org/
+  type: environment
+  classification: primary
+  coverage:
+  - place: US/RI/middletown
+    level: dedicated
+  languages:
+  - en
+  topics:
+  - nature
+  - events
+  endpoints:
+  - kind: html
+    url: https://normanbirdsanctuary.org/events/
+    title: Programs & Events
+  access:
+    paywall: none
+  discovered: '2026-11-25'
+  verified: '2026-11-25'
+  status: checked
+  provenance:
+    method: agent-proposed
+    evidence: Home page and events page loaded on 2026-11-25. Neither /feed/ nor an iCal export answered as a feed.
+  notes: 583 Third Beach Road. Walks, lectures and family programs, some free.

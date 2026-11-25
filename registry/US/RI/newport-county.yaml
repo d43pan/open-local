@@ -91,6 +91,30 @@ sources:
     method: agent-proposed
     evidence: Found and loaded by a research agent on 2026-11-24, then re-loaded with this project's own tools.
   verified: '2026-11-24'
+- id: us-ri-newport-county-newport-daily-news
+  name: The Newport Daily News
+  publisher: The Newport Daily News (Gannett)
+  url: https://www.newportri.com/
+  type: newspaper
+  classification: primary
+  coverage:
+  - place: US/RI/newport-county
+    level: dedicated
+  languages:
+  - en
+  endpoints:
+  - kind: html
+    url: https://www.newportri.com/
+  access:
+    paywall: unknown
+  discovered: '2026-11-25'
+  verified: '2026-11-25'
+  status: checked
+  provenance:
+    method: agent-proposed
+    evidence: Home page loaded on 2026-11-25 titled 'Newport Daily News - Local News, Politics & Sports in Newport,
+      RI'. No feed advertised.
+  notes: The county's daily paper. The site offers subscriptions throughout; how much is free was not checked.
 - id: us-ri-newport-county-whats-up-newp
   name: What'sUpNewp
   publisher: What's Up Newp (What's Up Rhode Island)
