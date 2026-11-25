@@ -229,3 +229,74 @@ sources:
     method: agent-proposed
     evidence: Home page and events page loaded on 2026-11-25. Neither /feed/ nor an iCal export answered as a feed.
   notes: 583 Third Beach Road. Walks, lectures and family programs, some free.
+- id: us-ri-middletown-newport-vineyards
+  name: Newport Vineyards
+  publisher: Newport Vineyards
+  url: https://newportvineyards.com/
+  type: food-drink
+  classification: primary
+  roles:
+  - dining
+  - music-nightlife
+  - events-listings
+  coverage:
+  - place: US/RI/middletown
+    level: dedicated
+  location:
+    address: 909 East Main Road, Middletown, RI
+  languages:
+  - en
+  topics:
+  - wine
+  - music
+  endpoints:
+  - kind: ical
+    url: https://newportvineyards.com/events/list/?ical=1
+    title: Upcoming events
+    note: 15 events on 2026-11-25, next on 2026-11-29 (Sunday brunch with live music, classes, tastings).
+  - kind: html
+    url: https://newportvineyards.com/events/
+  access:
+    paywall: none
+  platform: WordPress (The Events Calendar)
+  discovered: '2026-11-25'
+  verified: '2026-11-25'
+  status: checked
+  provenance:
+    method: agent-proposed
+    evidence: Home page, events page and iCal export loaded on 2026-11-25. The /events/?ical=1 address timed out;
+      the /events/list/?ical=1 one answered.
+  notes: Winery, restaurant (Farm & Barrel Bistro, formerly Brix) and Taproot Brewery on preserved farmland.
+- id: us-ri-middletown-sweet-berry-farm
+  name: Sweet Berry Farm
+  publisher: Sweet Berry Farm
+  url: https://www.sweetberryfarmri.com/
+  type: farm-market
+  classification: primary
+  roles:
+  - food-buying
+  - dining
+  coverage:
+  - place: US/RI/middletown
+    level: dedicated
+  location:
+    address: 915 Mitchell's Lane, Middletown, RI
+  languages:
+  - en
+  topics:
+  - farm
+  - pick-your-own
+  endpoints:
+  - kind: html
+    url: https://www.sweetberryfarmri.com/
+  access:
+    paywall: none
+  platform: Squarespace
+  discovered: '2026-11-25'
+  verified: '2026-11-25'
+  status: checked
+  provenance:
+    method: agent-proposed
+    evidence: Home page loaded on 2026-11-25 titled 'Sweet Berry Farm'. Its /events page lists private events only;
+      no feed found.
+  notes: Farm market, cafe and pick-your-own, roughly April to December; Christmas trees late in the year.

@@ -36,9 +36,9 @@ def check_source(s: dict, today: dt.date | None = None, quiet_days: int = 120) -
                 report["problems"].append(f"{kind} returns HTTP {r.status}: {url}")
             elif kind in FEED_KINDS:
                 try:
-                    f = feeds.parse(r.body)
+                    f = feeds.read(kind, r.body, r.url)
                     row["items"], row["newest"] = len(f["items"]), feeds.newest(f["items"])
-                    if kind != "ical" and row["newest"]:
+                    if kind not in ("ical", "events") and row["newest"]:
                         age = (today - dt.date.fromisoformat(row["newest"][:10])).days
                         if age > quiet_days:
                             report["problems"].append(f"{kind} feed has published nothing for {age} days: {url}")

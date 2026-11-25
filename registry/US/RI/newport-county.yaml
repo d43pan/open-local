@@ -25,6 +25,9 @@ sources:
   url: https://www.discovernewport.org/
   type: tourism
   classification: secondary
+  roles:
+  - events-listings
+  - dining
   coverage:
   - place: US/RI/little-compton
     level: regular
@@ -33,6 +36,8 @@ sources:
   - place: US/RI/newport-county
     level: dedicated
   - place: US/RI/portsmouth
+    level: regular
+  - place: US/RI/middletown
     level: regular
   - place: US/RI/bristol
     level: regular
@@ -53,8 +58,13 @@ sources:
     url: https://www.discovernewport.org/about-newport/nine-coastal-communities/bristol/
   - kind: html
     url: https://www.discovernewport.org/about-newport/nine-coastal-communities/warren/
-  - kind: html
+  - kind: events
     url: https://www.discovernewport.org/events/
+    title: Events calendar
+    note: 8 events with schema.org data on 2026-11-25, through February 2027.
+  - kind: html
+    url: https://www.discovernewport.org/newport-restaurant-week/
+    title: Newport Restaurant Week (each November)
   - kind: sitemap
     url: https://www.discovernewport.org/sitemap.xml
   access:
@@ -74,6 +84,9 @@ sources:
   classification: primary
   roles:
   - community-weekly
+  - events-listings
+  - dining
+  - arts
   coverage:
   - place: US/RI/newport-county
     level: dedicated
@@ -83,6 +96,14 @@ sources:
   - kind: rss
     url: https://www.newportthisweek.com/feed/
     note: 20 items on 2026-11-24, newest dated 2026-11-23.
+  - kind: rss
+    url: https://www.newportthisweek.com/category/dining-entertainment/feed/
+    title: Dining & Entertainment
+    note: 20 items on 2026-11-25, newest dated 2026-11-19.
+  - kind: rss
+    url: https://www.newportthisweek.com/category/calendar/feed/
+    title: Calendar
+    note: 15 items on 2026-11-25. Item dates are publication dates, not event dates.
   frequency: weekly
   access:
     paywall: none
@@ -127,6 +148,10 @@ sources:
   classification: primary
   roles:
   - hyperlocal-digital
+  - events-listings
+  - arts
+  - sports
+  - obituaries
   coverage:
   - place: US/RI/newport-county
     level: dedicated
@@ -137,14 +162,28 @@ sources:
   endpoints:
   - kind: rss
     url: https://whatsupnewp.com/feed/
+    note: 100 items on 2026-11-25.
+  - kind: rss
+    url: https://whatsupnewp.com/category/artsandculture/feed/
+    title: Arts & Culture
+  - kind: rss
+    url: https://whatsupnewp.com/category/things-to-do/feed/
+    title: Things To Do
+  - kind: rss
+    url: https://whatsupnewp.com/category/sports/feed/
+    title: Sports
+  - kind: html
+    url: https://whatsupnewp.com/obituaries/
+    title: Obituaries
   frequency: continuous
   access:
     paywall: none
-    restrictions: 'Refuses automated requests: returned HTTP 403 to this project''s tools on 2026-11-24, though
-      it loads in a browser. Read it by hand.'
+    restrictions: Returned HTTP 403 on 2026-11-24 and loaded on 2026-11-25. Rate-limits rapid requests (HTTP 429);
+      its food-drink section feed answered 429 and is not listed yet.
   platform: WordPress (Newspack)
   discovered: '2026-11-24'
-  status: unverified
+  verified: '2026-11-25'
+  status: checked
   provenance:
     method: agent-proposed
     evidence: Found and loaded by a research agent on 2026-11-24, then re-loaded with this project's own tools.

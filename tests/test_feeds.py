@@ -66,8 +66,10 @@ def test_discovery_finds_advertised_and_linked_feeds_and_skips_unsafe_ones(fake_
     })
     found = feeds.discover("https://alder.example.org/planning")
     urls = {f["url"]: f for f in found["feeds"]}
-    assert set(urls) == {"https://alder.example.org/feed/", "https://alder.example.org/council.ics", "https://alder.example.org/minutes.rss"}
+    assert set(urls) == {"https://alder.example.org/feed/", "https://alder.example.org/council.ics", "https://alder.example.org/minutes.rss",
+                         "https://alder.example.org/planning"}
     assert urls["https://alder.example.org/council.ics"]["kind"] == "ical"
+    assert urls["https://alder.example.org/planning"]["kind"] == "events"   # the page marks up its hearing as an Event
     assert urls["https://alder.example.org/feed/"]["newest"].startswith("2026-11-23")
     assert found["title"].startswith("Planning Board")
     assert "http://169.254.169.254/latest/rss.xml" in net.calls  # it was tried, and the fetch layer refused it
@@ -77,3 +79,21 @@ def test_discovery_on_a_feed_url_returns_that_feed(fake_net):
     fake_net({"https://alder.example.org/feed/": (200, "feed.rss")})
     found = feeds.discover("https://alder.example.org/feed/")
     assert [f["kind"] for f in found["feeds"]] == ["rss"]
+
+
+def test_events_page_reads_only_marked_up_events():
+    from openlocal import feeds
+    f = feeds.read("events", (FIX / "events.html").read_bytes(), "https://alder.example.org/whats-on")
+    assert f["kind"] == "events" and f["title"] == "Alder Hall: What's on"
+    titles = [i["title"] for i in f["items"]]
+    assert titles == ["Folk night & open mic", "Winter show opening", "Last summer's fair"]   # duplicate dropped, org ignored
+    folk = f["items"][0]
+    assert folk["url"] == "https://alder.example.org/events/folk-night" and folk["location"] == "Alder Hall, 1 Commons, Alder"
+    assert folk["start"].startswith("2026-11-28T19:30")
+
+
+def test_a_page_without_event_data_is_not_an_events_feed():
+    import pytest
+    from openlocal import feeds
+    with pytest.raises(feeds.NotAFeed):
+        feeds.read("events", b"<html><head><title>No events</title></head><body><p>Meets 9 Dec 2026</p></body></html>")

@@ -1,0 +1,184 @@
+place:
+  id: US/RI/aquidneck-island
+  name: Aquidneck Island
+  kind: custom
+  local_kind: island
+  country: US
+  subdivision: US-RI
+  aliases:
+  - Aquidneck
+  - Rhode Island (the island)
+  parents:
+  - US/RI/newport-county
+  covers:
+  - US/RI/portsmouth
+  - US/RI/middletown
+  - US/RI/newport
+  centroid:
+    lat: 41.53
+    lon: -71.28
+  timezone: America/New_York
+  notes: The island shared by Portsmouth, Middletown and Newport. Residents of all three use the same museums,
+    theatres, venues and markets, most of them in Newport, so those are filed here. Events from these sources reach
+    all three towns; news still has to name the town.
+sources:
+- id: us-ri-aquidneck-island-newport-art-museum
+  name: Newport Art Museum
+  publisher: Newport Art Museum
+  url: https://newportartmuseum.org/
+  type: museum
+  classification: primary
+  roles:
+  - arts
+  - events-listings
+  coverage:
+  - place: US/RI/aquidneck-island
+    level: dedicated
+  location:
+    address: 76 Bellevue Avenue, Newport, RI
+  languages:
+  - en
+  topics:
+  - art
+  - exhibitions
+  endpoints:
+  - kind: html
+    url: https://newportartmuseum.org/calendar/
+    title: Museum calendar
+  access:
+    paywall: none
+  platform: WordPress
+  discovered: '2026-11-25'
+  verified: '2026-11-25'
+  status: checked
+  provenance:
+    method: agent-proposed
+    evidence: Calendar page loaded on 2026-11-25 titled 'Museum Calendar - Newport Art Museum'. /feed/ loads but is
+      empty; no iCal export or event data found.
+  notes: Exhibitions, talks, family programs and classes. Closed Tuesdays.
+- id: us-ri-aquidneck-island-jane-pickens-theater
+  name: The JPT Film + Event Center (Jane Pickens Theater)
+  publisher: Jane Pickens Theater
+  url: https://janepickens.com/
+  type: performance-venue
+  classification: primary
+  roles:
+  - arts
+  - music-nightlife
+  - events-listings
+  coverage:
+  - place: US/RI/aquidneck-island
+    level: dedicated
+  location:
+    address: 49 Touro Street, Newport, RI
+  languages:
+  - en
+  topics:
+  - film
+  - music
+  endpoints:
+  - kind: html
+    url: https://janepickens.com/
+  access:
+    paywall: none
+  discovered: '2026-11-25'
+  verified: '2026-11-25'
+  status: checked
+  provenance:
+    method: agent-proposed
+    evidence: Home page loaded on 2026-11-25 titled 'The JPT Film + Event Center | Films. Events. Experiences.' No
+      feed or event data found.
+  notes: The island's art-house cinema, with concerts and live-music screenings.
+- id: us-ri-aquidneck-island-newport-playhouse
+  name: Newport Playhouse & Cabaret Restaurant
+  publisher: Newport Playhouse
+  url: https://www.newportplayhouse.com/
+  type: performance-venue
+  classification: primary
+  roles:
+  - arts
+  - dining
+  coverage:
+  - place: US/RI/aquidneck-island
+    level: dedicated
+  location:
+    address: 102 Connell Highway, Newport, RI
+  languages:
+  - en
+  topics:
+  - theatre
+  endpoints:
+  - kind: html
+    url: https://www.newportplayhouse.com/
+  access:
+    paywall: none
+  discovered: '2026-11-25'
+  verified: '2026-11-25'
+  status: checked
+  provenance:
+    method: agent-proposed
+    evidence: Home page loaded on 2026-11-25 titled 'Newport Playhouse & Cabaret Restaurant - RI Dinner Theatre'. No
+      feed found.
+  notes: Dinner theatre, year-round, with a cabaret after each play.
+- id: us-ri-aquidneck-island-newport-live
+  name: Newport Live (formerly Common Fence Music)
+  publisher: Newport Live
+  url: https://www.newportlive.org/
+  type: performance-venue
+  classification: primary
+  roles:
+  - music-nightlife
+  - events-listings
+  coverage:
+  - place: US/RI/aquidneck-island
+    level: dedicated
+  - place: US/RI/portsmouth
+    level: regular
+    note: Began as a folk series for the Common Fence Point neighbourhood of Portsmouth.
+  languages:
+  - en
+  topics:
+  - music
+  endpoints:
+  - kind: html
+    url: https://www.newportlive.org/
+  access:
+    paywall: none
+  discovered: '2026-11-25'
+  verified: '2026-11-25'
+  status: checked
+  provenance:
+    method: agent-proposed
+    evidence: Home page loaded on 2026-11-25 titled 'Newport Live'. A fall 2026 concert series is listed under this
+      name on Eventbrite. No feed found. commonfencemusic.org timed out.
+  notes: Concert presenter (folk, jazz and world music) at venues around the island.
+- id: us-ri-aquidneck-island-aquidneck-community-table
+  name: Aquidneck Community Table (Aquidneck Growers' Market)
+  publisher: Aquidneck Community Table
+  url: https://aquidneckcommunitytable.org/
+  type: farm-market
+  classification: primary
+  roles:
+  - food-buying
+  - events-listings
+  coverage:
+  - place: US/RI/aquidneck-island
+    level: dedicated
+  languages:
+  - en
+  topics:
+  - farmers-market
+  - food
+  endpoints:
+  - kind: html
+    url: https://aquidneckcommunitytable.org/
+  access:
+    paywall: none
+  discovered: '2026-11-25'
+  verified: '2026-11-25'
+  status: checked
+  provenance:
+    method: agent-proposed
+    evidence: Home page loaded on 2026-11-25 titled 'Home | Aquidneck Community Table'. No feed found.
+  notes: Runs the island's farmers market. The outdoor season and winter pop-ups move between sites; check the
+    page for this week's location.

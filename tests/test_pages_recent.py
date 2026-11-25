@@ -85,7 +85,7 @@ def test_propose_drafts_an_unverified_entry_without_touching_the_registry(reg, f
     entry = yaml.safe_load(text)[0]
     assert entry["id"] == "xx-no-alder-planning-board" and entry["status"] == "unverified"
     assert entry["provenance"]["method"] == "agent-proposed" and "verified" not in entry
-    assert {e["kind"] for e in entry["endpoints"]} == {"rss", "ical"}
+    assert {e["kind"] for e in entry["endpoints"]} == {"rss", "ical", "events"}
     assert json.dumps(reg.data) == before
 
 
@@ -129,3 +129,32 @@ def test_item_link_rules():
     assert recent.item_link("/Calendar.aspx?EID=9", feed, "https://t.example.gov/") == "https://t.example.gov/Calendar.aspx?EID=9"
     assert recent.item_link(None, feed, "https://t.example.gov/") == "https://t.example.gov/"
     assert recent.item_link("https://news.example.org/a", feed, "x") == "https://news.example.org/a"
+
+
+def test_recent_reads_event_pages_as_events(reg, fake_net):
+    src = next(s for s in reg.sources if any(c.get("place") == "XX/NO/alder" for c in s.get("coverage") or []))
+    src.setdefault("endpoints", []).append({"kind": "events", "url": "https://alder.example.org/whats-on"})
+    f = fake_net({**NETWORK, "https://alder.example.org/whats-on": (200, (FIX / "events.html").read_bytes())})
+    out = recent.recent(reg, "XX/NO/alder", today=TODAY, fetch=f)
+    ev = {i["title"]: i for i in out["items"] if i["kind"] == "event"}
+    assert "Folk night & open mic" in ev and "Winter show opening" in ev and "Last summer's fair" not in ev
+    assert ev["Folk night & open mic"]["url"] == "https://alder.example.org/events/folk-night"
+    assert not any(b.get("name") == src["name"] for b in out["coverage"]["read_by_hand"])
+
+
+def test_events_from_a_named_local_region_reach_its_towns(reg, fake_net):
+    # An area source filed under a custom region: its events count without naming the town.
+    parent = reg.places["XX/NO/alder"]["parents"][0]
+    reg.places["XX/NO/alder-coast"] = {"id": "XX/NO/alder-coast", "name": "Alder Coast", "kind": "custom", "country": "XX",
+                                       "parents": [parent], "covers": ["XX/NO/alder"], "centroid": {"lat": 0, "lon": 0}}
+    reg._up.setdefault("XX/NO/alder-coast", {parent})
+    reg._up["XX/NO/alder"].add("XX/NO/alder-coast")
+    src = {"id": "xx-no-alder-coast-hall", "name": "Coast Hall", "url": "https://hall.example.org/", "type": "performance-venue",
+           "classification": "primary", "coverage": [{"place": "XX/NO/alder-coast", "level": "dedicated"}], "status": "checked",
+           "home": "XX/NO/alder-coast", "endpoints": [{"kind": "events", "url": "https://hall.example.org/whats-on"}]}
+    reg.sources.append(src)
+    assert any(s["id"] == src["id"] and s["relation"] == "area" for s in reg.sources_for("XX/NO/alder"))
+    page = (FIX / "events.html").read_bytes().replace(b"Alder Hall", b"Coast Hall").replace(b'"addressLocality":"Alder"', b'"addressLocality":"Shore"')
+    f = fake_net({**NETWORK, "https://hall.example.org/whats-on": (200, page)})
+    out = recent.recent(reg, "XX/NO/alder", today=TODAY, fetch=f)
+    assert any(i["title"] == "Folk night & open mic" and i["relation"] == "area" for i in out["items"])

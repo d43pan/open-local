@@ -132,7 +132,7 @@ def recent(reg: Registry, place: str, *, days: int = 7, ahead: int = 14, radius_
                 r = fetch(e["url"])
                 if r.status != 200:
                     raise net.FetchError(f"HTTP {r.status}")
-                f = feeds.parse(r.body)
+                f = feeds.read(e["kind"], r.body, r.url)
             except net.Blocked as err:
                 if "robots" in str(err):
                     person.append(needs_person(s, e["url"], "robots.txt disallows automated fetching; open it in a browser",
@@ -145,7 +145,7 @@ def recent(reg: Registry, place: str, *, days: int = 7, ahead: int = 14, radius_
                 continue
             kept, off_topic = 0, 0
             for i in f["items"]:
-                is_event = f["kind"] == "ical"
+                is_event = f["kind"] in ("ical", "events")
                 date = i.get("start") if is_event else i.get("published")
                 if not date:
                     undated += 1
@@ -157,7 +157,10 @@ def recent(reg: Registry, place: str, *, days: int = 7, ahead: int = 14, radius_
                     continue
                 if (is_event and not today <= day <= until) or (not is_event and not since <= day <= today + dt.timedelta(days=1)):
                     continue
-                if s["relation"] == "area" and not all_area and \
+                # Area-wide items must name the place, except events from a named local region
+                # (Aquidneck Island, the Farm Coast): things on nearby are worth knowing.
+                local_region_event = is_event and (reg.places.get(s.get("via_place") or "", {}).get("kind") == "custom")
+                if s["relation"] == "area" and not all_area and not local_region_event and \
                         not mentions(" ".join([i.get("title", ""), i.get("summary", ""), i.get("location", "")]), names):
                     off_topic += 1
                     continue

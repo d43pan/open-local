@@ -1,8 +1,8 @@
 {
  "schema": "open-local/registry/1",
  "license": "CC0-1.0",
- "skill_version": "0.4.0",
- "data_version": "ca85f9e7e761",
+ "skill_version": "0.5.0",
+ "data_version": "62ea93da08f4",
  "places": {
   "US": {
    "id": "US",
@@ -162,6 +162,32 @@
     "ocd_division": "ocd-division/country:us/state:ri",
     "us_census_geoid": "44"
    }
+  },
+  "US/RI/aquidneck-island": {
+   "id": "US/RI/aquidneck-island",
+   "name": "Aquidneck Island",
+   "kind": "custom",
+   "local_kind": "island",
+   "country": "US",
+   "subdivision": "US-RI",
+   "aliases": [
+    "Aquidneck",
+    "Rhode Island (the island)"
+   ],
+   "parents": [
+    "US/RI/newport-county"
+   ],
+   "covers": [
+    "US/RI/portsmouth",
+    "US/RI/middletown",
+    "US/RI/newport"
+   ],
+   "centroid": {
+    "lat": 41.53,
+    "lon": -71.28
+   },
+   "timezone": "America/New_York",
+   "notes": "The island shared by Portsmouth, Middletown and Newport. Residents of all three use the same museums, theatres, venues and markets, most of them in Newport, so those are filed here. Events from these sources reach all three towns; news still has to name the town."
   },
   "US/RI/barrington": {
    "id": "US/RI/barrington",
@@ -2347,6 +2373,236 @@
    "home": "US/MA/westport"
   },
   {
+   "id": "us-ri-aquidneck-island-aquidneck-community-table",
+   "name": "Aquidneck Community Table (Aquidneck Growers' Market)",
+   "publisher": "Aquidneck Community Table",
+   "url": "https://aquidneckcommunitytable.org/",
+   "type": "farm-market",
+   "classification": "primary",
+   "roles": [
+    "food-buying",
+    "events-listings"
+   ],
+   "coverage": [
+    {
+     "place": "US/RI/aquidneck-island",
+     "level": "dedicated"
+    }
+   ],
+   "languages": [
+    "en"
+   ],
+   "topics": [
+    "farmers-market",
+    "food"
+   ],
+   "endpoints": [
+    {
+     "kind": "html",
+     "url": "https://aquidneckcommunitytable.org/"
+    }
+   ],
+   "access": {
+    "paywall": "none"
+   },
+   "discovered": "2026-11-25",
+   "verified": "2026-11-25",
+   "status": "checked",
+   "provenance": {
+    "method": "agent-proposed",
+    "evidence": "Home page loaded on 2026-11-25 titled 'Home | Aquidneck Community Table'. No feed found."
+   },
+   "notes": "Runs the island's farmers market. The outdoor season and winter pop-ups move between sites; check the page for this week's location.",
+   "home": "US/RI/aquidneck-island"
+  },
+  {
+   "id": "us-ri-aquidneck-island-jane-pickens-theater",
+   "name": "The JPT Film + Event Center (Jane Pickens Theater)",
+   "publisher": "Jane Pickens Theater",
+   "url": "https://janepickens.com/",
+   "type": "performance-venue",
+   "classification": "primary",
+   "roles": [
+    "arts",
+    "music-nightlife",
+    "events-listings"
+   ],
+   "coverage": [
+    {
+     "place": "US/RI/aquidneck-island",
+     "level": "dedicated"
+    }
+   ],
+   "location": {
+    "address": "49 Touro Street, Newport, RI"
+   },
+   "languages": [
+    "en"
+   ],
+   "topics": [
+    "film",
+    "music"
+   ],
+   "endpoints": [
+    {
+     "kind": "html",
+     "url": "https://janepickens.com/"
+    }
+   ],
+   "access": {
+    "paywall": "none"
+   },
+   "discovered": "2026-11-25",
+   "verified": "2026-11-25",
+   "status": "checked",
+   "provenance": {
+    "method": "agent-proposed",
+    "evidence": "Home page loaded on 2026-11-25 titled 'The JPT Film + Event Center | Films. Events. Experiences.' No feed or event data found."
+   },
+   "notes": "The island's art-house cinema, with concerts and live-music screenings.",
+   "home": "US/RI/aquidneck-island"
+  },
+  {
+   "id": "us-ri-aquidneck-island-newport-art-museum",
+   "name": "Newport Art Museum",
+   "publisher": "Newport Art Museum",
+   "url": "https://newportartmuseum.org/",
+   "type": "museum",
+   "classification": "primary",
+   "roles": [
+    "arts",
+    "events-listings"
+   ],
+   "coverage": [
+    {
+     "place": "US/RI/aquidneck-island",
+     "level": "dedicated"
+    }
+   ],
+   "location": {
+    "address": "76 Bellevue Avenue, Newport, RI"
+   },
+   "languages": [
+    "en"
+   ],
+   "topics": [
+    "art",
+    "exhibitions"
+   ],
+   "endpoints": [
+    {
+     "kind": "html",
+     "url": "https://newportartmuseum.org/calendar/",
+     "title": "Museum calendar"
+    }
+   ],
+   "access": {
+    "paywall": "none"
+   },
+   "platform": "WordPress",
+   "discovered": "2026-11-25",
+   "verified": "2026-11-25",
+   "status": "checked",
+   "provenance": {
+    "method": "agent-proposed",
+    "evidence": "Calendar page loaded on 2026-11-25 titled 'Museum Calendar - Newport Art Museum'. /feed/ loads but is empty; no iCal export or event data found."
+   },
+   "notes": "Exhibitions, talks, family programs and classes. Closed Tuesdays.",
+   "home": "US/RI/aquidneck-island"
+  },
+  {
+   "id": "us-ri-aquidneck-island-newport-live",
+   "name": "Newport Live (formerly Common Fence Music)",
+   "publisher": "Newport Live",
+   "url": "https://www.newportlive.org/",
+   "type": "performance-venue",
+   "classification": "primary",
+   "roles": [
+    "music-nightlife",
+    "events-listings"
+   ],
+   "coverage": [
+    {
+     "place": "US/RI/aquidneck-island",
+     "level": "dedicated"
+    },
+    {
+     "place": "US/RI/portsmouth",
+     "level": "regular",
+     "note": "Began as a folk series for the Common Fence Point neighbourhood of Portsmouth."
+    }
+   ],
+   "languages": [
+    "en"
+   ],
+   "topics": [
+    "music"
+   ],
+   "endpoints": [
+    {
+     "kind": "html",
+     "url": "https://www.newportlive.org/"
+    }
+   ],
+   "access": {
+    "paywall": "none"
+   },
+   "discovered": "2026-11-25",
+   "verified": "2026-11-25",
+   "status": "checked",
+   "provenance": {
+    "method": "agent-proposed",
+    "evidence": "Home page loaded on 2026-11-25 titled 'Newport Live'. A fall 2026 concert series is listed under this name on Eventbrite. No feed found. commonfencemusic.org timed out."
+   },
+   "notes": "Concert presenter (folk, jazz and world music) at venues around the island.",
+   "home": "US/RI/aquidneck-island"
+  },
+  {
+   "id": "us-ri-aquidneck-island-newport-playhouse",
+   "name": "Newport Playhouse & Cabaret Restaurant",
+   "publisher": "Newport Playhouse",
+   "url": "https://www.newportplayhouse.com/",
+   "type": "performance-venue",
+   "classification": "primary",
+   "roles": [
+    "arts",
+    "dining"
+   ],
+   "coverage": [
+    {
+     "place": "US/RI/aquidneck-island",
+     "level": "dedicated"
+    }
+   ],
+   "location": {
+    "address": "102 Connell Highway, Newport, RI"
+   },
+   "languages": [
+    "en"
+   ],
+   "topics": [
+    "theatre"
+   ],
+   "endpoints": [
+    {
+     "kind": "html",
+     "url": "https://www.newportplayhouse.com/"
+    }
+   ],
+   "access": {
+    "paywall": "none"
+   },
+   "discovered": "2026-11-25",
+   "verified": "2026-11-25",
+   "status": "checked",
+   "provenance": {
+    "method": "agent-proposed",
+    "evidence": "Home page loaded on 2026-11-25 titled 'Newport Playhouse & Cabaret Restaurant - RI Dinner Theatre'. No feed found."
+   },
+   "notes": "Dinner theatre, year-round, with a cabaret after each play.",
+   "home": "US/RI/aquidneck-island"
+  },
+  {
    "id": "us-ri-boston-globe-rhode-island",
    "name": "Boston Globe Rhode Island",
    "publisher": "Boston Globe Media Partners",
@@ -3690,6 +3946,68 @@
    },
    "notes": "Agendas and minutes are PDFs linked from each meeting's page.",
    "home": "US/RI/bristol"
+  },
+  {
+   "id": "us-ri-eastbayri-things-to-do",
+   "name": "EastBayRI.com: Things to Do",
+   "publisher": "East Bay Media Group",
+   "url": "https://www.eastbayri.com/category/things-to-do/browse.html",
+   "type": "events",
+   "classification": "mixed",
+   "roles": [
+    "events-listings",
+    "arts",
+    "music-nightlife"
+   ],
+   "coverage": [
+    {
+     "place": "US/RI/little-compton",
+     "level": "regular"
+    },
+    {
+     "place": "US/RI/tiverton",
+     "level": "regular"
+    },
+    {
+     "place": "US/RI/portsmouth",
+     "level": "regular"
+    },
+    {
+     "place": "US/RI/bristol",
+     "level": "regular"
+    },
+    {
+     "place": "US/RI/warren",
+     "level": "regular"
+    },
+    {
+     "place": "US/MA/westport",
+     "level": "regular"
+    }
+   ],
+   "languages": [
+    "en"
+   ],
+   "endpoints": [
+    {
+     "kind": "rss",
+     "url": "https://www.eastbayri.com/category/things-to-do/browse.rss",
+     "note": "25 items on 2026-11-25, newest dated 2026-11-24."
+    }
+   ],
+   "access": {
+    "paywall": "metered"
+   },
+   "platform": "Creative Circle Media Solutions",
+   "discovered": "2026-11-25",
+   "verified": "2026-11-25",
+   "status": "checked",
+   "provenance": {
+    "method": "agent-proposed",
+    "evidence": "Page and feed loaded on 2026-11-25; the group's other section feeds follow the same browse.rss pattern."
+   },
+   "notes": "The arts and things-to-do section shared by the East Bay group's papers (Sakonnet Times, Portsmouth Times, Bristol Phoenix, Warren Times-Gazette, Westport Shorelines).",
+   "home": "US/RI"
   },
   {
    "id": "us-ri-ecori-news",
@@ -5237,6 +5555,60 @@
    "home": "US/RI/middletown"
   },
   {
+   "id": "us-ri-middletown-newport-vineyards",
+   "name": "Newport Vineyards",
+   "publisher": "Newport Vineyards",
+   "url": "https://newportvineyards.com/",
+   "type": "food-drink",
+   "classification": "primary",
+   "roles": [
+    "dining",
+    "music-nightlife",
+    "events-listings"
+   ],
+   "coverage": [
+    {
+     "place": "US/RI/middletown",
+     "level": "dedicated"
+    }
+   ],
+   "location": {
+    "address": "909 East Main Road, Middletown, RI"
+   },
+   "languages": [
+    "en"
+   ],
+   "topics": [
+    "wine",
+    "music"
+   ],
+   "endpoints": [
+    {
+     "kind": "ical",
+     "url": "https://newportvineyards.com/events/list/?ical=1",
+     "title": "Upcoming events",
+     "note": "15 events on 2026-11-25, next on 2026-11-29 (Sunday brunch with live music, classes, tastings)."
+    },
+    {
+     "kind": "html",
+     "url": "https://newportvineyards.com/events/"
+    }
+   ],
+   "access": {
+    "paywall": "none"
+   },
+   "platform": "WordPress (The Events Calendar)",
+   "discovered": "2026-11-25",
+   "verified": "2026-11-25",
+   "status": "checked",
+   "provenance": {
+    "method": "agent-proposed",
+    "evidence": "Home page, events page and iCal export loaded on 2026-11-25. The /events/?ical=1 address timed out; the /events/list/?ical=1 one answered."
+   },
+   "notes": "Winery, restaurant (Farm & Barrel Bistro, formerly Brix) and Taproot Brewery on preserved farmland.",
+   "home": "US/RI/middletown"
+  },
+  {
    "id": "us-ri-middletown-norman-bird-sanctuary",
    "name": "Norman Bird Sanctuary",
    "publisher": "Norman Bird Sanctuary",
@@ -5438,6 +5810,53 @@
    "home": "US/RI/middletown"
   },
   {
+   "id": "us-ri-middletown-sweet-berry-farm",
+   "name": "Sweet Berry Farm",
+   "publisher": "Sweet Berry Farm",
+   "url": "https://www.sweetberryfarmri.com/",
+   "type": "farm-market",
+   "classification": "primary",
+   "roles": [
+    "food-buying",
+    "dining"
+   ],
+   "coverage": [
+    {
+     "place": "US/RI/middletown",
+     "level": "dedicated"
+    }
+   ],
+   "location": {
+    "address": "915 Mitchell's Lane, Middletown, RI"
+   },
+   "languages": [
+    "en"
+   ],
+   "topics": [
+    "farm",
+    "pick-your-own"
+   ],
+   "endpoints": [
+    {
+     "kind": "html",
+     "url": "https://www.sweetberryfarmri.com/"
+    }
+   ],
+   "access": {
+    "paywall": "none"
+   },
+   "platform": "Squarespace",
+   "discovered": "2026-11-25",
+   "verified": "2026-11-25",
+   "status": "checked",
+   "provenance": {
+    "method": "agent-proposed",
+    "evidence": "Home page loaded on 2026-11-25 titled 'Sweet Berry Farm'. Its /events page lists private events only; no feed found."
+   },
+   "notes": "Farm market, cafe and pick-your-own, roughly April to December; Christmas trees late in the year.",
+   "home": "US/RI/middletown"
+  },
+  {
    "id": "us-ri-middletown-town-website",
    "name": "Town of Middletown official website",
    "publisher": "Town of Middletown",
@@ -5537,6 +5956,10 @@
    "url": "https://www.discovernewport.org/",
    "type": "tourism",
    "classification": "secondary",
+   "roles": [
+    "events-listings",
+    "dining"
+   ],
    "coverage": [
     {
      "place": "US/RI/little-compton",
@@ -5552,6 +5975,10 @@
     },
     {
      "place": "US/RI/portsmouth",
+     "level": "regular"
+    },
+    {
+     "place": "US/RI/middletown",
      "level": "regular"
     },
     {
@@ -5591,8 +6018,15 @@
      "url": "https://www.discovernewport.org/about-newport/nine-coastal-communities/warren/"
     },
     {
+     "kind": "events",
+     "url": "https://www.discovernewport.org/events/",
+     "title": "Events calendar",
+     "note": "8 events with schema.org data on 2026-11-25, through February 2027."
+    },
+    {
      "kind": "html",
-     "url": "https://www.discovernewport.org/events/"
+     "url": "https://www.discovernewport.org/newport-restaurant-week/",
+     "title": "Newport Restaurant Week (each November)"
     },
     {
      "kind": "sitemap",
@@ -5694,7 +6128,10 @@
    "type": "newspaper",
    "classification": "primary",
    "roles": [
-    "community-weekly"
+    "community-weekly",
+    "events-listings",
+    "dining",
+    "arts"
    ],
    "coverage": [
     {
@@ -5710,6 +6147,18 @@
      "kind": "rss",
      "url": "https://www.newportthisweek.com/feed/",
      "note": "20 items on 2026-11-24, newest dated 2026-11-23."
+    },
+    {
+     "kind": "rss",
+     "url": "https://www.newportthisweek.com/category/dining-entertainment/feed/",
+     "title": "Dining & Entertainment",
+     "note": "20 items on 2026-11-25, newest dated 2026-11-19."
+    },
+    {
+     "kind": "rss",
+     "url": "https://www.newportthisweek.com/category/calendar/feed/",
+     "title": "Calendar",
+     "note": "15 items on 2026-11-25. Item dates are publication dates, not event dates."
     }
    ],
    "frequency": "weekly",
@@ -5734,7 +6183,11 @@
    "type": "news-site",
    "classification": "primary",
    "roles": [
-    "hyperlocal-digital"
+    "hyperlocal-digital",
+    "events-listings",
+    "arts",
+    "sports",
+    "obituaries"
    ],
    "coverage": [
     {
@@ -5752,17 +6205,39 @@
    "endpoints": [
     {
      "kind": "rss",
-     "url": "https://whatsupnewp.com/feed/"
+     "url": "https://whatsupnewp.com/feed/",
+     "note": "100 items on 2026-11-25."
+    },
+    {
+     "kind": "rss",
+     "url": "https://whatsupnewp.com/category/artsandculture/feed/",
+     "title": "Arts & Culture"
+    },
+    {
+     "kind": "rss",
+     "url": "https://whatsupnewp.com/category/things-to-do/feed/",
+     "title": "Things To Do"
+    },
+    {
+     "kind": "rss",
+     "url": "https://whatsupnewp.com/category/sports/feed/",
+     "title": "Sports"
+    },
+    {
+     "kind": "html",
+     "url": "https://whatsupnewp.com/obituaries/",
+     "title": "Obituaries"
     }
    ],
    "frequency": "continuous",
    "access": {
     "paywall": "none",
-    "restrictions": "Refuses automated requests: returned HTTP 403 to this project's tools on 2026-11-24, though it loads in a browser. Read it by hand."
+    "restrictions": "Returned HTTP 403 on 2026-11-24 and loaded on 2026-11-25. Rate-limits rapid requests (HTTP 429); its food-drink section feed answered 429 and is not listed yet."
    },
    "platform": "WordPress (Newspack)",
    "discovered": "2026-11-24",
-   "status": "unverified",
+   "verified": "2026-11-25",
+   "status": "checked",
    "provenance": {
     "method": "agent-proposed",
     "evidence": "Found and loaded by a research agent on 2026-11-24, then re-loaded with this project's own tools."
@@ -5993,6 +6468,55 @@
     "evidence": "Loaded with this project's tools on 2026-11-24 while expanding from Tiverton."
    },
    "notes": "A feed at /rss.xml exists but was empty on 2026-11-24, so it is not listed. The library's trustees also file on the Open Meetings portal (entity 2650).",
+   "home": "US/RI/portsmouth"
+  },
+  {
+   "id": "us-ri-portsmouth-greenvale-vineyards",
+   "name": "Greenvale Vineyards",
+   "publisher": "Greenvale Vineyards",
+   "url": "https://greenvale.com/",
+   "type": "food-drink",
+   "classification": "primary",
+   "roles": [
+    "dining",
+    "music-nightlife"
+   ],
+   "coverage": [
+    {
+     "place": "US/RI/portsmouth",
+     "level": "dedicated"
+    }
+   ],
+   "location": {
+    "address": "582 Wapping Road, Portsmouth, RI"
+   },
+   "languages": [
+    "en"
+   ],
+   "topics": [
+    "wine",
+    "jazz"
+   ],
+   "endpoints": [
+    {
+     "kind": "html",
+     "url": "https://greenvale.com/music-and-events/",
+     "title": "Music & Events"
+    }
+   ],
+   "access": {
+    "paywall": "none",
+    "agent_readable": false,
+    "blocked_by": "other",
+    "restrictions": "Returned HTTP 403 to this project's tools on 2026-11-25; open it in a browser."
+   },
+   "discovered": "2026-11-25",
+   "status": "unverified",
+   "provenance": {
+    "method": "agent-proposed",
+    "evidence": "Found in a web search on 2026-11-25 (its own Music & Events page lists a July 2026 live jazz date). The site refused this project's tools."
+   },
+   "notes": "Winery known for Saturday afternoon jazz in season.",
    "home": "US/RI/portsmouth"
   },
   {
