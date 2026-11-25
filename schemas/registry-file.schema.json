@@ -136,7 +136,7 @@
           "items": {
             "type": "object", "required": ["kind", "url"], "additionalProperties": false,
             "properties": {
-              "kind": {"enum": ["rss", "atom", "jsonfeed", "ical", "api", "sitemap", "html", "video", "podcast", "documents"]},
+              "kind": {"enum": ["rss", "atom", "jsonfeed", "ical", "events", "api", "sitemap", "html", "video", "podcast", "documents"], "description": "events: a web page whose event listings carry schema.org Event data; tools read only that data."},
               "url": {"$ref": "#/$defs/url"},
               "title": {"type": "string"},
               "note": {"type": "string"},

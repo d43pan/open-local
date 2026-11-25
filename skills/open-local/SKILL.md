@@ -4,7 +4,7 @@ description: Answer what is happening in a town (decisions, events, food, arts) 
 license: MIT
 compatibility: Needs Python 3.10+ and internet access. Works with any agent that can run a shell command and fetch web pages. No API key, no account. Adding a town also needs git, and a GitHub account to open the pull request.
 metadata:
-  version: "0.4.0"
+  version: "0.5.0"
   repository: https://github.com/d43pan/open-local
 ---
 
@@ -51,8 +51,9 @@ JSON and need only the Python standard library. Without a shell, see
    (`--all-area` lists them all). Narrow with `--type` or `--topic` (which types answer
    which question: [references/questions.md](references/questions.md)).
 4. **Read what the tool could not.** `coverage.read_by_hand` lists sources with no feed:
-   agendas, minutes, notices, menus, hours. Open the ones that matter for the question with
-   your own web tools. `run.py dates <url>` labels the dates on a page; `run.py changed <url>`
+   agendas, minutes, notices, menus, hours, and most venues, museums and farms. Open the
+   ones that matter for the question with your own web tools. For a general "what's
+   happening", that always includes the arts, music, events and food pages. `run.py dates <url>` labels the dates on a page; `run.py changed <url>`
    says whether a page changed since you last looked. `coverage.needs_a_person` lists
    sources the tools must not read (robots.txt, terms, login): do not fetch them another
    way; name them in the coverage report so the person can open them.

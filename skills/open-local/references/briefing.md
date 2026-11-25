@@ -18,7 +18,8 @@ As of <today's date>. Sources: <n> read, <n> could not be read.
 - **<Day, date, time>: <event or meeting>**, <where>. <One line: what is on the agenda,
   marked as proposed.> Source: [<name>](<link>)
 
-## Food, arts and around town        (only when asked, or for a general "what's on")
+## Food, arts and around town        (always for "what's happening" / "what's on")
+- **<Day, date>: <show, concert, exhibit, market, tasting>**, <venue, town>. Source: [<name>](<link>)
 - **<Fact>** (checked <date>). Source: [<name>](<link>)
 
 ## Worth knowing                      (optional: deadlines, hearings, closures)
@@ -34,6 +35,12 @@ As of <today's date>. Sources: <n> read, <n> could not be read.
 ```
 
 ## Notes
+
+- A general "what's happening" is about life in the place, not only its government and
+  news. Before writing, open the `read_by_hand` pages of sources whose roles are arts,
+  music-nightlife, events-listings, dining or food-buying (venues, museums, farms,
+  markets) and add what is on in the window. If none reach the place, say so under
+  Coverage ("no arts or music sources mapped") rather than leaving the section out.
 
 - Lead with the place's own sources (`relation: direct`), then area-wide items that
   actually mention the place. Do not pad with statewide news that has no local tie; if

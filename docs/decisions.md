@@ -321,3 +321,20 @@ served. A role list makes the spread visible and gives contributors a checklist.
 groups are where much local news first appears, so leaving them out hid real sources;
 listing them as links, never read, keeps the rules on private people and on automated
 reading intact.
+
+## 26. Event pages are read, and a named local region's events reach its towns
+
+**Decision.** A new endpoint kind, `events`, is a web page whose event listings carry
+schema.org `Event` data (JSON-LD, as many venue, library, tourism and calendar plugins
+publish). Tools read only that data, never the page's visible text, and treat the events
+like a calendar feed. `discover` reports such pages. Items from area-wide sources still have
+to name the place, except events from a named local region (a `custom` area such as
+Aquidneck Island or the Farm Coast): a concert in Newport is worth telling a Middletown
+resident about, a Newport council story is not. Aquidneck Island is added as such a region,
+holding Newport's museums, theatres, venues and market for Portsmouth, Middletown and
+Newport.
+
+**Why.** Briefings were thin on arts, music and food. Most culture sources have no feed, so
+tools skipped them, and the area filter dropped the events of the cultural centre next
+door because their listings do not name the reader's town. Structured event data is
+published on purpose to be read by machines, so reading it is both reliable and polite.

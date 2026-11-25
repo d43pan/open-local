@@ -667,3 +667,38 @@ sources:
     evidence: Loaded with this project's tools on 2026-11-24 while expanding from Tiverton.
   notes: Prudence Island is part of Portsmouth; the ferry runs from Bristol. The site's feed did not parse, so it
     is not listed.
+- id: us-ri-portsmouth-greenvale-vineyards
+  name: Greenvale Vineyards
+  publisher: Greenvale Vineyards
+  url: https://greenvale.com/
+  type: food-drink
+  classification: primary
+  roles:
+  - dining
+  - music-nightlife
+  coverage:
+  - place: US/RI/portsmouth
+    level: dedicated
+  location:
+    address: 582 Wapping Road, Portsmouth, RI
+  languages:
+  - en
+  topics:
+  - wine
+  - jazz
+  endpoints:
+  - kind: html
+    url: https://greenvale.com/music-and-events/
+    title: Music & Events
+  access:
+    paywall: none
+    agent_readable: false
+    blocked_by: other
+    restrictions: Returned HTTP 403 to this project's tools on 2026-11-25; open it in a browser.
+  discovered: '2026-11-25'
+  status: unverified
+  provenance:
+    method: agent-proposed
+    evidence: Found in a web search on 2026-11-25 (its own Music & Events page lists a July 2026 live jazz date).
+      The site refused this project's tools.
+  notes: Winery known for Saturday afternoon jazz in season.

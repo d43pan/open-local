@@ -22,6 +22,7 @@
       <outline type="rss" text="Westport Shorelines / EastBayRI.com: Westport" title="Westport Shorelines / EastBayRI.com: Westport" xmlUrl="https://www.eastbayri.com/westport/category/news/browse.rss" htmlUrl="https://www.eastbayri.com/westport/" category="newspaper"/>
     </outline>
     <outline text="Rhode Island" title="Rhode Island">
+      <outline type="rss" text="EastBayRI.com: Things to Do" title="EastBayRI.com: Things to Do" xmlUrl="https://www.eastbayri.com/category/things-to-do/browse.rss" htmlUrl="https://www.eastbayri.com/category/things-to-do/browse.html" category="events"/>
       <outline type="rss" text="NBC 10 WJAR" title="NBC 10 WJAR" xmlUrl="https://turnto10.com/news/local.rss" htmlUrl="https://turnto10.com/" category="television"/>
       <outline type="rss" text="RIPTA" title="RIPTA" xmlUrl="https://www.ripta.com/rss.xml" htmlUrl="https://www.ripta.com/" category="transportation"/>
       <outline type="rss" text="Rhode Island Current" title="Rhode Island Current" xmlUrl="https://rhodeislandcurrent.com/feed/" htmlUrl="https://rhodeislandcurrent.com/" category="news-site"/>
@@ -81,7 +82,12 @@
     </outline>
     <outline text="Newport County" title="Newport County">
       <outline type="rss" text="Greater Newport Chamber of Commerce" title="Greater Newport Chamber of Commerce" xmlUrl="https://www.newportchamber.com/feed/" htmlUrl="https://www.newportchamber.com/" category="chamber-of-commerce"/>
+      <outline type="rss" text="Newport This Week – Calendar" title="Newport This Week – Calendar" xmlUrl="https://www.newportthisweek.com/category/calendar/feed/" htmlUrl="https://www.newportthisweek.com/" category="newspaper"/>
+      <outline type="rss" text="Newport This Week – Dining &amp; Entertainment" title="Newport This Week – Dining &amp; Entertainment" xmlUrl="https://www.newportthisweek.com/category/dining-entertainment/feed/" htmlUrl="https://www.newportthisweek.com/" category="newspaper"/>
       <outline type="rss" text="Newport This Week" title="Newport This Week" xmlUrl="https://www.newportthisweek.com/feed/" htmlUrl="https://www.newportthisweek.com/" category="newspaper"/>
+      <outline type="rss" text="What'sUpNewp – Arts &amp; Culture" title="What'sUpNewp – Arts &amp; Culture" xmlUrl="https://whatsupnewp.com/category/artsandculture/feed/" htmlUrl="https://whatsupnewp.com/" category="news-site"/>
+      <outline type="rss" text="What'sUpNewp – Sports" title="What'sUpNewp – Sports" xmlUrl="https://whatsupnewp.com/category/sports/feed/" htmlUrl="https://whatsupnewp.com/" category="news-site"/>
+      <outline type="rss" text="What'sUpNewp – Things To Do" title="What'sUpNewp – Things To Do" xmlUrl="https://whatsupnewp.com/category/things-to-do/feed/" htmlUrl="https://whatsupnewp.com/" category="news-site"/>
       <outline type="rss" text="What'sUpNewp" title="What'sUpNewp" xmlUrl="https://whatsupnewp.com/feed/" htmlUrl="https://whatsupnewp.com/" category="news-site"/>
     </outline>
     <outline text="Portsmouth" title="Portsmouth">

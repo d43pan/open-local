@@ -149,6 +149,79 @@ def parse_ical(data: bytes) -> dict:
     return {"kind": "ical", "title": clean(title, 200), "items": items}
 
 
+EVENT_TYPES = {"Event", "MusicEvent", "TheaterEvent", "ExhibitionEvent", "Festival", "FoodEvent", "ScreeningEvent",
+               "LiteraryEvent", "ComedyEvent", "DanceEvent", "ChildrensEvent", "EducationEvent", "SocialEvent",
+               "SportsEvent", "VisualArtsEvent", "CourseInstance", "BusinessEvent"}
+
+
+def _ld_events(node, out: list) -> None:
+    if isinstance(node, list):
+        for v in node:
+            _ld_events(v, out)
+    elif isinstance(node, dict):
+        types = node.get("@type")
+        types = set(types) if isinstance(types, list) else {types}
+        if types & EVENT_TYPES and node.get("startDate"):
+            out.append(node)
+        for k, v in node.items():
+            if k in ("@graph", "itemListElement", "item", "subEvent", "event", "events") or isinstance(v, list):
+                _ld_events(v, out)
+
+
+def _place_name(loc) -> str:
+    if isinstance(loc, list):
+        loc = loc[0] if loc else None
+    if isinstance(loc, str):
+        return loc
+    if isinstance(loc, dict):
+        name = loc.get("name") or ""
+        addr = loc.get("address")
+        if isinstance(addr, dict):
+            addr = ", ".join(str(addr[k]) for k in ("streetAddress", "addressLocality") if addr.get(k))
+        return ", ".join(x for x in (name, addr if isinstance(addr, str) else "") if x)
+    return ""
+
+
+def parse_events_page(data: bytes, base_url: str = "") -> dict:
+    """Events a web page publishes as schema.org Event data (JSON-LD), as an event feed.
+
+    Venue, library and arts sites often have no feed but mark up their event listings this
+    way. Only marked-up events are read; the page's visible text is never guessed at.
+    Raises NotAFeed when the page carries no Event data.
+    """
+    from .pages import parse_html
+    p = parse_html(data.decode("utf-8", "replace"))
+    found: list[dict] = []
+    for blob in p.ld:
+        try:
+            _ld_events(json.loads(blob), found)
+        except ValueError:
+            continue
+    items, seen = [], set()
+    for ev in found:
+        start = str(ev.get("startDate"))
+        title = clean(html.unescape(str(ev.get("name") or "")), 300)
+        link = ev.get("url") or ev.get("@id") or ""
+        link = urllib.parse.urljoin(base_url, link) if isinstance(link, str) and link else ""
+        key = (title.lower(), start[:16])
+        if not title or key in seen:
+            continue
+        seen.add(key)
+        items.append({"title": title, "url": link or None, "start": start, "end": str(ev.get("endDate") or "") or None,
+                      "location": clean(_place_name(ev.get("location")), 200), "summary": clean(html.unescape(str(ev.get("description") or "")))})
+    if not items:
+        raise NotAFeed("no schema.org Event data on the page")
+    title = next((v for k, v in p.meta if k == "og:title"), "")
+    return {"kind": "events", "title": clean(title, 200), "items": items}
+
+
+def read(kind: str, data: bytes, url: str = "") -> dict:
+    """Parse an endpoint's body by its registry kind."""
+    if kind == "events":
+        return parse_events_page(data, url)
+    return parse(data)
+
+
 def parse(data: bytes) -> dict:
     """Parse any supported feed. Raises NotAFeed."""
     start = data.lstrip()[:1]
@@ -200,6 +273,12 @@ def discover(url: str, probe: bool = True, limit: int = 12) -> dict:
         f = parse(page.body)
         return {"url": page.url, "title": f["title"], "feeds": [{"url": page.url, "kind": f["kind"], "title": f["title"],
                                                                 "items": len(f["items"]), "newest": newest(f["items"]), "how": "the URL itself"}]}
+    except NotAFeed:
+        pass
+    try:  # the page may list events as schema.org data: an `events` endpoint
+        ev = parse_events_page(page.body, page.url)
+        found[page.url] = {"url": page.url, "kind": "events", "title": ev["title"], "items": len(ev["items"]),
+                           "newest": newest(ev["items"]), "how": "schema.org Event data on the page"}
     except NotAFeed:
         pass
     p = _Links()

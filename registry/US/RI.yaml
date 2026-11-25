@@ -312,3 +312,43 @@ sources:
   notes: Search-driven site, no feed found. Homepage is a JavaScript app (HTTP 200, empty <title>); one of three
     fetches timed out.
   verified: '2026-11-24'
+- id: us-ri-eastbayri-things-to-do
+  name: 'EastBayRI.com: Things to Do'
+  publisher: East Bay Media Group
+  url: https://www.eastbayri.com/category/things-to-do/browse.html
+  type: events
+  classification: mixed
+  roles:
+  - events-listings
+  - arts
+  - music-nightlife
+  coverage:
+  - place: US/RI/little-compton
+    level: regular
+  - place: US/RI/tiverton
+    level: regular
+  - place: US/RI/portsmouth
+    level: regular
+  - place: US/RI/bristol
+    level: regular
+  - place: US/RI/warren
+    level: regular
+  - place: US/MA/westport
+    level: regular
+  languages:
+  - en
+  endpoints:
+  - kind: rss
+    url: https://www.eastbayri.com/category/things-to-do/browse.rss
+    note: 25 items on 2026-11-25, newest dated 2026-11-24.
+  access:
+    paywall: metered
+  platform: Creative Circle Media Solutions
+  discovered: '2026-11-25'
+  verified: '2026-11-25'
+  status: checked
+  provenance:
+    method: agent-proposed
+    evidence: Page and feed loaded on 2026-11-25; the group's other section feeds follow the same browse.rss pattern.
+  notes: The arts and things-to-do section shared by the East Bay group's papers (Sakonnet Times, Portsmouth Times,
+    Bristol Phoenix, Warren Times-Gazette, Westport Shorelines).

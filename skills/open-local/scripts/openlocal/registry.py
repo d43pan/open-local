@@ -127,7 +127,7 @@ def data_version(places: dict, sources: list) -> str:
     return hashlib.sha256(blob).hexdigest()[:12]
 
 
-FEED_KINDS = ("rss", "atom", "jsonfeed", "ical")
+FEED_KINDS = ("rss", "atom", "jsonfeed", "ical", "events")
 LEVELS = ("dedicated", "regular", "occasional")
 
 
