@@ -593,6 +593,198 @@ sources:
     method: agent-proposed
     evidence: Found and loaded by a research agent on 2026-11-24, then re-loaded with this project's own tools.
   verified: '2026-11-24'
+- id: us-ri-tiverton-grays-ice-cream
+  name: "Gray's Ice Cream"
+  publisher: "Gray's Ice Cream"
+  url: https://www.graysicecream.com/
+  type: food-drink
+  classification: primary
+  roles:
+  - dining
+  coverage:
+  - place: US/RI/tiverton
+    level: dedicated
+  location:
+    address: "16 East Road, Tiverton, RI"
+  languages:
+  - en
+  topics:
+  - food
+  - ice-cream
+  endpoints:
+  - kind: html
+    url: https://www.graysicecream.com/flavors-2
+    title: "Flavors"
+  - kind: html
+    url: https://www.graysicecream.com/about-us
+    title: "About and hours"
+  access:
+    paywall: none
+  platform: Wix
+  discovered: '2026-11-25'
+  verified: '2026-11-25'
+  status: checked
+  provenance:
+    method: agent-proposed
+    evidence: "Home, flavors and about pages loaded on 2026-11-25 titled 'Gray's Ice Cream | Handmade Ice Cream in RI'. No feed found (Wix site). Listed by Tiverton Four Corners' Food & Dining page."
+  notes: "Homemade ice cream at the Four Corners since 1923."
+- id: us-ri-tiverton-boat-house
+  name: "The Boat House (Boat House Waterfront Dining)"
+  publisher: "The Boat House"
+  url: https://www.boathousetiverton.com/
+  type: food-drink
+  classification: primary
+  roles:
+  - dining
+  coverage:
+  - place: US/RI/tiverton
+    level: dedicated
+  location:
+    address: "227 Schooner Drive, Tiverton, RI"
+  languages:
+  - en
+  topics:
+  - food
+  - seafood
+  endpoints:
+  - kind: html
+    url: https://www.boathousetiverton.com/private-events/
+  access:
+    paywall: none
+  platform: WordPress
+  discovered: '2026-11-25'
+  verified: '2026-11-25'
+  status: checked
+  provenance:
+    method: agent-proposed
+    evidence: "Home page loaded on 2026-11-25 titled 'Boat House Waterfront Dining Restaurant | Tiverton, RI'. /feed/ exists but holds one 2017 post, so it is not listed."
+  notes: "Waterfront restaurant on the Sakonnet River. On 2026-11-25 its site said it is closed for renovations until spring 2027."
+- id: us-ri-tiverton-evelyns-drive-in
+  name: "Evelyn's Drive-In"
+  publisher: "Evelyn's Drive-In"
+  url: https://www.evelynsdrivein.com/
+  type: food-drink
+  classification: primary
+  roles:
+  - dining
+  coverage:
+  - place: US/RI/tiverton
+    level: dedicated
+  languages:
+  - en
+  topics:
+  - food
+  - seafood
+  endpoints:
+  - kind: html
+    url: https://www.evelynsdrivein.com/menu-1
+    title: "Dine-in menus"
+  - kind: html
+    url: https://www.evelynsdrivein.com/about-evelyns-drivein
+  access:
+    paywall: none
+  platform: Squarespace
+  discovered: '2026-11-25'
+  verified: '2026-11-25'
+  status: checked
+  provenance:
+    method: agent-proposed
+    evidence: "Home and menu pages loaded on 2026-11-25 titled 'Evelyn's Drive-In'. Squarespace site with no events collection or feed."
+  notes: "Seafood shack on Nanaquaket Pond. Seasonal; check the site for opening dates."
+- id: us-ri-tiverton-four-corners-grille
+  name: "Four Corners Grille"
+  publisher: "Four Corners Grille"
+  url: https://4cornersgrille.com/
+  type: food-drink
+  classification: primary
+  roles:
+  - dining
+  coverage:
+  - place: US/RI/tiverton
+    level: dedicated
+  location:
+    address: "3841 Main Road, Tiverton, RI"
+  languages:
+  - en
+  topics:
+  - food
+  - seafood
+  access:
+    paywall: none
+    agent_readable: false
+    blocked_by: other
+    restrictions: "Returned HTTP 403 with a bot check to this project's tools on 2026-11-25; open it in a browser."
+  discovered: '2026-11-25'
+  status: unverified
+  provenance:
+    method: agent-proposed
+    evidence: "Linked from Tiverton Four Corners' Food & Dining page (loaded 2026-11-25). The site itself answered with HTTP 403 and a bot check."
+  notes: "Casual restaurant at the Four Corners with locally caught seafood; beer and wine, patio seating."
+- id: us-ri-tiverton-cheese-wheel
+  name: "The Cheese Wheel Village Market"
+  publisher: "The Cheese Wheel Village Market"
+  url: https://www.thecheesewheelri.com/
+  type: food-drink
+  classification: primary
+  roles:
+  - food-buying
+  - dining
+  coverage:
+  - place: US/RI/tiverton
+    level: dedicated
+  location:
+    address: "3838 Main Road, Tiverton, RI"
+  languages:
+  - en
+  topics:
+  - food
+  - cheese
+  endpoints:
+  - kind: html
+    url: https://www.thecheesewheelri.com/visit
+    title: "Visit and hours"
+  access:
+    paywall: none
+  platform: Squarespace
+  discovered: '2026-11-25'
+  verified: '2026-11-25'
+  status: checked
+  provenance:
+    method: agent-proposed
+    evidence: "Home and visit pages loaded on 2026-11-25 titled 'The Cheese Wheel Village Market'. No feed found. Listed by Tiverton Four Corners' Food & Dining page."
+  notes: "Cheese shop and market with local and organic foods, charcuterie, prepared foods and gift baskets."
+- id: us-ri-tiverton-groundswell-cafe-bakery
+  name: "Groundswell Cafe + Bakery"
+  publisher: "Groundswell Cafe + Bakery"
+  url: https://www.groundswellguild.com/locations/cafe-bakery
+  type: food-drink
+  classification: primary
+  roles:
+  - dining
+  coverage:
+  - place: US/RI/tiverton
+    level: dedicated
+  location:
+    address: "3883 Main Road, Tiverton, RI"
+  languages:
+  - en
+  topics:
+  - food
+  - bakery
+  - coffee
+  endpoints:
+  - kind: html
+    url: https://www.groundswellguild.com/menu/tiverton-cafe-bakery
+    title: "Tiverton cafe menu"
+  access:
+    paywall: none
+  discovered: '2026-11-25'
+  verified: '2026-11-25'
+  status: checked
+  provenance:
+    method: agent-proposed
+    evidence: "Location and menu pages loaded on 2026-11-25 titled 'Cafe + Bakery' and 'Tiverton Cafe + Bakery' (groundswellcafegarden.com redirects here). No feed found. Listed by Tiverton Four Corners' Food & Dining page."
+  notes: "Cafe and from-scratch bakery at the Four Corners, beside the Groundswell garden and home store."
 - id: us-ri-tiverton-preserve-tiverton-facebook
   name: Preserve Tiverton (Facebook)
   publisher: Preserve Tiverton
