@@ -7,6 +7,8 @@ place:
   subdivision: US-RI
   parents:
   - US/RI/newport-county
+  neighbors:
+  - US/RI/middletown
   centroid:
     lat: 41.4767
     lon: -71.3196

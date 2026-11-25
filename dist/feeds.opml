@@ -74,6 +74,11 @@
       <outline type="rss" text="Town of Little Compton meeting videos (YouTube)" title="Town of Little Compton meeting videos (YouTube)" xmlUrl="https://www.youtube.com/feeds/videos.xml?channel_id=UCNoKeQBPql33aEtqzOXHO9g" htmlUrl="https://www.youtube.com/channel/UCNoKeQBPql33aEtqzOXHO9g" category="meeting-video"/>
       <outline type="rss" text="Young Family Farm" title="Young Family Farm" xmlUrl="https://www.youngfamilyfarm.com/blog-feed.xml" htmlUrl="https://www.youngfamilyfarm.com/" category="farm-market"/>
     </outline>
+    <outline text="Middletown" title="Middletown">
+      <outline type="rss" text="Middletown Patch" title="Middletown Patch" xmlUrl="https://patch.com/feeds/rhode-island/middletown" htmlUrl="https://patch.com/rhode-island/middletown" category="news-site"/>
+      <outline type="rss" text="RI Open Meetings: all Middletown public bodies – Upcoming meetings of bodies with Middletown in the name" title="RI Open Meetings: all Middletown public bodies – Upcoming meetings of bodies with Middletown in the name" xmlUrl="https://opengov.sos.ri.gov/RSSFeed/Rss?feedType=1&amp;entityID=0&amp;filter1=&amp;filter2=&amp;Keywords=&amp;FromDate=&amp;ToDate=&amp;RefineSearch=&amp;PublicBodies=Middletown" htmlUrl="https://opengov.sos.ri.gov/OpenMeetings" category="meetings"/>
+      <outline type="rss" text="Town of Middletown official website – News Flash" title="Town of Middletown official website – News Flash" xmlUrl="https://middletownri.gov/RSSFeed.aspx?ModID=1&amp;CID=All-newsflash.xml" htmlUrl="https://middletownri.gov/" category="government"/>
+    </outline>
     <outline text="Newport County" title="Newport County">
       <outline type="rss" text="Greater Newport Chamber of Commerce" title="Greater Newport Chamber of Commerce" xmlUrl="https://www.newportchamber.com/feed/" htmlUrl="https://www.newportchamber.com/" category="chamber-of-commerce"/>
       <outline type="rss" text="Newport This Week" title="Newport This Week" xmlUrl="https://www.newportthisweek.com/feed/" htmlUrl="https://www.newportthisweek.com/" category="newspaper"/>
