@@ -110,3 +110,30 @@ def test_clear_removes_the_copies(tmp_path):
     c(FEED)
     assert cache.status(tmp_path / "c")["copies"] == 1 and cache.clear(tmp_path / "c") == 1
     assert cache.status(tmp_path / "c")["copies"] == 0
+
+
+def test_ages_read_with_units():
+    assert [cache.parse_age(a) for a in ("90", "90m", "6h", "2d", "0", "1.5h")] == [90, 90, 360, 2880, 0, 90]
+    for bad in ("soon", "-1h", ""):
+        try:
+            cache.parse_age(bad)
+        except ValueError:
+            continue
+        raise AssertionError(bad)
+
+
+def test_how_long_copies_are_trusted_and_who_said_so(tmp_path, monkeypatch):
+    monkeypatch.setenv("XDG_CONFIG_HOME", str(tmp_path))
+    for name in ("OPEN_LOCAL_CACHE_MAX_AGE", "OPEN_LOCAL_CACHE_MINUTES"):
+        monkeypatch.delenv(name, raising=False)
+    assert cache.setting() == (24 * 60, "default")
+    cache.save_setting("6h")
+    assert cache.setting()[0] == 360 and cache.setting()[1].startswith("settings file")
+    monkeypatch.setenv("OPEN_LOCAL_CACHE_MINUTES", "30")                # the older name still works
+    assert cache.setting() == (30, "environment (OPEN_LOCAL_CACHE_MINUTES)")
+    monkeypatch.setenv("OPEN_LOCAL_CACHE_MAX_AGE", "2d")                 # and the new one wins
+    assert cache.setting() == (2880, "environment (OPEN_LOCAL_CACHE_MAX_AGE)")
+    monkeypatch.delenv("OPEN_LOCAL_CACHE_MAX_AGE"); monkeypatch.delenv("OPEN_LOCAL_CACHE_MINUTES")
+    cache.save_setting(None)
+    assert cache.setting() == (24 * 60, "default")
+    assert cache.Cache(root=tmp_path / "c").max_age == 24 * 3600

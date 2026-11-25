@@ -4,7 +4,7 @@ description: Answer what is happening in a town (decisions, events, food, arts) 
 license: MIT
 compatibility: Needs Python 3.10+ and internet access. Works with any agent that can run a shell command and fetch web pages. No API key, no account. Adding a town also needs git, and a GitHub account to open the pull request.
 metadata:
-  version: "0.3.0"
+  version: "0.3.1"
   repository: https://github.com/d43pan/open-local
 ---
 
@@ -42,9 +42,11 @@ JSON and need only the Python standard library. Without a shell, see
 3. **Gather what is new.** `run.py recent <place> --days 7 --ahead 14 --brief` returns items
    published in the window, calendar events coming up, and a `coverage` block. Start with
    `--brief` (no summaries, a fraction of the size); drop it only when you need summaries.
-   Feeds read in the last hour come from a local copy, not the site; `coverage.cache`
-   says how many and how old. Add `--fresh` when the person needs this minute's state
-   (a storm, a meeting tonight), and say so if any copy was an old one because a site was down.
+   Feeds read in the last 24 hours come from a local copy, not the site; `coverage.cache`
+   says how many and how old. Add `--fresh` when the person needs today's state (a storm,
+   a meeting tonight, breaking news), and say so if any copy was an old one because a site
+   was down. If the person wants copies kept for more or less time, `run.py cache --max-age 6h`
+   saves that for every later run (`--max-age default` goes back to 24h).
    Items from county- and state-wide sources are listed only if they name the place
    (`--all-area` lists them all). Narrow with `--type` or `--topic` (which types answer
    which question: [references/questions.md](references/questions.md)).

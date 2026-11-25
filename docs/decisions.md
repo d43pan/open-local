@@ -281,3 +281,19 @@ reader's manners (wait, then ask "has it changed?") fix both. A shared, publishe
 cache would save more, but it would mean this project republishing other publishers'
 text, a server-like service to keep fresh, and one more place for stale facts to hide;
 that is a separate decision, not taken here.
+
+## 24. Copies are trusted for a day, and the person can change that
+
+**Decision.** Replaces the hour in decision 23. A local copy of a feed is used without
+asking the site for 24 hours. The age can be set four ways, the first one set winning:
+`--max-age` on one run, `OPEN_LOCAL_CACHE_MAX_AGE` (or the older
+`OPEN_LOCAL_CACHE_MINUTES`), or the settings file (`~/.config/open-local/settings.json`,
+written by `run.py cache --max-age 6h`), and otherwise the default. Ages take units:
+`90m`, `6h`, `2d`; `0` means always ask the site. `run.py cache` says what the setting is
+and where it came from.
+
+**Why.** Most local sources publish a few times a week, and a briefing is usually asked
+once a day, so an hour saved little and still reloaded every town site the next morning.
+A day is the feed reader's usual manners. When a day is too long (a storm, a meeting
+tonight), `--fresh` reads everything again and the skill says to use it. A saved setting
+works for an agent running the skill, which often cannot set environment variables.
