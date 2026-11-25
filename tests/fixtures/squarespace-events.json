@@ -1,0 +1,39 @@
+{
+ "website": {
+  "timeZone": "America/New_York"
+ },
+ "collection": {
+  "title": "Events",
+  "typeName": "events-stacked"
+ },
+ "upcoming": [
+  {
+   "title": "Live music: Folk duo",
+   "startDate": 1795809600000,
+   "endDate": 1795820400000,
+   "fullUrl": "/events/folk-duo",
+   "excerpt": "<p>Songs by the <b>fire</b>.</p>",
+   "location": {
+    "addressTitle": "Alder Vineyard",
+    "addressLine1": "1 Main Rd",
+    "addressLine2": "Alder"
+   }
+  },
+  {
+   "title": "Holiday market",
+   "startDate": "1796490000000",
+   "endDate": 1796504400000,
+   "fullUrl": "/events/holiday-market"
+  },
+  {
+   "title": "",
+   "startDate": 1796490000000
+  }
+ ],
+ "past": [
+  {
+   "title": "Summer fair",
+   "startDate": 1780000000000
+  }
+ ]
+}

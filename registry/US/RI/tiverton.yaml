@@ -508,6 +508,10 @@ sources:
   topics:
   - arts
   endpoints:
+  - kind: events
+    url: https://www.fourcornersarts.org/events?format=json
+    title: Upcoming events (Squarespace JSON view)
+    note: Added 2026-11-25; carries each event's real date.
   - kind: html
     url: https://www.fourcornersarts.org/events
   - kind: sitemap
@@ -535,6 +539,10 @@ sources:
   languages:
   - en
   endpoints:
+  - kind: events
+    url: https://www.tivertonfourcorners.com/events-2?format=json
+    title: Upcoming events (Squarespace JSON view)
+    note: Added 2026-11-25; carries each event's real date.
   - kind: html
     url: https://www.tivertonfourcorners.com/events-2
   - kind: html
@@ -567,6 +575,10 @@ sources:
   - food
   - farms
   endpoints:
+  - kind: events
+    url: https://www.tivertonfarmersmarket.com/popup-events?format=json
+    title: Upcoming events (Squarespace JSON view)
+    note: Added 2026-11-25; carries each event's real date.
   - kind: html
     url: https://www.tivertonfarmersmarket.com/popup-events
   - kind: sitemap

@@ -1,8 +1,8 @@
 {
  "schema": "open-local/registry/1",
  "license": "CC0-1.0",
- "skill_version": "0.5.0",
- "data_version": "62ea93da08f4",
+ "skill_version": "0.6.0",
+ "data_version": "2d4eef4aa8f6",
  "places": {
   "US": {
    "id": "US",
@@ -1681,6 +1681,12 @@
    ],
    "endpoints": [
     {
+     "kind": "events",
+     "url": "https://www.westportartgroup.com/calendar?format=json",
+     "title": "Upcoming events (Squarespace JSON view)",
+     "note": "Added 2026-11-25; carries each event's real date."
+    },
+    {
      "kind": "html",
      "url": "https://www.westportartgroup.com/calendar"
     },
@@ -3339,6 +3345,12 @@
      "title": "Farmers market"
     },
     {
+     "kind": "events",
+     "url": "https://www.mounthopefarm.org/upcoming-events?format=json",
+     "title": "Upcoming events (Squarespace JSON view)",
+     "note": "Added 2026-11-25; carries each event's real date."
+    },
+    {
      "kind": "html",
      "url": "https://www.mounthopefarm.org/upcoming-events",
      "title": "Upcoming events"
@@ -4960,6 +4972,11 @@
    "url": "https://www.sakonnetwine.com/",
    "type": "food-drink",
    "classification": "primary",
+   "roles": [
+    "dining",
+    "music-nightlife",
+    "events-listings"
+   ],
    "coverage": [
     {
      "place": "US/RI/little-compton",
@@ -4970,17 +4987,15 @@
     "en"
    ],
    "topics": [
-    "food"
+    "food",
+    "music"
    ],
    "endpoints": [
     {
-     "kind": "rss",
-     "url": "https://www.sakonnetwine.com/events?format=rss",
-     "note": "28 items on 2026-11-24, newest dated 2026-11-12."
-    },
-    {
-     "kind": "html",
-     "url": "https://www.sakonnetwine.com/events"
+     "kind": "events",
+     "url": "https://www.sakonnetwine.com/events?format=json",
+     "title": "Upcoming events (Squarespace JSON view)",
+     "note": "8 upcoming events on 2026-11-25, through 2026-12-26. The collection's ?format=rss dates items by when they were posted, not when they happen, so it is not listed."
     },
     {
      "kind": "html",
@@ -5001,8 +5016,8 @@
     "method": "agent-proposed",
     "evidence": "Found and loaded by a research agent on 2026-11-24, then re-loaded with this project's own tools."
    },
-   "notes": "Events collection RSS works (?format=ical on the collection returns HTML, not ICS).",
-   "verified": "2026-11-24",
+   "notes": "Live music most weekends, trivia and holiday markets. ?format=ical on the collection returns HTML, not ICS; each event page has its own ?format=ical.",
+   "verified": "2026-11-25",
    "home": "US/RI/little-compton"
   },
   {
@@ -5113,6 +5128,12 @@
     "en"
    ],
    "endpoints": [
+    {
+     "kind": "events",
+     "url": "https://www.sogkonate.org/upcoming-public-events?format=json",
+     "title": "Upcoming events (Squarespace JSON view)",
+     "note": "Added 2026-11-25; carries each event's real date."
+    },
     {
      "kind": "html",
      "url": "https://www.sogkonate.org/upcoming-public-events"
@@ -7562,6 +7583,12 @@
    ],
    "endpoints": [
     {
+     "kind": "events",
+     "url": "https://www.tivertonfarmersmarket.com/popup-events?format=json",
+     "title": "Upcoming events (Squarespace JSON view)",
+     "note": "Added 2026-11-25; carries each event's real date."
+    },
+    {
      "kind": "html",
      "url": "https://www.tivertonfarmersmarket.com/popup-events"
     },
@@ -7601,6 +7628,12 @@
     "en"
    ],
    "endpoints": [
+    {
+     "kind": "events",
+     "url": "https://www.tivertonfourcorners.com/events-2?format=json",
+     "title": "Upcoming events (Squarespace JSON view)",
+     "note": "Added 2026-11-25; carries each event's real date."
+    },
     {
      "kind": "html",
      "url": "https://www.tivertonfourcorners.com/events-2"
@@ -7651,6 +7684,12 @@
     "arts"
    ],
    "endpoints": [
+    {
+     "kind": "events",
+     "url": "https://www.fourcornersarts.org/events?format=json",
+     "title": "Upcoming events (Squarespace JSON view)",
+     "note": "Added 2026-11-25; carries each event's real date."
+    },
     {
      "kind": "html",
      "url": "https://www.fourcornersarts.org/events"

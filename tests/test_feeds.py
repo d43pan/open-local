@@ -97,3 +97,20 @@ def test_a_page_without_event_data_is_not_an_events_feed():
     from openlocal import feeds
     with pytest.raises(feeds.NotAFeed):
         feeds.read("events", b"<html><head><title>No events</title></head><body><p>Meets 9 Dec 2026</p></body></html>")
+
+
+def test_squarespace_events_json_uses_the_real_event_dates():
+    body = (FIX / "squarespace-events.json").read_bytes()
+    f = feeds.read("events", body, "https://alder-vineyard.example.org/events?format=json")
+    assert f["kind"] == "events" and f["title"] == "Events"
+    assert [i["title"] for i in f["items"]] == ["Live music: Folk duo", "Holiday market"]  # past and untitled left out
+    folk = f["items"][0]
+    assert folk["start"] == "2026-11-27T15:00:00-05:00" and folk["end"] == "2026-11-27T18:00:00-05:00"
+    assert folk["url"] == "https://alder-vineyard.example.org/events/folk-duo"
+    assert folk["location"] == "Alder Vineyard, 1 Main Rd, Alder" and folk["summary"] == "Songs by the fire ."
+
+
+def test_squarespace_reader_refuses_other_json():
+    import pytest
+    with pytest.raises(feeds.NotAFeed):
+        feeds.parse_squarespace_events(b'{"items": []}')

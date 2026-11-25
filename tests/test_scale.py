@@ -259,7 +259,7 @@ def test_check_results_are_fetched_only_for_homes_that_reach_the_place(installed
 def test_older_published_data_without_an_index_still_works(installed):
     del installed.files["index.json"]
     assert "XX/NO/alder" in Registry.load_index().places
-    assert installed.calls[-1][0].endswith("registry.json")
+    assert any(u.endswith("registry.json") for u, _ in installed.calls)
 
 
 def test_cached_get_refuses_odd_paths(installed):
@@ -398,3 +398,16 @@ def test_reports_are_split_by_area_and_name_maintainers(reg):
     assert "@" not in got["US/MA"] and "`c` (last verified: never)" in got["US/RI"]
     assert check.owners_for("registry/US/RI/tiverton.yaml", owners) == ["@tiverton-librarian"]  # last match wins
     assert check.owners_for("registry/US/MA/westport.yaml", owners) == []
+
+
+def test_a_place_copy_older_than_the_published_data_is_fetched_again(installed):
+    Registry.load_place("XX/NO/alder")
+    place = json.loads(installed.files["places/XX/NO/alder.json"])
+    index = json.loads(installed.files["index.json"])
+    # A merge lands: the published index and place file move to a new data version.
+    place["data_version"] = index["data_version"] = "newer"
+    installed.files["places/XX/NO/alder.json"], installed.files["index.json"] = json.dumps(place), json.dumps(index)
+    import os, time
+    old = time.time() - 2 * 3600  # older than the index's hourly recheck, well inside the place file's day
+    os.utime(registry.cache_dir() / "index.json", (old, old))
+    assert Registry.load_place("XX/NO/alder").data["data_version"] == "newer"

@@ -22,6 +22,7 @@ import unicodedata
 DATA_URL = os.environ.get("OPEN_LOCAL_DATA_URL", "https://raw.githubusercontent.com/d43pan/open-local/main/dist/")
 REGISTRY_URL = DATA_URL + "registry.json"
 CACHE_HOURS = 24
+INDEX_HOURS = 1  # the small index is rechecked hourly (an ETag makes an unchanged one cost one tiny request)
 SCHEMA = "open-local/registry/1"
 SCHEMA_MAJOR = 1  # the newest major version of the published data this code can read
 PLACE_RADIUS_KM = 50  # a per-place file carries every place within this distance, so --radius-km up to it works
@@ -56,10 +57,10 @@ def cache_file() -> pathlib.Path:
     return cache_dir() / "registry.json"
 
 
-def cached_get(path: str) -> bytes | None:
+def cached_get(path: str, max_hours: float = CACHE_HOURS) -> bytes | None:
     """A published file (e.g. "index.json", "places/US/RI/little-compton.json"), cached a day.
 
-    After a day the copy is revalidated with its ETag, so an unchanged file costs one
+    After max_hours (a day by default; 0 to recheck now) the copy is revalidated with its ETag, so an unchanged file costs one
     small request. Returns None when the file does not exist (HTTP 404), or when it cannot
     be fetched and no older copy is cached.
     """
@@ -68,7 +69,7 @@ def cached_get(path: str) -> bytes | None:
         raise ValueError(f"bad data path: {path}")
     target = cache_dir() / path
     tag_file = target.with_name(target.name + ".etag")
-    if target.exists() and (time.time() - target.stat().st_mtime) < CACHE_HOURS * 3600:
+    if target.exists() and (time.time() - target.stat().st_mtime) < max_hours * 3600:
         return target.read_bytes()
     etag = tag_file.read_text(encoding="utf-8").strip() if (target.exists() and tag_file.exists()) else None
     try:
@@ -89,13 +90,27 @@ def cached_get(path: str) -> bytes | None:
     return target.read_bytes() if target.exists() else None
 
 
+def published_version() -> str | None:
+    """The data_version of the published registry, from the small index (rechecked hourly)."""
+    body = cached_get("index.json", INDEX_HOURS)
+    try:
+        return json.loads(body).get("data_version") if body else None
+    except ValueError:
+        return None
+
+
 def download() -> dict:
     """Fetch the whole published registry (for a skill installed without the repository)."""
     body = cached_get("registry.json")
     if body is None:
         raise RuntimeError("No registry available: could not download " + REGISTRY_URL +
                            ". Clone https://github.com/d43pan/open-local and run from there, or set OPEN_LOCAL_REGISTRY to a registry.json.")
-    return json.loads(body)
+    data = json.loads(body)
+    current = published_version()
+    if current and data.get("data_version") not in (None, current):
+        fresh = cached_get("registry.json", 0)  # the saved copy predates the latest published data
+        data = json.loads(fresh) if fresh else data
+    return data
 
 
 def version_key(v: str) -> tuple:
@@ -249,7 +264,7 @@ class Registry:
         local = cls._local()
         if local is not None:
             return cls(local)
-        body = cached_get("index.json")
+        body = cached_get("index.json", INDEX_HOURS)
         return cls(json.loads(body)) if body else cls(download())  # older published data has no index
 
     @classmethod
@@ -264,6 +279,11 @@ class Registry:
         if local is None:
             body = None if (radius_km or 0) > PLACE_RADIUS_KM else cached_get(f"places/{pid}.json")
             local = json.loads(body) if body else download()
+            current = published_version()
+            if body and current and local.get("data_version") not in (None, current):
+                # The registry changed since this place's copy was saved (a merge landed): fetch it again now.
+                body = cached_get(f"places/{pid}.json", 0)
+                local = json.loads(body) if body else local
         reg = cls(local)
         if pid not in reg.places:
             raise KeyError(pid)
