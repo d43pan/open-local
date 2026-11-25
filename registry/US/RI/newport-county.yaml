@@ -72,6 +72,8 @@ sources:
   url: https://www.newportthisweek.com/
   type: newspaper
   classification: primary
+  roles:
+  - community-weekly
   coverage:
   - place: US/RI/newport-county
     level: dedicated
@@ -97,6 +99,8 @@ sources:
   url: https://www.newportri.com/
   type: newspaper
   classification: primary
+  roles:
+  - legacy-daily
   coverage:
   - place: US/RI/newport-county
     level: dedicated
@@ -121,6 +125,8 @@ sources:
   url: https://whatsupnewp.com/
   type: news-site
   classification: primary
+  roles:
+  - hyperlocal-digital
   coverage:
   - place: US/RI/newport-county
     level: dedicated

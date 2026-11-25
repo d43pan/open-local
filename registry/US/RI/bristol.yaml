@@ -501,6 +501,8 @@ sources:
   url: https://www.eastbayri.com/bristol/
   type: newspaper
   classification: primary
+  roles:
+  - community-weekly
   coverage:
   - place: US/RI/bristol
     level: dedicated
@@ -531,6 +533,8 @@ sources:
   url: https://patch.com/rhode-island/bristol-warren
   type: news-site
   classification: mixed
+  roles:
+  - hyperlocal-digital
   coverage:
   - place: US/RI/bristol
     level: dedicated

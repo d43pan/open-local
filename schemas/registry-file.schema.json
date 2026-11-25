@@ -21,6 +21,7 @@
       "description": "Why tools cannot read it, so a person has to: robots-txt (the site's robots.txt disallows it), terms (the site's terms forbid automated use), login (needs an account), javascript-only (the content appears only in a browser), other.",
       "enum": ["robots-txt", "terms", "login", "javascript-only", "other"]
     },
+    "role": {"description": "What part a source plays for a place; see skills/open-local/scripts/openlocal/roles.py.", "enum": ["legacy-daily", "community-weekly", "hyperlocal-digital", "nonprofit-newsroom", "public-media", "broadcast-tv", "alternative", "independent-voice", "community-language", "student-press", "business-press", "arts", "music-nightlife", "events-listings", "dining", "food-buying", "outdoors-nature", "sports", "public-notices", "classifieds", "real-estate-development", "obituaries", "police-fire-log", "official-record", "faith", "community-groups", "community-forum"]},
     "url": {"type": "string", "pattern": "^https?://[^\\s]+$", "maxLength": 2000},
     "point": {
       "type": "object", "required": ["lat", "lon"], "additionalProperties": false,
@@ -128,6 +129,7 @@
           "properties": {"place": {"$ref": "#/$defs/placeId"}, "point": {"$ref": "#/$defs/point"}, "address": {"type": "string"}}
         },
         "languages": {"type": "array", "items": {"type": "string"}, "description": "BCP 47 tags"},
+        "roles": {"type": "array", "items": {"$ref": "#/$defs/role"}, "uniqueItems": true, "description": "Its roles; when absent, defaults by type."},
         "topics": {"type": "array", "items": {"type": "string", "pattern": "^[a-z0-9]+(-[a-z0-9]+)*$"}},
         "endpoints": {
           "type": "array",

@@ -3,7 +3,9 @@
 A source is accepted when all of these hold.
 
 1. **It is public.** Anyone can read it on the open web without an account. Paywalled
-   newsrooms are welcome (record `paywall`); login-only groups are not.
+   newsrooms are welcome (record `paywall`); login-only groups are not, with one
+   exception: community Facebook groups and pages and Nextdoor neighbourhoods may be
+   listed as links for a person to open, never read by tools (see checklist.md).
 2. **It is about a place.** It regularly carries information about the place or area it is
    listed for. A national outlet that mentioned the town once does not qualify.
 3. **It is identifiable.** There is a named publisher: a public body, an organisation, a

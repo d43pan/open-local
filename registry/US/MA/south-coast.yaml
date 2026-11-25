@@ -25,6 +25,8 @@ sources:
   url: https://newbedfordlight.org/
   type: news-site
   classification: primary
+  roles:
+  - nonprofit-newsroom
   coverage:
   - place: US/MA/south-coast
     level: dedicated
@@ -50,6 +52,8 @@ sources:
   url: https://dartmouth.theweektoday.com/
   type: newspaper
   classification: primary
+  roles:
+  - hyperlocal-digital
   coverage:
   - place: US/MA/south-coast
     level: dedicated
@@ -77,6 +81,8 @@ sources:
   url: https://fallriverreporter.com/
   type: news-site
   classification: mixed
+  roles:
+  - hyperlocal-digital
   coverage:
   - place: US/MA/south-coast
     level: dedicated

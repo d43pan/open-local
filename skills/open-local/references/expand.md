@@ -45,7 +45,10 @@ Commands run from the root of a checkout of the repository:
    the new town from its neighbours' `adjacent_unmapped`. Validation fails if a mapped
    place is still listed as unmapped.
 7. **Find what is only here.** Run `run.py gaps <new place>` to see which kinds of source
-   the town still lacks and what its neighbours have of each kind. Then follow
+   the town still lacks and what its neighbours have of each kind. Its `roles` block says
+   which parts of a town's information are missing (no independent voice, nowhere to buy
+   food, no obituaries, no residents' forum) and flags a place whose news all comes from
+   one publisher; aim for a spread, not a count. Give every news outlet its `roles`. Then follow
    [build.md](build.md) steps 3 to 6 for the remainder: ask the person, walk the checklist,
    `run.py propose` each real source, check each against the acceptance rules, and have
    the person confirm the list.

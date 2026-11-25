@@ -395,6 +395,8 @@ sources:
   url: https://www.eastbayri.com/westport/
   type: newspaper
   classification: primary
+  roles:
+  - community-weekly
   coverage:
   - place: US/MA/westport
     level: dedicated

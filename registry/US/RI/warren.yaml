@@ -387,6 +387,8 @@ sources:
   url: https://www.eastbayri.com/warren/
   type: newspaper
   classification: primary
+  roles:
+  - community-weekly
   coverage:
   - place: US/RI/warren
     level: dedicated

@@ -468,6 +468,8 @@ sources:
   url: https://www.eastbayri.com/tiverton/
   type: newspaper
   classification: primary
+  roles:
+  - community-weekly
   coverage:
   - place: US/RI/tiverton
     level: dedicated
@@ -579,3 +581,35 @@ sources:
     method: agent-proposed
     evidence: Found and loaded by a research agent on 2026-11-24, then re-loaded with this project's own tools.
   verified: '2026-11-24'
+- id: us-ri-tiverton-preserve-tiverton-facebook
+  name: Preserve Tiverton (Facebook)
+  publisher: Preserve Tiverton
+  url: https://www.facebook.com/preserveTiverton/
+  type: community-organization
+  classification: mixed
+  roles:
+  - community-groups
+  - community-forum
+  coverage:
+  - place: US/RI/tiverton
+    level: dedicated
+  languages:
+  - en
+  topics:
+  - development
+  - planning
+  access:
+    paywall: none
+    agent_readable: false
+    blocked_by: login
+    restrictions: Facebook needs an account to read fully and its terms forbid automated collection. Listed for a
+      person to open; tools never read it.
+  platform: Facebook
+  discovered: '2026-11-25'
+  status: unverified
+  provenance:
+    method: agent-proposed
+    evidence: Found in a web search on 2026-11-25 (facebook.com result titled 'Preserve Tiverton'). Not loaded, by
+      design.
+  notes: A residents' group pressing for development that follows the town's Comprehensive Community Plan. An
+    advocacy voice; label what it says as its view.

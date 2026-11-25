@@ -102,6 +102,8 @@ sources:
   url: https://littlecompton.download/
   type: newsletter
   classification: primary
+  roles:
+  - official-record
   coverage:
   - place: US/RI/little-compton
     level: dedicated
@@ -758,6 +760,8 @@ sources:
   url: https://www.eastbayri.com/little-compton/
   type: newspaper
   classification: primary
+  roles:
+  - community-weekly
   coverage:
   - place: US/RI/little-compton
     level: dedicated
@@ -796,6 +800,8 @@ sources:
   url: https://patch.com/rhode-island/tiverton
   type: news-site
   classification: secondary
+  roles:
+  - hyperlocal-digital
   coverage:
   - place: US/RI/little-compton
     level: regular
@@ -981,3 +987,32 @@ sources:
     method: agent-proposed
     evidence: Found and loaded by a research agent on 2026-11-24, then re-loaded with this project's own tools.
   verified: '2026-11-24'
+- id: us-ri-little-compton-prevention-coalition-facebook
+  name: Little Compton Prevention Coalition (Facebook)
+  publisher: Little Compton Prevention Coalition
+  url: https://www.facebook.com/LCPrevention/
+  type: public-health
+  classification: primary
+  roles:
+  - community-groups
+  coverage:
+  - place: US/RI/little-compton
+    level: dedicated
+  - place: US/RI/tiverton
+    level: regular
+    note: The Tiverton and Little Compton coalitions share this page.
+  languages:
+  - en
+  access:
+    paywall: none
+    agent_readable: false
+    blocked_by: login
+    restrictions: Facebook needs an account to read fully and its terms forbid automated collection. Listed for a
+      person to open; tools never read it.
+  platform: Facebook
+  discovered: '2026-11-25'
+  status: unverified
+  provenance:
+    method: agent-proposed
+    evidence: Found in a web search on 2026-11-25 (facebook.com result titled 'Little Compton Prevention Coalition',
+      Adamsville, RI). Not loaded, by design.

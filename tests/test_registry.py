@@ -87,3 +87,31 @@ def test_gaps(reg):
     assert {"meetings", "farm-market"} <= set(g["neighbours_have"])
     assert g["neighbours_have"]["meetings"][0]["place"] == "XX/NO/alder"
     assert g["area_sources_reaching_it"] == 2
+
+
+def test_roles_come_from_the_field_or_the_type():
+    from openlocal import roles
+    assert roles.roles_of({"type": "farm-market"}) == ["food-buying"]
+    assert roles.roles_of({"type": "newspaper"}) == []                       # a paper could be a daily or a weekly
+    assert roles.roles_of({"type": "newspaper", "roles": ["community-weekly"]}) == ["community-weekly"]
+    assert set(roles.CORE_ROLES) <= set(roles.ROLES)
+    assert all(set(v) <= set(roles.ROLES) for v in roles.TYPE_ROLES.values())
+
+
+def test_role_spread_checks_balance_and_owners():
+    from openlocal import roles
+    one_owner = [{"name": "A Times", "type": "newspaper", "roles": ["community-weekly"], "publisher": "A Times (Big Group)"},
+                 {"name": "B Times", "type": "newspaper", "roles": ["community-weekly"], "publisher": "B Times (Big Group)"},
+                 {"name": "Market", "type": "farm-market"}]
+    out = roles.spread(one_owner)
+    assert out["has"] == {"community-weekly": 2, "food-buying": 1}
+    assert any("one publisher (Big Group)" in c for c in out["checks"])
+    assert any("independent" in c for c in out["checks"])
+    assert "dining" in out["missing_core_roles"] and "food-buying" not in out["missing_core_roles"]
+    assert roles.spread([{"name": "Paper", "type": "newspaper"}])["news_sources_without_roles"] == ["Paper"]
+
+
+def test_gaps_reports_roles(reg):
+    g = reg.gaps("XX/NO/birch")["roles"]
+    assert {"has", "missing_core_roles", "checks", "neighbours_have"} <= set(g)
+    assert "events-listings" in g["has"]          # the library's default role

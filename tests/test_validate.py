@@ -66,6 +66,10 @@ A = "XX/NO/alder.yaml"
     (lambda d: d["place"].update(subdivision="YY-NO"), "is not in country"),
     (lambda d: d["place"].update(identifiers={"wikidata": "Q7"}, adjacent_unmapped=[{"name": "Itself", "wikidata": "Q7"}]), "move it to neighbors"),
     (lambda d: d["place"].update(adjacent_unmapped=[{"wikidata": "Q7"}]), "'name' is a required property"),
+    (lambda d: d["sources"][0].update(roles=["gossip-column"]), "is not one of"),
+    (lambda d: d["sources"][0].update(url="https://www.facebook.com/groups/alder"), "mark access.agent_readable: false"),
+    (lambda d: d["sources"][0].update(url="https://www.facebook.com/groups/alder",
+                                      access={"agent_readable": False, "blocked_by": "login"}), "list no endpoints"),
 ])
 def test_bad_entries_are_caught(broken, change, expect):
     errors = broken(A, change)
