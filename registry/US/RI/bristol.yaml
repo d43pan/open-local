@@ -827,6 +827,10 @@ sources:
   - kind: html
     url: https://www.mounthopefarm.org/farmers-market
     title: Farmers market
+  - kind: events
+    url: https://www.mounthopefarm.org/upcoming-events?format=json
+    title: Upcoming events (Squarespace JSON view)
+    note: Added 2026-11-25; carries each event's real date.
   - kind: html
     url: https://www.mounthopefarm.org/upcoming-events
     title: Upcoming events

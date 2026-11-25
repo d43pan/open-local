@@ -215,9 +215,52 @@ def parse_events_page(data: bytes, base_url: str = "") -> dict:
     return {"kind": "events", "title": clean(title, 200), "items": items}
 
 
+def parse_squarespace_events(data: bytes, base_url: str = "") -> dict:
+    """A Squarespace events page read as JSON (`<page>?format=json`), as an event feed.
+
+    Squarespace's own RSS for an events collection dates each item by when it was posted,
+    not when it happens, so upcoming events look months old. The JSON view carries each
+    upcoming event's real start and end. Raises NotAFeed for anything else.
+    """
+    try:
+        d = json.loads(data)
+    except ValueError as e:
+        raise NotAFeed(f"not JSON: {e}") from None
+    if not isinstance(d, dict) or not isinstance(d.get("upcoming"), list) or "collection" not in d:
+        raise NotAFeed("not a Squarespace events collection")
+    try:
+        import zoneinfo
+        tz = zoneinfo.ZoneInfo(str((d.get("website") or {}).get("timeZone") or "UTC"))
+    except Exception:
+        tz = dt.timezone.utc
+
+    def when(ms):
+        try:
+            return dt.datetime.fromtimestamp(int(str(ms)) / 1000, tz).replace(microsecond=0).isoformat()
+        except (TypeError, ValueError, OverflowError, OSError):
+            return None
+
+    items = []
+    for ev in d["upcoming"]:
+        if not isinstance(ev, dict):
+            continue
+        title, start = clean(html.unescape(str(ev.get("title") or "")), 300), when(ev.get("startDate"))
+        if not title or not start:
+            continue
+        loc = ev.get("location") if isinstance(ev.get("location"), dict) else {}
+        place = ", ".join(str(loc[k]) for k in ("addressTitle", "addressLine1", "addressLine2") if loc.get(k))
+        link = urllib.parse.urljoin(base_url, ev["fullUrl"]) if isinstance(ev.get("fullUrl"), str) else None
+        items.append({"title": title, "url": link, "start": start, "end": when(ev.get("endDate")),
+                      "location": clean(place, 200), "summary": clean(html.unescape(re.sub(r"<[^>]+>", " ", str(ev.get("excerpt") or ""))))})
+    title = (d.get("collection") or {}).get("title") or ""
+    return {"kind": "events", "title": clean(str(title), 200), "items": items}
+
+
 def read(kind: str, data: bytes, url: str = "") -> dict:
     """Parse an endpoint's body by its registry kind."""
     if kind == "events":
+        if data.lstrip()[:1] == b"{":
+            return parse_squarespace_events(data, url)
         return parse_events_page(data, url)
     return parse(data)
 
@@ -281,6 +324,16 @@ def discover(url: str, probe: bool = True, limit: int = 12) -> dict:
                            "newest": newest(ev["items"]), "how": "schema.org Event data on the page"}
     except NotAFeed:
         pass
+    if b"This is Squarespace" in page.body[:20000] and urllib.parse.urlsplit(page.url).path.strip("/"):
+        sq = urllib.parse.urlunsplit(urllib.parse.urlsplit(page.url)._replace(query="format=json", fragment=""))
+        try:  # a Squarespace events page: its JSON view has the real event dates (its RSS does not)
+            r = net.fetch(sq, accept="application/json")
+            ev = parse_squarespace_events(r.body, r.url) if r.status == 200 else None
+            if ev is not None:
+                found[sq] = {"url": sq, "kind": "events", "title": ev["title"], "items": len(ev["items"]),
+                             "newest": newest(ev["items"]), "how": "Squarespace events page read as JSON"}
+        except (net.Blocked, net.FetchError, NotAFeed):
+            pass
     p = _Links()
     try:
         p.feed(page.text())

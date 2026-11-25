@@ -670,6 +670,10 @@ sources:
   languages:
   - en
   endpoints:
+  - kind: events
+    url: https://www.sogkonate.org/upcoming-public-events?format=json
+    title: Upcoming events (Squarespace JSON view)
+    note: Added 2026-11-25; carries each event's real date.
   - kind: html
     url: https://www.sogkonate.org/upcoming-public-events
   - kind: sitemap
@@ -829,6 +833,10 @@ sources:
   url: https://www.sakonnetwine.com/
   type: food-drink
   classification: primary
+  roles:
+  - dining
+  - music-nightlife
+  - events-listings
   coverage:
   - place: US/RI/little-compton
     level: dedicated
@@ -836,12 +844,13 @@ sources:
   - en
   topics:
   - food
+  - music
   endpoints:
-  - kind: rss
-    url: https://www.sakonnetwine.com/events?format=rss
-    note: 28 items on 2026-11-24, newest dated 2026-11-12.
-  - kind: html
-    url: https://www.sakonnetwine.com/events
+  - kind: events
+    url: https://www.sakonnetwine.com/events?format=json
+    title: Upcoming events (Squarespace JSON view)
+    note: 8 upcoming events on 2026-11-25, through 2026-12-26. The collection's ?format=rss dates items by when they
+      were posted, not when they happen, so it is not listed.
   - kind: html
     url: https://www.sakonnetwine.com/menu
   - kind: sitemap
@@ -854,8 +863,9 @@ sources:
   provenance:
     method: agent-proposed
     evidence: Found and loaded by a research agent on 2026-11-24, then re-loaded with this project's own tools.
-  notes: Events collection RSS works (?format=ical on the collection returns HTML, not ICS).
-  verified: '2026-11-24'
+  notes: Live music most weekends, trivia and holiday markets. ?format=ical on the collection returns HTML, not ICS;
+    each event page has its own ?format=ical.
+  verified: '2026-11-25'
 - id: us-ri-little-compton-wishing-stone-farm
   name: Wishing Stone Farm
   publisher: Wishing Stone Farm

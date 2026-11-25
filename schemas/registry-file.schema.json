@@ -136,7 +136,7 @@
           "items": {
             "type": "object", "required": ["kind", "url"], "additionalProperties": false,
             "properties": {
-              "kind": {"enum": ["rss", "atom", "jsonfeed", "ical", "events", "api", "sitemap", "html", "video", "podcast", "documents"], "description": "events: a web page whose event listings carry schema.org Event data; tools read only that data."},
+              "kind": {"enum": ["rss", "atom", "jsonfeed", "ical", "events", "api", "sitemap", "html", "video", "podcast", "documents"], "description": "events: a web page whose event listings carry schema.org Event data; tools read only that data. A Squarespace events page read as JSON (<page>?format=json) is also an events endpoint: its upcoming events carry their real dates."},
               "url": {"$ref": "#/$defs/url"},
               "title": {"type": "string"},
               "note": {"type": "string"},

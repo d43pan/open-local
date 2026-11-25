@@ -4,7 +4,7 @@ description: Answer what is happening in a town (decisions, events, food, arts) 
 license: MIT
 compatibility: Needs Python 3.10+ and internet access. Works with any agent that can run a shell command and fetch web pages. No API key, no account. Adding a town also needs git, and a GitHub account to open the pull request.
 metadata:
-  version: "0.5.0"
+  version: "0.6.0"
   repository: https://github.com/d43pan/open-local
 ---
 

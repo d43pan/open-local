@@ -105,6 +105,7 @@ def recent(reg: Registry, place: str, *, days: int = 7, ahead: int = 14, radius_
     sources = reg.sources_for(place, radius_km=radius_km, neighbors=neighbors, types=types, topics=topics)
     names = place_names(reg, place)
     items, fetched, failed, by_hand, person, undated, dropped = [], [], [], [], [], 0, 0
+    seen: set[tuple] = set()  # (source, link or title+date): one source's item listed in several of its feeds counts once
     for s in sources:
         access = s.get("access") or {}
         if access.get("agent_readable") is False:
@@ -164,10 +165,16 @@ def recent(reg: Registry, place: str, *, days: int = 7, ahead: int = 14, radius_
                         not mentions(" ".join([i.get("title", ""), i.get("summary", ""), i.get("location", "")]), names):
                     off_topic += 1
                     continue
+                link = item_link(i.get("url"), e["url"], s["url"])
+                own_link = normalize_url(link) if link and link != s["url"] else None
+                key = (s["id"], own_link or norm(i["title"]), date[:16] if is_event or not own_link else "")
+                if key in seen:
+                    continue
                 if kept >= per_source:
                     break
+                seen.add(key)
                 kept += 1
-                items.append({"kind": "event" if is_event else "item", "title": i["title"], "url": item_link(i.get("url"), e["url"], s["url"]),
+                items.append({"kind": "event" if is_event else "item", "title": i["title"], "url": link,
                               "date": date, "date_means": "when the event starts" if is_event else "when this was published",
                               "summary": i.get("summary", ""), **({"location": i["location"]} if i.get("location") else {}),
                               "source_id": s["id"], "source_name": s["name"], "source_type": s["type"],

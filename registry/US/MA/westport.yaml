@@ -434,6 +434,10 @@ sources:
   topics:
   - arts
   endpoints:
+  - kind: events
+    url: https://www.westportartgroup.com/calendar?format=json
+    title: Upcoming events (Squarespace JSON view)
+    note: Added 2026-11-25; carries each event's real date.
   - kind: html
     url: https://www.westportartgroup.com/calendar
   - kind: html

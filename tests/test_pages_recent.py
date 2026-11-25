@@ -158,3 +158,13 @@ def test_events_from_a_named_local_region_reach_its_towns(reg, fake_net):
     f = fake_net({**NETWORK, "https://hall.example.org/whats-on": (200, page)})
     out = recent.recent(reg, "XX/NO/alder", today=TODAY, fetch=f)
     assert any(i["title"] == "Folk night & open mic" and i["relation"] == "area" for i in out["items"])
+
+
+def test_an_item_in_several_feeds_of_one_source_is_listed_once(reg, fake_net):
+    src = next(s for s in reg.sources if s["id"] == "xx-no-alder-harbour-times")
+    feed = src["endpoints"][0]["url"]
+    src["endpoints"].append({"kind": "rss", "url": "https://harbourtimes.example.org/arts/rss.xml"})
+    f = fake_net({**NETWORK, "https://harbourtimes.example.org/arts/rss.xml": NETWORK[feed]})
+    out = recent.recent(reg, "XX/NO/alder", today=TODAY, fetch=f)
+    mine = [i["title"] for i in out["items"] if i["source_id"] == src["id"]]
+    assert mine and len(mine) == len(set(mine))

@@ -338,3 +338,19 @@ Newport.
 tools skipped them, and the area filter dropped the events of the cultural centre next
 door because their listings do not name the reader's town. Structured event data is
 published on purpose to be read by machines, so reading it is both reliable and polite.
+
+## 27. Squarespace event pages are read as JSON; stale registry copies and repeated items are fixed
+
+**Decision.** An `events` endpoint may be a Squarespace events page read as JSON
+(`<page>?format=json`): its `upcoming` list gives each event's real start and end, in the
+site's own time zone. `discover` offers it for any Squarespace page. The collection's
+`?format=rss` is not listed for events, because it dates each item by when it was posted.
+An installed skill rechecks the small published index hourly (one tiny request when nothing
+changed) and fetches a place file again as soon as its `data_version` differs from the
+index's, instead of trusting a day-old copy. Within one source, an item that appears in
+several of its feeds (a story in the main feed and a section feed) is listed once.
+
+**Why.** On 2026-11-25 Sakonnet Vineyard's December music and market looked like nothing
+upcoming, because its RSS dates were from when the events were posted; a briefing run right
+after a merge used the registry from the day before; and a story in three of one paper's
+feeds was listed three times.
