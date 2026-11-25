@@ -15,6 +15,9 @@ from . import net, registry
 EMAIL = re.compile(r"[\w.+-]+@[\w-]+\.[\w.-]+")
 
 
+# Sites that need an account to read (decision 25): listed for a person, never fetched.
+LOGIN_WALLED = {"facebook.com", "nextdoor.com", "instagram.com"}
+
 def normalize_url(url: str) -> str:
     p = urllib.parse.urlsplit(url.strip())
     host = (p.hostname or "").lower().removeprefix("www.")
@@ -170,4 +173,9 @@ def _validate(directory: pathlib.Path | None = None, today: dt.date | None = Non
         acc = s.get("access") or {}
         if acc.get("agent_readable") is False and not acc.get("blocked_by"):
             errors.append(f"{tag}: access.agent_readable is false; say why with access.blocked_by")
+        host = urllib.parse.urlsplit(s.get("url", "")).netloc.lower().removeprefix("www.").removeprefix("m.")
+        if host in LOGIN_WALLED and acc.get("agent_readable") is not False:
+            errors.append(f"{tag}: {host} needs an account to read; mark access.agent_readable: false, blocked_by: login")
+        if host in LOGIN_WALLED and s.get("endpoints"):
+            errors.append(f"{tag}: list no endpoints for {host}; tools must not read it")
     return errors, warnings

@@ -297,3 +297,27 @@ once a day, so an hour saved little and still reloaded every town site the next 
 A day is the feed reader's usual manners. When a day is too long (a storm, a meeting
 tonight), `--fresh` reads everything again and the skill says to use it. A saved setting
 works for an agent running the skill, which often cannot set environment variables.
+
+## 25. Sources have roles, and coverage means a spread of them
+
+**Decision.** Each source can carry `roles`: what part it plays in a place's information,
+from a fixed list of 27 (the legacy daily, the community weekly, hyperlocal and
+independent voices, nonprofit and public media, arts, music, events, dining, where to buy
+food, outdoors, sports, notices, classifieds, obituaries, police and fire logs, the
+official record, faith, community groups and residents' forums). Roles default from
+`type` where the type settles it; news outlets have no default and carry them explicitly.
+`gaps` reports which core roles reach a place (its own sources and area-wide ones), which
+its neighbours have, and flags a place with no mainstream outlet, no independent one, or
+news from a single publisher.
+
+Community Facebook groups and pages and Nextdoor neighbourhoods may now be listed, as an
+exception to acceptance rule 1: as links for a person to open (`agent_readable: false`,
+`blocked_by: login`, no endpoints), never read by tools. Validation enforces this for
+facebook.com, nextdoor.com and instagram.com.
+
+**Why.** Many sources is not good coverage: ten outlets of one owner are one voice, and a
+town with three newsrooms but nowhere listed to learn about food, music or deaths is thinly
+served. A role list makes the spread visible and gives contributors a checklist. Residents'
+groups are where much local news first appears, so leaving them out hid real sources;
+listing them as links, never read, keeps the rules on private people and on automated
+reading intact.

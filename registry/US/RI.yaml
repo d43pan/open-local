@@ -23,6 +23,8 @@ sources:
   url: https://thepublicsradio.org/
   type: radio
   classification: primary
+  roles:
+  - public-media
   coverage:
   - place: US/RI
     level: dedicated
@@ -53,6 +55,8 @@ sources:
   url: https://rhodeislandcurrent.com/
   type: news-site
   classification: primary
+  roles:
+  - nonprofit-newsroom
   coverage:
   - place: US/RI
     level: dedicated
@@ -79,6 +83,9 @@ sources:
   url: https://ecori.org/
   type: news-site
   classification: primary
+  roles:
+  - nonprofit-newsroom
+  - outdoors-nature
   coverage:
   - place: US/RI
     level: dedicated
@@ -111,6 +118,8 @@ sources:
   url: https://www.bostonglobe.com/metro/rhode-island/
   type: newspaper
   classification: primary
+  roles:
+  - legacy-daily
   coverage:
   - place: US/RI
     level: dedicated
@@ -134,6 +143,8 @@ sources:
   url: https://www.wpri.com/
   type: television
   classification: primary
+  roles:
+  - broadcast-tv
   coverage:
   - place: US/RI
     level: dedicated
@@ -169,6 +180,8 @@ sources:
   url: https://turnto10.com/
   type: television
   classification: primary
+  roles:
+  - broadcast-tv
   coverage:
   - place: US/RI
     level: dedicated

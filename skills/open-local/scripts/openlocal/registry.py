@@ -506,9 +506,25 @@ class Registry:
         return {"place": pid, "sources": sum(len(v) for v in mine.values()), "with_feed_or_calendar": with_feed, "by_status": statuses,
                 "has": {k: len(v) for k, v in sorted(mine.items())},
                 "missing_core_types": [t for t in self.CORE_TYPES if t not in mine],
+                "roles": self._role_gaps(pid),
                 "neighbours_have": {k: v for k, v in sorted(theirs.items())},
                 "area_sources_reaching_it": len([s for s in self.sources_for(pid) if s["relation"] == "area"]),
                 "note": "A missing type is a place to look, not proof of a gap: some towns have no paper, no chamber, no farm stand."}
+
+    def _role_gaps(self, pid: str) -> dict:
+        """The spread of roles among sources reaching the place (its own and area-wide), and
+        which missing roles its neighbours have, so a gap comes with somewhere to look."""
+        from . import roles
+        reaching = [s for s in self.sources_for(pid) if s["relation"] in ("direct", "area")]
+        out = roles.spread(reaching)
+        theirs: dict[str, list[dict]] = {}
+        for n in self.places[pid].get("neighbors") or []:
+            for s in self.direct_sources(n):
+                for r in roles.roles_of(s):
+                    if r in out["missing_core_roles"]:
+                        theirs.setdefault(r, []).append({"place": n, "name": s["name"], "url": s["url"]})
+        out["neighbours_have"] = dict(sorted(theirs.items()))
+        return out
 
     def search(self, text: str) -> list[dict]:
         want = norm(text)

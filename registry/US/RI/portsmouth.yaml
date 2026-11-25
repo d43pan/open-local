@@ -560,6 +560,8 @@ sources:
   url: https://www.eastbayri.com/portsmouth/
   type: newspaper
   classification: primary
+  roles:
+  - community-weekly
   coverage:
   - place: US/RI/portsmouth
     level: dedicated
@@ -589,6 +591,8 @@ sources:
   url: https://patch.com/rhode-island/portsmouth
   type: news-site
   classification: mixed
+  roles:
+  - hyperlocal-digital
   coverage:
   - place: US/RI/portsmouth
     level: dedicated

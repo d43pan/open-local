@@ -1,8 +1,8 @@
 {
  "schema": "open-local/registry/1",
  "license": "CC0-1.0",
- "skill_version": "0.3.1",
- "data_version": "7e2b2f474014",
+ "skill_version": "0.4.0",
+ "data_version": "ca85f9e7e761",
  "places": {
   "US": {
    "id": "US",
@@ -1470,6 +1470,9 @@
    "url": "https://dartmouth.theweektoday.com/",
    "type": "newspaper",
    "classification": "primary",
+   "roles": [
+    "hyperlocal-digital"
+   ],
    "coverage": [
     {
      "place": "US/MA/south-coast",
@@ -1511,6 +1514,9 @@
    "url": "https://fallriverreporter.com/",
    "type": "news-site",
    "classification": "mixed",
+   "roles": [
+    "hyperlocal-digital"
+   ],
    "coverage": [
     {
      "place": "US/MA/south-coast",
@@ -1556,6 +1562,9 @@
    "url": "https://newbedfordlight.org/",
    "type": "news-site",
    "classification": "primary",
+   "roles": [
+    "nonprofit-newsroom"
+   ],
    "coverage": [
     {
      "place": "US/MA/south-coast",
@@ -2189,6 +2198,9 @@
    "url": "https://www.eastbayri.com/westport/",
    "type": "newspaper",
    "classification": "primary",
+   "roles": [
+    "community-weekly"
+   ],
    "coverage": [
     {
      "place": "US/MA/westport",
@@ -2341,6 +2353,9 @@
    "url": "https://www.bostonglobe.com/metro/rhode-island/",
    "type": "newspaper",
    "classification": "primary",
+   "roles": [
+    "legacy-daily"
+   ],
    "coverage": [
     {
      "place": "US/RI",
@@ -3225,6 +3240,9 @@
    "url": "https://www.eastbayri.com/bristol/",
    "type": "newspaper",
    "classification": "primary",
+   "roles": [
+    "community-weekly"
+   ],
    "coverage": [
     {
      "place": "US/RI/bristol",
@@ -3528,6 +3546,9 @@
    "url": "https://patch.com/rhode-island/bristol-warren",
    "type": "news-site",
    "classification": "mixed",
+   "roles": [
+    "hyperlocal-digital"
+   ],
    "coverage": [
     {
      "place": "US/RI/bristol",
@@ -3677,6 +3698,10 @@
    "url": "https://ecori.org/",
    "type": "news-site",
    "classification": "primary",
+   "roles": [
+    "nonprofit-newsroom",
+    "outdoors-nature"
+   ],
    "coverage": [
     {
      "place": "US/RI",
@@ -3996,6 +4021,9 @@
    "url": "https://littlecompton.download/",
    "type": "newsletter",
    "classification": "primary",
+   "roles": [
+    "official-record"
+   ],
    "coverage": [
     {
      "place": "US/RI/little-compton",
@@ -4344,6 +4372,9 @@
    "url": "https://patch.com/rhode-island/tiverton",
    "type": "news-site",
    "classification": "secondary",
+   "roles": [
+    "hyperlocal-digital"
+   ],
    "coverage": [
     {
      "place": "US/RI/little-compton",
@@ -4430,6 +4461,45 @@
    "home": "US/RI/little-compton"
   },
   {
+   "id": "us-ri-little-compton-prevention-coalition-facebook",
+   "name": "Little Compton Prevention Coalition (Facebook)",
+   "publisher": "Little Compton Prevention Coalition",
+   "url": "https://www.facebook.com/LCPrevention/",
+   "type": "public-health",
+   "classification": "primary",
+   "roles": [
+    "community-groups"
+   ],
+   "coverage": [
+    {
+     "place": "US/RI/little-compton",
+     "level": "dedicated"
+    },
+    {
+     "place": "US/RI/tiverton",
+     "level": "regular",
+     "note": "The Tiverton and Little Compton coalitions share this page."
+    }
+   ],
+   "languages": [
+    "en"
+   ],
+   "access": {
+    "paywall": "none",
+    "agent_readable": false,
+    "blocked_by": "login",
+    "restrictions": "Facebook needs an account to read fully and its terms forbid automated collection. Listed for a person to open; tools never read it."
+   },
+   "platform": "Facebook",
+   "discovered": "2026-11-25",
+   "status": "unverified",
+   "provenance": {
+    "method": "agent-proposed",
+    "evidence": "Found in a web search on 2026-11-25 (facebook.com result titled 'Little Compton Prevention Coalition', Adamsville, RI). Not loaded, by design."
+   },
+   "home": "US/RI/little-compton"
+  },
+  {
    "id": "us-ri-little-compton-sakonnet-garden",
    "name": "Sakonnet Garden",
    "publisher": "Sakonnet Garden",
@@ -4511,6 +4581,9 @@
    "url": "https://www.eastbayri.com/little-compton/",
    "type": "newspaper",
    "classification": "primary",
+   "roles": [
+    "community-weekly"
+   ],
    "coverage": [
     {
      "place": "US/RI/little-compton",
@@ -5253,6 +5326,9 @@
    "url": "https://patch.com/rhode-island/middletown",
    "type": "news-site",
    "classification": "secondary",
+   "roles": [
+    "hyperlocal-digital"
+   ],
    "coverage": [
     {
      "place": "US/RI/middletown",
@@ -5417,6 +5493,9 @@
    "url": "https://turnto10.com/",
    "type": "television",
    "classification": "primary",
+   "roles": [
+    "broadcast-tv"
+   ],
    "coverage": [
     {
      "place": "US/RI",
@@ -5576,6 +5655,9 @@
    "url": "https://www.newportri.com/",
    "type": "newspaper",
    "classification": "primary",
+   "roles": [
+    "legacy-daily"
+   ],
    "coverage": [
     {
      "place": "US/RI/newport-county",
@@ -5611,6 +5693,9 @@
    "url": "https://www.newportthisweek.com/",
    "type": "newspaper",
    "classification": "primary",
+   "roles": [
+    "community-weekly"
+   ],
    "coverage": [
     {
      "place": "US/RI/newport-county",
@@ -5648,6 +5733,9 @@
    "url": "https://whatsupnewp.com/",
    "type": "news-site",
    "classification": "primary",
+   "roles": [
+    "hyperlocal-digital"
+   ],
    "coverage": [
     {
      "place": "US/RI/newport-county",
@@ -6118,6 +6206,9 @@
    "url": "https://patch.com/rhode-island/portsmouth",
    "type": "news-site",
    "classification": "mixed",
+   "roles": [
+    "hyperlocal-digital"
+   ],
    "coverage": [
     {
      "place": "US/RI/portsmouth",
@@ -6209,6 +6300,9 @@
    "url": "https://www.eastbayri.com/portsmouth/",
    "type": "newspaper",
    "classification": "primary",
+   "roles": [
+    "community-weekly"
+   ],
    "coverage": [
     {
      "place": "US/RI/portsmouth",
@@ -6644,6 +6738,9 @@
    "url": "https://rhodeislandcurrent.com/",
    "type": "news-site",
    "classification": "primary",
+   "roles": [
+    "nonprofit-newsroom"
+   ],
    "coverage": [
     {
      "place": "US/RI",
@@ -6799,6 +6896,9 @@
    "url": "https://thepublicsradio.org/",
    "type": "radio",
    "classification": "primary",
+   "roles": [
+    "public-media"
+   ],
    "coverage": [
     {
      "place": "US/RI",
@@ -7345,6 +7445,46 @@
    "home": "US/RI/tiverton"
   },
   {
+   "id": "us-ri-tiverton-preserve-tiverton-facebook",
+   "name": "Preserve Tiverton (Facebook)",
+   "publisher": "Preserve Tiverton",
+   "url": "https://www.facebook.com/preserveTiverton/",
+   "type": "community-organization",
+   "classification": "mixed",
+   "roles": [
+    "community-groups",
+    "community-forum"
+   ],
+   "coverage": [
+    {
+     "place": "US/RI/tiverton",
+     "level": "dedicated"
+    }
+   ],
+   "languages": [
+    "en"
+   ],
+   "topics": [
+    "development",
+    "planning"
+   ],
+   "access": {
+    "paywall": "none",
+    "agent_readable": false,
+    "blocked_by": "login",
+    "restrictions": "Facebook needs an account to read fully and its terms forbid automated collection. Listed for a person to open; tools never read it."
+   },
+   "platform": "Facebook",
+   "discovered": "2026-11-25",
+   "status": "unverified",
+   "provenance": {
+    "method": "agent-proposed",
+    "evidence": "Found in a web search on 2026-11-25 (facebook.com result titled 'Preserve Tiverton'). Not loaded, by design."
+   },
+   "notes": "A residents' group pressing for development that follows the town's Comprehensive Community Plan. An advocacy voice; label what it says as its view.",
+   "home": "US/RI/tiverton"
+  },
+  {
    "id": "us-ri-tiverton-public-library",
    "name": "Tiverton Public Library",
    "publisher": "Tiverton Public Library",
@@ -7405,6 +7545,9 @@
    "url": "https://www.eastbayri.com/tiverton/",
    "type": "newspaper",
    "classification": "primary",
+   "roles": [
+    "community-weekly"
+   ],
    "coverage": [
     {
      "place": "US/RI/tiverton",
@@ -8270,6 +8413,9 @@
    "url": "https://www.eastbayri.com/warren/",
    "type": "newspaper",
    "classification": "primary",
+   "roles": [
+    "community-weekly"
+   ],
    "coverage": [
     {
      "place": "US/RI/warren",
@@ -8497,6 +8643,9 @@
    "url": "https://www.wpri.com/",
    "type": "television",
    "classification": "primary",
+   "roles": [
+    "broadcast-tv"
+   ],
    "coverage": [
     {
      "place": "US/RI",

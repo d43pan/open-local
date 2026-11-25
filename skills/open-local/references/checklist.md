@@ -70,5 +70,14 @@ finds nothing, look by hand; these are common:
 No feed is normal. List the page that carries the updates with `kind: html` (or
 `documents` for a folder of PDFs) and a `note` saying what is there. Agents will read it.
 
-Do not list: private Facebook groups, personal social accounts, sites that require a
-login to read, or anything the owner has asked not to be crawled.
+Do not list: personal social accounts, sites that require a login to read, or anything
+the owner has asked not to be crawled.
+
+One exception: **community Facebook groups and pages** (a town's residents' group, a local
+association's page) and Nextdoor neighbourhoods. A lot of local news starts there, so list
+them as links for a person to open: `type: forum` (or the organisation's own type),
+`roles: [community-forum]`, `access.agent_readable: false`, `blocked_by: login`, and no
+`endpoints`. Tools never read them and agents never fetch them another way. Take the
+address from the town's or organisation's own site, or from the person; Facebook itself
+cannot be loaded, so these stay `unverified`. Leave out groups about one person, one
+dispute or one business's customers.

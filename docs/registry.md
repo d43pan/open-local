@@ -67,6 +67,7 @@ To find everything that contains a place, follow `parents` upward and add any pl
 | `name`, `description`, `publisher`, `url` | What it is and who runs it. |
 | `type` | One of the types in the schema (`government`, `meetings`, `newspaper`, `library`, `farm-market`, `arts-culture`, …). |
 | `classification` | `primary` (first-hand records, announcements or original reporting), `secondary` (lists or repeats others), `mixed`. |
+| `roles` | What part it plays for the place: `legacy-daily`, `community-weekly`, `hyperlocal-digital`, `nonprofit-newsroom`, `public-media`, `broadcast-tv`, `alternative`, `independent-voice`, `community-language`, `student-press`, `business-press`, `arts`, `music-nightlife`, `events-listings`, `dining`, `food-buying`, `outdoors-nature`, `sports`, `public-notices`, `classifieds`, `real-estate-development`, `obituaries`, `police-fire-log`, `official-record`, `faith`, `community-groups`, `community-forum` (defined in `openlocal/roles.py`). When absent, defaults from `type`; news outlets have no default and should set it. `gaps` reports the spread. |
 | `home` | The place whose file it is in (added at build time). |
 | `coverage` | `[{place, level, note}]`: what it covers. `level` is `dedicated`, `regular` or `occasional`. |
 | `jurisdiction` | For a public body, the place it governs. |
